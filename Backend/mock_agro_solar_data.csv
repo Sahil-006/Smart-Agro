@@ -1,0 +1,1001 @@
+Timestamp,Farm ID,Field,Latitude,Longitude,Soil Moisture (%),Soil Temp (°C),Soil pH,Soil EC (�S/cm),Leaf Wetness,Air Temp (�C),Humidity (%),Rainfall (mm),Light (Lux),Wind Speed (km/h),Solar Irradiance (W/m�),Solar Voltage (V),Solar Current (A),Energy Generated (kWh),Crop Stage,Crop Health,Disease Risk,Recommended Action
+2025-07-01 09:00,FARM001,North Field,22.3494,73.131,80,32.1,6.36,319,Dry,21.6,39,0,348,8.6,155,17.3,4.1,3.72,Seedling,Moderate,Low,Irrigate tomorrow
+2025-07-01 10:00,FARM001,North Field,22.3828,73.149,53,34.1,7.18,464,Wet,35.5,45,8,501,4.0,747,17.0,3.8,1.12,Harvesting,Good,Low,Monitor humidity
+2025-07-01 11:00,FARM001,North Field,22.3281,73.1871,63,34.7,7.1,373,Wet,28.9,32,8,728,0.7,526,17.4,3.3,1.72,Seedling,Moderate,High,Apply fertilizer
+2025-07-01 12:00,FARM001,North Field,22.3555,73.1865,64,30.4,5.14,375,Wet,31.5,58,4,319,2.0,754,18.2,5.0,3.1,Vegetative,Moderate,High,No action needed
+2025-07-01 13:00,FARM001,North Field,22.3388,73.1419,19,28.7,5.12,364,Dry,26.9,38,7,699,2.2,921,17.1,3.5,1.84,Flowering,Moderate,Low,Apply fertilizer
+2025-07-01 14:00,FARM001,North Field,22.3203,73.1822,52,25.8,6.99,361,Dry,22.2,43,9,435,6.4,550,18.4,3.8,1.05,Flowering,Good,Low,Apply fertilizer
+2025-07-01 15:00,FARM001,North Field,22.3752,73.1138,86,21.4,5.87,577,Wet,30.3,50,7,260,8.7,654,19.6,4.9,4.12,Vegetative,Moderate,Medium,No action needed
+2025-07-01 16:00,FARM001,North Field,22.3279,73.1668,47,30.7,6.26,529,Wet,32.2,60,8,708,4.1,572,16.1,4.4,1.01,Flowering,Poor,Low,Apply fertilizer
+2025-07-01 17:00,FARM001,North Field,22.3237,73.1028,82,27.5,7.03,483,Dry,37.4,41,0,252,7.5,387,18.1,3.5,3.36,Vegetative,Moderate,High,No action needed
+2025-07-01 18:00,FARM001,North Field,22.3817,73.1989,32,32.3,5.62,376,Dry,25.3,59,1,481,4.0,692,17.0,4.6,4.85,Flowering,Poor,High,Check for pests
+2025-07-01 19:00,FARM001,North Field,22.3215,73.1042,19,34.1,6.95,334,Dry,32.6,65,10,264,0.0,109,19.8,3.3,1.13,Harvesting,Moderate,Medium,Apply fertilizer
+2025-07-01 20:00,FARM001,North Field,22.3487,73.1458,21,29.0,6.44,367,Dry,28.5,59,3,658,8.3,665,18.1,4.7,0.95,Vegetative,Moderate,Low,Check for pests
+2025-07-01 21:00,FARM001,North Field,22.3775,73.1253,47,28.0,6.66,597,Wet,39.8,38,1,239,6.2,145,19.1,4.3,2.98,Flowering,Poor,Medium,Apply fertilizer
+2025-07-01 22:00,FARM001,North Field,22.3829,73.178,52,25.1,7.07,330,Dry,33.9,42,3,232,9.3,217,18.0,4.4,3.45,Seedling,Moderate,Low,Check for pests
+2025-07-01 23:00,FARM001,North Field,22.3574,73.1517,85,26.3,6.04,442,Wet,29.5,61,3,250,9.9,965,19.8,3.6,1.43,Seedling,Poor,Medium,No action needed
+2025-07-02 00:00,FARM001,North Field,22.3596,73.1164,52,34.8,6.08,573,Dry,36.6,49,6,711,5.6,777,17.5,3.9,1.08,Vegetative,Moderate,Low,Apply fertilizer
+2025-07-02 01:00,FARM001,North Field,22.3806,73.134,41,30.4,7.39,320,Dry,38.9,30,9,734,2.6,318,18.3,3.6,2.13,Harvesting,Poor,Medium,Monitor humidity
+2025-07-02 02:00,FARM001,North Field,22.397,73.1494,57,20.8,4.59,599,Wet,22.3,44,2,318,9.4,470,19.6,4.6,2.29,Flowering,Poor,High,Irrigate tomorrow
+2025-07-02 03:00,FARM001,North Field,22.3725,73.1545,28,31.3,5.23,556,Wet,21.2,59,5,614,6.0,504,19.7,3.6,4.48,Vegetative,Poor,Medium,No action needed
+2025-07-02 04:00,FARM001,North Field,22.3938,73.1913,39,28.9,5.46,543,Dry,31.8,63,2,343,5.8,313,16.8,4.0,4.1,Harvesting,Poor,Medium,Monitor humidity
+2025-07-02 05:00,FARM001,North Field,22.35,73.1089,90,20.8,6.3,550h,Dry,38.8,57,1,247,2.0,235,17.0,4.7,3.57,Seedling,Moderate,Low,Monitor humidity
+2025-07-02 06:00,FARM001,North Field,22.3054,73.1426,57,28.6,7.35,346,Wet,37.3,40,8,525,7.8,887,19.0,3.9,4.06,Flowering,Good,High,Check for pests
+2025-07-02 07:00,FARM001,North Field,22.3381,73.1912,86,25.7,7.08,352,Wet,27.4,35,8,477,8.3,406,19.7,4.4,1.21,Flowering,Poor,Low,Check for pests
+2025-07-02 08:00,FARM001,North Field,22.373,73.1384,70,31.4,6.78,534,Wet,27.0,48,7,235,10.0,242,18.7,3.5,4.8,Seedling,Good,Medium,Irrigate tomorrow
+2025-07-02 09:00,FARM001,North Field,22.3463,73.196,46,33.8,5.74,304,Wet,28.0,56,8,735,7.2,906,18.5,3.4,4.77,Seedling,Poor,High,No action needed
+2025-07-02 10:00,FARM001,North Field,22.3488,73.1408,33,34.2,6.46,470,Dry,20.7,45,5,536,0.2,975,19.5,4.5,2.98,Harvesting,Poor,Low,Apply fertilizer
+2025-07-02 11:00,FARM001,North Field,22.3686,73.1759,24,33.4,6.11,495,Wet,29.6,55,4,395,7.4,522,17.6,3.1,3.0,Seedling,Poor,High,Monitor humidity
+2025-07-02 12:00,FARM001,North Field,22.3739,73.1612,44,27.1,5.05,381,Wet,38.8,39,9,435,5.8,878,19.4,4.0,3.64,Seedling,Good,High,Check for pests
+2025-07-02 13:00,FARM001,North Field,22.3747,73.1692,62,32.0,6.64,354,Wet,20.6,45,0,520,7.6,307,18.1,3.9,4.12,Flowering,Poor,Low,No action needed
+2025-07-02 14:00,FARM001,North Field,22.3459,73.1842,17,25.9,6.73,521,Dry,25.4,47,5,724,7.4,602,18.1,3.7,1.72,Seedling,Moderate,Low,Check for pests
+2025-07-02 15:00,FARM001,North Field,22.3331,73.1222,79,33.5,6.56,370,Wet,24.1,61,8,322,2.1,582,18.8,4.3,4.19,Flowering,Poor,High,Monitor humidity
+2025-07-02 16:00,FARM001,North Field,22.3648,73.1595,50,26.0,4.85,498,Wet,34.0,44,1,501,5.8,777,16.9,3.6,4.98,Harvesting,Moderate,Medium,Monitor humidity
+2025-07-02 17:00,FARM001,North Field,22.3395,73.1376,50,25.2,5.7,456,Wet,37.2,39,3,544,0.5,944,19.2,3.7,3.57,Vegetative,Poor,Low,Check for pests
+2025-07-02 18:00,FARM001,North Field,22.3931,73.1341,59,31.3,6.94,353,Dry,33.3,76,1,223,6.6,753,17.2,3.0,2.07,Flowering,Poor,Medium,Apply fertilizer
+2025-07-02 19:00,FARM001,North Field,22.3368,73.1713,61,27.1,7.38,389,Dry,32.4,62,10,585,8.8,246,16.8,4.7,2.57,Harvesting,Moderate,Medium,No action needed
+2025-07-02 20:00,FARM001,North Field,22.3278,73.1323,12,32.1,5.2,414,Wet,23.0,79,6,408,5.5,458,19.2,3.4,3.57,Flowering,Moderate,Medium,Check for pests
+2025-07-02 21:00,FARM001,North Field,22.3327,73.1276,35,26.5,5.76,366,Wet,36.2,56,5,513,3.6,657,17.6,4.3,4.85,Flowering,Moderate,Medium,Check for pests
+2025-07-02 22:00,FARM001,North Field,22.3206,73.1313,50,34.0,5.31,407,Dry,30.6,50,6,290,9.8,688,17.0,4.1,2.72,Flowering,Moderate,Medium,Monitor humidity
+2025-07-02 23:00,FARM001,North Field,22.361,73.1555,35,31.2,4.51,543,Dry,26.8,53,2,464,6.7,963,19.8,4.9,4.01,Harvesting,Good,High,Irrigate tomorrow
+2025-07-03 00:00,FARM001,North Field,22.3177,73.1503,28,23.3,6.18,471,Dry,35.7,30,2,638,4.4,534,19.6,3.7,1.09,Harvesting,Poor,Medium,No action needed
+2025-07-03 01:00,FARM001,North Field,22.3931,73.1165,55,30.6,7.3,331,Wet,39.6,37,6,495,3.3,136,19.5,4.6,2.09,Flowering,Poor,Medium,Irrigate tomorrow
+2025-07-03 02:00,FARM001,North Field,22.355,73.1978,80,25.6,6.93,321,Dry,25.7,53,8,690,1.3,403,19.3,4.3,2.08,Seedling,Moderate,High,No action needed
+2025-07-03 03:00,FARM001,North Field,22.3019,73.1527,75,30.2,5.07,513,Wet,22.6,43,10,333,3.0,757,18.1,3.6,1.46,Vegetative,Moderate,High,No action needed
+2025-07-03 04:00,FARM001,North Field,22.3386,73.1438,90,21.3,6.0,411,Wet,35.7,66,2,564,1.0,169,16.2,4.2,4.97,Harvesting,Good,Low,Check for pests
+2025-07-03 05:00,FARM001,North Field,22.3268,73.1828,89,28.9,7.23,527,Dry,39.0,64,1,470,2.4,363,19.5,4.2,2.21,Flowering,Good,Low,Check for pests
+2025-07-03 06:00,FARM001,North Field,22.3594,73.18,39,27.5,6.56,479,Wet,31.5,34,4,460,3.6,724,17.7,3.4,4.54,Vegetative,Good,Medium,Check for pests
+2025-07-03 07:00,FARM001,North Field,22.3957,73.1813,63,28.8,6.63,388,Wet,22.8,73,5,325,0.9,163,17.6,4.2,0.73,Seedling,Good,Low,Irrigate tomorrow
+2025-07-03 08:00,FARM001,North Field,22.322,73.1212,12,32.2,4.75,483,Dry,22.4,73,8,311,2.9,788,16.1,3.4,1.53,Flowering,Moderate,Medium,Irrigate tomorrow
+2025-07-03 09:00,FARM001,North Field,22.3493,73.1193,75,33.2,6.32,478,Dry,37.2,37,1,367,3.4,597,17.4,4.5,3.08,Harvesting,Moderate,High,Irrigate tomorrow
+2025-07-03 10:00,FARM001,North Field,22.3627,73.1933,84,28.8,5.24,563,Wet,30.8,31,5,733,0.4,264,18.5,3.5,2.45,Vegetative,Moderate,Low,No action needed
+2025-07-03 11:00,FARM001,North Field,22.3326,73.1174,22,27.1,4.75,425,Wet,27.5,68,2,646,4.4,785,17.5,4.2,3.8,Harvesting,Good,High,Irrigate tomorrow
+2025-07-03 12:00,FARM001,North Field,22.3353,73.1835,73,27.0,5.59,538,Wet,22.9,58,3,292,4.5,502,17.8,3.2,2.77,Flowering,Good,Low,Apply fertilizer
+2025-07-03 13:00,FARM001,North Field,22.3663,73.1544,79,33.0,6.49,598,Wet,36.6,72,6,222,3.1,464,18.8,3.2,1.03,Seedling,Moderate,Low,Check for pests
+2025-07-03 14:00,FARM001,North Field,22.3515,73.1475,23,20.7,6.32,552,Wet,37.8,34,9,295,4.0,796,18.0,3.4,3.15,Seedling,Poor,Low,Apply fertilizer
+2025-07-03 15:00,FARM001,North Field,22.3244,73.191,34,22.1,6.63,585,Dry,21.7,74,3,585,5.1,456,18.5,3.4,0.65,Flowering,Good,Medium,Check for pests
+2025-07-03 16:00,FARM001,North Field,22.351,73.1505,27,31.4,5.47,438,Wet,35.6,38,0,465,1.2,700,19.9,4.6,4.55,Flowering,Poor,Medium,Check for pests
+2025-07-03 17:00,FARM001,North Field,22.3015,73.1837,83,24.1,6.35,440,Wet,38.6,54,1,587,4.6,609,17.7,4.8,2.74,Flowering,Moderate,Low,Irrigate tomorrow
+2025-07-03 18:00,FARM001,North Field,22.3777,73.1668,49,20.2,5.83,455,Dry,28.2,58,3,514,8.8,305,16.7,3.2,1.6,Seedling,Good,Medium,Irrigate tomorrow
+2025-07-03 19:00,FARM001,North Field,22.3865,73.1542,22,33.9,7.07,566,Dry,30.9,40,2,679,1.6,744,18.2,3.9,4.19,Vegetative,Poor,Low,Check for pests
+2025-07-03 20:00,FARM001,North Field,22.3979,73.1658,44,25.1,4.82,405,Dry,26.2,31,4,206,6.0,190,19.2,3.5,1.14,Flowering,Good,Low,Apply fertilizer
+2025-07-03 21:00,FARM001,North Field,22.3207,73.1328,87,24.0,6.64,366,Wet,25.9,34,8,735,2.9,371,17.5,5.0,4.62,Flowering,Poor,Low,Check for pests
+2025-07-03 22:00,FARM001,North Field,22.3873,73.1407,40,32.3,5.09,533,Wet,26.7,49,9,602,7.8,834,19.1,3.3,4.1,Seedling,Poor,High,Monitor humidity
+2025-07-03 23:00,FARM001,North Field,22.3764,73.131,66,29.5,5.22,393,Wet,20.7,43,6,446,6.4,701,17.7,4.5,1.61,Vegetative,Moderate,High,Check for pests
+2025-07-04 00:00,FARM001,North Field,22.3196,73.1219,73,31.5,6.36,324,Dry,37.6,66,8,771,6.2,521,16.1,3.4,3.92,Vegetative,Poor,Medium,Check for pests
+2025-07-04 01:00,FARM001,North Field,22.3445,73.1605,43,29.8,7.45,573,Dry,24.4,61,10,707,2.5,391,17.0,3.6,4.56,Flowering,Good,Low,Apply fertilizer
+2025-07-04 02:00,FARM001,North Field,22.3872,73.1231,52,26.6,6.36,483,Dry,27.0,37,6,540,4.0,790,17.9,4.0,4.51,Flowering,Poor,Medium,Irrigate tomorrow
+2025-07-04 03:00,FARM001,North Field,22.3725,73.118,36,29.4,7.31,524,Dry,35.2,41,0,445,4.7,280,18.5,4.4,1.33,Seedling,Poor,High,Check for pests
+2025-07-04 04:00,FARM001,North Field,22.3056,73.1651,44,29.0,5.75,305,Wet,35.0,45,8,287,1.4,967,16.7,3.6,2.32,Vegetative,Moderate,Medium,Check for pests
+2025-07-04 05:00,FARM001,North Field,22.3928,73.1605,42,34.6,5.45,373,Dry,32.6,64,1,292,9.8,218,18.1,4.0,2.11,Harvesting,Poor,Medium,Check for pests
+2025-07-04 06:00,FARM001,North Field,22.322,73.1849,77,30.0,7.03,326,Dry,32.3,71,10,219,9.7,643,20.0,3.2,4.31,Harvesting,Good,Medium,No action needed
+2025-07-04 07:00,FARM001,North Field,22.3389,73.1697,24,33.2,7.44,334,Wet,33.9,38,0,217,2.8,880,16.4,3.7,4.47,Flowering,Moderate,Medium,Apply fertilizer
+2025-07-04 08:00,FARM001,North Field,22.3302,73.1975,23,27.1,4.67,459,Wet,36.5,61,2,345,0.2,346,19.6,4.3,3.62,Seedling,Good,Low,Apply fertilizer
+2025-07-04 09:00,FARM001,North Field,22.3397,73.1208,15,34.7,5.46,581,Dry,37.5,46,1,286,4.3,326,19.4,4.7,1.45,Seedling,Good,Medium,Monitor humidity
+2025-07-04 10:00,FARM001,North Field,22.328,73.1602,60,30.4,7.35,369,Dry,26.4,59,3,573,6.6,272,17.2,4.9,3.12,Seedling,Poor,Low,Apply fertilizer
+2025-07-04 11:00,FARM001,North Field,22.3004,73.1553,78,23.5,6.98,428,Wet,22.3,72,0,735,2.4,674,16.4,4.8,1.57,Vegetative,Good,Medium,Irrigate tomorrow
+2025-07-04 12:00,FARM001,North Field,22.3646,73.1626,58,29.4,5.82,575,Dry,38.3,50,2,565,4.1,738,19.1,4.7,3.74,Seedling,Poor,Low,Monitor humidity
+2025-07-04 13:00,FARM001,North Field,22.3479,73.1109,48,29.3,5.43,557,Dry,38.3,68,7,779,9.7,744,17.2,3.8,2.5,Seedling,Moderate,Low,Apply fertilizer
+2025-07-04 14:00,FARM001,North Field,22.3887,73.1511,44,21.3,6.31,424,Wet,35.9,78,10,673,9.4,157,16.7,3.3,3.4,Harvesting,Good,High,Monitor humidity
+2025-07-04 15:00,FARM001,North Field,22.3495,73.1514,44,27.7,7.34,371,Dry,21.7,51,9,211,3.8,559,16.6,3.7,2.45,Vegetative,Moderate,Low,No action needed
+2025-07-04 16:00,FARM001,North Field,22.3546,73.1024,64,26.4,7.32,580,Wet,23.0,79,9,403,2.8,136,16.7,4.4,1.34,Flowering,Moderate,Low,Irrigate tomorrow
+2025-07-04 17:00,FARM001,North Field,22.3886,73.1577,53,22.7,4.7,537,Dry,24.2,64,9,451,5.1,517,17.3,4.8,4.63,Flowering,Good,Medium,Monitor humidity
+2025-07-04 18:00,FARM001,North Field,22.3508,73.1047,61,26.7,4.75,449,Wet,28.0,55,6,673,0.2,292,17.1,4.8,0.69,Vegetative,Good,Medium,Apply fertilizer
+2025-07-04 19:00,FARM001,North Field,22.3753,73.1129,81,30.6,6.27,335,Wet,26.0,79,7,737,1.9,862,17.7,3.8,1.8,Seedling,Poor,High,Apply fertilizer
+2025-07-04 20:00,FARM001,North Field,22.3888,73.148,28,29.0,5.78,349,Dry,24.3,64,10,619,7.3,720,17.1,4.8,1.68,Flowering,Poor,High,Monitor humidity
+2025-07-04 21:00,FARM001,North Field,22.3239,73.1863,71,29.7,5.43,518,Wet,33.5,40,8,489,5.5,463,16.5,4.3,2.66,Flowering,Poor,High,Irrigate tomorrow
+2025-07-04 22:00,FARM001,North Field,22.3399,73.1159,49,20.1,7.09,458,Wet,21.7,43,2,547,9.3,127,17.4,4.1,2.65,Flowering,Moderate,Medium,Apply fertilizer
+2025-07-04 23:00,FARM001,North Field,22.3024,73.1762,76,32.9,6.59,314,Wet,34.9,52,3,650,7.3,977,19.6,4.1,4.72,Seedling,Moderate,Medium,Check for pests
+2025-07-05 00:00,FARM001,North Field,22.3704,73.1428,51,34.3,6.31,574,Dry,33.5,44,5,767,7.1,934,18.2,4.0,1.25,Flowering,Good,Medium,Irrigate tomorrow
+2025-07-05 01:00,FARM001,North Field,22.3376,73.1846,19,28.4,5.73,352,Dry,21.4,80,9,587,7.6,453,18.5,3.2,2.76,Harvesting,Good,Low,Irrigate tomorrow
+2025-07-05 02:00,FARM001,North Field,22.306,73.1172,74,30.8,7.38,446,Dry,23.8,56,5,758,5.9,683,18.0,4.2,4.96,Harvesting,Moderate,High,No action needed
+2025-07-05 03:00,FARM001,North Field,22.3686,73.1154,83,24.1,5.5,307,Wet,23.2,60,4,630,0.8,448,16.5,3.1,2.68,Vegetative,Moderate,High,Monitor humidity
+2025-07-05 04:00,FARM001,North Field,22.3606,73.1977,84,26.3,6.88,327,Dry,23.0,47,5,765,2.2,606,19.7,3.2,4.79,Harvesting,Moderate,Medium,Monitor humidity
+2025-07-05 05:00,FARM001,North Field,22.3263,73.1154,30,34.5,5.29,309,Dry,32.1,39,6,599,7.1,424,18.7,4.1,1.61,Vegetative,Moderate,Low,Check for pests
+2025-07-05 06:00,FARM001,North Field,22.3712,73.1033,71,29.6,7.05,340,Wet,34.0,55,1,646,2.5,823,18.9,3.5,0.61,Flowering,Moderate,Medium,Irrigate tomorrow
+2025-07-05 07:00,FARM001,North Field,22.3113,73.1496,20,33.4,5.43,599,Dry,27.6,37,8,495,6.9,807,18.5,3.9,3.12,Flowering,Good,Low,Check for pests
+2025-07-05 08:00,FARM001,North Field,22.3414,73.1787,35,27.6,6.22,407,Wet,21.6,51,0,544,1.2,804,17.7,5.0,3.01,Harvesting,Moderate,Low,Check for pests
+2025-07-05 09:00,FARM001,North Field,22.3923,73.1195,68,24.8,5.15,445,Dry,36.4,46,2,208,1.1,260,18.0,3.3,4.29,Flowering,Moderate,Medium,Apply fertilizer
+2025-07-05 10:00,FARM001,North Field,22.3357,73.1693,38,28.2,5.93,359,Wet,29.4,63,0,588,6.4,292,17.2,3.2,3.49,Seedling,Good,High,No action needed
+2025-07-05 11:00,FARM001,North Field,22.3857,73.1164,49,27.5,5.46,502,Dry,37.9,48,4,637,9.5,573,16.0,4.5,0.92,Flowering,Poor,Medium,No action needed
+2025-07-05 12:00,FARM001,North Field,22.3185,73.1862,23,23.3,7.29,453,Wet,36.1,44,9,310,1.0,244,19.0,4.3,2.19,Vegetative,Good,Medium,No action needed
+2025-07-05 13:00,FARM001,North Field,22.3281,73.1278,58,29.5,6.07,304,Dry,26.2,32,3,412,9.1,708,19.8,3.9,1.89,Vegetative,Poor,Low,No action needed
+2025-07-05 14:00,FARM001,North Field,22.3033,73.1793,65,23.2,6.62,392,Wet,30.2,52,0,357,0.6,596,17.1,4.8,0.56,Vegetative,Moderate,High,Monitor humidity
+2025-07-05 15:00,FARM001,North Field,22.3827,73.1086,74,26.2,6.28,349,Wet,34.6,44,8,408,6.1,222,18.2,4.4,1.78,Seedling,Good,High,Irrigate tomorrow
+2025-07-05 16:00,FARM001,North Field,22.3932,73.1743,31,28.2,6.69,555,Wet,31.8,70,5,519,1.0,814,19.3,4.0,3.33,Seedling,Moderate,Medium,Monitor humidity
+2025-07-05 17:00,FARM001,North Field,22.3018,73.107,76,25.9,6.15,561,Dry,26.7,32,9,550,0.4,406,18.4,4.7,2.7,Seedling,Moderate,High,Check for pests
+2025-07-05 18:00,FARM001,North Field,22.3179,73.1652,18,33.6,5.92,347,Dry,28.0,58,9,690,2.4,548,19.1,3.9,1.64,Flowering,Poor,Medium,Monitor humidity
+2025-07-05 19:00,FARM001,North Field,22.3399,73.1926,17,34.8,6.67,425,Wet,20.7,53,6,202,4.0,801,19.5,3.3,3.21,Harvesting,Good,Low,Check for pests
+2025-07-05 20:00,FARM001,North Field,22.3994,73.1191,11,22.1,7.06,552,Wet,27.6,71,0,552,1.8,870,19.1,4.9,3.89,Vegetative,Good,Medium,Check for pests
+2025-07-05 21:00,FARM001,North Field,22.3691,73.1863,31,22.2,4.7,493,Wet,31.0,67,9,514,0.4,627,18.4,4.8,3.8,Harvesting,Poor,High,Check for pests
+2025-07-05 22:00,FARM001,North Field,22.3076,73.1248,32,29.7,4.79,479,Wet,30.7,60,9,251,1.2,423,16.5,4.3,0.79,Vegetative,Poor,High,Monitor humidity
+2025-07-05 23:00,FARM001,North Field,22.3309,73.1927,24,23.7,7.25,488,Wet,29.4,78,10,413,7.6,941,19.8,3.4,0.62,Seedling,Good,High,Irrigate tomorrow
+2025-07-06 00:00,FARM001,North Field,22.3392,73.1395,62,29.1,6.99,400,Dry,33.8,32,2,243,6.2,912,16.4,3.3,1.01,Vegetative,Poor,Medium,Check for pests
+2025-07-06 01:00,FARM001,North Field,22.3441,73.1499,60,26.6,5.49,556,Wet,37.7,72,3,542,3.4,937,18.3,4.9,2.33,Seedling,Poor,High,No action needed
+2025-07-06 02:00,FARM001,North Field,22.3087,73.1855,88,33.4,7.2,415,Dry,39.4,65,3,741,5.5,843,16.5,4.4,1.52,Harvesting,Good,Medium,Irrigate tomorrow
+2025-07-06 03:00,FARM001,North Field,22.3926,73.1844,76,33.7,7.2,459,Wet,28.6,51,2,677,2.3,768,17.5,3.9,3.74,Seedling,Moderate,High,No action needed
+2025-07-06 04:00,FARM001,North Field,22.303,73.1159,37,21.4,6.02,393,Dry,39.3,61,0,628,3.1,525,17.8,3.2,2.41,Harvesting,Poor,Medium,Check for pests
+2025-07-06 05:00,FARM001,North Field,22.3564,73.1899,49,32.0,5.32,424,Wet,23.9,43,0,299,7.9,225,19.4,3.3,0.68,Flowering,Moderate,Medium,Apply fertilizer
+2025-07-06 06:00,FARM001,North Field,22.3383,73.1079,21,34.5,4.66,409,Dry,37.3,79,7,648,1.3,704,19.7,3.6,4.72,Seedling,Poor,High,Irrigate tomorrow
+2025-07-06 07:00,FARM001,North Field,22.3804,73.1436,45,28.5,6.0,531,Dry,27.0,72,0,744,0.2,934,17.4,4.8,3.94,Seedling,Moderate,Low,Monitor humidity
+2025-07-06 08:00,FARM001,North Field,22.381,73.1496,15,34.6,6.91,529,Wet,33.8,71,6,380,8.0,403,17.7,4.6,4.76,Vegetative,Moderate,High,Monitor humidity
+2025-07-06 09:00,FARM001,North Field,22.3388,73.1402,43,29.6,6.9,450,Dry,26.8,51,5,542,0.6,283,17.3,4.7,2.97,Flowering,Moderate,High,Monitor humidity
+2025-07-06 10:00,FARM001,North Field,22.3999,73.1604,17,27.3,4.55,317,Dry,21.3,31,6,765,9.7,995,19.4,4.2,2.77,Flowering,Moderate,Medium,Monitor humidity
+2025-07-06 11:00,FARM001,North Field,22.3713,73.1196,18,31.4,6.45,337,Dry,25.3,57,6,202,0.8,953,18.4,4.6,3.85,Flowering,Moderate,Medium,Irrigate tomorrow
+2025-07-06 12:00,FARM001,North Field,22.3435,73.1119,69,24.7,5.12,394,Wet,33.2,42,7,605,6.6,776,16.4,4.5,1.42,Harvesting,Moderate,Low,No action needed
+2025-07-06 13:00,FARM001,North Field,22.3102,73.1012,61,28.9,5.17,542,Wet,39.3,76,0,470,8.6,302,18.6,4.3,3.74,Harvesting,Good,Low,Check for pests
+2025-07-06 14:00,FARM001,North Field,22.3676,73.1952,46,32.7,4.98,353,Dry,36.2,47,2,407,9.8,529,18.8,4.4,4.88,Seedling,Moderate,High,Apply fertilizer
+2025-07-06 15:00,FARM001,North Field,22.366,73.1346,10,31.7,6.46,568,Wet,36.1,80,7,717,1.0,648,19.7,4.4,4.9,Flowering,Good,High,Check for pests
+2025-07-06 16:00,FARM001,North Field,22.3138,73.1922,45,25.5,6.78,600,Wet,33.6,78,10,578,4.5,917,18.5,4.7,4.49,Harvesting,Poor,High,Check for pests
+2025-07-06 17:00,FARM001,North Field,22.3885,73.1259,66,28.9,6.58,476,Dry,28.5,74,10,384,8.4,530,18.8,3.6,4.12,Harvesting,Moderate,High,Monitor humidity
+2025-07-06 18:00,FARM001,North Field,22.349,73.1207,59,34.3,6.43,371,Dry,21.1,74,7,694,5.8,333,16.6,3.1,2.24,Vegetative,Poor,Low,Monitor humidity
+2025-07-06 19:00,FARM001,North Field,22.3447,73.1385,72,25.5,6.67,330,Dry,36.9,54,7,679,6.1,543,18.0,3.2,4.54,Flowering,Moderate,High,Apply fertilizer
+2025-07-06 20:00,FARM001,North Field,22.3937,73.1655,32,24.0,5.74,529,Dry,27.8,58,4,370,2.7,734,18.1,3.0,4.92,Seedling,Moderate,High,Monitor humidity
+2025-07-06 21:00,FARM001,North Field,22.3905,73.1091,85,32.5,5.55,504,Dry,33.4,74,1,362,4.9,521,18.0,4.9,3.57,Seedling,Poor,High,Check for pests
+2025-07-06 22:00,FARM001,North Field,22.3896,73.1949,47,26.4,5.77,492,Dry,36.6,37,6,569,3.7,556,16.8,4.1,4.96,Seedling,Moderate,Low,Monitor humidity
+2025-07-06 23:00,FARM001,North Field,22.3918,73.1426,84,31.3,5.65,424,Wet,32.3,33,3,543,2.9,663,19.6,4.8,0.74,Seedling,Moderate,Low,Apply fertilizer
+2025-07-07 00:00,FARM001,North Field,22.3348,73.1238,19,23.2,5.37,417,Dry,36.3,43,0,359,7.0,957,17.6,4.8,3.85,Harvesting,Poor,High,Check for pests
+2025-07-07 01:00,FARM001,North Field,22.3983,73.1348,41,28.2,6.23,325,Dry,25.5,70,10,607,3.6,343,18.7,4.4,2.72,Seedling,Moderate,Low,Irrigate tomorrow
+2025-07-07 02:00,FARM001,North Field,22.3059,73.1544,71,21.9,4.59,384,Dry,35.0,45,7,640,3.9,877,16.8,3.1,4.78,Flowering,Moderate,High,Monitor humidity
+2025-07-07 03:00,FARM001,North Field,22.3429,73.1816,75,29.3,5.57,306,Dry,30.3,47,9,719,9.8,109,18.5,3.1,4.81,Flowering,Good,High,Apply fertilizer
+2025-07-07 04:00,FARM001,North Field,22.311,73.1221,20,21.8,4.8,412,Dry,26.0,65,10,630,3.2,770,16.5,4.7,1.97,Flowering,Moderate,Medium,Monitor humidity
+2025-07-07 05:00,FARM001,North Field,22.3119,73.1747,10,20.7,6.63,419,Dry,26.1,60,8,665,1.3,259,17.3,3.2,3.07,Seedling,Moderate,Low,No action needed
+2025-07-07 06:00,FARM001,North Field,22.382,73.1649,14,34.0,7.21,328,Dry,23.6,31,7,481,5.8,583,19.0,5.0,3.77,Harvesting,Moderate,High,No action needed
+2025-07-07 07:00,FARM001,North Field,22.3211,73.1562,68,27.2,6.7,319,Wet,29.5,37,5,653,1.6,242,18.8,3.8,1.36,Flowering,Poor,Medium,Irrigate tomorrow
+2025-07-07 08:00,FARM001,North Field,22.3946,73.1068,50,32.0,6.91,313,Dry,26.4,48,9,437,2.0,679,17.1,3.8,2.98,Vegetative,Good,Medium,Check for pests
+2025-07-07 09:00,FARM001,North Field,22.3757,73.1738,65,31.0,7.13,408,Dry,36.6,34,0,748,1.2,438,19.2,3.6,3.94,Seedling,Moderate,Low,Monitor humidity
+2025-07-07 10:00,FARM001,North Field,22.326,73.1777,43,32.3,6.49,376,Wet,27.8,50,2,555,1.6,773,16.8,4.9,2.82,Seedling,Good,Medium,Apply fertilizer
+2025-07-07 11:00,FARM001,North Field,22.3281,73.1776,32,26.0,4.58,554,Wet,29.6,77,3,622,1.1,445,16.7,4.4,0.97,Seedling,Moderate,Medium,Check for pests
+2025-07-07 12:00,FARM001,North Field,22.3121,73.1137,34,26.1,6.17,305,Dry,21.1,76,2,375,5.9,488,17.9,3.6,2.63,Vegetative,Poor,Low,Check for pests
+2025-07-07 13:00,FARM001,North Field,22.3453,73.1955,26,30.8,4.58,318,Wet,30.9,63,8,425,8.8,965,18.3,4.4,3.38,Harvesting,Moderate,Medium,Irrigate tomorrow
+2025-07-07 14:00,FARM001,North Field,22.3978,73.1678,31,31.4,7.18,576,Dry,25.4,55,4,410,7.3,981,18.3,3.7,1.8,Flowering,Poor,High,Monitor humidity
+2025-07-07 15:00,FARM001,North Field,22.3131,73.1597,85,23.4,6.64,428,Wet,32.8,42,0,637,5.1,153,16.9,3.0,1.5,Vegetative,Poor,High,Monitor humidity
+2025-07-07 16:00,FARM001,North Field,22.3949,73.1466,49,33.5,6.31,412,Wet,30.3,63,6,581,3.7,358,16.0,3.0,1.26,Vegetative,Good,Medium,No action needed
+2025-07-07 17:00,FARM001,North Field,22.3532,73.1252,55,20.4,6.11,317,Dry,35.4,30,5,696,3.0,138,17.8,4.6,0.57,Harvesting,Good,Low,Check for pests
+2025-07-07 18:00,FARM001,North Field,22.3479,73.1977,52,20.5,4.67,431,Dry,38.4,63,10,315,9.3,445,17.5,3.0,2.18,Seedling,Moderate,Low,No action needed
+2025-07-07 19:00,FARM001,North Field,22.3641,73.1158,81,22.9,5.3,403,Wet,28.2,39,5,741,5.5,650,19.7,4.7,3.02,Vegetative,Moderate,Medium,Irrigate tomorrow
+2025-07-07 20:00,FARM001,North Field,22.3748,73.1929,67,34.2,4.68,407,Dry,28.1,44,6,557,4.5,586,19.9,4.2,2.22,Flowering,Good,Medium,Monitor humidity
+2025-07-07 21:00,FARM001,North Field,22.3958,73.1498,46,34.1,6.77,316,Dry,23.2,56,0,328,1.0,209,16.0,4.4,0.81,Harvesting,Poor,Low,Irrigate tomorrow
+2025-07-07 22:00,FARM001,North Field,22.3209,73.1792,16,30.4,5.1,318,Wet,37.0,33,0,291,9.6,469,19.7,4.8,1.45,Flowering,Good,Medium,Irrigate tomorrow
+2025-07-07 23:00,FARM001,North Field,22.3643,73.12,64,34.4,6.22,490,Wet,22.5,62,3,293,5.2,965,19.8,3.5,3.05,Seedling,Moderate,Medium,No action needed
+2025-07-08 00:00,FARM001,North Field,22.3013,73.1163,22,26.6,5.07,469,Wet,33.4,64,0,335,3.8,997,16.1,3.4,0.63,Harvesting,Good,Medium,Monitor humidity
+2025-07-08 01:00,FARM001,North Field,22.3018,73.1154,89,22.1,4.99,340,Wet,30.0,76,1,352,6.0,312,16.1,3.4,4.16,Flowering,Poor,Medium,Apply fertilizer
+2025-07-08 02:00,FARM001,North Field,22.372,73.1364,81,26.8,7.35,369,Dry,21.4,32,0,791,7.0,555,17.9,3.2,2.55,Flowering,Good,Low,Check for pests
+2025-07-08 03:00,FARM001,North Field,22.3364,73.1977,37,34.4,4.87,475,Dry,29.3,71,1,680,6.8,420,16.4,3.4,1.21,Harvesting,Good,Low,Check for pests
+2025-07-08 04:00,FARM001,North Field,22.338,73.1032,17,28.6,6.11,565,Wet,38.9,56,6,314,4.7,458,18.7,4.4,3.57,Flowering,Moderate,High,Irrigate tomorrow
+2025-07-08 05:00,FARM001,North Field,22.3368,73.1247,41,29.4,6.22,538,Dry,31.8,43,2,550,0.1,852,18.4,3.0,0.58,Seedling,Good,High,Apply fertilizer
+2025-07-08 06:00,FARM001,North Field,22.3487,73.1558,49,33.7,6.7,347,Dry,32.9,70,6,399,3.7,998,18.2,4.5,2.53,Seedling,Poor,High,No action needed
+2025-07-08 07:00,FARM001,North Field,22.3756,73.1488,44,30.1,6.71,328,Dry,30.0,72,1,725,3.4,162,16.6,4.8,1.43,Seedling,Good,Medium,Monitor humidity
+2025-07-08 08:00,FARM001,North Field,22.3428,73.1528,55,22.0,7.43,478,Wet,37.6,48,1,495,2.2,536,18.2,4.7,4.7,Flowering,Moderate,Low,Check for pests
+2025-07-08 09:00,FARM001,North Field,22.3933,73.1316,22,30.8,5.65,334,Wet,30.8,73,3,550,6.0,298,16.1,4.8,1.75,Vegetative,Moderate,High,Check for pests
+2025-07-08 10:00,FARM001,North Field,22.3006,73.1771,59,21.7,6.06,452,Dry,23.4,41,4,658,9.0,429,18.5,3.6,4.9,Flowering,Moderate,Low,Monitor humidity
+2025-07-08 11:00,FARM001,North Field,22.3266,73.1716,52,27.5,5.22,456,Dry,33.4,46,7,419,7.0,360,19.3,3.7,3.22,Harvesting,Moderate,Low,Check for pests
+2025-07-08 12:00,FARM001,North Field,22.3268,73.1501,62,33.5,5.22,457,Dry,21.6,74,8,763,2.8,876,19.9,4.6,3.27,Seedling,Moderate,Low,No action needed
+2025-07-08 13:00,FARM001,North Field,22.3893,73.1713,77,26.1,7.07,390,Wet,21.9,74,9,727,5.5,254,16.9,4.5,0.99,Flowering,Poor,High,Apply fertilizer
+2025-07-08 14:00,FARM001,North Field,22.3362,73.1472,25,31.8,7.13,354,Wet,34.5,63,7,791,4.8,246,19.2,4.2,2.15,Flowering,Good,High,Monitor humidity
+2025-07-08 15:00,FARM001,North Field,22.3702,73.1228,14,25.1,5.38,375,Wet,22.4,65,5,716,2.6,976,16.1,3.1,0.57,Harvesting,Poor,Low,Monitor humidity
+2025-07-08 16:00,FARM001,North Field,22.3051,73.1293,86,30.1,6.22,531,Dry,39.8,39,8,512,9.2,108,17.0,4.7,3.19,Seedling,Poor,Low,Check for pests
+2025-07-08 17:00,FARM001,North Field,22.3576,73.1936,85,23.1,7.3,476,Dry,35.2,30,2,567,5.2,919,16.4,3.7,3.65,Vegetative,Poor,High,Apply fertilizer
+2025-07-08 18:00,FARM001,North Field,22.3878,73.1415,50,34.2,6.35,302,Dry,25.7,68,3,498,4.6,394,18.9,3.8,2.8,Seedling,Good,Low,Monitor humidity
+2025-07-08 19:00,FARM001,North Field,22.3203,73.1588,58,32.9,4.82,376,Dry,25.3,69,1,591,8.2,763,17.0,4.6,0.56,Flowering,Poor,High,Apply fertilizer
+2025-07-08 20:00,FARM001,North Field,22.3328,73.1148,76,20.4,6.39,389,Wet,37.5,40,5,531,8.8,887,18.2,4.2,0.91,Seedling,Moderate,High,Monitor humidity
+2025-07-08 21:00,FARM001,North Field,22.3649,73.1866,82,34.5,7.49,365,Dry,20.1,41,10,461,5.0,641,18.0,3.7,3.44,Seedling,Moderate,Medium,No action needed
+2025-07-08 22:00,FARM001,North Field,22.362,73.1543,56,24.0,6.18,346,Wet,33.9,38,2,447,2.3,179,19.5,4.5,2.44,Vegetative,Good,Medium,No action needed
+2025-07-08 23:00,FARM001,North Field,22.3333,73.1871,42,32.5,6.79,575,Dry,26.9,32,6,486,6.7,124,17.0,4.0,1.68,Seedling,Good,Low,Irrigate tomorrow
+2025-07-09 00:00,FARM001,North Field,22.3226,73.1825,69,27.8,7.46,334,Dry,30.4,58,6,449,6.4,295,18.5,4.5,3.03,Flowering,Good,Medium,Irrigate tomorrow
+2025-07-09 01:00,FARM001,North Field,22.3851,73.1169,16,23.6,6.39,570,Dry,39.4,31,9,435,9.0,926,17.0,3.3,2.16,Seedling,Poor,High,Check for pests
+2025-07-09 02:00,FARM001,North Field,22.3431,73.109,69,22.1,7.16,331,Wet,29.8,59,2,748,5.1,984,19.1,3.8,0.88,Seedling,Moderate,Medium,Check for pests
+2025-07-09 03:00,FARM001,North Field,22.3376,73.1964,45,25.3,5.22,594,Wet,24.8,65,0,291,0.7,862,16.0,4.7,0.92,Flowering,Moderate,High,Apply fertilizer
+2025-07-09 04:00,FARM001,North Field,22.3163,73.1344,53,21.4,6.83,412,Wet,37.3,75,9,668,9.1,188,18.7,4.1,0.87,Vegetative,Poor,Medium,Irrigate tomorrow
+2025-07-09 05:00,FARM001,North Field,22.333,73.1565,59,33.9,6.35,419,Dry,31.1,50,5,487,7.8,467,19.7,3.4,3.05,Seedling,Good,Medium,Monitor humidity
+2025-07-09 06:00,FARM001,North Field,22.3916,73.1865,12,24.1,7.41,525,Dry,40.0,47,3,452,0.4,501,17.1,3.7,1.44,Seedling,Good,High,Irrigate tomorrow
+2025-07-09 07:00,FARM001,North Field,22.3774,73.1205,18,24.7,4.7,429,Wet,35.0,62,10,318,3.4,848,19.3,4.8,1.52,Flowering,Good,Low,Irrigate tomorrow
+2025-07-09 08:00,FARM001,North Field,22.3492,73.194,69,34.5,6.99,482,Wet,25.2,38,2,748,7.3,774,19.5,4.6,4.33,Harvesting,Good,High,Check for pests
+2025-07-09 09:00,FARM001,North Field,22.3248,73.1946,40,29.5,5.53,465,Dry,28.5,60,6,557,1.0,708,19.4,4.4,2.2,Vegetative,Poor,High,No action needed
+2025-07-09 10:00,FARM001,North Field,22.3887,73.1753,34,27.9,5.23,586,Dry,32.8,60,6,468,7.2,979,19.6,3.7,2.83,Flowering,Moderate,Medium,Monitor humidity
+2025-07-09 11:00,FARM001,North Field,22.3818,73.1129,25,21.8,7.38,352,Dry,27.5,65,5,511,5.4,159,16.2,3.3,1.4,Harvesting,Poor,Medium,Monitor humidity
+2025-07-09 12:00,FARM001,North Field,22.3983,73.1947,81,24.6,7.47,472,Wet,32.6,37,5,633,7.5,169,16.3,4.6,3.33,Flowering,Moderate,High,Check for pests
+2025-07-09 13:00,FARM001,North Field,22.385,73.1426,51,27.1,4.55,426,Dry,20.5,31,8,602,9.7,643,16.2,4.9,1.55,Seedling,Poor,Medium,No action needed
+2025-07-09 14:00,FARM001,North Field,22.3911,73.1672,35,20.4,4.64,576,Wet,32.6,57,4,250,3.1,642,17.9,4.6,4.91,Harvesting,Moderate,Medium,Check for pests
+2025-07-09 15:00,FARM001,North Field,22.3897,73.184,38,24.5,5.16,580,Wet,25.5,52,7,788,2.1,345,16.1,3.2,4.0,Flowering,Poor,Medium,Irrigate tomorrow
+2025-07-09 16:00,FARM001,North Field,22.336,73.1972,32,31.9,4.84,444,Wet,28.2,70,4,519,3.4,278,17.1,4.9,0.76,Harvesting,Poor,Low,No action needed
+2025-07-09 17:00,FARM001,North Field,22.3077,73.1789,88,20.0,5.33,430,Wet,20.5,34,7,681,2.4,320,16.1,3.4,1.43,Seedling,Good,Medium,Check for pests
+2025-07-09 18:00,FARM001,North Field,22.377,73.1415,61,29.0,5.26,302,Wet,35.4,58,2,667,4.1,115,19.7,3.2,0.94,Harvesting,Good,Medium,Check for pests
+2025-07-09 19:00,FARM001,North Field,22.3717,73.1775,78,26.1,5.72,415,Wet,20.1,42,1,415,5.1,565,19.2,4.9,4.53,Vegetative,Good,Low,Monitor humidity
+2025-07-09 20:00,FARM001,North Field,22.3211,73.1118,12,29.2,5.48,423,Wet,37.9,56,8,203,9.1,213,19.6,4.1,1.06,Seedling,Moderate,Medium,No action needed
+2025-07-09 21:00,FARM001,North Field,22.3744,73.1803,15,34.9,4.82,517,Wet,26.8,49,6,767,5.3,605,17.9,4.3,0.7,Seedling,Moderate,High,Check for pests
+2025-07-09 22:00,FARM001,North Field,22.3663,73.1435,36,26.6,5.9,361,Dry,38.6,58,4,610,2.2,947,17.4,3.4,2.25,Harvesting,Good,High,Monitor humidity
+2025-07-09 23:00,FARM001,North Field,22.3949,73.1434,88,32.6,5.41,419,Wet,38.4,72,9,612,8.9,887,16.8,3.2,4.0,Harvesting,Good,High,Irrigate tomorrow
+2025-07-10 00:00,FARM001,North Field,22.3799,73.164,43,31.5,6.87,584,Dry,22.0,45,10,648,0.3,704,18.4,3.1,0.65,Harvesting,Moderate,High,Monitor humidity
+2025-07-10 01:00,FARM001,North Field,22.3961,73.146,34,26.4,6.56,546,Wet,34.5,63,2,520,1.9,387,19.2,4.8,1.77,Seedling,Good,Low,Apply fertilizer
+2025-07-10 02:00,FARM001,North Field,22.3518,73.1481,73,21.2,4.73,593,Wet,39.1,38,0,425,1.7,936,17.5,4.2,1.19,Seedling,Moderate,Low,No action needed
+2025-07-10 03:00,FARM001,North Field,22.3384,73.1576,37,30.0,6.51,409,Dry,23.8,38,2,796,1.5,272,19.4,4.9,3.5,Harvesting,Moderate,Medium,Monitor humidity
+2025-07-10 04:00,FARM001,North Field,22.3899,73.1502,11,33.3,6.05,471,Dry,31.1,75,6,740,1.5,170,16.6,4.6,3.65,Vegetative,Moderate,Medium,Apply fertilizer
+2025-07-10 05:00,FARM001,North Field,22.3628,73.1488,13,22.7,5.56,364,Dry,33.6,52,5,602,1.2,724,16.4,4.8,4.07,Flowering,Moderate,Low,No action needed
+2025-07-10 06:00,FARM001,North Field,22.3216,73.1829,49,28.5,5.59,540,Dry,38.8,59,3,328,6.7,555,19.3,4.8,1.92,Vegetative,Good,High,Check for pests
+2025-07-10 07:00,FARM001,North Field,22.324,73.1773,39,30.6,5.6,585,Dry,33.1,43,7,583,5.0,502,18.0,4.7,2.55,Seedling,Good,Low,No action needed
+2025-07-10 08:00,FARM001,North Field,22.301,73.1698,28,20.6,5.19,308,Wet,24.0,32,1,607,8.8,806,19.5,3.7,3.92,Harvesting,Good,High,Check for pests
+2025-07-10 09:00,FARM001,North Field,22.3949,73.1333,61,21.4,5.7,373,Dry,32.7,68,3,290,8.1,238,17.4,3.2,2.74,Seedling,Moderate,High,No action needed
+2025-07-10 10:00,FARM001,North Field,22.3532,73.1948,56,20.1,5.3,314,Wet,33.8,61,2,618,3.7,629,16.6,3.9,2.05,Harvesting,Poor,Low,Irrigate tomorrow
+2025-07-10 11:00,FARM001,North Field,22.3274,73.12,67,34.2,6.95,468,Dry,39.9,46,1,719,1.4,973,16.1,3.6,2.13,Vegetative,Moderate,Medium,No action needed
+2025-07-10 12:00,FARM001,North Field,22.3858,73.1817,12,21.6,7.04,398,Wet,39.6,64,7,259,5.2,948,18.9,4.3,3.4,Flowering,Moderate,Medium,Check for pests
+2025-07-10 13:00,FARM001,North Field,22.3747,73.1683,66,25.0,6.4,573,Wet,30.0,70,8,501,6.5,131,16.6,4.3,3.07,Vegetative,Poor,High,No action needed
+2025-07-10 14:00,FARM001,North Field,22.3107,73.1849,73,23.3,4.75,586,Dry,26.9,73,8,232,1.8,873,19.3,3.1,3.54,Seedling,Good,High,No action needed
+2025-07-10 15:00,FARM001,North Field,22.3965,73.1526,74,25.9,6.63,314,Dry,28.4,37,7,372,9.4,276,17.5,4.7,3.71,Flowering,Moderate,Low,Monitor humidity
+2025-07-10 16:00,FARM001,North Field,22.3326,73.1389,69,26.6,6.09,523,Dry,33.6,37,7,443,0.9,617,19.4,4.8,3.43,Seedling,Good,Medium,Check for pests
+2025-07-10 17:00,FARM001,North Field,22.3897,73.1579,71,22.0,7.16,566,Dry,36.8,77,6,242,4.9,135,18.7,3.3,3.26,Seedling,Poor,High,Check for pests
+2025-07-10 18:00,FARM001,North Field,22.3664,73.1932,25,25.2,6.08,344,Wet,38.0,53,6,710,7.3,704,16.5,4.1,1.32,Flowering,Moderate,High,Check for pests
+2025-07-10 19:00,FARM001,North Field,22.3121,73.186,51,24.4,5.35,445,Dry,30.9,79,3,455,1.2,352,19.5,3.2,3.66,Flowering,Good,Medium,Monitor humidity
+2025-07-10 20:00,FARM001,North Field,22.3877,73.1015,33,22.8,5.07,448,Dry,37.9,49,3,605,5.1,975,20.0,3.6,1.1,Seedling,Moderate,Low,Irrigate tomorrow
+2025-07-10 21:00,FARM001,North Field,22.3329,73.1838,44,21.8,5.96,486,Dry,31.9,77,3,750,1.1,362,16.9,3.5,1.54,Vegetative,Good,Low,Apply fertilizer
+2025-07-10 22:00,FARM001,North Field,22.3909,73.1181,40,20.1,6.43,433,Dry,30.4,38,2,466,2.0,713,19.6,3.7,1.48,Vegetative,Good,High,Check for pests
+2025-07-10 23:00,FARM001,North Field,22.3151,73.1952,74,30.2,5.21,300,Dry,27.4,33,5,421,0.2,289,18.4,3.8,4.11,Harvesting,Moderate,Low,No action needed
+2025-07-11 00:00,FARM001,North Field,22.3278,73.1786,81,22.2,6.56,373,Dry,28.8,57,10,321,6.2,524,16.0,3.5,1.02,Flowering,Poor,High,Check for pests
+2025-07-11 01:00,FARM001,North Field,22.3639,73.1222,87,34.8,4.81,351,Dry,29.8,57,7,634,6.1,340,16.1,4.8,4.57,Vegetative,Poor,Low,Monitor humidity
+2025-07-11 02:00,FARM001,North Field,22.3023,73.1601,76,20.7,6.04,552,Dry,29.7,61,6,694,2.4,675,19.9,3.7,0.56,Harvesting,Moderate,High,Irrigate tomorrow
+2025-07-11 03:00,FARM001,North Field,22.3264,73.1991,65,23.4,4.69,577,Wet,27.3,41,6,683,2.2,168,16.0,4.1,2.95,Seedling,Poor,Medium,Monitor humidity
+2025-07-11 04:00,FARM001,North Field,22.3366,73.1709,38,33.3,4.9,472,Dry,27.3,37,1,209,3.7,473,18.8,4.4,0.86,Harvesting,Poor,High,Apply fertilizer
+2025-07-11 05:00,FARM001,North Field,22.3194,73.1959,85,24.6,7.39,573,Wet,28.1,31,2,338,2.4,522,18.2,3.8,4.22,Seedling,Poor,Medium,Irrigate tomorrow
+2025-07-11 06:00,FARM001,North Field,22.3003,73.1325,25,31.9,5.55,346,Wet,29.3,79,0,334,5.8,966,19.9,3.8,3.05,Seedling,Good,Medium,Apply fertilizer
+2025-07-11 07:00,FARM001,North Field,22.3048,73.1391,41,29.9,7.17,339,Dry,29.3,67,9,658,9.7,818,16.1,3.6,1.6,Harvesting,Poor,Low,Monitor humidity
+2025-07-11 08:00,FARM001,North Field,22.3678,73.1257,83,21.3,5.75,548,Wet,25.1,43,8,797,6.4,526,19.8,4.9,1.61,Flowering,Good,Medium,Irrigate tomorrow
+2025-07-11 09:00,FARM001,North Field,22.3437,73.1946,26,25.4,5.88,565,Wet,25.4,69,6,778,5.9,975,17.7,3.9,3.78,Seedling,Moderate,High,Monitor humidity
+2025-07-11 10:00,FARM001,North Field,22.3536,73.1921,18,26.6,4.59,487,Wet,27.8,67,2,613,3.6,984,17.9,4.4,3.77,Flowering,Good,Medium,No action needed
+2025-07-11 11:00,FARM001,North Field,22.3427,73.1491,83,26.5,5.43,543,Wet,23.1,56,2,559,3.6,552,17.0,3.1,4.06,Vegetative,Moderate,Low,Monitor humidity
+2025-07-11 12:00,FARM001,North Field,22.3056,73.1271,46,30.5,5.32,394,Dry,37.1,40,10,364,1.7,535,17.4,3.3,1.96,Vegetative,Good,High,Check for pests
+2025-07-11 13:00,FARM001,North Field,22.3869,73.1866,47,33.5,5.46,327,Wet,37.8,52,0,450,3.9,674,16.8,4.6,2.68,Harvesting,Good,High,Irrigate tomorrow
+2025-07-11 14:00,FARM001,North Field,22.3331,73.1014,74,30.7,5.5,450,Dry,28.6,35,8,474,5.2,948,17.3,3.3,3.66,Seedling,Moderate,Low,Check for pests
+2025-07-11 15:00,FARM001,North Field,22.3142,73.148,12,24.5,4.82,479,Wet,24.0,43,4,770,4.1,557,16.0,3.4,1.92,Flowering,Moderate,High,Monitor humidity
+2025-07-11 16:00,FARM001,North Field,22.301,73.1221,73,23.3,5.23,454,Wet,28.5,33,9,484,5.0,760,18.1,3.4,4.24,Flowering,Good,Low,Apply fertilizer
+2025-07-11 17:00,FARM001,North Field,22.3105,73.1988,90,26.9,4.57,552,Wet,32.3,74,7,438,0.4,817,16.2,3.2,0.59,Flowering,Poor,Low,Irrigate tomorrow
+2025-07-11 18:00,FARM001,North Field,22.3848,73.1227,28,24.0,5.64,554,Wet,37.6,60,7,283,3.2,199,17.0,4.6,1.3,Seedling,Poor,High,No action needed
+2025-07-11 19:00,FARM001,North Field,22.3791,73.1099,44,21.6,5.56,489,Wet,35.8,45,4,561,0.4,645,18.9,3.9,2.7,Vegetative,Moderate,Medium,Apply fertilizer
+2025-07-11 20:00,FARM001,North Field,22.3817,73.1716,37,25.1,7.39,518,Wet,32.4,49,4,574,5.2,979,17.2,4.4,3.97,Vegetative,Good,Low,Apply fertilizer
+2025-07-11 21:00,FARM001,North Field,22.3143,73.1489,84,22.1,4.82,513,Dry,32.5,32,0,206,6.1,901,17.4,4.5,1.64,Flowering,Moderate,Low,Check for pests
+2025-07-11 22:00,FARM001,North Field,22.4,73.1178,72,22.8,4.94,560,Dry,28.8,42,5,322,0.0,908,18.6,3.6,2.43,Vegetative,Good,Medium,Apply fertilizer
+2025-07-11 23:00,FARM001,North Field,22.309,73.1973,52,25.8,5.06,305,Dry,20.7,41,1,422,0.9,206,18.8,4.0,3.39,Seedling,Good,Low,Apply fertilizer
+2025-07-12 00:00,FARM001,North Field,22.3091,73.1956,82,27.0,6.93,310,Wet,26.0,55,7,650,8.3,591,18.4,3.1,2.59,Harvesting,Moderate,Medium,Monitor humidity
+2025-07-12 01:00,FARM001,North Field,22.3296,73.105,80,23.6,4.55,454,Wet,31.1,67,2,564,8.9,309,18.7,3.5,2.49,Flowering,Poor,High,Monitor humidity
+2025-07-12 02:00,FARM001,North Field,22.399,73.1536,19,22.2,7.0,500,Wet,39.7,76,2,435,0.6,845,19.0,4.2,3.19,Harvesting,Moderate,Low,Monitor humidity
+2025-07-12 03:00,FARM001,North Field,22.3166,73.1208,59,26.3,7.1,353,Wet,24.4,67,9,535,6.7,527,18.5,4.4,4.89,Vegetative,Poor,Low,No action needed
+2025-07-12 04:00,FARM001,North Field,22.3101,73.1523,81,34.0,6.21,379,Dry,28.6,49,1,493,3.7,154,19.9,4.1,1.29,Vegetative,Good,Low,Monitor humidity
+2025-07-12 05:00,FARM001,North Field,22.3868,73.1009,33,29.0,5.22,552,Wet,25.4,45,5,667,1.6,804,16.8,3.6,4.75,Harvesting,Good,Medium,Check for pests
+2025-07-12 06:00,FARM001,North Field,22.3325,73.1393,44,21.1,5.59,535,Dry,31.0,74,7,702,0.6,643,16.5,4.0,4.09,Seedling,Poor,Low,Monitor humidity
+2025-07-12 07:00,FARM001,North Field,22.3302,73.1436,83,35.0,4.67,501,Dry,33.4,53,8,442,1.4,760,19.5,3.7,2.36,Flowering,Good,Low,Check for pests
+2025-07-12 08:00,FARM001,North Field,22.3374,73.1955,66,33.9,4.66,515,Wet,29.9,68,7,275,5.6,542,17.9,4.3,4.4,Vegetative,Poor,High,Monitor humidity
+2025-07-12 09:00,FARM001,North Field,22.3077,73.1609,33,21.8,7.26,378,Wet,20.6,70,2,610,3.1,137,17.7,4.5,2.49,Seedling,Poor,Medium,Apply fertilizer
+2025-07-12 10:00,FARM001,North Field,22.3593,73.1321,40,23.4,5.49,596,Wet,22.0,64,2,733,3.0,900,18.5,4.6,3.14,Harvesting,Poor,Medium,Check for pests
+2025-07-12 11:00,FARM001,North Field,22.3039,73.1284,85,30.1,5.94,588,Dry,35.4,53,4,458,8.0,394,19.9,3.8,4.91,Vegetative,Moderate,High,Check for pests
+2025-07-12 12:00,FARM001,North Field,22.306,73.1985,49,24.1,5.82,375,Wet,31.7,45,6,552,7.9,291,16.1,3.3,0.85,Seedling,Moderate,High,Apply fertilizer
+2025-07-12 13:00,FARM001,North Field,22.3345,73.1414,22,30.7,7.18,327,Dry,28.2,59,9,517,9.1,752,17.4,4.3,0.85,Vegetative,Moderate,High,Check for pests
+2025-07-12 14:00,FARM001,North Field,22.3076,73.1615,74,21.8,5.23,357,Wet,27.5,68,7,549,0.2,613,16.0,3.0,3.61,Harvesting,Poor,Low,Check for pests
+2025-07-12 15:00,FARM001,North Field,22.3692,73.1844,88,21.0,4.82,469,Wet,20.6,70,6,337,5.9,615,16.9,4.3,4.96,Flowering,Good,Low,Irrigate tomorrow
+2025-07-12 16:00,FARM001,North Field,22.3855,73.1906,68,31.1,6.84,414,Dry,39.9,77,7,565,0.1,806,17.9,3.3,2.17,Vegetative,Moderate,Medium,Irrigate tomorrow
+2025-07-12 17:00,FARM001,North Field,22.3942,73.1103,70,25.0,4.93,514,Dry,20.7,66,7,517,8.6,363,16.6,3.2,1.84,Seedling,Moderate,High,Check for pests
+2025-07-12 18:00,FARM001,North Field,22.3637,73.1529,33,27.2,6.36,568,Dry,35.1,32,7,591,3.4,454,18.4,3.9,1.8,Flowering,Good,Medium,Monitor humidity
+2025-07-12 19:00,FARM001,North Field,22.3128,73.127,90,20.2,6.89,369,Wet,32.3,45,4,711,5.8,820,18.9,3.1,3.84,Vegetative,Moderate,Medium,Irrigate tomorrow
+2025-07-12 20:00,FARM001,North Field,22.3345,73.161,70,20.3,7.49,302,Dry,34.5,79,10,566,1.0,422,16.4,3.1,4.01,Flowering,Poor,High,Apply fertilizer
+2025-07-12 21:00,FARM001,North Field,22.3653,73.1024,72,25.7,5.51,343,Dry,33.6,69,4,729,1.6,989,17.3,3.9,3.61,Harvesting,Moderate,High,Check for pests
+2025-07-12 22:00,FARM001,North Field,22.396,73.1299,60,28.5,5.27,304,Dry,30.6,62,9,692,1.1,144,18.4,3.0,2.73,Vegetative,Poor,High,No action needed
+2025-07-12 23:00,FARM001,North Field,22.3803,73.1335,10,21.2,4.84,348,Wet,22.7,59,9,420,8.0,453,18.5,3.7,3.34,Vegetative,Poor,Low,No action needed
+2025-07-13 00:00,FARM001,North Field,22.3398,73.1349,31,31.8,5.9,304,Wet,39.5,54,10,692,0.3,414,16.0,3.3,1.39,Vegetative,Good,Medium,Irrigate tomorrow
+2025-07-13 01:00,FARM001,North Field,22.3923,73.1311,15,24.5,6.25,402,Dry,26.6,46,2,300,8.4,273,17.9,3.3,3.57,Seedling,Moderate,High,No action needed
+2025-07-13 02:00,FARM001,North Field,22.3215,73.1355,56,27.5,6.82,348,Dry,27.0,69,2,754,0.2,776,17.8,4.6,2.52,Flowering,Good,High,Irrigate tomorrow
+2025-07-13 03:00,FARM001,North Field,22.327,73.1601,47,29.3,6.86,507,Wet,22.5,44,8,688,0.2,827,18.2,4.0,2.93,Seedling,Moderate,Low,Check for pests
+2025-07-13 04:00,FARM001,North Field,22.34,73.175,78,24.0,6.71,502,Wet,25.9,66,1,746,5.5,175,19.9,3.9,3.79,Flowering,Good,Low,Monitor humidity
+2025-07-13 05:00,FARM001,North Field,22.3141,73.1242,89,25.0,5.64,350,Dry,28.8,40,8,220,4.6,620,16.8,4.1,2.39,Flowering,Moderate,Medium,No action needed
+2025-07-13 06:00,FARM001,North Field,22.3359,73.1594,43,30.9,4.96,545,Wet,30.1,54,6,706,8.1,675,17.3,3.0,4.95,Seedling,Good,Low,Irrigate tomorrow
+2025-07-13 07:00,FARM001,North Field,22.35,73.1866,30,30.3,6.68,301,Wet,38.9,60,3,573,0.6,550,16.8,3.6,4.05,Harvesting,Good,Medium,Apply fertilizer
+2025-07-13 08:00,FARM001,North Field,22.3472,73.1151,17,27.7,5.34,489,Wet,23.9,38,5,511,0.1,740,18.9,4.1,2.19,Seedling,Poor,Low,Irrigate tomorrow
+2025-07-13 09:00,FARM001,North Field,22.3782,73.1449,31,34.1,5.13,385,Wet,38.4,73,6,669,2.7,180,17.0,4.4,2.76,Flowering,Poor,High,Apply fertilizer
+2025-07-13 10:00,FARM001,North Field,22.3112,73.1352,59,22.8,6.66,331,Dry,36.5,32,0,207,5.6,573,19.3,4.2,1.52,Harvesting,Moderate,Low,Apply fertilizer
+2025-07-13 11:00,FARM001,North Field,22.3387,73.1256,71,25.2,5.88,435,Dry,31.0,52,4,236,9.9,699,17.2,4.2,3.35,Vegetative,Good,High,No action needed
+2025-07-13 12:00,FARM001,North Field,22.3933,73.1373,18,34.9,4.54,461,Wet,26.8,57,0,346,1.4,162,18.9,3.8,2.63,Vegetative,Good,Low,Monitor humidity
+2025-07-13 13:00,FARM001,North Field,22.3595,73.1777,51,33.8,6.92,473,Dry,26.2,62,10,544,3.9,895,17.0,3.1,0.68,Vegetative,Moderate,High,No action needed
+2025-07-13 14:00,FARM001,North Field,22.3428,73.1737,58,32.4,4.6,565,Wet,28.4,31,2,343,2.6,279,18.7,3.7,3.86,Vegetative,Poor,High,Irrigate tomorrow
+2025-07-13 15:00,FARM001,North Field,22.3991,73.1029,16,27.1,5.34,355,Wet,30.5,55,6,745,0.9,323,19.3,4.4,3.93,Seedling,Poor,Medium,Apply fertilizer
+2025-07-13 16:00,FARM001,North Field,22.3431,73.1803,43,31.3,6.55,476,Dry,24.3,43,6,473,0.7,547,17.2,3.5,2.86,Flowering,Poor,High,Apply fertilizer
+2025-07-13 17:00,FARM001,North Field,22.3492,73.187,32,31.0,5.96,462,Wet,33.3,62,3,669,8.5,845,19.7,3.1,0.89,Harvesting,Poor,Low,Check for pests
+2025-07-13 18:00,FARM001,North Field,22.3298,73.1768,76,30.8,5.83,578,Dry,22.1,36,9,620,8.6,809,17.5,3.8,0.84,Vegetative,Poor,High,No action needed
+2025-07-13 19:00,FARM001,North Field,22.3251,73.1383,90,26.2,6.04,557,Wet,33.4,34,2,294,6.5,200,16.1,3.6,2.07,Seedling,Good,Low,No action needed
+2025-07-13 20:00,FARM001,North Field,22.3761,73.1166,26,22.0,5.34,451,Dry,28.3,59,7,226,2.4,779,19.0,3.6,0.71,Harvesting,Good,Low,No action needed
+2025-07-13 21:00,FARM001,North Field,22.3774,73.1433,25,20.3,6.53,335,Wet,36.7,63,0,408,8.9,510,19.3,3.4,4.57,Vegetative,Moderate,High,Apply fertilizer
+2025-07-13 22:00,FARM001,North Field,22.3491,73.1238,67,20.8,7.05,382,Wet,35.3,52,1,654,1.2,236,19.6,3.8,1.16,Seedling,Good,Medium,Check for pests
+2025-07-13 23:00,FARM001,North Field,22.3461,73.1646,62,21.3,7.32,347,Wet,27.1,66,1,715,5.4,738,18.5,4.6,4.74,Vegetative,Poor,Medium,No action needed
+2025-07-14 00:00,FARM001,North Field,22.341,73.1277,21,33.1,6.14,537,Dry,20.7,43,10,269,3.4,925,18.4,4.0,3.72,Harvesting,Moderate,High,No action needed
+2025-07-14 01:00,FARM001,North Field,22.3192,73.1668,13,21.5,5.21,340,Wet,26.7,33,4,218,2.9,944,19.3,4.8,0.78,Seedling,Good,High,No action needed
+2025-07-14 02:00,FARM001,North Field,22.361,73.1941,84,34.2,6.35,308,Wet,28.3,55,7,302,0.8,558,16.4,3.9,4.23,Seedling,Poor,Medium,Check for pests
+2025-07-14 03:00,FARM001,North Field,22.372,73.1116,66,30.6,5.84,331,Wet,34.1,60,7,365,8.5,502,16.4,3.7,2.12,Seedling,Good,High,Irrigate tomorrow
+2025-07-14 04:00,FARM001,North Field,22.3673,73.1158,41,22.7,6.76,391,Wet,38.5,31,0,224,4.7,435,19.2,4.6,2.08,Flowering,Moderate,Low,Monitor humidity
+2025-07-14 05:00,FARM001,North Field,22.3566,73.1619,23,20.8,7.2,421,Wet,30.0,45,8,436,2.8,212,18.9,3.8,0.79,Harvesting,Moderate,Medium,No action needed
+2025-07-14 06:00,FARM001,North Field,22.3481,73.184,64,29.2,6.3,413,Dry,23.1,64,1,723,3.9,790,18.7,3.2,2.29,Flowering,Poor,High,Check for pests
+2025-07-14 07:00,FARM001,North Field,22.3566,73.1486,47,32.3,6.95,317,Wet,31.8,77,3,749,1.8,671,16.1,3.3,1.45,Flowering,Poor,High,Irrigate tomorrow
+2025-07-14 08:00,FARM001,North Field,22.3513,73.1865,78,31.5,5.76,573,Dry,33.5,63,8,409,9.2,928,16.9,4.2,4.94,Seedling,Good,High,Monitor humidity
+2025-07-14 09:00,FARM001,North Field,22.3647,73.1012,26,34.9,5.23,367,Wet,33.4,53,3,215,6.6,125,17.9,4.4,1.25,Vegetative,Moderate,Medium,Check for pests
+2025-07-14 10:00,FARM001,North Field,22.3358,73.1822,76,34.3,6.43,468,Wet,26.7,65,10,336,3.5,500,17.4,4.0,3.92,Flowering,Moderate,High,Check for pests
+2025-07-14 11:00,FARM001,North Field,22.3282,73.147,25,24.8,5.45,346,Dry,26.8,47,6,356,9.1,868,16.9,4.4,4.94,Harvesting,Good,Medium,Apply fertilizer
+2025-07-14 12:00,FARM001,North Field,22.3789,73.1998,32,31.1,5.05,349,Wet,21.1,40,6,241,5.9,925,17.7,3.3,3.39,Harvesting,Good,Low,Irrigate tomorrow
+2025-07-14 13:00,FARM001,North Field,22.335,73.1618,75,22.9,5.13,459,Wet,22.1,53,8,663,0.4,892,16.7,4.5,2.29,Vegetative,Good,High,Apply fertilizer
+2025-07-14 14:00,FARM001,North Field,22.3781,73.1404,58,24.6,4.87,572,Dry,39.8,60,7,641,9.5,885,18.0,4.3,4.12,Vegetative,Moderate,High,No action needed
+2025-07-14 15:00,FARM001,North Field,22.3521,73.1147,30,20.9,4.99,566,Wet,32.9,79,8,742,6.3,965,16.5,4.3,1.15,Seedling,Good,Medium,Irrigate tomorrow
+2025-07-14 16:00,FARM001,North Field,22.3376,73.162,28,34.1,6.55,495,Dry,26.9,39,9,416,6.4,940,19.4,4.5,1.28,Flowering,Good,High,No action needed
+2025-07-14 17:00,FARM001,North Field,22.327,73.18,74,24.1,7.22,576,Wet,23.9,48,2,765,7.6,803,18.9,3.3,1.93,Flowering,Moderate,Medium,Apply fertilizer
+2025-07-14 18:00,FARM001,North Field,22.3387,73.1941,64,25.8,7.16,590,Wet,39.5,38,7,786,2.3,835,19.4,3.8,1.16,Vegetative,Moderate,Low,Monitor humidity
+2025-07-14 19:00,FARM001,North Field,22.3997,73.1024,28,28.6,5.92,467,Wet,22.2,67,3,418,6.3,823,19.7,3.9,2.05,Seedling,Poor,High,Check for pests
+2025-07-14 20:00,FARM001,North Field,22.3357,73.1077,55,23.7,7.4,571,Wet,28.6,52,10,364,1.5,345,19.8,3.7,1.43,Flowering,Moderate,High,No action needed
+2025-07-14 21:00,FARM001,North Field,22.3799,73.1823,74,24.9,4.88,415,Wet,29.5,70,2,324,2.5,692,19.3,3.1,1.61,Vegetative,Good,High,Monitor humidity
+2025-07-14 22:00,FARM001,North Field,22.3013,73.1801,26,23.2,5.58,379,Wet,39.1,71,2,560,0.0,509,16.8,3.0,2.29,Flowering,Good,Low,Apply fertilizer
+2025-07-14 23:00,FARM001,North Field,22.3672,73.1511,16,32.6,7.24,409,Wet,24.3,52,2,706,7.0,300,18.2,4.4,1.29,Harvesting,Moderate,High,Apply fertilizer
+2025-07-15 00:00,FARM001,North Field,22.3136,73.167,74,32.5,4.58,373,Dry,36.6,55,1,455,4.5,840,16.3,3.3,0.67,Harvesting,Moderate,Low,Monitor humidity
+2025-07-15 01:00,FARM001,North Field,22.3784,73.1096,13,34.4,6.01,364,Dry,22.1,51,4,574,2.3,191,18.5,4.5,4.92,Seedling,Moderate,High,Irrigate tomorrow
+2025-07-15 02:00,FARM001,North Field,22.3843,73.1988,66,27.5,4.67,324,Dry,33.9,33,10,291,4.7,287,16.9,4.3,0.9,Harvesting,Poor,Medium,Monitor humidity
+2025-07-15 03:00,FARM001,North Field,22.3264,73.158,39,23.3,5.47,375,Wet,27.4,44,8,303,7.9,194,19.0,4.7,0.51,Vegetative,Good,High,Apply fertilizer
+2025-07-15 04:00,FARM001,North Field,22.3062,73.1303,45,25.4,4.94,566,Wet,27.2,33,4,675,8.9,274,16.6,3.3,2.73,Vegetative,Poor,High,Apply fertilizer
+2025-07-15 05:00,FARM001,North Field,22.399,73.1385,43,27.5,4.64,427,Wet,27.3,68,5,361,6.9,354,16.1,3.6,3.66,Flowering,Moderate,Medium,Check for pests
+2025-07-15 06:00,FARM001,North Field,22.3143,73.1332,65,31.6,5.77,453,Dry,30.6,50,10,242,1.1,664,17.2,3.8,1.33,Flowering,Good,High,Irrigate tomorrow
+2025-07-15 07:00,FARM001,North Field,22.3522,73.1946,51,22.5,6.92,552,Dry,23.3,70,10,450,8.7,680,19.6,4.0,1.03,Vegetative,Moderate,Low,Check for pests
+2025-07-15 08:00,FARM001,North Field,22.3258,73.1889,32,23.5,6.99,335,Wet,20.1,30,3,762,9.8,358,18.1,3.6,4.9,Seedling,Poor,Medium,Irrigate tomorrow
+2025-07-15 09:00,FARM001,North Field,22.3667,73.1713,60,24.1,5.03,553,Wet,36.7,78,2,403,4.0,597,19.8,4.1,4.03,Vegetative,Moderate,Medium,No action needed
+2025-07-15 10:00,FARM001,North Field,22.35,73.103,38,25.5,5.6,434,Wet,24.5,70,7,692,0.1,400,17.9,3.7,3.23,Harvesting,Moderate,High,Apply fertilizer
+2025-07-15 11:00,FARM001,North Field,22.3094,73.1463,10,27.8,5.15,516,Wet,28.6,71,2,482,8.5,608,16.8,4.5,3.38,Vegetative,Poor,High,Apply fertilizer
+2025-07-15 12:00,FARM001,North Field,22.3964,73.1212,35,24.3,5.54,492,Wet,27.9,57,0,440,8.3,369,16.0,3.6,1.41,Vegetative,Moderate,Medium,No action needed
+2025-07-15 13:00,FARM001,North Field,22.3434,73.1525,33,34.5,6.38,549,Wet,23.6,60,4,772,6.6,229,18.9,4.7,3.06,Seedling,Poor,Medium,Irrigate tomorrow
+2025-07-15 14:00,FARM001,North Field,22.3737,73.181,10,21.4,4.98,483,Wet,25.9,71,7,423,7.2,476,18.3,4.7,3.68,Flowering,Poor,Low,Apply fertilizer
+2025-07-15 15:00,FARM001,North Field,22.3198,73.1226,48,20.7,5.44,490,Dry,37.9,74,3,246,7.2,762,18.5,3.5,2.35,Seedling,Good,High,Check for pests
+2025-07-15 16:00,FARM001,North Field,22.3129,73.1141,24,31.0,5.26,401,Dry,34.2,56,10,492,7.4,423,17.7,3.2,3.03,Flowering,Good,Low,No action needed
+2025-07-15 17:00,FARM001,North Field,22.3875,73.1368,89,22.7,4.75,462,Wet,38.5,39,1,358,8.7,894,17.2,5.0,1.32,Flowering,Poor,Low,Apply fertilizer
+2025-07-15 18:00,FARM001,North Field,22.3576,73.1088,73,21.2,7.46,462,Dry,39.7,58,3,682,2.2,705,19.9,3.0,4.28,Flowering,Good,High,Irrigate tomorrow
+2025-07-15 19:00,FARM001,North Field,22.3851,73.1605,18,25.5,5.5,563,Dry,25.5,54,5,720,8.3,950,18.9,3.9,0.53,Harvesting,Poor,Medium,Monitor humidity
+2025-07-15 20:00,FARM001,North Field,22.3215,73.171,38,33.8,5.41,461,Dry,38.2,68,1,587,7.9,200,17.0,4.1,4.1,Vegetative,Poor,Low,Apply fertilizer
+2025-07-15 21:00,FARM001,North Field,22.3668,73.1131,56,23.0,7.26,371,Wet,26.0,43,10,761,2.4,329,17.2,4.0,4.3,Vegetative,Good,Medium,Apply fertilizer
+2025-07-15 22:00,FARM001,North Field,22.3869,73.1712,90,29.9,5.48,550,Wet,20.8,54,0,461,8.7,355,16.7,4.0,4.69,Seedling,Poor,Low,Monitor humidity
+2025-07-15 23:00,FARM001,North Field,22.3182,73.1531,25,26.1,5.94,315,Dry,35.3,77,7,779,6.9,693,17.8,4.8,3.44,Vegetative,Moderate,Medium,No action needed
+2025-07-16 00:00,FARM001,North Field,22.3629,73.1534,70,33.9,6.38,530,Wet,34.7,64,0,459,6.0,543,16.9,4.3,4.83,Vegetative,Poor,Medium,No action needed
+2025-07-16 01:00,FARM001,North Field,22.3522,73.1518,54,29.6,7.16,431,Dry,36.4,67,9,472,2.9,921,19.6,5.0,1.0,Harvesting,Good,Low,No action needed
+2025-07-16 02:00,FARM001,North Field,22.314,73.1103,41,32.7,6.55,527,Dry,25.0,38,9,210,0.2,163,18.2,3.7,0.73,Seedling,Good,Low,Irrigate tomorrow
+2025-07-16 03:00,FARM001,North Field,22.313,73.1718,73,29.0,7.49,312,Wet,25.0,62,10,427,3.5,583,19.5,4.7,1.47,Seedling,Good,High,Irrigate tomorrow
+2025-07-16 04:00,FARM001,North Field,22.3387,73.1005,67,34.5,4.98,300,Dry,27.0,55,7,452,1.0,381,19.8,4.1,2.14,Seedling,Good,Medium,Monitor humidity
+2025-07-16 05:00,FARM001,North Field,22.3411,73.1161,57,32.7,4.8,418,Dry,39.9,65,6,519,4.7,411,18.1,3.9,2.18,Seedling,Moderate,Low,Check for pests
+2025-07-16 06:00,FARM001,North Field,22.3294,73.1664,85,30.6,7.14,446,Dry,35.3,66,4,442,5.1,318,18.9,3.4,1.57,Harvesting,Moderate,Low,Check for pests
+2025-07-16 07:00,FARM001,North Field,22.3687,73.1581,28,33.9,6.81,432,Dry,36.0,37,1,714,8.8,696,17.1,4.3,1.8,Harvesting,Good,Medium,Check for pests
+2025-07-16 08:00,FARM001,North Field,22.3265,73.1549,54,20.1,6.2,567,Wet,26.0,77,10,569,5.4,327,18.0,4.6,2.87,Vegetative,Good,High,Monitor humidity
+2025-07-16 09:00,FARM001,North Field,22.3965,73.198,26,24.0,5.57,315,Wet,33.1,50,4,216,3.0,949,18.8,4.2,4.7,Flowering,Poor,Medium,No action needed
+2025-07-16 10:00,FARM001,North Field,22.3431,73.1967,80,25.6,5.7,464,Wet,29.9,62,4,623,8.4,291,18.9,4.4,0.76,Harvesting,Moderate,Medium,No action needed
+2025-07-16 11:00,FARM001,North Field,22.3336,73.1957,45,30.6,4.58,300,Wet,28.5,59,5,339,7.7,546,16.1,3.3,4.81,Harvesting,Moderate,High,Monitor humidity
+2025-07-16 12:00,FARM001,North Field,22.3113,73.1553,45,33.9,4.63,529,Wet,39.4,43,1,231,4.6,107,18.8,4.2,1.2,Vegetative,Poor,Low,No action needed
+2025-07-16 13:00,FARM001,North Field,22.3178,73.146,47,33.2,6.69,557,Dry,33.2,57,9,631,7.6,513,19.0,4.7,2.99,Harvesting,Moderate,Low,Apply fertilizer
+2025-07-16 14:00,FARM001,North Field,22.3588,73.1884,35,31.6,5.11,551,Dry,25.3,70,4,421,6.6,416,18.9,4.7,0.93,Flowering,Poor,Low,No action needed
+2025-07-16 15:00,FARM001,North Field,22.3461,73.1785,58,26.1,6.3,378,Dry,38.1,60,6,682,8.8,977,19.6,3.1,3.23,Seedling,Moderate,High,No action needed
+2025-07-16 16:00,FARM001,North Field,22.3609,73.1544,13,33.4,5.57,304,Dry,32.4,44,6,558,8.8,643,17.2,4.7,0.54,Harvesting,Poor,Medium,Check for pests
+2025-07-16 17:00,FARM001,North Field,22.376,73.1469,80,32.0,6.53,420,Dry,26.9,35,3,488,5.4,684,19.6,3.0,2.63,Harvesting,Moderate,High,Check for pests
+2025-07-16 18:00,FARM001,North Field,22.3152,73.199,20,26.7,4.65,397,Dry,38.2,41,3,241,5.8,187,17.1,3.2,3.64,Harvesting,Good,High,Irrigate tomorrow
+2025-07-16 19:00,FARM001,North Field,22.3743,73.1477,43,31.6,4.74,580,Wet,23.9,65,8,325,1.1,547,19.8,3.1,3.09,Vegetative,Poor,High,Monitor humidity
+2025-07-16 20:00,FARM001,North Field,22.3236,73.1889,85,24.7,6.07,499,Wet,27.4,74,4,606,9.3,621,16.9,4.2,3.92,Flowering,Good,High,No action needed
+2025-07-16 21:00,FARM001,North Field,22.3858,73.1739,26,25.7,6.68,548,Wet,29.9,65,6,494,3.5,933,16.8,3.8,3.75,Vegetative,Moderate,Low,Apply fertilizer
+2025-07-16 22:00,FARM001,North Field,22.3261,73.142,25,20.5,6.64,432,Wet,27.0,77,2,467,8.7,862,19.6,4.9,4.11,Vegetative,Moderate,Low,No action needed
+2025-07-16 23:00,FARM001,North Field,22.3162,73.1799,21,33.7,5.42,436,Wet,20.7,74,6,290,1.2,932,17.0,3.7,2.65,Seedling,Good,Medium,Check for pests
+2025-07-17 00:00,FARM001,North Field,22.3076,73.1408,49,24.4,5.26,459,Dry,21.2,58,10,333,3.6,440,17.1,3.1,0.7,Harvesting,Good,Low,Apply fertilizer
+2025-07-17 01:00,FARM001,North Field,22.3699,73.188,16,31.9,5.59,525,Dry,21.1,68,6,645,2.0,252,16.2,4.4,1.52,Harvesting,Good,High,Apply fertilizer
+2025-07-17 02:00,FARM001,North Field,22.3096,73.1194,73,26.9,4.88,408,Dry,27.2,73,1,284,1.4,978,17.5,3.2,1.82,Harvesting,Moderate,High,Monitor humidity
+2025-07-17 03:00,FARM001,North Field,22.3214,73.1889,88,29.5,5.92,449,Wet,36.8,45,3,694,6.0,154,16.4,4.8,4.98,Flowering,Moderate,Low,Apply fertilizer
+2025-07-17 04:00,FARM001,North Field,22.3748,73.1449,81,33.0,5.14,382,Wet,37.4,33,9,471,1.8,276,17.0,4.1,3.79,Vegetative,Good,Low,Monitor humidity
+2025-07-17 05:00,FARM001,North Field,22.3852,73.1737,84,21.1,7.1,370,Dry,24.3,30,2,234,1.1,876,18.0,3.0,2.57,Harvesting,Good,High,Apply fertilizer
+2025-07-17 06:00,FARM001,North Field,22.3783,73.1292,23,21.3,7.17,588,Dry,21.1,36,0,264,7.5,444,17.8,4.2,4.14,Flowering,Moderate,Medium,Monitor humidity
+2025-07-17 07:00,FARM001,North Field,22.3711,73.168,33,29.6,6.12,311,Dry,24.8,40,8,251,2.7,469,16.8,3.7,4.96,Harvesting,Moderate,Low,Apply fertilizer
+2025-07-17 08:00,FARM001,North Field,22.3665,73.1044,43,32.8,5.38,416,Dry,39.6,61,9,429,4.5,863,20.0,4.3,4.36,Seedling,Poor,High,No action needed
+2025-07-17 09:00,FARM001,North Field,22.3288,73.1885,21,20.7,6.38,413,Dry,22.0,50,5,218,1.6,937,17.1,3.7,4.56,Harvesting,Good,High,Check for pests
+2025-07-17 10:00,FARM001,North Field,22.3474,73.1744,68,30.3,6.87,450,Wet,26.6,40,7,447,1.9,577,17.2,4.1,4.26,Vegetative,Moderate,High,Check for pests
+2025-07-17 11:00,FARM001,North Field,22.3039,73.1873,17,25.1,6.21,530,Dry,23.8,43,3,285,0.1,109,17.1,4.3,1.12,Flowering,Good,Medium,Monitor humidity
+2025-07-17 12:00,FARM001,North Field,22.3235,73.1267,85,30.5,7.06,586,Dry,22.7,52,5,531,9.2,296,17.1,4.5,0.94,Seedling,Poor,High,Irrigate tomorrow
+2025-07-17 13:00,FARM001,North Field,22.3726,73.1437,66,35.0,7.29,367,Dry,25.0,31,7,768,0.2,587,19.4,4.2,1.26,Harvesting,Good,Medium,Monitor humidity
+2025-07-17 14:00,FARM001,North Field,22.3358,73.1441,62,27.4,5.83,396,Wet,24.4,45,5,468,8.2,295,19.9,3.9,1.28,Vegetative,Good,Low,Apply fertilizer
+2025-07-17 15:00,FARM001,North Field,22.3999,73.1064,35,32.8,7.03,384,Dry,31.2,61,9,718,7.4,548,17.5,3.5,1.13,Vegetative,Good,High,No action needed
+2025-07-17 16:00,FARM001,North Field,22.3861,73.1097,16,20.9,6.78,503,Wet,35.6,80,10,428,7.2,715,18.5,3.6,3.21,Seedling,Moderate,Low,Irrigate tomorrow
+2025-07-17 17:00,FARM001,North Field,22.3547,73.1889,20,22.1,7.43,589,Dry,30.9,61,9,467,1.8,309,17.3,4.0,0.87,Harvesting,Good,High,No action needed
+2025-07-17 18:00,FARM001,North Field,22.3623,73.1979,68,25.8,7.3,387,Dry,37.9,38,3,607,4.4,976,19.1,3.6,1.87,Seedling,Moderate,Medium,No action needed
+2025-07-17 19:00,FARM001,North Field,22.3633,73.1479,84,25.4,7.03,524,Dry,29.5,63,6,730,0.6,458,18.3,3.2,3.25,Harvesting,Good,Medium,Monitor humidity
+2025-07-17 20:00,FARM001,North Field,22.3292,73.1818,71,31.0,6.36,399,Dry,28.1,69,10,787,5.9,628,16.5,3.6,4.5,Harvesting,Good,Low,Check for pests
+2025-07-17 21:00,FARM001,North Field,22.3475,73.1792,13,30.5,6.41,371,Wet,28.3,77,7,500,0.5,616,17.0,3.1,4.21,Seedling,Poor,Low,No action needed
+2025-07-17 22:00,FARM001,North Field,22.3006,73.159,63,32.4,5.28,492,Wet,25.4,71,3,737,6.7,379,18.3,3.2,1.53,Seedling,Moderate,Low,Irrigate tomorrow
+2025-07-17 23:00,FARM001,North Field,22.3817,73.1463,67,32.6,5.75,519,Wet,21.9,51,8,597,6.5,191,17.9,4.4,1.65,Vegetative,Good,Medium,Check for pests
+2025-07-18 00:00,FARM001,North Field,22.3602,73.1165,62,33.6,6.55,317,Wet,21.8,48,2,247,5.7,241,18.9,3.6,0.65,Vegetative,Poor,Low,Irrigate tomorrow
+2025-07-18 01:00,FARM001,North Field,22.3287,73.1475,30,30.4,5.38,363,Wet,36.4,77,1,450,8.2,692,19.7,3.4,3.53,Flowering,Poor,Low,Check for pests
+2025-07-18 02:00,FARM001,North Field,22.3679,73.1669,78,23.0,7.42,379,Dry,22.0,54,7,500,9.2,707,16.9,4.7,4.28,Vegetative,Good,Medium,Check for pests
+2025-07-18 03:00,FARM001,North Field,22.3218,73.1022,84,30.1,5.89,547,Wet,21.0,50,9,712,6.9,219,17.5,3.4,3.2,Seedling,Good,High,No action needed
+2025-07-18 04:00,FARM001,North Field,22.3584,73.162,69,33.3,4.71,456,Dry,21.7,57,3,312,6.5,151,18.3,3.5,2.07,Vegetative,Poor,High,No action needed
+2025-07-18 05:00,FARM001,North Field,22.3491,73.1003,79,22.5,6.9,421,Wet,37.8,79,7,260,3.2,495,18.0,4.3,3.46,Flowering,Good,Low,No action needed
+2025-07-18 06:00,FARM001,North Field,22.3806,73.1281,69,25.1,7.44,417,Wet,23.7,34,10,637,1.7,790,19.6,3.3,1.7,Seedling,Good,Low,Check for pests
+2025-07-18 07:00,FARM001,North Field,22.3468,73.1363,58,31.9,6.72,436,Dry,34.1,80,10,544,9.5,488,19.8,4.5,3.05,Flowering,Moderate,High,Check for pests
+2025-07-18 08:00,FARM001,North Field,22.3649,73.1541,70,20.9,6.0,360,Wet,31.0,36,0,454,7.4,933,17.3,4.2,4.45,Vegetative,Moderate,Medium,Check for pests
+2025-07-18 09:00,FARM001,North Field,22.3734,73.102,27,32.5,5.76,410,Wet,29.2,72,3,766,1.5,970,16.1,4.3,2.09,Vegetative,Moderate,Medium,Irrigate tomorrow
+2025-07-18 10:00,FARM001,North Field,22.3112,73.1708,34,31.7,6.52,363,Wet,32.3,67,3,378,1.8,490,19.1,3.9,1.05,Flowering,Poor,Medium,No action needed
+2025-07-18 11:00,FARM001,North Field,22.3276,73.1058,68,32.4,4.53,571,Dry,27.4,55,2,347,9.1,342,17.6,3.0,2.58,Harvesting,Moderate,Medium,Check for pests
+2025-07-18 12:00,FARM001,North Field,22.3431,73.1341,25,30.3,6.39,394,Dry,36.5,48,5,251,3.2,681,19.1,3.8,1.68,Vegetative,Poor,Low,Check for pests
+2025-07-18 13:00,FARM001,North Field,22.3783,73.1933,28,27.2,6.6,447,Dry,37.5,56,6,544,7.9,159,19.4,3.1,2.8,Seedling,Good,High,Apply fertilizer
+2025-07-18 14:00,FARM001,North Field,22.3294,73.1253,66,26.8,5.84,508,Dry,23.3,68,2,350,0.7,432,17.4,4.0,4.78,Harvesting,Moderate,Low,No action needed
+2025-07-18 15:00,FARM001,North Field,22.3419,73.1908,45,33.0,4.72,459,Wet,23.3,74,9,429,3.0,275,19.5,4.3,3.74,Vegetative,Poor,Low,Irrigate tomorrow
+2025-07-18 16:00,FARM001,North Field,22.3365,73.1683,49,20.4,5.27,436,Dry,20.3,59,6,529,0.5,187,18.5,3.6,2.76,Vegetative,Moderate,Medium,Monitor humidity
+2025-07-18 17:00,FARM001,North Field,22.3799,73.1617,80,34.9,6.27,347,Dry,25.6,58,9,568,3.4,930,16.2,3.6,3.25,Vegetative,Good,High,Apply fertilizer
+2025-07-18 18:00,FARM001,North Field,22.3958,73.1462,88,31.9,5.89,413,Wet,22.0,74,6,521,9.9,641,16.0,3.2,2.59,Harvesting,Poor,Medium,Check for pests
+2025-07-18 19:00,FARM001,North Field,22.3438,73.1304,14,24.0,7.19,458,Wet,34.3,55,7,380,4.0,497,17.1,4.3,1.77,Vegetative,Moderate,Medium,No action needed
+2025-07-18 20:00,FARM001,North Field,22.3554,73.1294,67,34.9,6.68,408,Wet,37.5,31,5,375,6.5,484,19.1,3.5,4.05,Harvesting,Poor,Low,Monitor humidity
+2025-07-18 21:00,FARM001,North Field,22.323,73.1982,69,29.9,7.16,460,Dry,39.7,63,2,680,9.7,886,19.5,3.2,2.29,Flowering,Good,Low,Monitor humidity
+2025-07-18 22:00,FARM001,North Field,22.3669,73.1667,54,24.2,7.21,566,Dry,31.3,38,0,329,8.7,206,18.5,3.5,3.81,Harvesting,Poor,Low,Irrigate tomorrow
+2025-07-18 23:00,FARM001,North Field,22.3862,73.1453,26,32.3,6.79,542,Dry,24.9,60,10,247,1.3,729,17.2,3.3,1.61,Vegetative,Poor,Low,Apply fertilizer
+2025-07-19 00:00,FARM001,North Field,22.387,73.1189,37,20.8,5.64,423,Wet,24.1,53,3,442,9.0,161,17.2,4.4,0.9,Seedling,Moderate,Medium,No action needed
+2025-07-19 01:00,FARM001,North Field,22.3028,73.1553,41,32.9,4.58,368,Dry,31.3,50,9,447,9.4,246,19.4,3.5,2.19,Harvesting,Good,High,Check for pests
+2025-07-19 02:00,FARM001,North Field,22.3141,73.1585,48,21.7,5.53,403,Dry,20.1,36,4,405,1.5,931,16.2,4.8,2.01,Harvesting,Good,Medium,No action needed
+2025-07-19 03:00,FARM001,North Field,22.341,73.159,33,22.7,5.74,414,Wet,24.3,68,0,503,4.8,101,17.0,3.4,2.35,Vegetative,Poor,Medium,Apply fertilizer
+2025-07-19 04:00,FARM001,North Field,22.3182,73.104,21,30.3,5.48,453,Dry,21.6,44,2,729,3.8,837,18.7,4.1,3.46,Seedling,Good,High,Check for pests
+2025-07-19 05:00,FARM001,North Field,22.3609,73.1012,22,21.9,6.95,369,Wet,35.8,76,6,435,7.0,199,19.1,4.1,1.83,Flowering,Poor,Low,Check for pests
+2025-07-19 06:00,FARM001,North Field,22.3847,73.191,29,30.7,5.01,548,Dry,24.6,45,4,565,3.5,685,19.6,3.1,1.11,Seedling,Poor,Low,Monitor humidity
+2025-07-19 07:00,FARM001,North Field,22.3127,73.1104,67,30.8,6.0,410,Wet,21.1,43,6,587,1.0,140,18.4,4.7,1.62,Flowering,Poor,Medium,Apply fertilizer
+2025-07-19 08:00,FARM001,North Field,22.3475,73.1558,87,25.9,7.14,534,Dry,30.3,69,7,590,5.6,802,17.7,4.8,1.73,Vegetative,Poor,Low,No action needed
+2025-07-19 09:00,FARM001,North Field,22.3686,73.1126,82,27.0,5.32,511,Wet,25.6,75,5,781,9.9,548,16.9,4.7,1.16,Flowering,Good,High,No action needed
+2025-07-19 10:00,FARM001,North Field,22.3318,73.1852,58,21.7,6.33,557,Dry,30.0,69,3,322,3.5,243,18.9,4.4,2.55,Flowering,Poor,Low,No action needed
+2025-07-19 11:00,FARM001,North Field,22.3276,73.1094,66,29.8,6.49,462,Dry,36.3,33,1,441,0.9,889,17.9,4.5,1.63,Flowering,Poor,Low,Apply fertilizer
+2025-07-19 12:00,FARM001,North Field,22.3213,73.1501,50,32.2,6.61,302,Dry,30.1,49,7,312,9.5,472,17.3,3.6,1.41,Vegetative,Moderate,Medium,Check for pests
+2025-07-19 13:00,FARM001,North Field,22.3117,73.1059,47,28.8,5.53,456,Wet,35.6,70,4,596,9.0,635,16.7,3.3,3.66,Vegetative,Good,Low,Check for pests
+2025-07-19 14:00,FARM001,North Field,22.3406,73.1163,42,26.6,4.67,391,Wet,34.7,61,8,201,6.8,413,19.0,4.2,0.58,Harvesting,Poor,Low,Check for pests
+2025-07-19 15:00,FARM001,North Field,22.3978,73.1317,47,32.7,6.97,323,Wet,39.4,46,3,738,8.3,514,17.7,3.9,3.26,Seedling,Poor,Medium,No action needed
+2025-07-19 16:00,FARM001,North Field,22.3897,73.1557,23,23.8,6.64,521,Wet,20.8,68,7,794,8.0,834,18.6,4.6,4.5,Harvesting,Good,High,No action needed
+2025-07-19 17:00,FARM001,North Field,22.3039,73.1997,15,27.8,6.48,354,Wet,30.0,48,6,647,5.7,783,19.6,4.1,2.94,Seedling,Moderate,Low,Check for pests
+2025-07-19 18:00,FARM001,North Field,22.377,73.1985,65,26.9,4.86,424,Wet,37.0,50,9,262,3.2,108,16.5,3.4,1.79,Vegetative,Good,Medium,Check for pests
+2025-07-19 19:00,FARM001,North Field,22.3239,73.1331,41,30.8,5.55,441,Wet,38.9,80,9,593,3.1,383,17.1,4.2,0.68,Flowering,Good,High,Irrigate tomorrow
+2025-07-19 20:00,FARM001,North Field,22.323,73.1248,79,33.7,6.5,303,Dry,26.5,79,3,788,3.3,232,19.6,3.3,4.17,Seedling,Poor,Medium,Monitor humidity
+2025-07-19 21:00,FARM001,North Field,22.3679,73.1373,81,21.5,7.07,310,Dry,28.2,57,1,779,7.5,234,18.1,3.1,2.53,Harvesting,Poor,Medium,Irrigate tomorrow
+2025-07-19 22:00,FARM001,North Field,22.3283,73.1416,67,28.7,5.09,347,Wet,25.0,58,5,672,4.2,578,17.6,4.7,4.49,Harvesting,Good,Low,Check for pests
+2025-07-19 23:00,FARM001,North Field,22.35,73.1649,77,33.6,5.11,336,Wet,34.1,73,8,232,7.5,976,19.8,3.8,3.16,Flowering,Moderate,High,Irrigate tomorrow
+2025-07-20 00:00,FARM001,North Field,22.3842,73.162,20,34.9,6.35,487,Dry,21.0,35,7,757,1.2,706,18.8,3.9,0.88,Harvesting,Moderate,Low,Monitor humidity
+2025-07-20 01:00,FARM001,North Field,22.3431,73.1156,34,21.6,5.1,374,Dry,39.5,45,6,629,2.6,833,16.5,3.6,2.03,Seedling,Good,Low,Apply fertilizer
+2025-07-20 02:00,FARM001,North Field,22.3635,73.1449,46,24.7,5.51,480,Wet,32.6,63,4,449,1.8,200,16.9,3.8,3.88,Harvesting,Good,High,Check for pests
+2025-07-20 03:00,FARM001,North Field,22.3945,73.1686,62,28.4,5.29,463,Dry,23.7,44,10,534,2.4,446,17.1,4.1,4.45,Seedling,Moderate,Low,Check for pests
+2025-07-20 04:00,FARM001,North Field,22.3096,73.1099,76,34.2,6.63,600,Wet,29.9,31,9,242,0.4,519,18.7,4.3,1.24,Harvesting,Good,Low,No action needed
+2025-07-20 05:00,FARM001,North Field,22.3511,73.1617,10,30.9,4.83,437,Wet,27.9,45,3,656,1.6,337,16.7,4.7,0.56,Flowering,Poor,Low,Check for pests
+2025-07-20 06:00,FARM001,North Field,22.3855,73.1665,22,28.1,5.62,437,Dry,25.8,35,2,464,0.2,719,17.2,3.7,1.5,Harvesting,Good,Low,Monitor humidity
+2025-07-20 07:00,FARM001,North Field,22.3083,73.1153,71,33.6,5.61,459,Wet,33.5,66,10,793,1.1,864,17.2,3.1,3.78,Flowering,Moderate,Medium,Apply fertilizer
+2025-07-20 08:00,FARM001,North Field,22.3182,73.1128,64,26.5,6.89,444,Wet,27.3,63,5,413,1.2,234,16.7,4.9,3.29,Vegetative,Poor,Medium,Apply fertilizer
+2025-07-20 09:00,FARM001,North Field,22.3373,73.1499,32,25.2,5.71,559,Dry,36.7,37,9,651,6.4,987,18.7,4.7,3.62,Seedling,Poor,Low,Check for pests
+2025-07-20 10:00,FARM001,North Field,22.3328,73.1535,72,31.8,4.61,446,Wet,30.2,33,3,544,1.6,454,18.7,4.5,4.07,Vegetative,Poor,High,No action needed
+2025-07-20 11:00,FARM001,North Field,22.3768,73.1331,89,34.3,7.05,337,Dry,37.4,51,1,672,4.9,520,18.4,3.7,2.92,Seedling,Poor,High,Irrigate tomorrow
+2025-07-20 12:00,FARM001,North Field,22.3638,73.1896,61,23.5,7.21,418,Dry,20.3,49,1,406,9.2,480,16.0,3.4,1.67,Seedling,Good,High,Apply fertilizer
+2025-07-20 13:00,FARM001,North Field,22.3479,73.1969,25,32.2,7.48,459,Wet,28.2,80,6,633,1.9,646,17.5,4.7,3.53,Vegetative,Moderate,Medium,Check for pests
+2025-07-20 14:00,FARM001,North Field,22.3686,73.1892,70,34.5,5.9,458,Wet,31.5,32,7,567,3.2,472,17.7,5.0,1.52,Seedling,Poor,Low,Apply fertilizer
+2025-07-20 15:00,FARM001,North Field,22.3431,73.1817,64,29.3,5.48,325,Wet,31.8,79,6,393,6.4,778,19.0,4.4,2.9,Seedling,Moderate,Medium,Apply fertilizer
+2025-07-20 16:00,FARM001,North Field,22.3016,73.1224,85,27.7,6.88,314,Wet,27.6,68,4,339,0.1,211,20.0,4.1,3.95,Seedling,Moderate,High,Check for pests
+2025-07-20 17:00,FARM001,North Field,22.393,73.1204,28,22.7,5.08,326,Wet,29.7,51,6,605,8.3,940,18.2,4.9,3.14,Vegetative,Moderate,Medium,No action needed
+2025-07-20 18:00,FARM001,North Field,22.3466,73.1871,67,23.0,6.67,415,Dry,33.0,38,3,238,7.1,334,16.9,4.8,4.25,Seedling,Poor,Medium,Check for pests
+2025-07-20 19:00,FARM001,North Field,22.3519,73.1823,58,35.0,7.05,502,Dry,37.2,37,0,477,4.4,118,16.7,4.7,2.2,Vegetative,Moderate,Low,No action needed
+2025-07-20 20:00,FARM001,North Field,22.3187,73.1953,22,31.8,6.59,363,Wet,35.3,73,6,389,0.0,388,17.5,4.6,4.55,Harvesting,Moderate,High,No action needed
+2025-07-20 21:00,FARM001,North Field,22.366,73.1778,40,33.5,4.61,523,Dry,23.9,45,5,452,4.1,358,16.8,4.4,1.72,Seedling,Moderate,Low,Apply fertilizer
+2025-07-20 22:00,FARM001,North Field,22.333,73.1014,29,29.7,5.02,519,Wet,37.1,51,10,485,4.6,641,17.9,3.7,4.35,Vegetative,Moderate,Medium,Check for pests
+2025-07-20 23:00,FARM001,North Field,22.3286,73.1298,45,20.2,5.95,593,Wet,27.4,62,2,478,9.2,908,18.3,4.8,1.18,Seedling,Moderate,High,No action needed
+2025-07-21 00:00,FARM001,North Field,22.3825,73.1025,68,23.1,6.33,338,Dry,34.0,30,10,454,9.7,360,17.2,3.3,3.45,Vegetative,Poor,Low,Check for pests
+2025-07-21 01:00,FARM001,North Field,22.3694,73.1527,70,27.2,7.05,423,Wet,33.0,50,3,674,9.4,222,19.3,4.7,4.01,Flowering,Good,High,Check for pests
+2025-07-21 02:00,FARM001,North Field,22.3651,73.1744,68,33.2,5.45,535,Wet,32.7,41,0,530,7.7,204,17.1,4.5,2.21,Seedling,Moderate,Low,Irrigate tomorrow
+2025-07-21 03:00,FARM001,North Field,22.3654,73.1994,90,27.1,6.35,384,Dry,34.1,61,1,677,7.8,150,19.3,3.4,2.35,Seedling,Poor,High,No action needed
+2025-07-21 04:00,FARM001,North Field,22.3259,73.1435,34,33.6,6.57,577,Dry,24.4,61,10,735,9.1,788,17.0,4.6,1.9,Harvesting,Poor,Low,No action needed
+2025-07-21 05:00,FARM001,North Field,22.3656,73.129,63,20.5,5.73,387,Dry,29.0,35,10,574,6.6,345,16.3,3.2,4.96,Flowering,Moderate,Medium,Apply fertilizer
+2025-07-21 06:00,FARM001,North Field,22.3283,73.1904,68,20.9,4.54,518,Dry,32.8,43,2,463,2.5,288,16.8,3.8,0.55,Harvesting,Poor,Low,Monitor humidity
+2025-07-21 07:00,FARM001,North Field,22.3946,73.1627,67,26.6,5.45,551,Wet,35.6,41,7,400,8.2,640,18.9,3.7,2.13,Flowering,Moderate,High,Check for pests
+2025-07-21 08:00,FARM001,North Field,22.3824,73.1165,73,33.6,4.65,406,Wet,31.0,62,5,761,8.4,579,17.8,4.5,2.92,Vegetative,Good,High,Irrigate tomorrow
+2025-07-21 09:00,FARM001,North Field,22.3856,73.1525,77,30.3,5.09,475,Wet,36.5,52,0,286,8.0,359,16.0,5.0,1.68,Seedling,Moderate,High,Monitor humidity
+2025-07-21 10:00,FARM001,North Field,22.3062,73.1322,27,23.1,6.67,558,Wet,23.3,47,0,750,4.9,365,17.7,4.1,2.15,Harvesting,Poor,Medium,Irrigate tomorrow
+2025-07-21 11:00,FARM001,North Field,22.3545,73.1488,47,24.6,5.3,328,Dry,34.0,56,6,765,4.0,280,18.4,3.3,1.38,Seedling,Moderate,Medium,Apply fertilizer
+2025-07-21 12:00,FARM001,North Field,22.3279,73.1634,76,20.1,5.67,355,Dry,24.2,46,2,521,8.1,825,17.8,4.6,2.61,Seedling,Poor,High,Apply fertilizer
+2025-07-21 13:00,FARM001,North Field,22.396,73.1314,68,22.0,7.47,330,Dry,30.5,65,4,516,1.7,374,17.6,4.6,2.33,Harvesting,Poor,Low,No action needed
+2025-07-21 14:00,FARM001,North Field,22.3626,73.1015,17,22.8,6.7,557,Dry,35.3,46,10,566,9.2,216,17.4,3.1,2.21,Harvesting,Good,High,Irrigate tomorrow
+2025-07-21 15:00,FARM001,North Field,22.3124,73.1408,15,31.6,5.37,424,Wet,20.3,40,2,789,6.9,754,18.0,3.5,0.56,Seedling,Moderate,Low,Monitor humidity
+2025-07-21 16:00,FARM001,North Field,22.3253,73.155,72,24.6,7.09,567,Dry,38.4,38,5,483,2.2,507,16.1,3.1,3.52,Vegetative,Good,High,Apply fertilizer
+2025-07-21 17:00,FARM001,North Field,22.3066,73.1835,40,33.4,5.17,584,Dry,34.5,52,10,762,2.3,785,16.5,3.8,4.14,Flowering,Moderate,Medium,Irrigate tomorrow
+2025-07-21 18:00,FARM001,North Field,22.3884,73.1802,68,27.1,6.47,305,Dry,29.8,61,10,612,7.5,576,18.9,3.0,0.69,Flowering,Poor,Low,Irrigate tomorrow
+2025-07-21 19:00,FARM001,North Field,22.3838,73.1951,49,22.0,5.12,542,Wet,36.4,72,7,720,7.0,908,17.9,3.3,1.7,Harvesting,Moderate,Medium,No action needed
+2025-07-21 20:00,FARM001,North Field,22.3631,73.1097,71,24.1,6.32,563,Wet,20.3,38,2,367,6.6,504,18.7,3.4,4.38,Harvesting,Poor,Low,Check for pests
+2025-07-21 21:00,FARM001,North Field,22.3298,73.1256,56,30.0,6.75,381,Dry,31.1,80,1,424,5.5,263,16.4,3.8,3.72,Flowering,Moderate,Medium,Apply fertilizer
+2025-07-21 22:00,FARM001,North Field,22.317,73.1355,58,23.1,6.8,469,Dry,31.9,62,9,546,8.0,104,17.5,3.8,3.81,Vegetative,Poor,High,Monitor humidity
+2025-07-21 23:00,FARM001,North Field,22.3198,73.1633,27,22.1,5.09,525,Dry,37.7,32,9,768,6.1,114,16.9,3.4,3.61,Vegetative,Good,Medium,Check for pests
+2025-07-22 00:00,FARM001,North Field,22.3032,73.1793,63,23.4,6.86,474,Wet,39.5,65,0,733,6.4,512,18.0,4.3,1.9,Vegetative,Good,Low,Check for pests
+2025-07-22 01:00,FARM001,North Field,22.3392,73.1242,75,34.3,4.9,397,Dry,39.8,63,8,617,6.3,739,17.3,4.0,4.36,Seedling,Poor,Low,Irrigate tomorrow
+2025-07-22 02:00,FARM001,North Field,22.3439,73.1398,41,22.1,6.92,475,Dry,22.0,55,1,685,8.4,571,19.6,3.1,1.0,Seedling,Moderate,High,Check for pests
+2025-07-22 03:00,FARM001,North Field,22.36,73.1084,13,29.2,4.93,361,Dry,25.3,38,5,429,3.8,410,16.2,4.1,3.17,Seedling,Poor,High,Apply fertilizer
+2025-07-22 04:00,FARM001,North Field,22.3949,73.1427,86,32.2,6.12,518,Dry,32.5,47,0,718,1.9,170,17.4,3.8,1.62,Vegetative,Poor,High,No action needed
+2025-07-22 05:00,FARM001,North Field,22.3029,73.1283,29,28.2,5.47,419,Dry,28.0,78,5,625,3.9,450,19.8,3.7,1.14,Flowering,Moderate,Low,Irrigate tomorrow
+2025-07-22 06:00,FARM001,North Field,22.3357,73.1199,76,23.4,5.01,318,Wet,38.2,69,7,570,0.6,423,18.7,3.9,1.19,Seedling,Poor,Low,Check for pests
+2025-07-22 07:00,FARM001,North Field,22.3025,73.1999,75,29.6,5.35,432,Wet,27.8,49,8,736,2.8,790,19.8,3.7,1.84,Flowering,Poor,High,No action needed
+2025-07-22 08:00,FARM001,North Field,22.3026,73.1381,37,22.5,7.11,366,Dry,38.5,72,0,223,4.4,751,18.4,3.6,2.79,Vegetative,Moderate,Medium,Monitor humidity
+2025-07-22 09:00,FARM001,North Field,22.3669,73.127,46,26.6,4.83,478,Dry,30.4,64,6,468,6.1,766,19.8,3.8,3.04,Vegetative,Good,Low,Irrigate tomorrow
+2025-07-22 10:00,FARM001,North Field,22.3879,73.137,76,34.3,6.75,581,Dry,21.2,64,7,527,9.2,394,16.1,4.4,1.39,Vegetative,Poor,Medium,No action needed
+2025-07-22 11:00,FARM001,North Field,22.3926,73.1113,28,34.3,6.34,571,Dry,23.5,46,10,503,0.5,700,17.6,4.0,1.87,Flowering,Moderate,Low,Monitor humidity
+2025-07-22 12:00,FARM001,North Field,22.3619,73.1433,79,31.2,7.27,519,Wet,34.3,35,2,349,1.3,693,18.3,3.7,4.13,Flowering,Moderate,Low,Monitor humidity
+2025-07-22 13:00,FARM001,North Field,22.3713,73.1181,12,23.4,5.48,305,Dry,29.8,54,9,241,5.0,481,17.5,3.5,1.94,Flowering,Good,Low,Monitor humidity
+2025-07-22 14:00,FARM001,North Field,22.3447,73.1657,45,22.4,7.02,526,Wet,24.5,75,8,225,0.2,619,18.0,3.0,4.02,Seedling,Moderate,Medium,Monitor humidity
+2025-07-22 15:00,FARM001,North Field,22.3072,73.1743,21,30.4,7.5,371,Wet,23.8,31,4,545,5.1,845,17.5,4.4,4.7,Vegetative,Good,Low,Check for pests
+2025-07-22 16:00,FARM001,North Field,22.336,73.1472,70,22.6,6.05,339,Wet,29.6,33,10,638,10.0,586,17.1,4.9,3.57,Vegetative,Moderate,Low,No action needed
+2025-07-22 17:00,FARM001,North Field,22.3697,73.1525,34,27.5,6.11,493,Dry,26.2,73,2,260,5.5,993,17.9,4.8,2.21,Vegetative,Poor,Medium,Irrigate tomorrow
+2025-07-22 18:00,FARM001,North Field,22.3887,73.1536,47,30.5,5.22,379,Wet,24.2,40,5,468,2.6,789,18.4,4.3,2.38,Seedling,Moderate,Medium,Check for pests
+2025-07-22 19:00,FARM001,North Field,22.3965,73.1065,90,22.0,7.23,325,Dry,25.6,49,0,506,5.3,841,17.0,3.3,2.08,Seedling,Moderate,Low,Monitor humidity
+2025-07-22 20:00,FARM001,North Field,22.3701,73.1535,61,22.5,4.78,368,Wet,30.0,36,10,510,6.8,847,19.5,3.6,4.84,Vegetative,Poor,Medium,Apply fertilizer
+2025-07-22 21:00,FARM001,North Field,22.3729,73.1849,23,29.6,6.65,592,Dry,29.4,79,2,261,3.0,635,16.6,4.9,4.61,Vegetative,Moderate,Low,Apply fertilizer
+2025-07-22 22:00,FARM001,North Field,22.3795,73.1031,60,33.6,6.0,568,Wet,35.8,51,8,424,0.7,826,19.7,4.2,2.5,Vegetative,Good,High,Apply fertilizer
+2025-07-22 23:00,FARM001,North Field,22.3055,73.1634,39,22.1,5.01,468,Wet,20.6,69,6,236,3.5,379,17.1,4.5,4.99,Harvesting,Moderate,Medium,Apply fertilizer
+2025-07-23 00:00,FARM001,North Field,22.3867,73.1987,82,31.4,7.13,517,Wet,36.0,65,2,349,1.3,952,17.4,4.8,1.03,Flowering,Moderate,Medium,Check for pests
+2025-07-23 01:00,FARM001,North Field,22.3572,73.1112,24,22.4,4.65,385,Wet,36.7,75,6,240,7.9,166,16.3,3.9,3.97,Seedling,Moderate,Medium,No action needed
+2025-07-23 02:00,FARM001,North Field,22.3808,73.1538,13,22.1,5.85,326,Wet,33.8,73,2,326,8.8,399,16.6,4.7,3.48,Vegetative,Poor,High,No action needed
+2025-07-23 03:00,FARM001,North Field,22.3908,73.1184,12,22.3,4.93,413,Wet,36.1,64,0,538,0.4,442,18.5,3.3,2.87,Seedling,Good,Medium,Irrigate tomorrow
+2025-07-23 04:00,FARM001,North Field,22.3194,73.139,24,20.3,6.65,346,Dry,30.6,71,7,660,3.6,612,17.2,4.2,2.2,Flowering,Good,Medium,No action needed
+2025-07-23 05:00,FARM001,North Field,22.3754,73.1034,75,25.5,6.96,361,Wet,29.6,60,9,580,10.0,481,19.5,4.1,4.89,Seedling,Moderate,Medium,Apply fertilizer
+2025-07-23 06:00,FARM001,North Field,22.3982,73.1016,58,34.0,6.84,381,Dry,25.1,79,7,519,6.8,268,17.8,4.9,3.75,Harvesting,Good,Medium,Check for pests
+2025-07-23 07:00,FARM001,North Field,22.3209,73.1876,78,20.4,5.76,370,Wet,26.0,33,7,452,2.4,835,19.0,4.0,4.98,Flowering,Poor,High,Check for pests
+2025-07-23 08:00,FARM001,North Field,22.3614,73.1798,55,23.2,6.42,574,Dry,21.3,58,3,325,6.9,862,16.5,3.4,1.06,Flowering,Good,Medium,Apply fertilizer
+2025-07-23 09:00,FARM001,North Field,22.3435,73.1664,65,22.5,4.86,455,Dry,24.1,57,0,507,1.5,976,16.3,3.3,4.1,Seedling,Good,Medium,Monitor humidity
+2025-07-23 10:00,FARM001,North Field,22.3586,73.1219,85,28.7,5.05,522,Dry,32.1,63,1,249,8.0,961,16.8,3.9,2.02,Flowering,Good,Low,Monitor humidity
+2025-07-23 11:00,FARM001,North Field,22.3789,73.1761,49,24.6,4.63,586,Dry,29.6,60,0,389,9.0,645,18.1,4.1,4.01,Flowering,Poor,Medium,Irrigate tomorrow
+2025-07-23 12:00,FARM001,North Field,22.378,73.195,63,34.9,4.95,380,Dry,35.7,37,8,551,3.3,468,18.8,4.6,2.88,Harvesting,Moderate,Medium,Apply fertilizer
+2025-07-23 13:00,FARM001,North Field,22.39,73.1181,80,30.3,4.73,354,Wet,34.9,50,4,696,7.1,727,16.8,3.2,4.23,Seedling,Poor,High,Monitor humidity
+2025-07-23 14:00,FARM001,North Field,22.3889,73.183,43,28.7,5.03,573,Dry,39.2,75,0,419,2.2,731,19.8,4.3,1.29,Flowering,Poor,Low,No action needed
+2025-07-23 15:00,FARM001,North Field,22.367,73.1605,86,28.3,7.31,328,Wet,26.9,48,0,563,8.8,578,18.4,4.7,2.33,Flowering,Moderate,High,Monitor humidity
+2025-07-23 16:00,FARM001,North Field,22.3225,73.1891,20,23.3,7.18,478,Dry,33.3,52,4,594,0.7,134,17.2,3.7,2.98,Harvesting,Poor,Medium,Apply fertilizer
+2025-07-23 17:00,FARM001,North Field,22.3659,73.159,13,34.1,4.7,598,Wet,31.6,76,4,468,7.1,273,16.5,3.5,2.63,Flowering,Moderate,Low,Irrigate tomorrow
+2025-07-23 18:00,FARM001,North Field,22.3467,73.131,73,26.2,6.54,584,Dry,29.6,46,5,286,1.9,615,19.3,4.9,0.82,Flowering,Good,High,No action needed
+2025-07-23 19:00,FARM001,North Field,22.3241,73.1924,48,29.5,5.22,316,Wet,25.0,36,1,293,5.2,724,16.8,4.0,3.02,Harvesting,Moderate,Low,No action needed
+2025-07-23 20:00,FARM001,North Field,22.3946,73.1671,27,24.0,6.33,532,Dry,25.8,53,6,341,8.6,112,18.2,4.0,0.98,Harvesting,Good,High,Apply fertilizer
+2025-07-23 21:00,FARM001,North Field,22.3706,73.1016,14,22.2,6.04,441,Wet,22.8,34,1,314,7.5,554,19.4,3.8,4.08,Harvesting,Poor,Medium,Apply fertilizer
+2025-07-23 22:00,FARM001,North Field,22.3411,73.1963,55,27.3,7.49,483,Wet,28.0,45,8,772,6.6,926,17.7,4.5,3.99,Flowering,Good,High,Irrigate tomorrow
+2025-07-23 23:00,FARM001,North Field,22.3198,73.1664,44,30.2,7.21,437,Dry,22.8,74,1,661,6.0,913,16.4,4.6,2.28,Seedling,Poor,Low,Check for pests
+2025-07-24 00:00,FARM001,North Field,22.3132,73.1266,10,32.4,6.44,347,Dry,38.1,57,7,740,5.9,200,18.6,3.4,1.32,Vegetative,Poor,High,No action needed
+2025-07-24 01:00,FARM001,North Field,22.3095,73.1778,75,28.3,6.16,503,Dry,35.1,50,2,631,0.3,286,19.0,4.3,1.18,Seedling,Good,High,Monitor humidity
+2025-07-24 02:00,FARM001,North Field,22.3539,73.1711,57,32.2,6.95,542,Dry,21.4,46,7,455,9.9,363,16.2,3.6,2.14,Flowering,Good,Medium,Monitor humidity
+2025-07-24 03:00,FARM001,North Field,22.3781,73.1693,15,28.9,7.22,431,Wet,29.8,67,2,257,5.5,454,17.0,4.8,2.71,Seedling,Moderate,High,No action needed
+2025-07-24 04:00,FARM001,North Field,22.3859,73.1252,85,22.4,4.7,312,Dry,31.6,47,4,758,0.6,341,18.8,4.8,4.74,Flowering,Good,High,Irrigate tomorrow
+2025-07-24 05:00,FARM001,North Field,22.39,73.1469,85,22.9,6.66,497,Dry,21.6,48,0,475,8.0,156,17.0,4.9,4.59,Vegetative,Moderate,High,Check for pests
+2025-07-24 06:00,FARM001,North Field,22.3654,73.1362,41,34.5,6.94,524,Dry,38.5,77,3,732,3.2,992,17.4,4.9,2.58,Seedling,Moderate,Low,Apply fertilizer
+2025-07-24 07:00,FARM001,North Field,22.3129,73.1786,16,26.3,5.93,461,Wet,28.5,63,3,472,2.9,953,16.8,3.2,4.37,Seedling,Moderate,High,No action needed
+2025-07-24 08:00,FARM001,North Field,22.34,73.1386,77,34.4,4.6,483,Dry,36.8,75,5,425,9.2,244,17.3,3.1,4.9,Harvesting,Good,Low,Irrigate tomorrow
+2025-07-24 09:00,FARM001,North Field,22.3785,73.1105,48,31.3,5.5,491,Dry,23.1,58,7,554,9.5,593,19.9,3.6,1.38,Seedling,Good,Medium,Irrigate tomorrow
+2025-07-24 10:00,FARM001,North Field,22.3686,73.1416,15,22.9,6.88,377,Wet,27.8,69,0,290,7.5,542,18.4,3.8,4.42,Flowering,Good,Low,Irrigate tomorrow
+2025-07-24 11:00,FARM001,North Field,22.3734,73.1876,40,21.0,6.05,465,Wet,35.4,76,3,558,4.9,795,18.9,4.7,1.19,Seedling,Good,Low,Apply fertilizer
+2025-07-24 12:00,FARM001,North Field,22.3851,73.18,84,32.6,6.17,575,Wet,33.0,53,0,684,9.6,538,18.6,4.5,4.04,Flowering,Moderate,Medium,No action needed
+2025-07-24 13:00,FARM001,North Field,22.3845,73.1005,89,21.1,5.65,459,Dry,37.2,39,9,579,6.5,221,16.2,3.7,3.01,Vegetative,Moderate,Low,No action needed
+2025-07-24 14:00,FARM001,North Field,22.3619,73.1196,77,33.0,6.33,410,Wet,34.7,52,0,318,7.4,249,18.9,4.9,3.41,Seedling,Moderate,High,Monitor humidity
+2025-07-24 15:00,FARM001,North Field,22.3198,73.1771,87,25.1,4.82,478,Dry,38.9,53,1,638,9.9,452,18.6,4.6,1.94,Seedling,Poor,High,Apply fertilizer
+2025-07-24 16:00,FARM001,North Field,22.3574,73.1479,30,23.5,5.31,301,Wet,33.0,33,7,781,7.2,367,17.3,4.1,2.27,Vegetative,Moderate,High,Monitor humidity
+2025-07-24 17:00,FARM001,North Field,22.3852,73.1736,35,31.5,5.34,382,Dry,36.0,71,2,367,6.8,551,18.3,4.0,4.3,Flowering,Good,High,No action needed
+2025-07-24 18:00,FARM001,North Field,22.3118,73.1087,51,25.1,6.99,321,Wet,36.7,37,8,600,8.0,207,16.9,3.8,0.64,Flowering,Good,Medium,Irrigate tomorrow
+2025-07-24 19:00,FARM001,North Field,22.3048,73.1129,14,30.2,7.28,439,Wet,30.4,36,0,765,1.8,943,19.0,4.7,4.7,Flowering,Poor,Low,Check for pests
+2025-07-24 20:00,FARM001,North Field,22.3068,73.11,87,20.7,4.66,473,Wet,24.7,30,5,450,8.9,790,17.6,4.3,4.32,Flowering,Poor,Medium,Apply fertilizer
+2025-07-24 21:00,FARM001,North Field,22.3164,73.1672,80,27.4,4.61,372,Wet,25.3,45,3,709,9.6,106,17.9,4.8,1.09,Seedling,Good,High,No action needed
+2025-07-24 22:00,FARM001,North Field,22.3981,73.1496,57,24.2,6.91,416,Dry,33.4,56,9,219,3.1,776,16.8,4.1,1.0,Seedling,Poor,Medium,No action needed
+2025-07-24 23:00,FARM001,North Field,22.38,73.111,54,20.6,6.71,412,Dry,34.8,57,6,309,5.4,366,17.1,3.2,4.24,Flowering,Moderate,High,No action needed
+2025-07-25 00:00,FARM001,North Field,22.3737,73.1014,51,30.9,4.81,387,Dry,39.1,43,8,478,7.7,265,17.1,4.3,1.57,Flowering,Good,Medium,Monitor humidity
+2025-07-25 01:00,FARM001,North Field,22.3901,73.1634,68,32.9,4.99,340,Dry,38.7,54,3,674,8.3,318,19.5,4.6,2.2,Flowering,Poor,High,No action needed
+2025-07-25 02:00,FARM001,North Field,22.3467,73.1445,34,30.4,6.33,551,Wet,30.3,39,10,404,3.8,101,16.7,4.9,1.07,Seedling,Moderate,Low,Irrigate tomorrow
+2025-07-25 03:00,FARM001,North Field,22.3268,73.1386,25,20.3,5.64,555,Dry,38.9,33,9,261,1.5,901,16.6,4.0,3.61,Seedling,Poor,Medium,Apply fertilizer
+2025-07-25 04:00,FARM001,North Field,22.3439,73.122,10,22.7,6.47,579,Wet,34.8,77,1,375,9.3,198,18.6,3.5,2.71,Seedling,Moderate,Low,No action needed
+2025-07-25 05:00,FARM001,North Field,22.3977,73.1348,32,28.0,5.61,347,Wet,25.3,43,9,258,2.9,167,16.2,4.1,4.9,Vegetative,Poor,Low,No action needed
+2025-07-25 06:00,FARM001,North Field,22.3912,73.174,30,29.5,6.86,524,Dry,34.7,50,3,300,6.4,930,19.7,3.3,2.03,Flowering,Moderate,Low,Apply fertilizer
+2025-07-25 07:00,FARM001,North Field,22.3092,73.1337,15,23.7,6.36,546,Wet,28.8,48,3,798,4.7,661,19.9,3.8,0.59,Seedling,Poor,Low,Monitor humidity
+2025-07-25 08:00,FARM001,North Field,22.3969,73.1583,21,25.3,5.35,395,Wet,26.2,40,10,334,5.6,597,17.1,5.0,1.43,Seedling,Poor,Low,Irrigate tomorrow
+2025-07-25 09:00,FARM001,North Field,22.3095,73.1417,56,21.6,6.97,321,Wet,26.9,76,8,787,2.7,467,19.8,3.0,1.03,Flowering,Poor,Medium,No action needed
+2025-07-25 10:00,FARM001,North Field,22.3284,73.1629,20,22.9,7.48,332,Wet,21.0,53,7,782,8.1,571,19.1,4.4,4.86,Seedling,Poor,Low,Irrigate tomorrow
+2025-07-25 11:00,FARM001,North Field,22.316,73.1103,74,26.2,7.19,584,Wet,36.9,35,8,246,6.2,855,17.6,4.5,4.86,Vegetative,Good,Low,Apply fertilizer
+2025-07-25 12:00,FARM001,North Field,22.3738,73.1892,39,21.8,5.44,561,Wet,24.5,72,10,662,6.3,668,18.8,5.0,4.2,Vegetative,Good,High,No action needed
+2025-07-25 13:00,FARM001,North Field,22.3981,73.1444,42,31.2,7.23,527,Wet,38.4,66,7,331,9.8,491,19.3,3.2,3.17,Vegetative,Moderate,Medium,Apply fertilizer
+2025-07-25 14:00,FARM001,North Field,22.3823,73.1877,15,24.5,7.1,526,Dry,24.5,55,0,660,7.8,542,16.6,3.4,4.54,Harvesting,Poor,High,Apply fertilizer
+2025-07-25 15:00,FARM001,North Field,22.3169,73.1458,36,31.0,5.51,545,Wet,26.5,45,0,321,8.1,786,18.3,3.6,2.26,Seedling,Poor,Low,No action needed
+2025-07-25 16:00,FARM001,North Field,22.3575,73.1685,63,23.8,5.18,449,Wet,20.0,72,4,634,5.9,591,16.9,3.6,1.3,Vegetative,Good,Low,Apply fertilizer
+2025-07-25 17:00,FARM001,North Field,22.3397,73.1414,72,24.1,5.75,404,Wet,27.0,67,3,798,4.1,257,18.1,3.4,1.38,Vegetative,Poor,Low,Irrigate tomorrow
+2025-07-25 18:00,FARM001,North Field,22.3575,73.1397,10,22.9,7.38,329,Dry,21.1,69,7,203,2.8,910,18.3,3.9,4.68,Vegetative,Moderate,Low,Apply fertilizer
+2025-07-25 19:00,FARM001,North Field,22.3385,73.1938,46,26.4,5.77,491,Wet,20.7,52,10,291,0.9,947,16.3,4.3,1.46,Flowering,Poor,Medium,Check for pests
+2025-07-25 20:00,FARM001,North Field,22.396,73.1902,64,20.5,6.3,575,Wet,38.3,49,9,315,8.9,139,19.5,4.6,4.9,Seedling,Poor,High,Irrigate tomorrow
+2025-07-25 21:00,FARM001,North Field,22.3828,73.1819,84,22.1,4.86,585,Wet,35.0,56,1,462,8.4,361,17.9,4.1,0.89,Vegetative,Good,Low,Check for pests
+2025-07-25 22:00,FARM001,North Field,22.3174,73.1952,70,26.7,6.67,447,Wet,26.0,42,0,376,4.6,697,17.3,3.0,4.11,Harvesting,Good,Medium,Monitor humidity
+2025-07-25 23:00,FARM001,North Field,22.3036,73.1271,57,24.8,4.6,326,Wet,36.7,43,5,353,5.9,970,18.8,3.9,1.0,Harvesting,Poor,High,Apply fertilizer
+2025-07-26 00:00,FARM001,North Field,22.3541,73.1455,66,21.8,6.0,313,Wet,22.7,42,9,502,4.7,811,17.4,4.0,0.77,Seedling,Poor,Low,No action needed
+2025-07-26 01:00,FARM001,North Field,22.37,73.1745,90,30.2,6.48,350,Dry,38.3,48,6,557,1.0,117,16.3,3.8,1.37,Seedling,Moderate,Medium,Apply fertilizer
+2025-07-26 02:00,FARM001,North Field,22.3572,73.1832,73,24.5,6.93,535,Dry,27.4,45,7,649,9.5,725,16.5,4.8,0.88,Seedling,Moderate,Low,No action needed
+2025-07-26 03:00,FARM001,North Field,22.3223,73.1652,80,23.2,5.81,477,Dry,36.5,68,6,668,4.6,541,17.3,4.3,3.14,Seedling,Poor,High,Irrigate tomorrow
+2025-07-26 04:00,FARM001,North Field,22.3498,73.1266,40,31.1,7.47,530,Dry,23.2,56,3,515,9.5,192,19.5,3.2,3.75,Harvesting,Good,Low,No action needed
+2025-07-26 05:00,FARM001,North Field,22.3275,73.1353,76,23.9,5.15,549,Dry,37.1,66,10,712,4.7,266,16.0,3.6,2.03,Flowering,Moderate,Medium,Check for pests
+2025-07-26 06:00,FARM001,North Field,22.3909,73.1506,28,26.5,4.84,549,Wet,39.8,55,10,590,9.4,564,17.9,3.6,3.96,Harvesting,Good,Medium,Apply fertilizer
+2025-07-26 07:00,FARM001,North Field,22.3475,73.1997,35,34.3,4.72,307,Wet,35.5,37,7,504,5.3,229,17.8,4.1,4.99,Vegetative,Poor,Low,Apply fertilizer
+2025-07-26 08:00,FARM001,North Field,22.3535,73.1309,82,31.2,6.29,405,Wet,28.6,30,8,402,3.4,511,17.0,4.5,4.93,Flowering,Moderate,Medium,Irrigate tomorrow
+2025-07-26 09:00,FARM001,North Field,22.365,73.1053,71,32.6,6.05,494,Dry,21.6,56,10,716,7.8,440,17.3,4.8,2.96,Seedling,Moderate,Low,Apply fertilizer
+2025-07-26 10:00,FARM001,North Field,22.3893,73.1091,36,22.3,6.95,535,Dry,29.1,52,1,691,3.3,797,16.1,4.6,0.61,Vegetative,Good,Low,Monitor humidity
+2025-07-26 11:00,FARM001,North Field,22.3368,73.1661,38,22.7,7.49,383,Wet,23.4,67,1,756,3.4,1000,18.4,3.5,0.96,Vegetative,Good,Low,Check for pests
+2025-07-26 12:00,FARM001,North Field,22.3971,73.1893,26,28.3,6.03,496,Dry,36.0,35,1,784,2.3,373,19.4,4.9,2.47,Flowering,Good,High,Monitor humidity
+2025-07-26 13:00,FARM001,North Field,22.3374,73.1494,34,23.7,6.24,482,Wet,29.0,80,8,216,5.1,929,19.2,4.2,4.95,Flowering,Moderate,Medium,Check for pests
+2025-07-26 14:00,FARM001,North Field,22.316,73.1168,80,22.8,5.24,484,Dry,22.4,65,2,341,0.4,800,17.0,4.5,2.19,Vegetative,Poor,Medium,Check for pests
+2025-07-26 15:00,FARM001,North Field,22.3585,73.1849,51,31.9,6.38,580,Wet,33.1,76,9,737,6.7,584,17.2,5.0,4.71,Seedling,Poor,Low,Check for pests
+2025-07-26 16:00,FARM001,North Field,22.3641,73.1021,64,32.3,6.98,340,Dry,36.3,34,7,244,8.2,890,18.3,3.8,2.04,Harvesting,Moderate,Medium,No action needed
+2025-07-26 17:00,FARM001,North Field,22.3538,73.164,24,31.1,4.58,423,Dry,30.8,63,4,240,7.9,935,16.9,4.7,3.43,Harvesting,Moderate,High,No action needed
+2025-07-26 18:00,FARM001,North Field,22.3856,73.1167,32,24.3,7.37,327,Wet,21.3,49,5,207,2.1,237,17.2,4.8,2.15,Flowering,Moderate,High,Check for pests
+2025-07-26 19:00,FARM001,North Field,22.3887,73.1358,46,22.4,6.62,573,Dry,21.3,39,1,268,5.8,635,19.4,4.6,3.21,Harvesting,Poor,Low,No action needed
+2025-07-26 20:00,FARM001,North Field,22.3154,73.1205,12,28.0,7.05,492,Dry,39.4,70,2,341,9.7,574,17.6,4.3,4.79,Harvesting,Moderate,High,Monitor humidity
+2025-07-26 21:00,FARM001,North Field,22.3678,73.1006,40,27.9,4.91,378,Dry,25.3,32,8,764,8.4,733,18.8,4.1,1.02,Flowering,Poor,Medium,No action needed
+2025-07-26 22:00,FARM001,North Field,22.3449,73.118,40,31.0,6.22,332,Dry,27.2,64,10,280,2.4,527,18.9,4.3,4.7,Vegetative,Moderate,Medium,Monitor humidity
+2025-07-26 23:00,FARM001,North Field,22.3632,73.1444,58,33.5,6.67,358,Dry,26.7,38,0,661,9.0,520,19.7,4.7,4.33,Vegetative,Poor,Low,Check for pests
+2025-07-27 00:00,FARM001,North Field,22.3476,73.116,81,21.3,5.78,441,Dry,31.1,46,4,201,3.8,600,18.9,3.4,1.62,Harvesting,Good,Medium,Check for pests
+2025-07-27 01:00,FARM001,North Field,22.3982,73.138,17,34.1,4.99,551,Dry,30.4,31,3,451,3.4,736,16.7,3.4,3.86,Flowering,Good,Low,Apply fertilizer
+2025-07-27 02:00,FARM001,North Field,22.397,73.1839,80,23.9,6.83,382,Wet,24.5,34,5,617,2.2,895,16.6,3.9,1.43,Seedling,Moderate,Low,Check for pests
+2025-07-27 03:00,FARM001,North Field,22.3255,73.1837,58,31.1,6.86,471,Dry,20.0,71,7,544,6.9,206,18.3,4.6,3.39,Harvesting,Poor,Medium,Irrigate tomorrow
+2025-07-27 04:00,FARM001,North Field,22.3998,73.1631,49,25.4,5.63,469,Wet,21.3,79,0,349,3.6,336,18.6,4.8,4.77,Seedling,Moderate,Medium,No action needed
+2025-07-27 05:00,FARM001,North Field,22.3652,73.1573,79,25.1,7.44,333,Dry,37.4,73,6,442,4.6,184,18.2,3.7,3.36,Harvesting,Good,Medium,Irrigate tomorrow
+2025-07-27 06:00,FARM001,North Field,22.3665,73.1544,54,24.2,6.89,548,Wet,30.8,75,5,473,1.0,506,18.9,4.2,1.86,Vegetative,Poor,High,Monitor humidity
+2025-07-27 07:00,FARM001,North Field,22.3514,73.1587,38,21.4,6.42,500,Wet,32.3,46,6,355,7.1,607,20.0,4.7,4.86,Flowering,Poor,Low,Apply fertilizer
+2025-07-27 08:00,FARM001,North Field,22.3129,73.102,13,21.6,6.35,329,Wet,27.7,51,3,252,1.9,917,17.5,3.5,2.99,Seedling,Poor,Low,Irrigate tomorrow
+2025-07-27 09:00,FARM001,North Field,22.3647,73.1859,52,26.2,6.88,578,Dry,33.9,53,7,475,1.3,907,16.2,4.2,1.08,Flowering,Good,Low,Check for pests
+2025-07-27 10:00,FARM001,North Field,22.3507,73.1842,58,31.1,6.14,455,Wet,29.9,73,10,213,3.7,780,18.3,3.3,4.01,Vegetative,Moderate,High,Check for pests
+2025-07-27 11:00,FARM001,North Field,22.3151,73.1603,51,24.4,6.06,594,Dry,25.1,32,1,706,2.2,107,17.4,3.9,1.51,Vegetative,Good,Medium,No action needed
+2025-07-27 12:00,FARM001,North Field,22.3354,73.1775,66,23.2,5.19,379,Wet,36.9,46,8,333,9.7,252,16.0,3.1,4.49,Vegetative,Moderate,Low,Irrigate tomorrow
+2025-07-27 13:00,FARM001,North Field,22.3638,73.1711,15,22.5,5.14,464,Wet,22.5,40,1,709,7.1,287,18.8,4.8,4.63,Vegetative,Poor,High,Check for pests
+2025-07-27 14:00,FARM001,North Field,22.3064,73.1167,59,27.4,7.45,367,Wet,21.7,48,9,220,9.3,257,18.7,3.3,0.77,Harvesting,Poor,High,Irrigate tomorrow
+2025-07-27 15:00,FARM001,North Field,22.3182,73.1156,25,28.3,6.38,467,Dry,26.4,64,7,488,3.7,230,19.9,3.2,1.06,Flowering,Poor,Medium,Irrigate tomorrow
+2025-07-27 16:00,FARM001,North Field,22.357,73.1165,79,21.8,5.35,499,Dry,24.6,75,4,415,3.5,729,18.8,4.7,1.44,Seedling,Poor,High,Irrigate tomorrow
+2025-07-27 17:00,FARM001,North Field,22.3187,73.1264,81,26.2,6.17,537,Wet,27.5,75,10,608,6.2,414,16.9,3.5,0.69,Seedling,Moderate,High,Monitor humidity
+2025-07-27 18:00,FARM001,North Field,22.3079,73.1703,57,32.7,6.97,598,Wet,30.9,72,7,254,2.1,851,16.8,4.7,2.64,Vegetative,Good,Low,Monitor humidity
+2025-07-27 19:00,FARM001,North Field,22.3614,73.1376,63,30.1,5.33,482,Dry,31.1,42,7,507,8.5,398,17.3,3.5,3.89,Vegetative,Good,Medium,Monitor humidity
+2025-07-27 20:00,FARM001,North Field,22.3499,73.111,45,20.1,6.55,570,Wet,29.1,55,6,701,4.5,782,17.2,3.6,1.53,Vegetative,Poor,Medium,No action needed
+2025-07-27 21:00,FARM001,North Field,22.3106,73.1141,41,21.0,5.61,424,Wet,34.9,59,7,463,2.7,929,18.4,4.3,3.19,Seedling,Good,Low,Check for pests
+2025-07-27 22:00,FARM001,North Field,22.3332,73.1154,67,21.2,6.16,407,Wet,30.2,69,9,376,8.3,817,19.0,3.9,1.11,Seedling,Good,Medium,Check for pests
+2025-07-27 23:00,FARM001,North Field,22.3401,73.1177,42,29.4,4.68,432,Wet,38.9,37,4,601,7.2,144,16.6,3.3,2.2,Harvesting,Poor,Low,No action needed
+2025-07-28 00:00,FARM001,North Field,22.396,73.1352,85,22.3,6.45,445,Wet,33.2,32,10,528,2.1,860,16.7,3.1,2.28,Seedling,Poor,High,Monitor humidity
+2025-07-28 01:00,FARM001,North Field,22.3339,73.1613,21,26.3,7.31,418,Wet,26.0,33,7,242,2.3,517,18.9,4.3,1.53,Harvesting,Good,Low,Check for pests
+2025-07-28 02:00,FARM001,North Field,22.3937,73.1642,17,30.2,6.4,576,Wet,29.5,35,2,301,6.1,894,18.9,3.8,1.04,Harvesting,Moderate,Medium,Irrigate tomorrow
+2025-07-28 03:00,FARM001,North Field,22.3321,73.172,49,26.7,7.05,583,Dry,22.3,49,4,538,5.4,186,19.5,4.6,3.27,Flowering,Poor,Low,Check for pests
+2025-07-28 04:00,FARM001,North Field,22.3067,73.1216,60,32.3,5.85,571,Dry,24.7,41,0,795,0.2,386,18.9,5.0,2.96,Harvesting,Poor,High,Irrigate tomorrow
+2025-07-28 05:00,FARM001,North Field,22.3204,73.1722,66,32.1,7.16,300,Dry,26.6,59,3,209,8.1,602,18.1,4.2,1.59,Harvesting,Moderate,Low,No action needed
+2025-07-28 06:00,FARM001,North Field,22.3051,73.1348,29,28.2,6.05,343,Wet,33.5,78,4,398,8.0,653,17.4,4.9,0.65,Harvesting,Poor,Low,Monitor humidity
+2025-07-28 07:00,FARM001,North Field,22.3207,73.1778,48,22.4,7.39,370,Wet,27.5,77,3,486,3.1,750,17.2,4.5,2.85,Seedling,Moderate,Medium,Irrigate tomorrow
+2025-07-28 08:00,FARM001,North Field,22.3891,73.1386,90,32.5,6.66,400,Dry,29.8,64,9,362,7.3,877,19.2,4.3,1.03,Harvesting,Moderate,Low,Irrigate tomorrow
+2025-07-28 09:00,FARM001,North Field,22.3984,73.1261,64,26.5,5.07,495,Wet,25.5,47,0,778,0.6,801,19.6,4.9,4.61,Harvesting,Moderate,Low,Monitor humidity
+2025-07-28 10:00,FARM001,North Field,22.3378,73.181,70,24.2,5.27,590,Dry,37.8,35,9,350,7.5,233,19.0,3.9,1.73,Vegetative,Moderate,Low,No action needed
+2025-07-28 11:00,FARM001,North Field,22.395,73.1009,90,21.6,6.6,437,Wet,37.1,61,0,336,3.8,367,19.6,4.2,3.12,Seedling,Poor,Medium,Irrigate tomorrow
+2025-07-28 12:00,FARM001,North Field,22.3576,73.1423,19,26.4,6.26,539,Wet,31.5,79,9,340,4.0,218,17.0,4.6,4.26,Flowering,Poor,Medium,Irrigate tomorrow
+2025-07-28 13:00,FARM001,North Field,22.3014,73.188,58,24.0,6.57,375,Wet,31.9,73,3,720,1.9,234,19.2,3.6,3.04,Harvesting,Poor,Medium,Monitor humidity
+2025-07-28 14:00,FARM001,North Field,22.3982,73.1346,55,21.3,6.78,369,Wet,28.6,80,3,365,4.6,524,18.1,4.6,1.37,Harvesting,Poor,Medium,Apply fertilizer
+2025-07-28 15:00,FARM001,North Field,22.3105,73.1695,66,25.9,4.88,500,Wet,38.6,37,8,428,4.6,246,16.4,4.9,4.99,Vegetative,Good,Low,Check for pests
+2025-07-28 16:00,FARM001,North Field,22.3239,73.1092,22,28.2,5.94,536,Wet,30.7,40,10,725,2.2,132,18.5,4.1,2.74,Vegetative,Good,Low,Irrigate tomorrow
+2025-07-28 17:00,FARM001,North Field,22.3912,73.1714,65,29.8,5.25,469,Dry,21.3,41,6,466,3.8,182,19.7,4.8,3.77,Harvesting,Poor,Medium,Irrigate tomorrow
+2025-07-28 18:00,FARM001,North Field,22.375,73.1316,53,20.4,6.97,494,Wet,34.0,31,5,410,7.3,195,17.9,3.8,2.33,Vegetative,Good,Low,Apply fertilizer
+2025-07-28 19:00,FARM001,North Field,22.3384,73.1357,73,25.5,5.69,470,Dry,35.4,62,8,476,6.1,433,18.8,4.4,4.33,Seedling,Poor,High,Irrigate tomorrow
+2025-07-28 20:00,FARM001,North Field,22.3952,73.1259,43,21.6,6.33,373,Wet,29.4,34,2,234,1.1,768,17.3,4.9,3.59,Flowering,Good,High,No action needed
+2025-07-28 21:00,FARM001,North Field,22.3808,73.1926,63,28.8,5.37,463,Wet,36.0,69,8,690,5.1,422,18.5,4.9,2.55,Seedling,Moderate,Low,Monitor humidity
+2025-07-28 22:00,FARM001,North Field,22.3639,73.1915,48,20.6,6.71,406,Dry,24.2,36,1,627,2.6,933,18.7,4.7,1.33,Harvesting,Poor,Medium,Apply fertilizer
+2025-07-28 23:00,FARM001,North Field,22.3767,73.1914,73,30.6,6.87,304,Wet,39.6,52,9,645,0.4,904,20.0,4.6,1.98,Flowering,Poor,Medium,Irrigate tomorrow
+2025-07-29 00:00,FARM001,North Field,22.3357,73.1199,76,28.9,6.14,591,Dry,24.5,65,10,393,2.5,172,18.8,4.1,1.03,Harvesting,Poor,Medium,No action needed
+2025-07-29 01:00,FARM001,North Field,22.3798,73.1453,66,30.3,6.12,385,Dry,28.3,77,7,490,7.8,675,16.8,4.8,4.4,Harvesting,Moderate,High,Apply fertilizer
+2025-07-29 02:00,FARM001,North Field,22.304,73.1542,26,32.3,4.79,570,Dry,35.5,32,8,243,3.9,920,16.8,4.9,1.44,Flowering,Moderate,High,No action needed
+2025-07-29 03:00,FARM001,North Field,22.3714,73.1579,17,31.2,5.27,600,Wet,25.1,66,2,777,5.7,478,19.2,3.8,3.73,Seedling,Moderate,High,Monitor humidity
+2025-07-29 04:00,FARM001,North Field,22.3097,73.1603,74,22.2,6.84,576,Wet,38.3,74,10,602,2.7,601,16.3,4.8,1.28,Vegetative,Good,Low,Irrigate tomorrow
+2025-07-29 05:00,FARM001,North Field,22.3225,73.1649,82,20.8,4.55,436,Wet,27.4,77,9,685,8.8,809,18.6,3.8,2.38,Harvesting,Moderate,High,No action needed
+2025-07-29 06:00,FARM001,North Field,22.3997,73.1598,31,28.5,7.49,409,Wet,38.3,42,5,635,1.8,296,18.5,4.1,2.84,Flowering,Good,Low,Monitor humidity
+2025-07-29 07:00,FARM001,North Field,22.3256,73.1855,46,24.6,6.47,425,Dry,35.8,71,0,694,7.8,977,18.3,4.4,2.84,Seedling,Poor,Low,Monitor humidity
+2025-07-29 08:00,FARM001,North Field,22.3084,73.1081,80,27.2,6.46,378,Wet,34.9,62,0,274,6.4,299,19.4,3.5,2.45,Flowering,Poor,Low,Irrigate tomorrow
+2025-07-29 09:00,FARM001,North Field,22.3274,73.1194,47,32.2,7.28,310,Wet,30.3,54,4,512,9.1,517,19.3,4.4,2.67,Harvesting,Good,Medium,Check for pests
+2025-07-29 10:00,FARM001,North Field,22.3593,73.1338,13,27.8,5.51,326,Wet,30.1,32,2,340,0.5,998,17.4,3.3,3.04,Seedling,Moderate,Medium,No action needed
+2025-07-29 11:00,FARM001,North Field,22.3585,73.127,70,25.1,4.74,443,Wet,31.0,48,0,531,3.6,437,19.0,3.6,1.53,Vegetative,Moderate,Low,Monitor humidity
+2025-07-29 12:00,FARM001,North Field,22.3729,73.185,45,26.0,5.17,363,Dry,23.9,58,2,290,4.1,381,17.3,4.2,4.52,Harvesting,Good,Medium,Monitor humidity
+2025-07-29 13:00,FARM001,North Field,22.3734,73.1895,52,24.3,5.68,371,Wet,31.0,63,5,787,2.3,583,19.7,4.1,4.41,Vegetative,Good,Low,Monitor humidity
+2025-07-29 14:00,FARM001,North Field,22.3214,73.1815,15,25.0,5.23,410,Dry,35.9,31,1,548,3.8,587,16.5,3.6,3.88,Flowering,Poor,High,Monitor humidity
+2025-07-29 15:00,FARM001,North Field,22.3866,73.1237,70,32.5,4.88,454,Dry,24.7,59,7,369,0.1,139,17.2,3.4,2.51,Seedling,Good,High,Irrigate tomorrow
+2025-07-29 16:00,FARM001,North Field,22.3655,73.1862,27,30.5,5.53,490,Dry,26.0,47,1,342,7.5,505,20.0,3.0,2.61,Seedling,Poor,High,Check for pests
+2025-07-29 17:00,FARM001,North Field,22.3454,73.1458,70,24.5,6.76,561,Wet,20.8,45,2,677,9.2,120,18.3,4.9,0.76,Seedling,Moderate,High,Check for pests
+2025-07-29 18:00,FARM001,North Field,22.3491,73.1624,72,26.2,6.4,474,Dry,25.2,45,10,424,1.7,701,16.4,4.0,3.26,Harvesting,Poor,Medium,Irrigate tomorrow
+2025-07-29 19:00,FARM001,North Field,22.3485,73.1351,55,22.2,5.83,555,Wet,32.5,77,6,723,5.2,878,19.6,3.5,1.3,Harvesting,Good,High,Monitor humidity
+2025-07-29 20:00,FARM001,North Field,22.3201,73.1624,19,22.3,6.16,394,Wet,20.8,79,4,326,5.9,819,19.9,3.9,4.65,Harvesting,Moderate,Medium,Monitor humidity
+2025-07-29 21:00,FARM001,North Field,22.332,73.145,83,24.3,7.15,364,Dry,25.0,68,4,267,7.8,198,17.7,4.5,1.06,Vegetative,Moderate,High,Irrigate tomorrow
+2025-07-29 22:00,FARM001,North Field,22.3503,73.1152,42,31.4,7.4,415,Wet,20.5,36,1,288,8.0,335,18.3,3.5,1.12,Harvesting,Poor,High,No action needed
+2025-07-29 23:00,FARM001,North Field,22.322,73.1015,83,25.4,5.83,554,Wet,24.7,42,3,614,9.8,660,16.5,4.5,0.63,Seedling,Poor,High,Monitor humidity
+2025-07-30 00:00,FARM001,North Field,22.3477,73.1844,34,32.8,4.72,385,Wet,31.9,39,2,382,5.8,819,19.3,3.4,3.35,Vegetative,Good,High,Apply fertilizer
+2025-07-30 01:00,FARM001,North Field,22.3863,73.1641,12,20.9,6.61,521,Dry,39.1,35,7,360,7.3,533,17.5,4.3,3.99,Seedling,Poor,Low,Monitor humidity
+2025-07-30 02:00,FARM001,North Field,22.3219,73.1805,83,20.5,7.25,559,Dry,27.7,66,7,519,8.0,435,18.6,4.7,2.21,Harvesting,Moderate,Low,Apply fertilizer
+2025-07-30 03:00,FARM001,North Field,22.3722,73.1948,48,29.1,6.35,510,Wet,36.0,55,2,680,1.5,790,16.1,4.6,2.74,Seedling,Moderate,High,Check for pests
+2025-07-30 04:00,FARM001,North Field,22.336,73.1123,12,21.3,7.47,422,Wet,22.4,43,1,778,4.4,525,18.4,4.8,0.56,Seedling,Moderate,Medium,Apply fertilizer
+2025-07-30 05:00,FARM001,North Field,22.3161,73.1385,34,24.4,6.17,594,Wet,36.9,49,4,380,7.4,984,17.2,4.5,1.81,Seedling,Poor,Medium,Monitor humidity
+2025-07-30 06:00,FARM001,North Field,22.346,73.1777,20,33.9,7.37,596,Wet,37.7,57,2,293,2.6,646,16.3,4.7,0.85,Vegetative,Poor,Medium,Check for pests
+2025-07-30 07:00,FARM001,North Field,22.3348,73.1837,22,26.5,6.85,397,Wet,35.2,79,0,477,1.9,972,19.3,3.7,1.77,Vegetative,Poor,High,Check for pests
+2025-07-30 08:00,FARM001,North Field,22.3417,73.1656,72,27.6,6.2,438,Wet,35.1,31,7,614,1.3,359,18.3,4.9,2.6,Flowering,Poor,Medium,No action needed
+2025-07-30 09:00,FARM001,North Field,22.3814,73.116,47,20.6,6.63,358,Wet,20.3,59,5,680,2.2,747,18.5,3.9,1.18,Vegetative,Poor,Medium,Irrigate tomorrow
+2025-07-30 10:00,FARM001,North Field,22.3751,73.1133,60,27.2,5.78,314,Wet,26.6,68,9,423,7.6,185,19.8,4.6,3.79,Vegetative,Poor,Medium,Irrigate tomorrow
+2025-07-30 11:00,FARM001,North Field,22.3366,73.1784,33,25.7,5.92,328,Dry,25.7,36,6,229,4.2,889,19.5,4.8,4.69,Vegetative,Good,High,Check for pests
+2025-07-30 12:00,FARM001,North Field,22.3837,73.1675,76,33.2,4.92,426,Dry,33.2,60,10,457,4.2,628,17.3,4.8,3.97,Vegetative,Moderate,Medium,Apply fertilizer
+2025-07-30 13:00,FARM001,North Field,22.305,73.1885,20,26.0,6.14,412,Dry,34.7,79,6,711,0.7,805,18.9,3.9,0.98,Vegetative,Poor,Low,Monitor humidity
+2025-07-30 14:00,FARM001,North Field,22.3708,73.1728,17,30.5,4.89,385,Wet,33.8,40,10,446,6.8,968,19.0,3.9,2.51,Harvesting,Poor,Medium,Check for pests
+2025-07-30 15:00,FARM001,North Field,22.3047,73.1195,46,32.8,5.94,377,Wet,29.7,39,4,638,6.9,303,16.0,4.3,1.78,Flowering,Poor,Medium,No action needed
+2025-07-30 16:00,FARM001,North Field,22.3965,73.1848,69,31.1,5.71,515,Dry,39.4,51,9,786,3.9,818,18.7,3.3,1.73,Harvesting,Poor,High,Apply fertilizer
+2025-07-30 17:00,FARM001,North Field,22.3447,73.1598,77,32.7,4.58,449,Dry,31.4,75,6,775,7.3,702,16.2,4.9,4.05,Flowering,Poor,High,No action needed
+2025-07-30 18:00,FARM001,North Field,22.372,73.1567,52,33.7,6.49,349,Wet,28.3,48,7,267,3.5,445,18.7,4.6,4.2,Seedling,Moderate,Low,Irrigate tomorrow
+2025-07-30 19:00,FARM001,North Field,22.3485,73.1611,39,26.6,4.74,473,Wet,39.2,37,0,423,6.9,971,19.4,3.1,3.66,Vegetative,Good,Low,Irrigate tomorrow
+2025-07-30 20:00,FARM001,North Field,22.3537,73.1985,62,28.7,6.97,305,Dry,37.3,32,3,234,1.4,562,17.8,4.5,0.8,Vegetative,Poor,Low,No action needed
+2025-07-30 21:00,FARM001,North Field,22.3495,73.1105,16,32.2,7.21,458,Wet,25.9,58,10,613,1.1,164,16.4,4.7,4.24,Flowering,Good,Low,Apply fertilizer
+2025-07-30 22:00,FARM001,North Field,22.3352,73.1305,35,34.0,7.11,417,Wet,33.0,43,6,321,6.2,824,18.6,4.6,4.17,Vegetative,Moderate,Medium,Apply fertilizer
+2025-07-30 23:00,FARM001,North Field,22.3397,73.1567,76,30.0,7.28,497,Dry,24.6,64,6,223,2.1,661,17.4,3.5,4.76,Harvesting,Good,High,Monitor humidity
+2025-07-31 00:00,FARM001,North Field,22.3174,73.1439,40,22.7,5.48,476,Wet,36.3,40,9,758,2.2,701,16.3,3.6,4.1,Vegetative,Poor,Medium,Irrigate tomorrow
+2025-07-31 01:00,FARM001,North Field,22.3059,73.1785,48,33.3,4.84,461,Dry,27.8,78,7,430,7.8,506,16.6,4.0,2.55,Flowering,Moderate,Low,Monitor humidity
+2025-07-31 02:00,FARM001,North Field,22.3216,73.1663,33,29.9,6.96,368,Wet,31.0,80,10,329,3.6,775,17.5,3.4,0.52,Vegetative,Good,Low,Monitor humidity
+2025-07-31 03:00,FARM001,North Field,22.3583,73.1216,37,30.0,5.68,382,Dry,25.6,52,1,227,4.4,930,17.6,3.5,0.82,Vegetative,Poor,Medium,No action needed
+2025-07-31 04:00,FARM001,North Field,22.3475,73.1593,31,33.2,7.14,376,Wet,27.5,32,0,446,8.8,535,19.3,3.1,2.43,Harvesting,Good,Low,Monitor humidity
+2025-07-31 05:00,FARM001,North Field,22.3378,73.1169,82,31.6,6.82,599,Wet,31.5,52,8,727,7.4,339,18.0,4.3,0.59,Flowering,Poor,High,Apply fertilizer
+2025-07-31 06:00,FARM001,North Field,22.3932,73.1888,76,22.4,4.82,578,Wet,22.5,62,10,446,5.4,868,18.5,3.3,1.65,Seedling,Good,High,Monitor humidity
+2025-07-31 07:00,FARM001,North Field,22.3023,73.1753,26,25.8,5.88,370,Dry,37.3,30,3,215,8.7,419,19.2,4.9,3.39,Vegetative,Good,Medium,Monitor humidity
+2025-07-31 08:00,FARM001,North Field,22.3217,73.1513,19,20.8,5.59,510,Wet,32.6,47,8,264,9.3,732,19.9,4.9,4.3,Flowering,Moderate,Low,Apply fertilizer
+2025-07-31 09:00,FARM001,North Field,22.3945,73.1369,66,21.9,7.21,474,Dry,33.1,54,5,633,2.1,288,17.0,4.5,4.66,Flowering,Poor,High,Check for pests
+2025-07-31 10:00,FARM001,North Field,22.3193,73.1098,43,27.7,6.42,333,Dry,21.1,45,10,311,0.4,570,17.4,3.5,4.72,Flowering,Good,High,Check for pests
+2025-07-31 11:00,FARM001,North Field,22.3926,73.1144,76,30.9,4.63,544,Wet,28.5,73,0,666,0.4,448,16.9,5.0,2.62,Harvesting,Good,Low,Check for pests
+2025-07-31 12:00,FARM001,North Field,22.3737,73.1473,48,26.2,4.75,476,Wet,26.5,42,1,552,8.7,717,19.5,4.1,2.79,Harvesting,Good,Medium,Check for pests
+2025-07-31 13:00,FARM001,North Field,22.3289,73.1563,87,28.8,6.86,338,Wet,25.8,67,10,295,2.9,231,18.3,4.1,4.2,Seedling,Moderate,Medium,No action needed
+2025-07-31 14:00,FARM001,North Field,22.3846,73.1281,51,34.1,7.47,487,Wet,31.1,46,3,412,7.8,159,18.0,4.9,1.46,Harvesting,Good,Medium,Check for pests
+2025-07-31 15:00,FARM001,North Field,22.3931,73.1152,72,22.1,5.94,504,Dry,35.2,50,8,494,6.5,253,19.0,3.4,0.62,Seedling,Good,Low,Monitor humidity
+2025-07-31 16:00,FARM001,North Field,22.3619,73.1102,31,25.4,5.88,438,Wet,20.8,55,7,657,7.0,648,18.8,3.7,0.8,Flowering,Poor,Low,Check for pests
+2025-07-31 17:00,FARM001,North Field,22.3277,73.1473,88,28.2,4.75,485,Wet,21.8,42,4,262,6.0,817,17.0,4.4,1.84,Seedling,Moderate,Low,Check for pests
+2025-07-31 18:00,FARM001,North Field,22.3266,73.1716,15,30.3,4.87,517,Wet,36.7,47,2,547,2.0,570,17.5,4.8,2.1,Harvesting,Good,High,Monitor humidity
+2025-07-31 19:00,FARM001,North Field,22.3112,73.1842,33,27.2,4.92,329,Dry,24.2,62,1,329,5.9,539,19.3,3.4,1.15,Harvesting,Moderate,High,Apply fertilizer
+2025-07-31 20:00,FARM001,North Field,22.3324,73.1135,33,32.0,5.8,594,Dry,38.0,56,10,500,4.7,399,17.0,4.8,0.94,Flowering,Moderate,Low,Monitor humidity
+2025-07-31 21:00,FARM001,North Field,22.3803,73.126,79,26.0,5.25,311,Wet,26.5,63,2,279,0.2,613,18.6,4.7,4.19,Seedling,Moderate,Medium,No action needed
+2025-07-31 22:00,FARM001,North Field,22.3696,73.1284,54,25.3,5.69,597,Dry,37.8,46,1,224,2.6,851,18.6,4.4,2.55,Flowering,Good,High,Apply fertilizer
+2025-07-31 23:00,FARM001,North Field,22.3731,73.1529,69,23.4,4.72,356,Wet,23.7,71,8,435,0.5,559,16.6,4.6,1.63,Seedling,Moderate,High,Monitor humidity
+2025-08-01 00:00,FARM001,North Field,22.3702,73.1023,80,33.1,7.08,436,Wet,34.9,48,0,534,9.6,930,17.8,4.8,1.89,Seedling,Moderate,High,Irrigate tomorrow
+2025-08-01 01:00,FARM001,North Field,22.3596,73.1641,70,24.6,6.25,338,Dry,26.1,63,5,279,0.1,569,18.9,3.2,4.42,Harvesting,Poor,Low,No action needed
+2025-08-01 02:00,FARM001,North Field,22.3747,73.1193,48,25.7,6.9,408,Dry,25.8,44,7,318,7.2,944,18.0,4.8,4.58,Flowering,Good,High,No action needed
+2025-08-01 03:00,FARM001,North Field,22.3847,73.1364,89,34.1,6.69,596,Wet,22.9,33,7,303,1.3,902,18.5,4.2,2.35,Flowering,Poor,High,No action needed
+2025-08-01 04:00,FARM001,North Field,22.3554,73.1028,16,25.2,5.14,535,Dry,31.8,54,7,575,3.5,509,17.6,4.4,4.39,Seedling,Poor,High,No action needed
+2025-08-01 05:00,FARM001,North Field,22.374,73.1371,86,26.2,6.9,592,Dry,29.2,72,4,653,5.5,786,16.5,3.9,2.04,Flowering,Poor,Medium,Irrigate tomorrow
+2025-08-01 06:00,FARM001,North Field,22.3685,73.1979,44,32.9,5.73,371,Dry,35.5,35,5,593,8.1,484,19.7,4.5,4.42,Harvesting,Good,Medium,No action needed
+2025-08-01 07:00,FARM001,North Field,22.384,73.1748,82,22.0,7.11,324,Dry,39.2,70,1,407,4.7,605,17.3,3.3,0.85,Harvesting,Poor,Medium,No action needed
+2025-08-01 08:00,FARM001,North Field,22.373,73.1909,89,24.2,4.64,520,Dry,36.1,40,6,726,9.1,144,17.2,3.5,1.8,Vegetative,Moderate,Low,Apply fertilizer
+2025-08-01 09:00,FARM001,North Field,22.373,73.189,13,27.5,5.58,347,Wet,20.2,72,4,443,5.3,212,18.0,3.6,0.88,Vegetative,Good,Low,Check for pests
+2025-08-01 10:00,FARM001,North Field,22.3141,73.1145,19,27.5,5.72,588,Wet,38.0,63,1,329,3.0,217,17.6,3.3,3.91,Harvesting,Poor,High,Irrigate tomorrow
+2025-08-01 11:00,FARM001,North Field,22.3267,73.1235,25,33.2,5.89,409,Wet,26.1,41,10,343,1.4,816,16.7,4.4,2.7,Vegetative,Moderate,Low,Monitor humidity
+2025-08-01 12:00,FARM001,North Field,22.3426,73.1072,83,31.0,7.3,348,Wet,34.6,78,4,494,4.6,981,17.1,4.2,3.85,Vegetative,Moderate,Medium,Monitor humidity
+2025-08-01 13:00,FARM001,North Field,22.3535,73.1565,15,26.9,4.66,441,Wet,25.7,51,0,775,6.8,862,16.4,4.4,3.06,Harvesting,Poor,High,No action needed
+2025-08-01 14:00,FARM001,North Field,22.357,73.1946,86,34.9,4.83,420,Dry,24.0,72,5,639,4.4,133,19.8,3.8,1.74,Harvesting,Moderate,Medium,No action needed
+2025-08-01 15:00,FARM001,North Field,22.3692,73.1689,13,25.7,6.88,378,Dry,36.8,61,7,605,2.3,244,19.7,3.9,3.69,Flowering,Moderate,High,No action needed
+2025-08-01 16:00,FARM001,North Field,22.3866,73.1341,81,20.1,4.66,445,Dry,29.4,61,8,365,4.1,700,19.2,3.5,4.68,Vegetative,Good,High,Monitor humidity
+2025-08-01 17:00,FARM001,North Field,22.3693,73.1855,16,32.7,5.45,441,Wet,37.1,36,7,668,8.1,387,18.0,3.9,1.09,Flowering,Good,High,Irrigate tomorrow
+2025-08-01 18:00,FARM001,North Field,22.3065,73.1408,44,25.1,6.9,361,Wet,35.8,44,3,485,4.3,276,17.7,3.8,4.68,Flowering,Good,High,Irrigate tomorrow
+2025-08-01 19:00,FARM001,North Field,22.3884,73.1654,68,28.1,6.66,517,Wet,28.9,57,5,501,9.9,638,16.1,4.6,4.93,Vegetative,Good,Medium,Irrigate tomorrow
+2025-08-01 20:00,FARM001,North Field,22.3453,73.1357,28,22.7,6.0,407,Wet,23.4,48,0,559,8.7,277,16.4,4.0,4.37,Flowering,Poor,Low,Check for pests
+2025-08-01 21:00,FARM001,North Field,22.3624,73.1607,16,34.9,6.64,306,Dry,30.1,65,1,588,7.5,773,19.2,3.0,1.3,Seedling,Poor,Medium,Apply fertilizer
+2025-08-01 22:00,FARM001,North Field,22.3387,73.1758,87,25.5,6.59,573,Dry,39.6,36,10,596,8.0,275,16.3,4.8,2.86,Harvesting,Moderate,High,Monitor humidity
+2025-08-01 23:00,FARM001,North Field,22.3885,73.1582,74,23.4,5.46,359,Dry,27.7,63,5,740,4.4,598,18.1,4.7,2.65,Seedling,Good,Low,Monitor humidity
+2025-08-02 00:00,FARM001,North Field,22.3448,73.1948,56,27.2,5.27,430,Wet,39.7,30,0,358,4.4,220,18.5,4.5,1.11,Seedling,Good,Low,Monitor humidity
+2025-08-02 01:00,FARM001,North Field,22.3892,73.1598,48,29.7,4.54,321,Wet,31.6,64,1,531,7.0,741,16.8,4.1,1.0,Flowering,Poor,High,Irrigate tomorrow
+2025-08-02 02:00,FARM001,North Field,22.3128,73.1209,38,26.8,6.18,495,Dry,21.9,68,5,373,4.4,422,20.0,4.5,3.19,Vegetative,Moderate,Low,No action needed
+2025-08-02 03:00,FARM001,North Field,22.3425,73.1162,44,25.1,5.36,579,Dry,34.1,41,10,307,4.3,805,16.6,4.2,4.22,Seedling,Poor,Low,Monitor humidity
+2025-08-02 04:00,FARM001,North Field,22.3497,73.1737,24,21.0,5.2,310,Dry,26.9,67,0,720,0.4,962,19.9,3.7,4.13,Vegetative,Moderate,High,Irrigate tomorrow
+2025-08-02 05:00,FARM001,North Field,22.3051,73.1701,73,20.4,4.75,422,Dry,35.0,34,10,384,0.2,596,16.9,3.9,3.92,Flowering,Poor,Medium,Apply fertilizer
+2025-08-02 06:00,FARM001,North Field,22.3538,73.1113,44,25.5,7.39,502,Wet,34.0,52,7,775,4.9,472,19.4,4.6,0.6,Flowering,Good,Low,Check for pests
+2025-08-02 07:00,FARM001,North Field,22.3436,73.1073,20,33.9,4.91,544,Wet,20.1,39,3,596,9.8,722,16.3,3.3,4.12,Seedling,Moderate,Medium,Check for pests
+2025-08-02 08:00,FARM001,North Field,22.3118,73.1012,62,23.8,7.18,552,Dry,39.4,65,10,783,1.3,110,18.3,3.9,4.35,Harvesting,Moderate,Low,Irrigate tomorrow
+2025-08-02 09:00,FARM001,North Field,22.3618,73.1124,17,25.9,5.98,574,Wet,32.9,72,9,541,7.4,982,17.8,4.4,4.81,Seedling,Good,Medium,Irrigate tomorrow
+2025-08-02 10:00,FARM001,North Field,22.3682,73.1254,76,33.6,4.56,389,Dry,38.0,50,5,246,1.5,817,16.3,3.8,4.76,Seedling,Moderate,Medium,Monitor humidity
+2025-08-02 11:00,FARM001,North Field,22.3245,73.1049,10,33.6,6.35,541,Wet,24.8,66,10,424,1.0,236,17.2,4.7,4.76,Flowering,Moderate,Medium,Irrigate tomorrow
+2025-08-02 12:00,FARM001,North Field,22.3459,73.1077,19,31.0,6.96,312,Wet,35.0,50,2,743,3.8,427,17.2,3.6,0.76,Vegetative,Poor,Low,No action needed
+2025-08-02 13:00,FARM001,North Field,22.3596,73.1068,71,22.5,5.97,457,Dry,31.8,54,7,359,0.4,839,16.2,4.0,1.24,Flowering,Poor,Medium,Apply fertilizer
+2025-08-02 14:00,FARM001,North Field,22.308,73.127,42,21.8,7.15,517,Dry,20.9,56,4,235,5.1,811,19.9,4.1,3.53,Harvesting,Moderate,High,Irrigate tomorrow
+2025-08-02 15:00,FARM001,North Field,22.3527,73.1201,44,31.9,5.84,514,Dry,31.8,79,3,501,5.6,436,17.9,4.9,1.84,Vegetative,Good,Medium,Monitor humidity
+2025-08-02 16:00,FARM001,North Field,22.3955,73.1544,10,30.4,4.86,492,Dry,33.9,46,8,546,5.3,681,16.6,4.0,1.13,Harvesting,Poor,High,Monitor humidity
+2025-08-02 17:00,FARM001,North Field,22.3873,73.1647,25,23.1,4.86,527,Wet,37.4,55,8,597,7.3,923,18.2,4.0,3.68,Harvesting,Poor,Low,Apply fertilizer
+2025-08-02 18:00,FARM001,North Field,22.3835,73.1183,80,30.4,7.27,515,Dry,37.6,58,4,562,2.0,917,16.5,4.9,1.01,Flowering,Good,Medium,No action needed
+2025-08-02 19:00,FARM001,North Field,22.3743,73.1153,84,31.1,6.84,553,Wet,24.7,53,10,706,4.2,578,16.1,3.4,3.15,Vegetative,Moderate,Low,No action needed
+2025-08-02 20:00,FARM001,North Field,22.3762,73.1521,33,31.7,4.81,575,Dry,35.1,32,3,227,0.6,560,16.7,4.2,4.16,Flowering,Moderate,Medium,No action needed
+2025-08-02 21:00,FARM001,North Field,22.3905,73.1237,17,28.1,5.37,454,Wet,21.3,36,8,211,4.5,850,16.9,4.7,3.43,Vegetative,Poor,Medium,Monitor humidity
+2025-08-02 22:00,FARM001,North Field,22.3532,73.144,36,29.5,5.69,575,Dry,29.4,45,3,660,7.9,190,16.2,4.5,1.62,Flowering,Poor,Low,Irrigate tomorrow
+2025-08-02 23:00,FARM001,North Field,22.3562,73.1048,75,26.3,7.46,593,Wet,36.3,50,6,408,3.1,830,18.6,3.8,4.99,Seedling,Good,Low,Irrigate tomorrow
+2025-08-03 00:00,FARM001,North Field,22.322,73.1275,26,20.3,7.14,301,Dry,25.9,67,6,324,3.0,372,16.1,3.6,2.26,Flowering,Poor,Medium,No action needed
+2025-08-03 01:00,FARM001,North Field,22.3071,73.1913,49,24.8,6.38,315,Dry,37.3,41,7,789,3.2,109,19.6,3.7,4.77,Flowering,Moderate,Medium,Irrigate tomorrow
+2025-08-03 02:00,FARM001,North Field,22.3659,73.1925,19,27.8,6.83,335,Dry,33.0,43,3,600,0.2,259,16.5,4.9,0.95,Flowering,Poor,Medium,Check for pests
+2025-08-03 03:00,FARM001,North Field,22.3671,73.1325,34,31.3,6.19,538,Dry,32.9,40,6,536,8.8,589,16.1,3.6,1.67,Harvesting,Moderate,Low,Apply fertilizer
+2025-08-03 04:00,FARM001,North Field,22.3061,73.1679,78,26.0,5.94,345,Wet,24.5,54,8,633,4.4,231,19.3,4.5,4.56,Vegetative,Poor,Low,Apply fertilizer
+2025-08-03 05:00,FARM001,North Field,22.3692,73.1082,32,27.0,7.04,444,Wet,32.2,48,7,711,4.9,491,19.1,3.4,0.92,Harvesting,Moderate,Medium,No action needed
+2025-08-03 06:00,FARM001,North Field,22.304,73.1253,33,27.4,6.31,422,Dry,33.7,80,0,537,0.4,675,17.7,4.2,2.31,Harvesting,Poor,Low,Irrigate tomorrow
+2025-08-03 07:00,FARM001,North Field,22.3643,73.1094,44,30.3,6.84,370,Wet,21.2,42,10,215,3.7,117,16.7,4.3,3.84,Harvesting,Poor,High,Monitor humidity
+2025-08-03 08:00,FARM001,North Field,22.3918,73.188,71,26.0,6.8,421,Dry,31.5,36,1,269,3.1,404,17.2,3.8,2.34,Flowering,Good,Low,Irrigate tomorrow
+2025-08-03 09:00,FARM001,North Field,22.3867,73.1283,31,24.1,6.31,420,Wet,39.3,31,5,550,2.4,420,17.4,3.6,1.07,Harvesting,Good,Low,Monitor humidity
+2025-08-03 10:00,FARM001,North Field,22.3093,73.1052,33,29.9,6.4,412,Wet,20.2,52,6,248,6.9,845,19.6,3.1,4.65,Seedling,Moderate,Low,Irrigate tomorrow
+2025-08-03 11:00,FARM001,North Field,22.3796,73.1397,73,22.7,4.96,379,Wet,38.1,49,10,475,7.4,361,17.9,3.0,2.08,Vegetative,Poor,Medium,No action needed
+2025-08-03 12:00,FARM001,North Field,22.3214,73.106,71,23.9,7.35,416,Dry,31.1,44,1,505,4.5,616,20.0,3.1,1.35,Vegetative,Moderate,Medium,Apply fertilizer
+2025-08-03 13:00,FARM001,North Field,22.3886,73.1841,48,20.8,7.32,555,Wet,32.9,70,6,537,4.9,378,19.3,4.6,2.18,Vegetative,Moderate,Low,Apply fertilizer
+2025-08-03 14:00,FARM001,North Field,22.3214,73.1918,66,34.0,5.73,397,Wet,36.5,74,6,552,2.8,532,17.9,5.0,2.91,Flowering,Moderate,High,Irrigate tomorrow
+2025-08-03 15:00,FARM001,North Field,22.3608,73.1929,46,27.7,5.06,349,Dry,22.0,74,3,267,0.4,266,18.7,4.2,1.85,Vegetative,Good,Medium,Apply fertilizer
+2025-08-03 16:00,FARM001,North Field,22.3807,73.17,13,31.6,6.6,393,Dry,28.7,32,3,402,3.1,530,17.9,3.5,3.0,Flowering,Poor,High,No action needed
+2025-08-03 17:00,FARM001,North Field,22.3749,73.1414,13,29.3,6.24,397,Wet,35.0,61,3,344,7.4,387,20.0,4.0,3.95,Flowering,Good,Low,Check for pests
+2025-08-03 18:00,FARM001,North Field,22.3819,73.1752,53,30.4,4.85,302,Wet,23.5,68,10,393,0.9,375,16.6,4.9,2.72,Vegetative,Moderate,High,Check for pests
+2025-08-03 19:00,FARM001,North Field,22.3099,73.1361,24,24.7,5.64,457,Wet,35.6,32,1,715,1.4,911,19.6,3.4,2.99,Vegetative,Moderate,High,Monitor humidity
+2025-08-03 20:00,FARM001,North Field,22.3419,73.1582,63,27.1,7.49,541,Dry,34.9,63,5,379,0.9,513,19.5,5.0,4.24,Harvesting,Moderate,Low,Check for pests
+2025-08-03 21:00,FARM001,North Field,22.3009,73.1539,65,25.4,6.9,354,Wet,31.0,42,2,419,4.5,824,19.0,4.1,0.63,Vegetative,Good,Low,Irrigate tomorrow
+2025-08-03 22:00,FARM001,North Field,22.3378,73.1625,19,22.3,5.02,491,Wet,21.1,69,0,613,8.5,139,17.9,4.5,4.92,Seedling,Good,Low,Irrigate tomorrow
+2025-08-03 23:00,FARM001,North Field,22.3048,73.1447,30,22.8,4.58,467,Wet,22.7,49,0,297,3.9,981,18.2,3.6,0.72,Seedling,Poor,Low,Irrigate tomorrow
+2025-08-04 00:00,FARM001,North Field,22.3852,73.1855,28,28.9,5.11,362,Wet,34.1,44,2,465,9.9,384,16.4,3.4,4.59,Flowering,Poor,Low,Apply fertilizer
+2025-08-04 01:00,FARM001,North Field,22.3237,73.128,85,21.5,5.88,441,Dry,26.9,51,10,531,3.7,135,16.3,4.9,4.41,Seedling,Moderate,High,Irrigate tomorrow
+2025-08-04 02:00,FARM001,North Field,22.3419,73.1465,88,33.2,4.91,589,Dry,20.1,60,4,657,2.2,954,16.3,4.9,3.3,Vegetative,Poor,Medium,Monitor humidity
+2025-08-04 03:00,FARM001,North Field,22.343,73.1106,53,22.4,7.37,303,Dry,22.9,79,7,420,1.1,473,19.4,4.2,3.03,Harvesting,Poor,Medium,Check for pests
+2025-08-04 04:00,FARM001,North Field,22.3984,73.116,19,34.3,7.18,596,Dry,30.6,36,0,643,6.5,191,19.7,3.8,3.33,Flowering,Poor,High,No action needed
+2025-08-04 05:00,FARM001,North Field,22.3893,73.1864,59,32.2,5.86,300,Wet,34.1,80,5,732,2.5,353,17.9,3.9,2.78,Vegetative,Poor,High,No action needed
+2025-08-04 06:00,FARM001,North Field,22.3163,73.1487,55,34.4,7.49,561,Dry,35.9,76,8,551,3.7,600,17.9,3.6,1.12,Vegetative,Poor,High,No action needed
+2025-08-04 07:00,FARM001,North Field,22.3759,73.1551,76,31.4,5.46,541,Wet,34.5,34,0,363,0.3,709,19.5,3.4,1.23,Harvesting,Good,Medium,Apply fertilizer
+2025-08-04 08:00,FARM001,North Field,22.3303,73.1526,47,30.6,7.35,552,Dry,22.2,37,10,468,9.8,394,17.7,3.8,2.16,Seedling,Good,Medium,Irrigate tomorrow
+2025-08-04 09:00,FARM001,North Field,22.3085,73.1049,53,31.4,6.32,401,Dry,24.7,35,10,293,0.4,745,18.6,4.5,1.11,Harvesting,Moderate,Medium,No action needed
+2025-08-04 10:00,FARM001,North Field,22.357,73.1521,29,25.0,5.54,434,Wet,24.7,72,4,735,0.1,880,18.9,4.4,2.01,Seedling,Good,High,Monitor humidity
+2025-08-04 11:00,FARM001,North Field,22.3042,73.1146,59,26.5,7.26,473,Wet,21.5,70,0,578,0.7,934,18.2,4.7,0.9,Flowering,Poor,Low,Check for pests
+2025-08-04 12:00,FARM001,North Field,22.3313,73.1701,90,28.7,6.59,411,Wet,33.0,73,10,321,4.5,780,17.0,3.8,3.73,Vegetative,Good,Medium,Irrigate tomorrow
+2025-08-04 13:00,FARM001,North Field,22.3382,73.1712,81,30.4,5.27,554,Wet,25.5,70,1,250,0.4,756,19.8,4.0,1.14,Vegetative,Poor,High,No action needed
+2025-08-04 14:00,FARM001,North Field,22.3478,73.183,62,25.3,5.81,309,Dry,23.8,33,10,797,9.3,449,19.0,3.5,2.26,Harvesting,Moderate,Medium,Check for pests
+2025-08-04 15:00,FARM001,North Field,22.3133,73.1103,55,33.5,4.89,325,Dry,29.2,34,8,460,2.4,594,17.3,3.5,0.85,Flowering,Good,Medium,Apply fertilizer
+2025-08-04 16:00,FARM001,North Field,22.3057,73.1382,49,22.3,5.59,521,Dry,37.9,43,9,475,2.6,412,19.1,4.8,1.8,Vegetative,Poor,Medium,No action needed
+2025-08-04 17:00,FARM001,North Field,22.3147,73.195,19,32.0,7.11,307,Dry,32.2,40,7,665,9.5,923,17.2,4.7,4.26,Harvesting,Moderate,Low,Irrigate tomorrow
+2025-08-04 18:00,FARM001,North Field,22.3688,73.1904,79,33.5,6.58,493,Dry,34.5,38,7,635,8.2,490,18.8,4.3,0.8,Vegetative,Good,Medium,Irrigate tomorrow
+2025-08-04 19:00,FARM001,North Field,22.3755,73.1876,28,21.1,5.89,366,Wet,24.1,34,8,698,4.1,308,17.9,3.4,0.54,Seedling,Poor,High,Monitor humidity
+2025-08-04 20:00,FARM001,North Field,22.3099,73.1218,59,21.5,5.23,327,Wet,29.0,54,5,677,5.0,862,16.9,4.3,0.61,Vegetative,Poor,Medium,Apply fertilizer
+2025-08-04 21:00,FARM001,North Field,22.3474,73.1311,14,28.0,6.49,335,Dry,21.9,76,0,698,7.2,497,19.4,4.4,3.34,Seedling,Moderate,Low,Check for pests
+2025-08-04 22:00,FARM001,North Field,22.3294,73.1368,17,31.5,5.96,458,Wet,21.2,36,3,557,4.1,663,16.1,4.1,2.39,Vegetative,Good,High,No action needed
+2025-08-04 23:00,FARM001,North Field,22.3519,73.1665,54,21.3,6.66,593,Dry,32.7,70,2,399,4.1,141,18.4,3.2,2.66,Vegetative,Moderate,High,Check for pests
+2025-08-05 00:00,FARM001,North Field,22.373,73.1223,44,34.5,4.55,307,Dry,38.0,77,2,632,0.3,615,17.1,4.7,0.58,Flowering,Poor,High,Check for pests
+2025-08-05 01:00,FARM001,North Field,22.3622,73.1039,29,22.1,5.84,379,Dry,36.2,68,8,241,3.1,992,16.3,4.0,4.78,Flowering,Good,High,No action needed
+2025-08-05 02:00,FARM001,North Field,22.3689,73.1903,75,34.8,5.48,424,Wet,34.4,75,8,473,4.0,680,19.6,3.2,0.76,Flowering,Poor,Low,Check for pests
+2025-08-05 03:00,FARM001,North Field,22.3049,73.1613,21,21.9,7.34,527,Dry,38.7,70,4,547,5.8,520,19.1,5.0,2.0,Seedling,Moderate,Medium,Check for pests
+2025-08-05 04:00,FARM001,North Field,22.3164,73.1527,36,31.8,5.87,437,Dry,33.7,71,1,448,0.7,1000,16.2,4.3,1.44,Harvesting,Moderate,Low,Check for pests
+2025-08-05 05:00,FARM001,North Field,22.3078,73.1041,12,26.8,6.57,510,Wet,28.9,76,10,493,8.9,822,16.0,3.0,3.62,Flowering,Good,Medium,No action needed
+2025-08-05 06:00,FARM001,North Field,22.3841,73.1376,25,24.9,5.36,562,Dry,26.8,62,10,768,1.4,989,18.3,3.2,4.06,Harvesting,Poor,Medium,No action needed
+2025-08-05 07:00,FARM001,North Field,22.3447,73.1355,18,26.1,7.17,365,Dry,26.3,50,9,797,2.5,862,19.2,4.0,1.42,Vegetative,Good,Medium,No action needed
+2025-08-05 08:00,FARM001,North Field,22.3356,73.1054,84,33.6,5.15,348,Wet,35.9,68,3,582,9.9,346,16.4,3.8,3.95,Seedling,Moderate,High,Irrigate tomorrow
+2025-08-05 09:00,FARM001,North Field,22.3597,73.1011,88,20.1,5.55,444,Dry,21.3,44,3,204,2.7,818,18.3,3.7,1.25,Seedling,Poor,High,Irrigate tomorrow
+2025-08-05 10:00,FARM001,North Field,22.3968,73.1055,82,24.2,4.58,364,Dry,37.0,45,3,209,1.9,747,19.9,4.6,2.22,Flowering,Good,Medium,Irrigate tomorrow
+2025-08-05 11:00,FARM001,North Field,22.319,73.1938,51,32.7,6.56,396,Wet,37.1,59,6,672,4.3,408,17.3,3.0,2.34,Flowering,Moderate,Low,Monitor humidity
+2025-08-05 12:00,FARM001,North Field,22.303,73.1841,51,32.3,5.91,538,Dry,36.0,58,1,395,8.9,886,20.0,4.8,1.85,Flowering,Poor,Low,Irrigate tomorrow
+2025-08-05 13:00,FARM001,North Field,22.3239,73.1588,38,28.5,7.03,509,Wet,34.5,78,8,667,9.5,384,17.8,4.9,2.68,Vegetative,Good,High,Monitor humidity
+2025-08-05 14:00,FARM001,North Field,22.3984,73.1863,84,30.5,6.47,523,Dry,32.1,36,4,411,4.7,447,16.6,4.4,2.04,Seedling,Moderate,Medium,Irrigate tomorrow
+2025-08-05 15:00,FARM001,North Field,22.3721,73.1554,57,25.5,6.2,380,Dry,27.5,60,2,694,7.2,136,19.4,4.4,2.62,Flowering,Poor,Medium,Irrigate tomorrow
+2025-08-05 16:00,FARM001,North Field,22.3353,73.1276,69,33.9,6.96,469,Dry,31.1,64,4,227,0.1,569,17.2,3.0,3.54,Vegetative,Poor,High,Check for pests
+2025-08-05 17:00,FARM001,North Field,22.3158,73.1123,10,25.6,7.31,376,Dry,29.1,39,5,627,9.1,905,17.0,3.2,4.41,Vegetative,Good,Low,Apply fertilizer
+2025-08-05 18:00,FARM001,North Field,22.3265,73.1036,34,21.9,5.81,512,Wet,28.5,40,0,702,5.4,170,16.7,4.6,4.0,Flowering,Moderate,Low,Monitor humidity
+2025-08-05 19:00,FARM001,North Field,22.3363,73.1803,40,33.9,7.31,465,Wet,39.5,50,5,748,1.8,899,19.0,3.9,3.62,Seedling,Poor,Medium,No action needed
+2025-08-05 20:00,FARM001,North Field,22.3518,73.1185,10,25.8,7.36,363,Wet,30.1,74,7,410,1.3,138,19.9,3.7,2.22,Flowering,Good,Medium,Check for pests
+2025-08-05 21:00,FARM001,North Field,22.3243,73.137,90,22.6,6.93,465,Wet,22.3,40,9,582,2.7,126,19.9,3.9,2.88,Flowering,Poor,Medium,Check for pests
+2025-08-05 22:00,FARM001,North Field,22.3427,73.1308,54,26.7,5.15,417,Dry,27.7,38,5,604,4.6,838,17.1,4.6,0.77,Vegetative,Poor,Low,Check for pests
+2025-08-05 23:00,FARM001,North Field,22.3845,73.1916,59,23.3,7.37,511,Wet,37.8,71,3,687,1.6,493,16.6,4.9,1.47,Seedling,Poor,High,No action needed
+2025-08-06 00:00,FARM001,North Field,22.3272,73.1887,58,26.4,5.19,365,Wet,24.1,30,8,579,3.2,703,17.0,4.6,3.36,Vegetative,Good,Low,Monitor humidity
+2025-08-06 01:00,FARM001,North Field,22.3314,73.1402,69,24.1,5.03,350,Dry,30.5,76,6,693,9.9,521,18.5,4.9,0.59,Flowering,Moderate,Medium,Irrigate tomorrow
+2025-08-06 02:00,FARM001,North Field,22.3257,73.176,65,27.4,4.95,425,Wet,32.9,56,7,232,8.9,247,19.8,3.6,3.56,Flowering,Moderate,Low,Apply fertilizer
+2025-08-06 03:00,FARM001,North Field,22.3622,73.1414,69,23.9,5.19,452,Wet,27.5,33,4,669,3.8,119,18.5,3.9,4.84,Flowering,Moderate,Medium,Check for pests
+2025-08-06 04:00,FARM001,North Field,22.3828,73.1252,85,28.9,6.27,512,Wet,21.4,48,9,277,9.8,948,17.9,3.2,1.36,Harvesting,Poor,Low,No action needed
+2025-08-06 05:00,FARM001,North Field,22.3054,73.1576,31,27.7,6.23,466,Dry,29.7,32,7,468,2.8,740,18.4,4.0,2.33,Seedling,Good,Low,No action needed
+2025-08-06 06:00,FARM001,North Field,22.3573,73.1727,66,21.4,7.46,467,Wet,29.9,64,10,494,5.9,511,18.7,3.1,4.32,Harvesting,Good,Medium,Monitor humidity
+2025-08-06 07:00,FARM001,North Field,22.3867,73.1298,71,33.2,4.86,321,Dry,36.3,39,2,474,9.0,676,19.0,4.8,3.63,Vegetative,Moderate,High,Check for pests
+2025-08-06 08:00,FARM001,North Field,22.3836,73.1107,62,20.4,7.22,355,Dry,36.0,43,2,300,9.0,466,16.2,3.5,4.42,Flowering,Poor,Medium,Apply fertilizer
+2025-08-06 09:00,FARM001,North Field,22.3279,73.1561,79,30.6,7.3,385,Dry,33.6,31,8,384,9.3,979,19.7,3.2,0.75,Flowering,Good,Low,Check for pests
+2025-08-06 10:00,FARM001,North Field,22.3834,73.111,87,34.5,5.83,509,Dry,27.6,72,4,385,3.2,613,16.5,4.1,2.49,Harvesting,Good,Low,Monitor humidity
+2025-08-06 11:00,FARM001,North Field,22.3212,73.1457,70,28.5,6.41,362,Wet,27.5,49,9,308,0.7,552,18.4,4.1,1.94,Vegetative,Moderate,Low,No action needed
+2025-08-06 12:00,FARM001,North Field,22.3819,73.1927,55,29.7,5.21,430,Wet,27.3,59,3,282,2.0,398,16.1,4.6,3.83,Vegetative,Moderate,High,Check for pests
+2025-08-06 13:00,FARM001,North Field,22.3798,73.1295,12,20.0,5.2,470,Dry,37.8,54,5,665,3.4,983,17.1,4.5,2.44,Harvesting,Poor,Low,Irrigate tomorrow
+2025-08-06 14:00,FARM001,North Field,22.3029,73.1596,80,28.7,7.04,472,Wet,29.6,31,7,255,3.5,155,19.5,3.9,3.08,Harvesting,Poor,Medium,Apply fertilizer
+2025-08-06 15:00,FARM001,North Field,22.3001,73.1256,30,23.7,4.81,562,Dry,33.5,55,0,285,6.5,748,18.9,4.0,2.36,Harvesting,Good,Low,Apply fertilizer
+2025-08-06 16:00,FARM001,North Field,22.3085,73.1503,72,30.5,6.08,439,Dry,39.2,59,10,571,6.5,936,16.7,3.1,3.86,Harvesting,Good,Low,Irrigate tomorrow
+2025-08-06 17:00,FARM001,North Field,22.3927,73.1127,78,23.2,6.82,587,Wet,30.0,50,5,648,8.5,764,17.3,4.9,1.36,Vegetative,Poor,Medium,Irrigate tomorrow
+2025-08-06 18:00,FARM001,North Field,22.3684,73.1926,57,30.5,6.76,341,Dry,33.2,42,4,777,7.1,762,16.9,4.3,0.53,Harvesting,Good,High,Check for pests
+2025-08-06 19:00,FARM001,North Field,22.364,73.1916,58,31.4,5.89,313,Wet,35.9,47,4,656,1.5,665,17.9,3.4,4.32,Vegetative,Poor,Medium,Irrigate tomorrow
+2025-08-06 20:00,FARM001,North Field,22.3177,73.1442,23,20.1,6.49,446,Dry,30.3,43,1,582,6.5,565,19.5,3.5,2.28,Flowering,Good,Medium,Irrigate tomorrow
+2025-08-06 21:00,FARM001,North Field,22.3214,73.1615,19,21.9,6.65,476,Dry,35.3,66,9,272,0.5,948,18.5,4.7,4.18,Flowering,Moderate,High,Check for pests
+2025-08-06 22:00,FARM001,North Field,22.307,73.1972,64,34.8,6.89,421,Dry,32.6,55,4,500,0.1,184,18.6,3.5,4.69,Seedling,Poor,Medium,Check for pests
+2025-08-06 23:00,FARM001,North Field,22.3186,73.1767,34,32.9,6.6,559,Dry,38.0,63,0,294,4.5,794,19.6,3.7,2.75,Vegetative,Poor,Low,Irrigate tomorrow
+2025-08-07 00:00,FARM001,North Field,22.3813,73.1741,86,31.7,5.25,495,Wet,28.4,31,0,312,9.4,934,18.3,3.6,2.39,Flowering,Good,High,Irrigate tomorrow
+2025-08-07 01:00,FARM001,North Field,22.393,73.1584,57,33.2,5.82,304,Wet,35.7,37,0,309,8.6,223,16.2,4.0,0.6,Harvesting,Good,Medium,No action needed
+2025-08-07 02:00,FARM001,North Field,22.3173,73.1659,77,23.6,7.46,453,Dry,38.3,47,4,537,4.3,507,16.8,3.9,4.0,Harvesting,Poor,High,Monitor humidity
+2025-08-07 03:00,FARM001,North Field,22.3362,73.1405,79,30.5,5.21,479,Wet,26.1,78,3,727,9.2,127,19.0,3.3,2.92,Seedling,Good,Medium,Monitor humidity
+2025-08-07 04:00,FARM001,North Field,22.3512,73.157,59,34.4,7.47,511,Dry,35.3,71,0,587,8.0,246,17.2,4.5,3.58,Seedling,Poor,Low,Apply fertilizer
+2025-08-07 05:00,FARM001,North Field,22.3391,73.1765,61,23.2,6.82,581,Wet,34.1,68,7,799,5.6,114,17.0,4.8,0.76,Seedling,Good,Medium,Apply fertilizer
+2025-08-07 06:00,FARM001,North Field,22.3188,73.1137,56,29.5,6.77,504,Dry,25.8,44,1,662,1.4,852,18.7,3.0,1.63,Seedling,Poor,Low,No action needed
+2025-08-07 07:00,FARM001,North Field,22.3908,73.1058,36,32.2,5.99,542,Wet,38.4,41,3,212,1.3,139,17.2,3.0,0.66,Flowering,Moderate,Low,No action needed
+2025-08-07 08:00,FARM001,North Field,22.3565,73.1534,90,33.4,6.99,490,Dry,39.1,62,7,295,0.5,174,19.8,3.7,4.79,Harvesting,Good,High,Apply fertilizer
+2025-08-07 09:00,FARM001,North Field,22.3261,73.102,20,31.4,4.98,341,Dry,34.3,30,5,769,8.7,974,17.8,3.7,4.86,Harvesting,Good,High,Check for pests
+2025-08-07 10:00,FARM001,North Field,22.3652,73.1144,17,27.6,7.13,532,Wet,32.5,74,7,201,1.9,992,16.4,4.8,4.84,Seedling,Poor,High,Monitor humidity
+2025-08-07 11:00,FARM001,North Field,22.399,73.1835,33,20.7,5.35,324,Wet,30.8,44,6,426,2.0,459,19.3,3.8,0.66,Seedling,Good,Medium,Apply fertilizer
+2025-08-07 12:00,FARM001,North Field,22.3479,73.185,20,30.6,7.37,329,Dry,27.8,60,0,425,5.5,256,18.2,4.0,1.22,Harvesting,Moderate,High,Monitor humidity
+2025-08-07 13:00,FARM001,North Field,22.3699,73.1129,68,32.5,6.33,558,Dry,39.3,64,10,662,9.7,998,16.5,4.1,0.86,Seedling,Good,Low,Apply fertilizer
+2025-08-07 14:00,FARM001,North Field,22.3643,73.1884,39,28.7,6.9,324,Wet,21.2,74,3,685,3.8,875,19.5,3.4,0.79,Flowering,Good,High,Monitor humidity
+2025-08-07 15:00,FARM001,North Field,22.311,73.1927,36,32.8,6.23,530,Dry,25.2,32,6,728,7.1,155,19.0,4.3,1.03,Seedling,Moderate,High,Monitor humidity
+2025-08-07 16:00,FARM001,North Field,22.371,73.1002,72,23.2,7.31,410,Wet,40.0,54,5,716,5.9,524,16.9,3.9,1.03,Harvesting,Moderate,Low,Apply fertilizer
+2025-08-07 17:00,FARM001,North Field,22.3685,73.198,64,30.0,7.23,483,Dry,20.9,45,5,423,4.9,253,18.0,4.8,4.6,Vegetative,Good,Low,Irrigate tomorrow
+2025-08-07 18:00,FARM001,North Field,22.3089,73.1109,35,33.7,7.0,564,Dry,37.1,71,8,233,10.0,115,17.6,4.0,4.61,Flowering,Poor,High,Check for pests
+2025-08-07 19:00,FARM001,North Field,22.3649,73.1677,89,34.5,7.24,484,Wet,28.8,44,4,645,9.0,303,16.7,3.0,3.83,Harvesting,Poor,High,Apply fertilizer
+2025-08-07 20:00,FARM001,North Field,22.3054,73.1719,42,28.7,4.74,402,Wet,37.5,79,0,301,2.0,412,17.7,3.9,4.71,Vegetative,Good,High,No action needed
+2025-08-07 21:00,FARM001,North Field,22.3518,73.162,80,23.2,5.87,311,Dry,26.5,67,1,794,9.5,222,19.3,4.4,3.36,Seedling,Moderate,High,Check for pests
+2025-08-07 22:00,FARM001,North Field,22.3836,73.1815,13,24.3,4.81,331,Dry,35.7,59,5,615,9.6,590,17.5,4.8,3.06,Seedling,Good,High,No action needed
+2025-08-07 23:00,FARM001,North Field,22.3351,73.1326,60,24.3,6.76,548,Dry,24.8,71,8,339,4.1,497,16.4,3.1,2.65,Vegetative,Moderate,Medium,No action needed
+2025-08-08 00:00,FARM001,North Field,22.3402,73.1872,33,28.3,4.81,306,Wet,35.1,63,2,282,6.6,269,18.9,4.2,2.87,Flowering,Poor,Low,Check for pests
+2025-08-08 01:00,FARM001,North Field,22.3738,73.1212,77,23.8,5.02,587,Dry,37.1,59,8,289,1.1,710,16.5,3.7,4.69,Flowering,Poor,Medium,Irrigate tomorrow
+2025-08-08 02:00,FARM001,North Field,22.3543,73.1591,68,26.7,4.73,365,Dry,34.3,57,2,392,7.1,546,19.9,3.5,1.87,Vegetative,Poor,High,Monitor humidity
+2025-08-08 03:00,FARM001,North Field,22.391,73.1073,15,20.2,7.11,547,Wet,38.2,62,1,258,7.1,246,17.7,4.8,1.93,Vegetative,Good,High,Check for pests
+2025-08-08 04:00,FARM001,North Field,22.3269,73.1315,61,31.2,6.93,501,Wet,36.8,70,7,770,1.0,935,17.8,4.3,3.51,Flowering,Good,Low,Check for pests
+2025-08-08 05:00,FARM001,North Field,22.3449,73.1899,80,27.3,4.57,505,Wet,22.4,66,8,420,2.1,851,16.6,3.1,3.36,Vegetative,Poor,High,Check for pests
+2025-08-08 06:00,FARM001,North Field,22.3913,73.1795,45,31.1,6.24,321,Dry,22.0,45,3,716,5.8,318,19.6,3.7,1.67,Harvesting,Moderate,Medium,Apply fertilizer
+2025-08-08 07:00,FARM001,North Field,22.3128,73.1898,43,32.6,5.92,444,Wet,31.0,61,9,469,7.4,520,17.3,4.1,3.99,Vegetative,Good,Medium,Irrigate tomorrow
+2025-08-08 08:00,FARM001,North Field,22.3446,73.1801,46,25.8,6.52,554,Wet,32.4,54,7,589,2.7,990,18.6,4.5,3.59,Harvesting,Poor,Medium,Irrigate tomorrow
+2025-08-08 09:00,FARM001,North Field,22.3136,73.128,35,33.4,4.63,569,Dry,33.2,67,5,357,6.2,363,17.5,3.3,3.44,Harvesting,Moderate,Medium,Monitor humidity
+2025-08-08 10:00,FARM001,North Field,22.3601,73.1282,84,28.8,4.86,421,Wet,39.7,79,10,712,1.6,358,16.9,3.7,3.49,Vegetative,Moderate,High,Apply fertilizer
+2025-08-08 11:00,FARM001,North Field,22.3842,73.1897,28,32.1,6.43,589,Wet,21.5,37,4,278,7.5,495,16.3,4.8,2.99,Harvesting,Poor,High,Monitor humidity
+2025-08-08 12:00,FARM001,North Field,22.3706,73.1912,12,32.4,5.29,326,Wet,22.0,45,1,711,2.9,685,16.5,4.2,4.21,Vegetative,Good,Low,Monitor humidity
+2025-08-08 13:00,FARM001,North Field,22.3033,73.1479,64,21.6,6.01,302,Wet,30.7,45,8,536,3.7,463,16.3,4.5,1.95,Vegetative,Good,Medium,Apply fertilizer
+2025-08-08 14:00,FARM001,North Field,22.3118,73.1884,24,20.1,4.84,569,Wet,34.1,61,0,354,1.5,980,16.1,4.7,2.54,Vegetative,Poor,Medium,No action needed
+2025-08-08 15:00,FARM001,North Field,22.3867,73.1005,15,32.8,6.12,491,Dry,21.8,58,10,306,1.2,345,17.8,3.4,1.63,Seedling,Moderate,High,Check for pests
+2025-08-08 16:00,FARM001,North Field,22.3823,73.1759,12,29.4,7.26,552,Wet,34.4,54,6,491,6.3,797,16.5,4.5,0.89,Seedling,Poor,High,Apply fertilizer
+2025-08-08 17:00,FARM001,North Field,22.336,73.1903,50,20.7,4.56,403,Dry,23.6,33,5,563,6.5,484,18.9,4.5,1.49,Flowering,Good,High,Check for pests
+2025-08-08 18:00,FARM001,North Field,22.3158,73.1353,59,25.5,5.71,316,Dry,22.9,69,7,643,6.4,903,16.6,3.1,2.06,Seedling,Moderate,High,No action needed
+2025-08-08 19:00,FARM001,North Field,22.3896,73.1858,15,27.6,5.29,496,Wet,22.5,61,6,712,1.0,690,19.1,4.4,4.07,Harvesting,Moderate,Medium,No action needed
+2025-08-08 20:00,FARM001,North Field,22.3291,73.1159,73,23.2,6.15,393,Wet,37.5,64,7,242,2.1,399,18.0,3.3,1.48,Vegetative,Moderate,High,Check for pests
+2025-08-08 21:00,FARM001,North Field,22.3352,73.1164,59,33.2,6.25,461,Wet,26.3,79,3,601,4.5,293,17.2,4.0,4.35,Harvesting,Moderate,High,Monitor humidity
+2025-08-08 22:00,FARM001,North Field,22.3471,73.1726,27,29.1,5.68,450,Wet,22.6,79,5,533,9.8,208,19.2,4.5,1.7,Flowering,Moderate,High,Irrigate tomorrow
+2025-08-08 23:00,FARM001,North Field,22.3977,73.1077,76,28.5,5.44,395,Wet,26.2,39,4,546,0.8,489,16.9,5.0,4.22,Seedling,Moderate,Low,Apply fertilizer
+2025-08-09 00:00,FARM001,North Field,22.3285,73.1148,31,31.1,5.82,464,Wet,35.2,70,1,248,5.5,504,16.5,3.3,2.6,Seedling,Good,Low,Check for pests
+2025-08-09 01:00,FARM001,North Field,22.3277,73.1362,63,29.3,5.54,400,Dry,26.2,51,5,608,5.4,439,17.7,3.5,2.77,Harvesting,Good,High,No action needed
+2025-08-09 02:00,FARM001,North Field,22.3562,73.1942,89,32.0,7.35,449,Dry,26.3,71,1,573,0.5,258,19.4,4.8,2.11,Seedling,Moderate,Medium,Irrigate tomorrow
+2025-08-09 03:00,FARM001,North Field,22.3564,73.1911,32,32.7,4.6,362,Wet,20.9,65,0,243,6.0,228,19.0,3.7,3.18,Harvesting,Moderate,Medium,Monitor humidity
+2025-08-09 04:00,FARM001,North Field,22.3801,73.167,68,21.8,4.82,531,Wet,25.8,50,7,384,3.8,523,17.6,3.2,1.73,Harvesting,Moderate,Low,Monitor humidity
+2025-08-09 05:00,FARM001,North Field,22.3155,73.1066,12,25.6,6.62,460,Wet,27.5,65,8,624,4.9,879,19.6,4.2,0.94,Harvesting,Poor,High,Check for pests
+2025-08-09 06:00,FARM001,North Field,22.3828,73.1159,52,30.5,5.3,420,Wet,21.6,39,0,501,3.6,344,18.9,4.9,3.34,Harvesting,Good,Low,Apply fertilizer
+2025-08-09 07:00,FARM001,North Field,22.3404,73.1334,26,27.1,4.76,348,Dry,29.8,76,4,542,3.6,479,17.0,4.0,0.53,Seedling,Moderate,Low,Monitor humidity
+2025-08-09 08:00,FARM001,North Field,22.3174,73.1719,15,30.6,6.0,582,Dry,28.4,69,3,244,1.4,766,19.3,3.7,1.65,Seedling,Poor,High,No action needed
+2025-08-09 09:00,FARM001,North Field,22.3158,73.1984,90,25.9,4.83,424,Wet,39.8,31,0,255,0.4,164,18.1,4.5,3.79,Harvesting,Poor,Medium,Check for pests
+2025-08-09 10:00,FARM001,North Field,22.3192,73.1128,11,34.7,6.03,593,Dry,35.7,31,4,684,8.3,466,17.5,3.5,0.87,Seedling,Moderate,Low,Irrigate tomorrow
+2025-08-09 11:00,FARM001,North Field,22.3964,73.1456,77,34.8,4.59,431,Wet,21.9,74,3,507,8.4,399,16.4,4.8,2.68,Harvesting,Good,High,Check for pests
+2025-08-09 12:00,FARM001,North Field,22.341,73.1911,32,21.0,4.64,383,Wet,23.9,56,6,207,3.5,506,17.8,5.0,0.64,Vegetative,Poor,Medium,Check for pests
+2025-08-09 13:00,FARM001,North Field,22.3709,73.1402,29,29.7,6.76,564,Wet,25.9,47,5,613,5.1,580,18.2,4.2,4.66,Flowering,Moderate,Medium,Irrigate tomorrow
+2025-08-09 14:00,FARM001,North Field,22.3206,73.1061,89,22.9,5.72,357,Wet,35.1,64,7,598,9.8,626,17.8,3.7,4.85,Seedling,Moderate,Medium,Check for pests
+2025-08-09 15:00,FARM001,North Field,22.3462,73.192,48,20.7,5.41,427,Wet,20.8,68,9,666,5.8,760,18.1,3.9,1.96,Vegetative,Poor,High,Check for pests
+2025-08-09 16:00,FARM001,North Field,22.3029,73.1886,58,21.8,6.6,317,Wet,32.3,39,0,713,0.5,192,18.2,4.8,0.81,Seedling,Poor,High,No action needed
+2025-08-09 17:00,FARM001,North Field,22.3923,73.1948,85,23.0,4.9,483,Dry,23.9,76,10,350,6.9,330,17.7,3.0,4.79,Seedling,Moderate,High,No action needed
+2025-08-09 18:00,FARM001,North Field,22.3531,73.1463,10,21.4,4.89,370,Dry,39.1,41,7,603,3.9,232,18.3,3.6,1.2,Vegetative,Good,High,Irrigate tomorrow
+2025-08-09 19:00,FARM001,North Field,22.3003,73.1019,45,25.4,6.51,549,Wet,32.6,72,0,741,2.8,886,19.0,3.8,1.65,Vegetative,Good,Medium,Apply fertilizer
+2025-08-09 20:00,FARM001,North Field,22.3073,73.1759,46,24.9,6.17,370,Wet,29.7,33,0,449,3.4,709,18.9,4.9,4.57,Seedling,Poor,High,Check for pests
+2025-08-09 21:00,FARM001,North Field,22.306,73.1212,79,21.3,5.84,442,Dry,31.4,76,2,649,1.4,890,18.8,3.2,0.8,Seedling,Moderate,High,Check for pests
+2025-08-09 22:00,FARM001,North Field,22.3463,73.1734,47,21.5,7.17,405,Dry,26.6,34,5,267,3.7,146,16.2,4.3,3.29,Vegetative,Moderate,High,No action needed
+2025-08-09 23:00,FARM001,North Field,22.3679,73.1189,11,30.0,6.23,453,Wet,25.5,33,10,712,2.1,645,16.5,3.9,4.2,Flowering,Good,High,Check for pests
+2025-08-10 00:00,FARM001,North Field,22.3106,73.1291,85,34.9,6.07,350,Dry,21.2,40,10,458,7.0,815,17.9,3.5,3.94,Seedling,Good,Low,Apply fertilizer
+2025-08-10 01:00,FARM001,North Field,22.3849,73.1997,61,33.3,7.07,370,Dry,38.1,58,7,725,3.1,177,16.6,3.8,1.44,Flowering,Moderate,Medium,Monitor humidity
+2025-08-10 02:00,FARM001,North Field,22.3122,73.199,59,20.3,7.34,414,Wet,32.3,32,1,717,5.1,308,17.9,3.8,4.63,Flowering,Poor,High,Apply fertilizer
+2025-08-10 03:00,FARM001,North Field,22.3748,73.1412,59,31.3,6.77,518,Dry,37.0,43,0,398,6.2,271,19.6,4.7,1.48,Seedling,Good,High,Apply fertilizer
+2025-08-10 04:00,FARM001,North Field,22.3995,73.1239,24,31.7,4.68,529,Wet,29.6,48,7,390,3.2,171,19.1,3.0,2.59,Flowering,Poor,Low,Check for pests
+2025-08-10 05:00,FARM001,North Field,22.3026,73.1571,47,32.2,6.64,374,Wet,24.0,46,1,780,6.9,943,18.0,4.5,1.59,Seedling,Good,High,Apply fertilizer
+2025-08-10 06:00,FARM001,North Field,22.3238,73.1465,64,30.5,4.82,313,Wet,21.5,44,6,337,7.4,813,18.0,3.5,0.63,Vegetative,Good,High,Apply fertilizer
+2025-08-10 07:00,FARM001,North Field,22.3677,73.1833,62,22.4,5.47,537,Wet,20.9,52,8,497,1.1,895,16.2,4.5,4.56,Vegetative,Poor,Medium,Check for pests
+2025-08-10 08:00,FARM001,North Field,22.3283,73.1651,71,30.7,6.3,309,Dry,38.9,55,7,473,1.0,612,19.5,3.2,1.07,Seedling,Good,Low,No action needed
+2025-08-10 09:00,FARM001,North Field,22.3471,73.1101,66,25.2,6.6,346,Dry,26.7,45,4,788,9.7,800,18.6,3.6,4.19,Seedling,Moderate,Medium,Check for pests
+2025-08-10 10:00,FARM001,North Field,22.3831,73.1115,22,22.7,6.24,536,Wet,24.4,65,9,454,4.3,541,18.2,3.2,1.94,Vegetative,Poor,Low,Check for pests
+2025-08-10 11:00,FARM001,North Field,22.329,73.1793,40,23.2,5.01,459,Wet,33.7,76,0,703,3.9,971,19.9,3.1,4.35,Seedling,Good,Medium,No action needed
+2025-08-10 12:00,FARM001,North Field,22.3147,73.1846,83,22.6,6.2,446,Dry,37.5,65,0,259,0.0,634,16.7,4.0,3.3,Vegetative,Moderate,Medium,Monitor humidity
+2025-08-10 13:00,FARM001,North Field,22.3421,73.1544,44,20.4,5.75,355,Dry,28.0,45,6,659,4.1,917,19.9,4.6,4.1,Harvesting,Moderate,Low,Monitor humidity
+2025-08-10 14:00,FARM001,North Field,22.3116,73.16,36,22.5,7.3,341,Wet,26.1,78,1,286,2.4,755,17.3,3.7,4.22,Flowering,Good,Low,No action needed
+2025-08-10 15:00,FARM001,North Field,22.3128,73.1659,29,28.2,6.02,458,Wet,28.0,77,1,698,1.6,210,16.2,3.4,3.07,Harvesting,Poor,Low,Irrigate tomorrow
+2025-08-10 16:00,FARM001,North Field,22.3022,73.1921,58,25.3,6.12,427,Dry,38.3,75,10,653,6.1,539,18.8,3.6,4.97,Seedling,Moderate,Medium,Irrigate tomorrow
+2025-08-10 17:00,FARM001,North Field,22.3909,73.1088,19,22.3,5.67,340,Wet,29.7,56,4,691,7.9,967,19.9,4.4,2.02,Seedling,Moderate,Low,Apply fertilizer
+2025-08-10 18:00,FARM001,North Field,22.3793,73.1167,42,23.5,5.66,494,Dry,38.5,79,3,331,6.7,457,18.7,4.3,2.55,Seedling,Good,Low,Check for pests
+2025-08-10 19:00,FARM001,North Field,22.3308,73.1684,26,23.1,4.63,480,Wet,31.6,40,7,544,5.0,525,18.3,3.3,0.6,Harvesting,Moderate,High,No action needed
+2025-08-10 20:00,FARM001,North Field,22.3518,73.155,38,34.4,7.34,447,Dry,24.6,49,3,299,2.3,517,16.7,4.4,4.51,Harvesting,Good,Low,Irrigate tomorrow
+2025-08-10 21:00,FARM001,North Field,22.3741,73.1985,70,28.8,7.24,570,Dry,37.9,46,6,539,0.6,632,16.2,3.1,1.63,Harvesting,Poor,High,Apply fertilizer
+2025-08-10 22:00,FARM001,North Field,22.3937,73.1926,81,26.3,4.74,441,Wet,38.1,47,9,322,2.9,219,18.2,4.4,4.03,Vegetative,Moderate,Medium,Monitor humidity
+2025-08-10 23:00,FARM001,North Field,22.3366,73.11,80,33.7,5.76,453,Wet,39.6,69,9,434,2.0,916,18.8,4.6,2.54,Flowering,Poor,Low,Irrigate tomorrow
+2025-08-11 00:00,FARM001,North Field,22.319,73.1464,54,34.9,7.18,436,Dry,32.8,69,0,506,4.1,654,19.0,3.2,2.54,Seedling,Moderate,Medium,No action needed
+2025-08-11 01:00,FARM001,North Field,22.3838,73.1602,52,20.6,6.2,352,Wet,27.5,50,9,644,1.8,804,18.6,4.2,2.76,Vegetative,Moderate,Medium,Apply fertilizer
+2025-08-11 02:00,FARM001,North Field,22.3055,73.1514,14,26.2,4.86,501,Dry,24.4,75,6,406,5.5,676,19.4,3.7,4.56,Seedling,Poor,Low,Check for pests
+2025-08-11 03:00,FARM001,North Field,22.3503,73.1809,43,33.9,6.81,467,Dry,20.4,47,6,495,9.7,251,19.3,3.7,1.87,Flowering,Good,High,No action needed
+2025-08-11 04:00,FARM001,North Field,22.359,73.1355,89,26.7,5.13,565,Dry,39.3,63,5,789,3.1,320,19.9,3.1,3.49,Harvesting,Poor,Low,Irrigate tomorrow
+2025-08-11 05:00,FARM001,North Field,22.35,73.1725,60,28.2,6.82,407,Wet,20.4,34,8,584,8.9,775,18.4,4.7,4.91,Vegetative,Poor,High,No action needed
+2025-08-11 06:00,FARM001,North Field,22.3018,73.1454,69,26.6,6.25,594,Wet,29.7,61,2,331,9.6,677,17.0,4.6,4.48,Harvesting,Good,High,Irrigate tomorrow
+2025-08-11 07:00,FARM001,North Field,22.3608,73.1708,80,32.8,6.85,437,Wet,21.7,46,4,535,0.5,512,17.9,4.0,1.74,Harvesting,Good,Low,Irrigate tomorrow
+2025-08-11 08:00,FARM001,North Field,22.3559,73.1262,22,27.2,6.06,535,Dry,35.1,80,8,521,3.3,727,17.3,3.1,1.66,Seedling,Moderate,Low,Apply fertilizer
+2025-08-11 09:00,FARM001,North Field,22.3536,73.1774,53,20.9,7.07,597,Dry,33.4,50,1,614,8.5,598,18.1,4.9,1.79,Harvesting,Good,Medium,Monitor humidity
+2025-08-11 10:00,FARM001,North Field,22.385,73.161,44,22.0,7.5,306,Wet,22.0,69,3,386,5.2,890,18.1,4.7,2.4,Seedling,Poor,High,Monitor humidity
+2025-08-11 11:00,FARM001,North Field,22.3968,73.1886,40,28.8,6.95,486,Wet,21.3,57,5,420,6.9,497,18.8,4.3,1.3,Seedling,Good,High,Monitor humidity
+2025-08-11 12:00,FARM001,North Field,22.336,73.1025,32,20.1,7.15,425,Wet,36.2,30,2,635,2.7,905,19.6,4.0,3.93,Vegetative,Good,Low,Check for pests
+2025-08-11 13:00,FARM001,North Field,22.3644,73.1731,38,29.3,7.14,472,Dry,27.2,50,10,489,4.1,228,18.6,4.6,3.72,Harvesting,Poor,Low,Apply fertilizer
+2025-08-11 14:00,FARM001,North Field,22.3434,73.1354,76,21.8,5.79,342,Wet,25.0,41,10,605,8.1,419,19.6,4.3,2.58,Flowering,Good,Medium,Apply fertilizer
+2025-08-11 15:00,FARM001,North Field,22.3109,73.1787,66,32.4,5.72,326,Dry,37.8,38,7,652,6.7,153,18.2,3.1,1.72,Flowering,Good,Medium,Monitor humidity
+2025-08-11 16:00,FARM001,North Field,22.394,73.1662,71,30.0,6.01,368,Wet,34.5,71,1,714,0.8,606,19.5,3.2,2.71,Harvesting,Poor,Low,Apply fertilizer
+2025-08-11 17:00,FARM001,North Field,22.3455,73.1607,84,30.1,6.09,324,Wet,26.4,46,7,750,1.1,421,19.7,4.6,0.93,Harvesting,Poor,Medium,Apply fertilizer
+2025-08-11 18:00,FARM001,North Field,22.3236,73.1916,90,29.4,5.19,565,Dry,35.6,64,1,783,5.6,117,17.4,4.2,2.44,Vegetative,Good,Medium,Monitor humidity
+2025-08-11 19:00,FARM001,North Field,22.3926,73.1808,50,22.8,5.15,582,Dry,20.6,55,1,734,4.5,384,18.3,3.1,2.14,Harvesting,Poor,Medium,Check for pests
+2025-08-11 20:00,FARM001,North Field,22.3806,73.1057,12,23.7,7.18,552,Wet,38.7,78,9,437,6.4,344,18.0,4.1,4.27,Vegetative,Moderate,High,Irrigate tomorrow
+2025-08-11 21:00,FARM001,North Field,22.3402,73.1115,35,32.3,7.24,476,Wet,36.6,63,4,247,1.6,303,19.7,4.4,4.98,Vegetative,Poor,Low,Monitor humidity
+2025-08-11 22:00,FARM001,North Field,22.355,73.1613,14,22.1,5.72,535,Dry,34.8,38,3,256,2.2,577,16.1,4.0,4.92,Flowering,Moderate,High,Monitor humidity
+2025-08-11 23:00,FARM001,North Field,22.3814,73.1821,86,25.5,5.72,408,Dry,25.1,54,4,484,9.3,707,17.7,3.2,1.26,Harvesting,Moderate,High,Check for pests
+2025-08-12 00:00,FARM001,North Field,22.3431,73.1765,89,30.8,7.07,587,Dry,38.7,59,6,296,0.3,712,16.8,4.9,4.89,Vegetative,Moderate,Low,Monitor humidity

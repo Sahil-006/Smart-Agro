@@ -1,0 +1,7 @@
+# Ignore Python venv
+Frontend/venv/
+Backend/venv/
+
+# Ignore Node modules
+Frontend/node_modules/
+Backend/node_modules/
