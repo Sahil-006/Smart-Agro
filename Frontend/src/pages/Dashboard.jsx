@@ -4,7 +4,8 @@ import {
   FiSun, FiDroplet, FiThermometer,
   FiAlertCircle, FiImage, FiBarChart2,
   FiSettings, FiCalendar, FiLoader,
-  FiUpload, FiCamera, FiRefreshCw
+  FiUpload, FiCamera, FiRefreshCw,
+  FiClipboard
 } from 'react-icons/fi';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -440,7 +441,43 @@ const Dashboard = () => {
             <p className="text-xs text-gray-500">Tip: You can also paste (Ctrl+V) an image directly</p>
           </div>
 
+          {/* Treatment Recommendations Card */}
           <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="500">
+            <h2 className="text-xl font-semibold flex items-center text-green-700 mb-6">
+              <FiClipboard className="text-purple-600 mr-2" />
+              Treatment Recommendations
+            </h2>
+            
+            {analysisResult?.treatment ? (
+              <div className="space-y-4">
+                <div className="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                  <h3 className="font-semibold text-purple-700 mb-2">Recommended Treatment</h3>
+                  <p className="text-purple-600">{analysisResult.treatment}</p>
+                </div>
+                
+                <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                  <h3 className="font-semibold text-blue-700 mb-2">Application Instructions</h3>
+                  <p className="text-blue-600">
+                    {analysisResult.application || "Apply treatment according to manufacturer instructions. Repeat as needed based on disease severity."}
+                  </p>
+                </div>
+                
+                {analysisResult.prevention && (
+                  <div className="bg-teal-50 p-4 rounded-lg border border-teal-100">
+                    <h3 className="font-semibold text-teal-700 mb-2">Prevention Tips</h3>
+                    <p className="text-teal-600">{analysisResult.prevention}</p>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="text-center py-8">
+                <FiClipboard className="text-4xl text-gray-300 mx-auto mb-4" />
+                <p className="text-gray-500">Upload and analyze an image to see treatment recommendations</p>
+              </div>
+            )}
+          </div>
+
+          <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="600">
             <h2 className="text-xl font-semibold flex items-center text-green-700 mb-6">
               <FiBarChart2 className="text-purple-600 mr-2" />
               Data Management
