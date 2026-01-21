@@ -1,0 +1,10 @@
+Flask
+flask-cors
+pymongo
+python-dotenv
+requests
+PyJWT
+flask-bcrypt
+Werkzeug
+Pillow
+numpy
