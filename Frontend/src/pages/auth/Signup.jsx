@@ -2,15 +2,13 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Signup = () => {
   const [step, setStep] = useState(1);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [agreeTerms, setAgreeTerms] = useState(false);
-
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -27,7 +25,7 @@ const Signup = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  // Mock location data (backend can replace later)
+  /* ---------------- MOCK LOCATION DATA ---------------- */
   const locationData = {
     Gujarat: {
       Ahmedabad: ["Village1", "Village2"],
@@ -40,9 +38,7 @@ const Signup = () => {
   };
 
   const states = Object.keys(locationData);
-  const districts = formData.state
-    ? Object.keys(locationData[formData.state])
-    : [];
+  const districts = formData.state ? Object.keys(locationData[formData.state]) : [];
   const villages = formData.district
     ? locationData[formData.state][formData.district]
     : [];
@@ -56,8 +52,16 @@ const Signup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  /* ---------------- VALIDATION ---------------- */
+  /* ---------------- PASSWORD RULES ---------------- */
+  const passwordRules = {
+    length: formData.password.length >= 8,
+    upper: /[A-Z]/.test(formData.password),
+    lower: /[a-z]/.test(formData.password),
+    number: /[0-9]/.test(formData.password),
+    special: /[^A-Za-z0-9]/.test(formData.password),
+  };
 
+  /* ---------------- VALIDATION ---------------- */
   const validateStep1 = () => {
     if (!formData.fullName || !formData.username)
       return "Full name and username are required";
@@ -65,8 +69,11 @@ const Signup = () => {
       return "Invalid email address";
     if (!/^\d{10}$/.test(formData.phone))
       return "Phone number must be 10 digits";
-    if (formData.password.length < 8)
-      return "Password must be at least 8 characters";
+    if (!passwordRules.length) return "Password must be at least 8 characters";
+    if (!passwordRules.upper) return "Password must contain one uppercase letter";
+    if (!passwordRules.lower) return "Password must contain one lowercase letter";
+    if (!passwordRules.number) return "Password must contain one number";
+    if (!passwordRules.special) return "Password must contain one special character";
     if (formData.password !== formData.confirmPassword)
       return "Passwords do not match";
     return null;
@@ -121,8 +128,13 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 flex items-start justify-center bg-gradient-to-br from-green-100 to-green-300 px-4">
-      <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-2xl w-full max-w-md mx-auto my-8">
+    <div className="min-h-screen pt-24 flex items-start justify-center bg-gradient-to-br from-green-100 to-green-300 px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="bg-white p-6 sm:p-8 rounded-2xl shadow-2xl w-full max-w-md mx-auto my-8"
+      >
 
         {/* STEP INDICATOR */}
         <div className="flex justify-center gap-2 mb-4">
@@ -133,7 +145,7 @@ const Signup = () => {
         <h2 className="text-2xl font-bold text-center text-green-700 mb-1">
           Smart Agro Sign Up
         </h2>
-        <p className="text-center text-sm text-gray-500 mb-6">
+        <p className="text-center text-sm text-gray-500 mb-5">
           Step {step} of 2
         </p>
 
@@ -143,94 +155,125 @@ const Signup = () => {
           </div>
         )}
 
-        {/* ---------------- STEP 1 ---------------- */}
-        {step === 1 && (
-          <div className="space-y-4">
-            <input className="input" name="fullName" placeholder="Full Name" onChange={handleChange} />
-            <input className="input" name="username" placeholder="Username" onChange={handleChange} />
-            <input className="input" name="email" placeholder="Email" onChange={handleChange} />
-            <input className="input" name="phone" placeholder="Phone (10 digits)" onChange={handleChange} />
-
-            <input
-              className="input"
-              type={showPassword ? "text" : "password"}
-              name="password"
-              placeholder="Password"
-              onChange={handleChange}
-            />
-            <input
-              className="input"
-              type={showConfirmPassword ? "text" : "password"}
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              onChange={handleChange}
-            />
-
-            <button
-              onClick={handleNext}
-              className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
+        <AnimatePresence mode="wait">
+          {/* ---------------- STEP 1 ---------------- */}
+          {step === 1 && (
+            <motion.div
+              key="step1"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.4 }}
+              className="space-y-4"
             >
-              Next →
-            </button>
+              <input className="input" name="fullName" placeholder="Full Name" onChange={handleChange} />
+              <input className="input" name="username" placeholder="Username" onChange={handleChange} />
+              <input className="input" name="email" placeholder="Email" onChange={handleChange} />
+              <input className="input" name="phone" placeholder="Phone (10 digits)" onChange={handleChange} />
 
-            {/* BACK TO LOGIN */}
-            <p className="text-center text-sm text-gray-600 mt-3">
-              Changed your mind?{" "}
-              <Link to="/login" className="text-green-700 font-semibold hover:underline">
-                Back to Login
-              </Link>
-            </p>
-          </div>
-        )}
+              <input className="input" type="password" name="password" placeholder="Password" onChange={handleChange} />
+              <input className="input" type="password" name="confirmPassword" placeholder="Confirm Password" onChange={handleChange} />
 
-        {/* ---------------- STEP 2 ---------------- */}
-        {step === 2 && (
-          <div className="space-y-4">
-            <select className="input" name="state" onChange={handleChange}>
-              <option value="">Select State</option>
-              {states.map((s) => <option key={s}>{s}</option>)}
-            </select>
+              {/* 🔐 COLLAPSIBLE PASSWORD RULES */}
+              <AnimatePresence>
+                {formData.password && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-gray-50 border rounded-md p-3 text-xs space-y-1 overflow-hidden"
+                  >
+                    <p className="font-semibold text-gray-600 mb-1">Password requirements:</p>
+                    <Rule ok={passwordRules.length} label="At least 8 characters" />
+                    <Rule ok={passwordRules.upper} label="One uppercase letter" />
+                    <Rule ok={passwordRules.lower} label="One lowercase letter" />
+                    <Rule ok={passwordRules.number} label="One number" />
+                    <Rule ok={passwordRules.special} label="One special character" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-            <select className="input" name="district" onChange={handleChange}>
-              <option value="">Select District</option>
-              {districts.map((d) => <option key={d}>{d}</option>)}
-            </select>
-
-            <select className="input" name="village" onChange={handleChange}>
-              <option value="">Select Village</option>
-              {villages.map((v) => <option key={v}>{v}</option>)}
-            </select>
-
-            <label className="flex items-center text-sm text-gray-600">
-              <input
-                type="checkbox"
-                className="mr-2"
-                checked={agreeTerms}
-                onChange={() => setAgreeTerms(!agreeTerms)}
-              />
-              I agree to the Terms & Conditions
-            </label>
-
-            <div className="flex gap-3">
               <button
-                onClick={() => setStep(1)}
-                className="w-1/2 border border-gray-300 py-2 rounded-md"
+                onClick={handleNext}
+                className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
               >
-                ← Back
+                Next →
               </button>
-              <button
-                onClick={handleSignup}
-                disabled={loading}
-                className="w-1/2 bg-green-600 text-white py-2 rounded-md hover:bg-green-700"
-              >
-                {loading ? "Creating..." : "Create Account"}
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+
+              <p className="text-center text-sm text-gray-600 mt-3">
+                Changed your mind?{" "}
+                <Link to="/login" className="text-green-700 font-semibold hover:underline">
+                  Back to Login
+                </Link>
+              </p>
+            </motion.div>
+          )}
+
+          {/* ---------------- STEP 2 ---------------- */}
+          {step === 2 && (
+            <motion.div
+              key="step2"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.4 }}
+              className="space-y-4"
+            >
+              <select className="input" name="state" onChange={handleChange}>
+                <option value="">Select State</option>
+                {states.map((s) => <option key={s}>{s}</option>)}
+              </select>
+
+              <select className="input" name="district" onChange={handleChange}>
+                <option value="">Select District</option>
+                {districts.map((d) => <option key={d}>{d}</option>)}
+              </select>
+
+              <select className="input" name="village" onChange={handleChange}>
+                <option value="">Select Village</option>
+                {villages.map((v) => <option key={v}>{v}</option>)}
+              </select>
+
+              <label className="flex items-center text-sm text-gray-600">
+                <input
+                  type="checkbox"
+                  className="mr-2"
+                  checked={agreeTerms}
+                  onChange={() => setAgreeTerms(!agreeTerms)}
+                />
+                I agree to the Terms & Conditions
+              </label>
+
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setStep(1)}
+                  className="w-1/2 border border-gray-300 py-2 rounded-md"
+                >
+                  ← Back
+                </button>
+                <button
+                  onClick={handleSignup}
+                  disabled={loading}
+                  className="w-1/2 bg-green-600 text-white py-2 rounded-md hover:bg-green-700"
+                >
+                  {loading ? "Creating..." : "Create Account"}
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 };
+
+/* ---------------- RULE COMPONENT ---------------- */
+const Rule = ({ ok, label }) => (
+  <div className={`flex items-center gap-2 ${ok ? "text-green-600" : "text-gray-400"}`}>
+    <span>{ok ? "✔" : "•"}</span>
+    <span>{label}</span>
+  </div>
+);
 
 export default Signup;
