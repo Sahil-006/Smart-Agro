@@ -1,30 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import axios from "axios";
 
 const Signup = () => {
+  const [step, setStep] = useState(1);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [agreeTerms, setAgreeTerms] = useState(false);
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [agreeTerms, setAgreeTerms] = useState(false);
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",
     username: "",
-    phone: "",
     email: "",
+    phone: "",
     password: "",
     confirmPassword: "",
     state: "",
     district: "",
-    village: ""
+    village: "",
   });
 
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  // Mock location data (backend can replace later)
   const locationData = {
     Gujarat: {
       Ahmedabad: ["Village1", "Village2"],
@@ -37,341 +40,194 @@ const Signup = () => {
   };
 
   const states = Object.keys(locationData);
-  const districts = formData.state ? Object.keys(locationData[formData.state]) : [];
-  const villages = formData.district ? locationData[formData.state][formData.district] : [];
+  const districts = formData.state
+    ? Object.keys(locationData[formData.state])
+    : [];
+  const villages = formData.district
+    ? locationData[formData.state][formData.district]
+    : [];
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [step]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const validateForm = () => {
-    if (!formData.fullName.trim()) {
-      setError("Full name is required");
-      return false;
-    }
-
-    if (!formData.username.trim()) {
-      setError("Username is required");
-      return false;
-    }
-
-    if (!/^\d{10}$/.test(formData.phone)) {
-      setError("Phone number must be 10 digits");
-      return false;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      setError("Please enter a valid email");
-      return false;
-    }
-
-    if (formData.password.length < 6) {
-      setError("Password must be at least 6 characters");
-      return false;
-    }
-
-    if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match");
-      return false;
-    }
-
-    if (!formData.state) {
-      setError("Please select a state");
-      return false;
-    }
-
-    if (!formData.district) {
-      setError("Please select a district");
-      return false;
-    }
-
-    if (!formData.village) {
-      setError("Please select a village");
-      return false;
-    }
-
-    if (!agreeTerms) {
-      setError("You must agree to the terms and conditions");
-      return false;
-    }
-
-    return true;
-  };
-
-  const handleSignup = async (e) => {
-    e.preventDefault();
     setError("");
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    if (!validateForm()) return;
+  /* ---------------- VALIDATION ---------------- */
 
-    setIsLoading(true);
+  const validateStep1 = () => {
+    if (!formData.fullName || !formData.username)
+      return "Full name and username are required";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+      return "Invalid email address";
+    if (!/^\d{10}$/.test(formData.phone))
+      return "Phone number must be 10 digits";
+    if (formData.password.length < 8)
+      return "Password must be at least 8 characters";
+    if (formData.password !== formData.confirmPassword)
+      return "Passwords do not match";
+    return null;
+  };
 
+  const validateStep2 = () => {
+    if (!formData.state || !formData.district || !formData.village)
+      return "Please complete location details";
+    if (!agreeTerms) return "You must agree to the terms";
+    return null;
+  };
+
+  const handleNext = () => {
+    const err = validateStep1();
+    if (err) return setError(err);
+    setStep(2);
+  };
+
+  const handleSignup = async () => {
+    const err = validateStep2();
+    if (err) return setError(err);
+
+    setLoading(true);
     try {
-      // Send signup request
-      const res = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/auth/signup`,
         {
           fullName: formData.fullName,
           username: formData.username,
-          phone: formData.phone,
           email: formData.email,
+          phone: formData.phone,
           password: formData.password,
           state: formData.state,
           district: formData.district,
-          village: formData.village
+          village: formData.village,
         },
         { withCredentials: true }
       );
 
-      // Auto-login after successful signup
-      const loginResult = await login({
+      const loginRes = await login({
         username: formData.username,
-        password: formData.password
+        password: formData.password,
       });
 
-      if (loginResult.success) {
-        navigate("/dashboard");
-      } else {
-        setError(loginResult.error || "Login after signup failed");
-      }
-    } catch (err) {
-      console.error("Signup error:", err);
-      setError(
-        err.response?.data?.message || 
-        err.message || 
-        "Signup failed. Please try again."
-      );
+      if (loginRes.success) navigate("/dashboard");
+      else navigate("/login");
+    } catch {
+      setError("Signup failed. Please try again.");
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-green-300 px-4">
-      <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-2xl">
-        <h2 className="text-3xl font-bold text-center mb-6 text-green-700">
+    <div className="min-h-screen pt-20 flex items-start justify-center bg-gradient-to-br from-green-100 to-green-300 px-4">
+      <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-2xl w-full max-w-md mx-auto my-8">
+
+        {/* STEP INDICATOR */}
+        <div className="flex justify-center gap-2 mb-4">
+          <div className={`h-2 w-10 rounded-full ${step === 1 ? "bg-green-600" : "bg-gray-300"}`} />
+          <div className={`h-2 w-10 rounded-full ${step === 2 ? "bg-green-600" : "bg-gray-300"}`} />
+        </div>
+
+        <h2 className="text-2xl font-bold text-center text-green-700 mb-1">
           Smart Agro Sign Up
         </h2>
-        
+        <p className="text-center text-sm text-gray-500 mb-6">
+          Step {step} of 2
+        </p>
+
         {error && (
-          <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md text-center">
+          <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md text-center text-sm">
             {error}
           </div>
         )}
 
-        <form className="grid grid-cols-1 sm:grid-cols-2 gap-4" onSubmit={handleSignup}>
-          {/* Full Name */}
-          <div className="sm:col-span-2">
-            <label className="block mb-1 text-sm text-gray-600">Full Name *</label>
+        {/* ---------------- STEP 1 ---------------- */}
+        {step === 1 && (
+          <div className="space-y-4">
+            <input className="input" name="fullName" placeholder="Full Name" onChange={handleChange} />
+            <input className="input" name="username" placeholder="Username" onChange={handleChange} />
+            <input className="input" name="email" placeholder="Email" onChange={handleChange} />
+            <input className="input" name="phone" placeholder="Phone (10 digits)" onChange={handleChange} />
+
             <input
-              type="text"
-              name="fullName"
-              value={formData.fullName}
+              className="input"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
               onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              placeholder="Enter your full name"
-              required
             />
-          </div>
-
-          {/* Username */}
-          <div>
-            <label className="block mb-1 text-sm text-gray-600">Username *</label>
             <input
-              type="text"
-              name="username"
-              value={formData.username}
+              className="input"
+              type={showConfirmPassword ? "text" : "password"}
+              name="confirmPassword"
+              placeholder="Confirm Password"
               onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              placeholder="Choose a username"
-              required
             />
-          </div>
 
-          {/* Email */}
-          <div>
-            <label className="block mb-1 text-sm text-gray-600">Email *</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              placeholder="your@email.com"
-              required
-            />
-          </div>
-
-          {/* Phone */}
-          <div>
-            <label className="block mb-1 text-sm text-gray-600">Phone *</label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              placeholder="10-digit phone number"
-              required
-            />
-          </div>
-
-          {/* Password */}
-          <div>
-            <label className="block mb-1 text-sm text-gray-600">Password *</label>
-            <div className="relative">
-              <input
-                type={showPassword ? 'text' : 'password'}
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                placeholder="At least 6 characters"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute top-2 right-3 text-sm text-gray-500 hover:text-green-700"
-              >
-                {showPassword ? 'Hide' : 'Show'}
-              </button>
-            </div>
-          </div>
-
-          {/* Confirm Password */}
-          <div>
-            <label className="block mb-1 text-sm text-gray-600">Confirm Password *</label>
-            <div className="relative">
-              <input
-                type={showConfirmPassword ? 'text' : 'password'}
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                placeholder="Re-enter your password"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute top-2 right-3 text-sm text-gray-500 hover:text-green-700"
-              >
-                {showConfirmPassword ? 'Hide' : 'Show'}
-              </button>
-            </div>
-          </div>
-
-          {/* Location Fields */}
-          <div>
-            <label className="block mb-1 text-sm font-medium text-gray-700">State *</label>
-            <select
-              name="state"
-              value={formData.state}
-              onChange={(e) => {
-                handleChange(e);
-                setFormData(prev => ({
-                  ...prev,
-                  district: "",
-                  village: ""
-                }));
-              }}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              required
-            >
-              <option value="">Select State</option>
-              {states.map(state => (
-                <option key={state} value={state}>{state}</option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="block mb-1 text-sm font-medium text-gray-700">District *</label>
-            <select
-              name="district"
-              value={formData.district}
-              onChange={(e) => {
-                handleChange(e);
-                setFormData(prev => ({
-                  ...prev,
-                  village: ""
-                }));
-              }}
-              disabled={!formData.state}
-              className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 ${
-                !formData.state ? 'bg-gray-100 cursor-not-allowed' : ''
-              }`}
-              required
-            >
-              <option value="">Select District</option>
-              {districts.map(district => (
-                <option key={district} value={district}>{district}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="sm:col-span-2">
-            <label className="block mb-1 text-sm font-medium text-gray-700">Village *</label>
-            <select
-              name="village"
-              value={formData.village}
-              onChange={handleChange}
-              disabled={!formData.district}
-              className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 ${
-                !formData.district ? 'bg-gray-100 cursor-not-allowed' : ''
-              }`}
-              required
-            >
-              <option value="">Select Village</option>
-              {villages.map(village => (
-                <option key={village} value={village}>{village}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Terms & Conditions */}
-          <div className="sm:col-span-2 flex items-start mt-2">
-            <input
-              type="checkbox"
-              id="terms"
-              checked={agreeTerms}
-              onChange={() => setAgreeTerms(!agreeTerms)}
-              className="mt-1 mr-2"
-              required
-            />
-            <label htmlFor="terms" className="text-sm text-gray-600">
-              I agree to the{' '}
-              <Link to="/terms" className="text-green-700 font-medium hover:underline">
-                Terms & Conditions
-              </Link>
-            </label>
-          </div>
-
-          {/* Submit Button */}
-          <div className="sm:col-span-2 mt-4">
             <button
-              type="submit"
-              disabled={isLoading}
-              className={`w-full bg-green-600 text-white py-3 rounded-md hover:bg-green-700 transition font-semibold ${
-                isLoading ? 'opacity-70 cursor-not-allowed' : ''
-              }`}
+              onClick={handleNext}
+              className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
             >
-              {isLoading ? 'Creating Account...' : 'Sign Up'}
+              Next →
             </button>
-          </div>
-        </form>
 
-        <p className="mt-6 text-center text-sm text-gray-600">
-          Already have an account?{' '}
-          <Link to="/login" className="text-green-700 font-semibold hover:underline">
-            Login
-          </Link>
-        </p>
+            {/* BACK TO LOGIN */}
+            <p className="text-center text-sm text-gray-600 mt-3">
+              Changed your mind?{" "}
+              <Link to="/login" className="text-green-700 font-semibold hover:underline">
+                Back to Login
+              </Link>
+            </p>
+          </div>
+        )}
+
+        {/* ---------------- STEP 2 ---------------- */}
+        {step === 2 && (
+          <div className="space-y-4">
+            <select className="input" name="state" onChange={handleChange}>
+              <option value="">Select State</option>
+              {states.map((s) => <option key={s}>{s}</option>)}
+            </select>
+
+            <select className="input" name="district" onChange={handleChange}>
+              <option value="">Select District</option>
+              {districts.map((d) => <option key={d}>{d}</option>)}
+            </select>
+
+            <select className="input" name="village" onChange={handleChange}>
+              <option value="">Select Village</option>
+              {villages.map((v) => <option key={v}>{v}</option>)}
+            </select>
+
+            <label className="flex items-center text-sm text-gray-600">
+              <input
+                type="checkbox"
+                className="mr-2"
+                checked={agreeTerms}
+                onChange={() => setAgreeTerms(!agreeTerms)}
+              />
+              I agree to the Terms & Conditions
+            </label>
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => setStep(1)}
+                className="w-1/2 border border-gray-300 py-2 rounded-md"
+              >
+                ← Back
+              </button>
+              <button
+                onClick={handleSignup}
+                disabled={loading}
+                className="w-1/2 bg-green-600 text-white py-2 rounded-md hover:bg-green-700"
+              >
+                {loading ? "Creating..." : "Create Account"}
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
