@@ -7,13 +7,13 @@ import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/authContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-      <AuthProvider>
-        <React.StrictMode>
+  <React.StrictMode>
+    <BrowserRouter>
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+        <AuthProvider>
           <App />
-        </React.StrictMode>
-      </AuthProvider>
-    </GoogleOAuthProvider>
-  </BrowserRouter>
+        </AuthProvider>
+      </GoogleOAuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );

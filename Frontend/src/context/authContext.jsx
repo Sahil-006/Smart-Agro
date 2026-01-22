@@ -10,19 +10,24 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // Initialize auth state from session
+  // =========================
+  // Initialize auth state
+  // =========================
   const initializeAuth = async () => {
     try {
       const res = await axios.get(
         `${import.meta.env.VITE_API_URL}/api/auth/check`,
         { withCredentials: true }
       );
-      
+
       if (res.data.authenticated) {
         setUser(res.data.user);
         setIsAuthenticated(true);
         return true;
       }
+
+      setUser(null);
+      setIsAuthenticated(false);
       return false;
     } catch (err) {
       console.error('Auth check failed:', err);
@@ -32,42 +37,43 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Check auth on mount and when navigating
   useEffect(() => {
     initializeAuth();
   }, []);
 
-  // Regular login
+  // =========================
+  // Local login
+  // =========================
   const login = async (credentials) => {
     try {
-      const res = await axios.post(
+      await axios.post(
         `${import.meta.env.VITE_API_URL}/api/auth/login`,
         credentials,
         { withCredentials: true }
       );
-      
-      // Verify the session was actually created
+
       const isAuth = await initializeAuth();
       if (!isAuth) throw new Error('Session not created');
-      
+
       return { success: true };
     } catch (err) {
       return {
         success: false,
-        error: err.response?.data?.message || 'Login failed'
+        error: err.response?.data?.message || 'Login failed',
       };
     }
   };
 
-  // OAuth login handler
+  // =========================
+  // OAuth login (Google/GitHub)
+  // =========================
   const handleOAuthLogin = async (authRequest) => {
     try {
-      const res = await authRequest();
-      
-      // Verify session
+      await authRequest();
+
       const isAuth = await initializeAuth();
       if (!isAuth) throw new Error('OAuth session not created');
-      
+
       return true;
     } catch (err) {
       console.error('OAuth login failed:', err);
@@ -75,7 +81,50 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // =========================
+  // Forgot Password (NEW)
+  // =========================
+  const forgotPassword = async (identifier) => {
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/auth/forgot-password`,
+        { identifier },
+        { withCredentials: true }
+      );
+
+      // Always return success (security-safe)
+      return { success: true };
+    } catch (err) {
+      // Do NOT expose backend errors
+      return { success: true };
+    }
+  };
+
+  // =========================
+  // Reset Password (NEW)
+  // =========================
+  const resetPassword = async ({ token, password }) => {
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/auth/reset-password`,
+        { token, password },
+        { withCredentials: true }
+      );
+
+      return { success: true };
+    } catch (err) {
+      return {
+        success: false,
+        error:
+          err.response?.data?.message ||
+          'Reset link is invalid or expired',
+      };
+    }
+  };
+
+  // =========================
   // Logout
+  // =========================
   const logout = async () => {
     try {
       await axios.post(
@@ -85,6 +134,7 @@ export const AuthProvider = ({ children }) => {
       );
       setUser(null);
       setIsAuthenticated(false);
+      navigate('/login');
     } catch (err) {
       console.error('Logout failed:', err);
     }
@@ -99,7 +149,9 @@ export const AuthProvider = ({ children }) => {
         login,
         logout,
         handleOAuthLogin,
-        initializeAuth
+        initializeAuth,
+        forgotPassword,   // ✅ added
+        resetPassword,    // ✅ added
       }}
     >
       {children}
