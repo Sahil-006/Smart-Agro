@@ -10,7 +10,7 @@ const ForgotPassword = () => {
 
   const { forgotPassword } = useAuth(); // ✅ from AuthContext
   const navigate = useNavigate();
-
+//NOTHING ADDED JUST TO CHECK THE GIT FOLLOW
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");

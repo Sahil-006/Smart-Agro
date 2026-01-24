@@ -3,16 +3,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
 import { useAuth } from "../../context/authContext";
 import axios from 'axios';
+import { motion } from 'framer-motion';
+import { Eye, EyeOff, Lock, User, LogIn } from 'lucide-react';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  
   const { isAuthenticated, login, handleOAuthLogin } = useAuth();
   const navigate = useNavigate();
 
-  // Redirect when authenticated
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/dashboard");
@@ -22,14 +25,16 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     try {
       const result = await login({ username, password });
       if (!result.success) {
-        alert(result.error || "Invalid login credentials");
+        setError(result.error || "Invalid login credentials");
       }
     } catch (err) {
-      console.error("Login error:", err);
-      alert("Connection error. Please try again later.");
+      setError("Connection error. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -41,146 +46,135 @@ const Login = () => {
         { withCredentials: true }
       );
     });
+    if (!success) setError("Google login failed");
+  };
 
-    if (!success) {
-      setError("Google login failed");
+  // Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.1 }
     }
   };
 
-  // GitHub OAuth callback handling
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
-
-    if (window.location.pathname === '/github/callback' && code) {
-      const handleGitHubAuth = async () => {
-        const success = await handleOAuthLogin(async () => {
-          return axios.get(
-            `${import.meta.env.VITE_API_URL}/api/auth/oauth/github/callback?code=${code}`,
-            { withCredentials: true }
-          );
-        });
-
-        if (!success) {
-          setError("GitHub login failed");
-          navigate("/login");
-        }
-      };
-
-      handleGitHubAuth();
-    }
-  }, [navigate, handleOAuthLogin]);
+  const itemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0 }
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-green-300 px-4">
-      <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
-        <h2 className="text-3xl font-bold text-center mb-6 text-green-700">
-          Smart Agro Login
-        </h2>
+    <div className="min-h-screen py-12 flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 px-4">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="bg-white/90 backdrop-blur-md p-8 rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white w-full max-w-md"
+      >
+        <motion.div variants={itemVariants} className="text-center mb-8">
+          <h2 className="text-4xl font-black text-gray-900 tracking-tight italic">Smart Agro</h2>
+          <p className="text-gray-500 font-medium mt-2">Welcome back! Please login.</p>
+        </motion.div>
 
         {error && (
-          <div className="mb-4 p-2 bg-red-100 text-red-700 rounded-md">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="mb-6 p-3 bg-red-50 border border-red-100 text-red-600 rounded-xl text-center text-sm font-semibold"
+          >
             {error}
-          </div>
+          </motion.div>
         )}
 
-        {/* OAuth Login */}
-        <div className="flex flex-col gap-3 mb-6">
-          <GoogleLogin
-            onSuccess={handleGoogleLogin}
-            onError={() => setError("Google Login Failed")}
-          />
-
-          <button
-            className="flex items-center justify-center gap-3 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition text-gray-700"
-            onClick={() => {
-              window.location.href = `https://github.com/login/oauth/authorize?client_id=${
-                import.meta.env.VITE_GITHUB_CLIENT_ID
-              }&redirect_uri=${window.location.origin}/github/callback`;
-            }}
-          >
-            <img
-              src="https://www.svgrepo.com/show/452091/github.svg"
-              alt="GitHub"
-              className="w-5 h-5"
+        {/* OAuth Section */}
+        <motion.div variants={itemVariants} className="flex flex-col gap-4 mb-8">
+          <div className="flex justify-center">
+            <GoogleLogin
+              onSuccess={handleGoogleLogin}
+              onError={() => setError("Google Login Failed")}
+              shape="pill"
+              theme="outline"
+              size="large"
+              text="continue_with"
             />
-            Continue with GitHub
-          </button>
-        </div>
+          </div>
+          
+          <div className="flex items-center">
+            <div className="flex-grow border-t border-gray-100"></div>
+            <span className="mx-4 text-gray-400 text-[10px] font-bold uppercase tracking-widest">Or secure login</span>
+            <div className="flex-grow border-t border-gray-100"></div>
+          </div>
+        </motion.div>
 
-        <div className="flex items-center my-4">
-          <div className="flex-grow border-t border-gray-300"></div>
-          <span className="mx-3 text-gray-400 text-sm">or</span>
-          <div className="flex-grow border-t border-gray-300"></div>
-        </div>
-
-        {/* Local Login */}
-        <form className="space-y-4" onSubmit={handleLogin}>
-          <div>
-            <label className="block mb-1 text-sm text-gray-600">
-              Username
-            </label>
+        {/* Local Login Form */}
+        <form className="space-y-5" onSubmit={handleLogin}>
+          <motion.div variants={itemVariants} className="relative group">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors">
+              <User size={18} />
+            </div>
             <input
               type="text"
-              placeholder="Enter your username"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="Username"
+              className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50"
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-          </div>
+          </motion.div>
 
-          <div>
-            <label className="block mb-1 text-sm text-gray-600">
-              Password
-            </label>
-            <div className="relative">
-              <input
-                type={showPassword ? 'text' : 'password'}
-                placeholder="Enter your password"
-                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword((prev) => !prev)}
-                className="absolute top-2 right-3 text-sm text-gray-500 hover:text-green-700"
-              >
-                {showPassword ? 'Hide' : 'Show'}
-              </button>
+          <motion.div variants={itemVariants} className="relative group">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors">
+              <Lock size={18} />
             </div>
-          </div>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Password"
+              className="w-full pl-11 pr-12 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors"
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </motion.div>
 
-          {/* ✅ Forgot Password */}
-          <div className="text-right">
+          <motion.div variants={itemVariants} className="flex justify-end">
             <Link
               to="/forgot-password"
-              className="text-sm text-green-700 hover:underline"
+              className="text-xs text-green-700 font-bold hover:underline"
             >
               Forgot password?
             </Link>
-          </div>
+          </motion.div>
 
-          <button
+          <motion.button
+            variants={itemVariants}
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.98 }}
             type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
+            disabled={loading}
+            className="w-full bg-green-600 text-white py-4 rounded-2xl font-bold shadow-xl shadow-green-200 hover:bg-green-700 transition-all flex items-center justify-center gap-2 mt-2"
           >
-            Login
-          </button>
+            {loading ? "Verifying..." : <><LogIn size={20} /> Login</>}
+          </motion.button>
         </form>
 
-        <p className="mt-4 text-center text-sm text-gray-600">
+        <motion.p variants={itemVariants} className="mt-8 text-center text-sm text-gray-500 font-medium">
           Don't have an account?{' '}
           <Link
             to="/signup"
-            className="text-green-700 font-semibold hover:underline"
+            className="text-green-600 font-black hover:underline"
           >
             Sign Up
           </Link>
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
     </div>
   );
 };

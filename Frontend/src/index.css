@@ -36,8 +36,12 @@
   }
 }
 
+/* 🔹 GLOBAL PAGE BASE */
 html, body, #root {
-  height: auto;
   min-height: 100%;
+  height: auto;
   overflow-x: hidden;
+
+  /* ✅ GLOBAL BACKGROUND FIX */
+  background: linear-gradient(to bottom right, #dcfce7, #bbf7d0);
 }
