@@ -1,13 +1,17 @@
-import React, { useState } from "react"; // Added React here
+import React, { useState } from "react";
 import { useAuth } from "../context/authContext";
 import { motion, AnimatePresence } from "framer-motion";
+import api from "../components/api";
+import { useTranslation } from "react-i18next"; // Import translation hook
 import { 
   Camera, Lock, Edit3, Save, X, User, Phone, 
   MapPin, Mail, ShieldCheck, Eye, EyeOff, CheckCircle2 
 } from "lucide-react";
 
 const Profile = () => {
-  const { user } = useAuth();
+  const { t } = useTranslation(); // Initialize hook
+  const { user, setUser } = useAuth();
+  
   const [editMode, setEditMode] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showPass, setShowPass] = useState(false);
@@ -30,6 +34,7 @@ const Profile = () => {
 
   if (!user) return null;
 
+  // --- Logic Helpers ---
   const passwordRules = {
     length: passwordData.newPassword.length >= 8,
     upper: /[A-Z]/.test(passwordData.newPassword),
@@ -37,20 +42,98 @@ const Profile = () => {
     special: /[^A-Za-z0-9]/.test(passwordData.newPassword),
   };
 
+  /* ---------------- HANDLERS ---------------- */
+
   const handleProfileChange = (e) => {
     const { name, value } = e.target;
+    
+    if (name === "phone") {
+        if (!/^\d*$/.test(value)) return; 
+        if (value.length > 10) return;   
+    }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handlePasswordChange = () => {
-    const isStrong = Object.values(passwordRules).every(Boolean);
-    if (!isStrong) return alert("Please meet all password requirements");
-    if (passwordData.newPassword !== passwordData.confirmPassword) {
-      alert("Passwords do not match");
+  const handleSaveProfile = async () => {
+    if (formData.phone && formData.phone.length !== 10) {
+      alert(t("profile.validation.phone_length"));
       return;
     }
-    console.log("Password Change:", passwordData);
-    setShowPasswordModal(false);
+
+    try {
+      const { fullName, phone, state, district, village } = formData;
+
+      await api.put("/api/user/profile", {
+        fullName,
+        phone,
+        state,
+        district,
+        village,
+      });
+
+      const authRes = await api.get("/api/auth/check");
+      if (authRes.data.authenticated) {
+        setUser(authRes.data.user);
+      }
+
+      setEditMode(false);
+      alert(t("profile.validation.update_success"));
+
+    } catch (err) {
+      console.error("Profile update error:", err);
+      alert(err.response?.data?.message || t("profile.validation.update_fail"));
+    }
+  };
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try {
+      const res = await api.put(
+        "/api/user/profile-image",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      setUser((prev) => ({
+        ...prev,
+        profileImage: res.data.profileImage,
+      }));
+
+      alert(t("profile.validation.image_success"));
+    } catch (err) {
+      console.error("Image upload error:", err);
+      alert(err.response?.data?.message || t("profile.validation.image_fail"));
+    }
+  };
+
+  const handlePasswordChange = async () => {
+    const isStrong = Object.values(passwordRules).every(Boolean);
+    if (!isStrong) return alert(t("profile.validation.password_reqs"));
+
+    if (passwordData.newPassword !== passwordData.confirmPassword) {
+      alert(t("profile.validation.password_mismatch"));
+      return;
+    }
+
+    try {
+      await api.put("/api/user/change-password", passwordData);
+      alert(t("profile.validation.password_success"));
+      setShowPasswordModal(false);
+      setPasswordData({ oldPassword: "", newPassword: "", confirmPassword: "" });
+    } catch (err) {
+      console.error("Password update error:", err);
+      alert(err.response?.data?.message || t("profile.validation.password_fail"));
+    }
   };
 
   return (
@@ -71,14 +154,19 @@ const Profile = () => {
             <div className="relative group">
               <div className="w-32 h-32 rounded-[2rem] bg-green-600 text-white flex items-center justify-center text-4xl font-black shadow-2xl shadow-green-200 overflow-hidden">
                 {user.profileImage ? (
-                  <img src={user.profileImage} alt="profile" className="w-full h-full object-cover" />
+                  <img src={user.profileImage} alt={t("profile.altText")} className="w-full h-full object-cover" />
                 ) : (
                   (user.fullName?.charAt(0) || user.username?.charAt(0)).toUpperCase()
                 )}
               </div>
               <label className="absolute -bottom-2 -right-2 bg-white p-3 rounded-2xl shadow-xl cursor-pointer hover:bg-green-50 transition-colors border border-gray-100">
                 <Camera size={20} className="text-green-600" />
-                <input type="file" accept="image/*" className="hidden" />
+                <input 
+                  type="file" 
+                  accept="image/*" 
+                  className="hidden" 
+                  onChange={handleImageUpload} 
+                />
               </label>
             </div>
 
@@ -97,20 +185,20 @@ const Profile = () => {
             <div className="flex flex-col gap-3 w-full sm:w-auto">
               {!editMode ? (
                 <button onClick={() => setEditMode(true)} className="flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-green-600 text-white font-bold hover:bg-green-700 transition-all">
-                  <Edit3 size={18}/> Edit Profile
+                  <Edit3 size={18}/> {t("profile.actions.edit")}
                 </button>
               ) : (
                 <div className="flex gap-2">
                   <button onClick={() => setEditMode(false)} className="flex-1 px-4 py-3 rounded-2xl border border-gray-200 font-bold text-gray-500 hover:bg-gray-50 transition-all">
-                    Cancel
+                    {t("profile.actions.cancel")}
                   </button>
-                  <button onClick={() => setEditMode(false)} className="flex-1 px-6 py-3 rounded-2xl bg-green-600 text-white font-bold hover:bg-green-700 transition-all">
-                    <Save size={18}/> Save
+                  <button onClick={handleSaveProfile} className="flex-1 px-6 py-3 rounded-2xl bg-green-600 text-white font-bold hover:bg-green-700 transition-all">
+                    <Save size={18}/> {t("profile.actions.save")}
                   </button>
                 </div>
               )}
               <button onClick={() => setShowPasswordModal(true)} className="flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-white border border-gray-200 text-gray-700 font-bold hover:bg-gray-50 transition-all">
-                <Lock size={18}/> Security
+                <Lock size={18}/> {t("profile.actions.security")}
               </button>
             </div>
           </div>
@@ -118,12 +206,12 @@ const Profile = () => {
 
         {/* DETAILS GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <ProfileField Icon={User} label="Full Name" name="fullName" value={formData.fullName} editMode={editMode} onChange={handleProfileChange} />
-          <StaticField Icon={Mail} label="Account Email" value={formData.email} />
-          <ProfileField Icon={Phone} label="Phone Number" name="phone" value={formData.phone} editMode={editMode} onChange={handleProfileChange} />
-          <ProfileField Icon={MapPin} label="State" name="state" value={formData.state} editMode={editMode} onChange={handleProfileChange} />
-          <ProfileField Icon={MapPin} label="District" name="district" value={formData.district} editMode={editMode} onChange={handleProfileChange} />
-          <ProfileField Icon={MapPin} label="Village" name="village" value={formData.village} editMode={editMode} onChange={handleProfileChange} />
+          <ProfileField Icon={User} label={t("profile.fields.fullName")} name="fullName" value={formData.fullName} editMode={editMode} onChange={handleProfileChange} />
+          <StaticField Icon={Mail} label={t("profile.fields.email")} value={formData.email} />
+          <ProfileField Icon={Phone} label={t("profile.fields.phone")} name="phone" value={formData.phone} editMode={editMode} onChange={handleProfileChange} />
+          <ProfileField Icon={MapPin} label={t("profile.fields.state")} name="state" value={formData.state} editMode={editMode} onChange={handleProfileChange} />
+          <ProfileField Icon={MapPin} label={t("profile.fields.district")} name="district" value={formData.district} editMode={editMode} onChange={handleProfileChange} />
+          <ProfileField Icon={MapPin} label={t("profile.fields.village")} name="village" value={formData.village} editMode={editMode} onChange={handleProfileChange} />
         </div>
 
         {/* PASSWORD MODAL */}
@@ -134,41 +222,56 @@ const Profile = () => {
               <motion.div initial={{ scale: 0.9, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.9, opacity: 0, y: 20 }} className="relative bg-white rounded-[2.5rem] shadow-2xl w-full max-w-md p-8 overflow-hidden">
                 <div className="text-center mb-8">
                   <div className="inline-flex p-3 bg-green-100 text-green-600 rounded-2xl mb-4"><ShieldCheck size={32}/></div>
-                  <h3 className="text-2xl font-black text-gray-900">Update Password</h3>
+                  <h3 className="text-2xl font-black text-gray-900">{t("profile.security.title")}</h3>
                 </div>
 
                 <div className="space-y-4">
-                  <input type="password" placeholder="Current Password" className="w-full px-5 py-4 bg-gray-50 border-none rounded-2xl outline-none focus:ring-2 focus:ring-green-500" onChange={(e) => setPasswordData({ ...passwordData, oldPassword: e.target.value })}/>
+                  <input 
+                    type="password" 
+                    placeholder={t("profile.security.placeholders.current")} 
+                    className="w-full px-5 py-4 bg-gray-50 border-none rounded-2xl outline-none focus:ring-2 focus:ring-green-500" 
+                    onChange={(e) => setPasswordData({ ...passwordData, oldPassword: e.target.value })}
+                  />
                   
                   <div className="relative">
-                    <input type={showPass ? "text" : "password"} placeholder="New Password" 
-                           className="w-full px-5 py-4 bg-gray-50 border-none rounded-2xl outline-none focus:ring-2 focus:ring-green-500" 
-                           onChange={(e) => setPasswordData({ ...passwordData, newPassword: e.target.value })}/>
+                    <input 
+                      type={showPass ? "text" : "password"} 
+                      placeholder={t("profile.security.placeholders.new")} 
+                      className="w-full px-5 py-4 bg-gray-50 border-none rounded-2xl outline-none focus:ring-2 focus:ring-green-500" 
+                      onChange={(e) => setPasswordData({ ...passwordData, newPassword: e.target.value })}
+                    />
                     <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors">
                       {showPass ? <EyeOff size={20}/> : <Eye size={20}/>}
                     </button>
                   </div>
 
                   <div className="relative">
-                    <input type={showConfirm ? "text" : "password"} placeholder="Confirm New Password" 
-                           className="w-full px-5 py-4 bg-gray-50 border-none rounded-2xl outline-none focus:ring-2 focus:ring-green-500" 
-                           onChange={(e) => setPasswordData({ ...passwordData, confirmPassword: e.target.value })}/>
+                    <input 
+                      type={showConfirm ? "text" : "password"} 
+                      placeholder={t("profile.security.placeholders.confirm")} 
+                      className="w-full px-5 py-4 bg-gray-50 border-none rounded-2xl outline-none focus:ring-2 focus:ring-green-500" 
+                      onChange={(e) => setPasswordData({ ...passwordData, confirmPassword: e.target.value })}
+                    />
                     <button type="button" onClick={() => setShowConfirm(!showConfirm)} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors">
                       {showConfirm ? <EyeOff size={20}/> : <Eye size={20}/>}
                     </button>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 bg-green-50/50 p-4 rounded-2xl border border-green-100">
-                    <Rule ok={passwordRules.length} label="8+ Chars" />
-                    <Rule ok={passwordRules.upper} label="Uppercase" />
-                    <Rule ok={passwordRules.number} label="Number" />
-                    <Rule ok={passwordRules.special} label="Symbol" />
+                    <Rule ok={passwordRules.length} label={t("profile.security.rules.length")} />
+                    <Rule ok={passwordRules.upper} label={t("profile.security.rules.upper")} />
+                    <Rule ok={passwordRules.number} label={t("profile.security.rules.number")} />
+                    <Rule ok={passwordRules.special} label={t("profile.security.rules.symbol")} />
                   </div>
                 </div>
 
                 <div className="mt-8 flex gap-3">
-                  <button onClick={() => setShowPasswordModal(false)} className="flex-1 py-4 font-bold text-gray-400 hover:bg-gray-50 rounded-2xl transition-all">Cancel</button>
-                  <button onClick={handlePasswordChange} className="flex-[2] py-4 bg-green-600 text-white font-bold rounded-2xl shadow-xl shadow-green-100 hover:bg-green-700 transition-all">Update</button>
+                  <button onClick={() => setShowPasswordModal(false)} className="flex-1 py-4 font-bold text-gray-400 hover:bg-gray-50 rounded-2xl transition-all">
+                    {t("profile.security.buttons.cancel")}
+                  </button>
+                  <button onClick={handlePasswordChange} className="flex-[2] py-4 bg-green-600 text-white font-bold rounded-2xl shadow-xl shadow-green-100 hover:bg-green-700 transition-all">
+                    {t("profile.security.buttons.update")}
+                  </button>
                 </div>
               </motion.div>
             </div>
@@ -179,7 +282,7 @@ const Profile = () => {
   );
 };
 
-/* --- REFACTORED HELPER COMPONENTS --- */
+/* --- HELPER COMPONENTS --- */
 
 const ProfileField = ({ Icon, label, name, value, editMode, onChange }) => (
   <div className="bg-white/70 backdrop-blur-md border border-white rounded-[2rem] p-6 shadow-sm">
@@ -193,6 +296,7 @@ const ProfileField = ({ Icon, label, name, value, editMode, onChange }) => (
         name={name}
         value={value}
         onChange={onChange}
+        maxLength={name === "phone" ? 10 : undefined} 
         className="w-full px-0 py-1 bg-transparent border-b-2 border-green-500 font-bold text-gray-800 outline-none"
       />
     ) : (

@@ -3,8 +3,11 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, EyeOff, Lock, CheckCircle2, ShieldCheck, ChevronLeft } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const ResetPassword = () => {
+  const { t } = useTranslation();
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -17,10 +20,8 @@ const ResetPassword = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  // Token from email reset link
   const token = searchParams.get("token");
 
-  /* ---------------- PASSWORD RULES LOGIC ---------------- */
   const passwordRules = {
     length: password.length >= 8,
     upper: /[A-Z]/.test(password),
@@ -34,28 +35,26 @@ const ResetPassword = () => {
     setError("");
     setSuccess("");
 
-    // Final Validation
     const isStrong = Object.values(passwordRules).every(Boolean);
     if (!isStrong) {
-      setError("Please meet all password requirements.");
+      setError(t("reset.errors.rules"));
       return;
     }
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match.");
+      setError(t("reset.errors.mismatch"));
       return;
     }
 
     setLoading(true);
     try {
       const res = await resetPassword({ token, password });
-
       if (!res.success) throw new Error(res.error);
 
-      setSuccess("Password reset successful! Redirecting to login...");
+      setSuccess(t("reset.success"));
       setTimeout(() => navigate("/login"), 2500);
     } catch (err) {
-      setError(err.message || "Reset link is invalid or expired.");
+      setError(err.message || t("reset.errors.invalid"));
     } finally {
       setLoading(false);
     }
@@ -63,75 +62,62 @@ const ResetPassword = () => {
 
   return (
     <div className="min-h-screen py-12 flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 px-4">
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }} 
-        animate={{ opacity: 1, scale: 1 }} 
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
         className="bg-white/90 backdrop-blur-md p-8 rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white w-full max-w-md"
       >
         <div className="text-center mb-8">
           <div className="inline-flex p-3 bg-green-100 text-green-600 rounded-full mb-4">
-            <ShieldCheck size={32}/>
+            <ShieldCheck size={32} />
           </div>
-          <h2 className="text-3xl font-black text-gray-900 tracking-tight">New Password</h2>
-          <p className="text-gray-500 font-medium">Create a strong password for your account</p>
+          <h2 className="text-3xl font-black text-gray-900 tracking-tight">
+            {t("reset.title")}
+          </h2>
+          <p className="text-gray-500 font-medium">
+            {t("reset.subtitle")}
+          </p>
         </div>
 
         {success && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 p-3 bg-green-50 border border-green-100 text-green-700 rounded-xl text-center text-sm font-semibold">
+          <motion.div className="mb-6 p-3 bg-green-50 border border-green-100 text-green-700 rounded-xl text-center text-sm font-semibold">
             {success}
           </motion.div>
         )}
 
         {error && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 p-3 bg-red-50 border border-red-100 text-red-600 rounded-xl text-center text-sm font-semibold">
+          <motion.div className="mb-6 p-3 bg-red-50 border border-red-100 text-red-600 rounded-xl text-center text-sm font-semibold">
             {error}
           </motion.div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-5">
-          {/* New Password Input */}
-          <div className="relative group">
-            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors">
-              <Lock size={18}/>
-            </div>
-            <input 
-              className="w-full pl-11 pr-12 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50" 
-              type={showPassword ? "text" : "password"} 
-              placeholder="New Password" 
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required 
-            />
-            <button 
-              type="button" 
-              onClick={() => setShowPassword(!showPassword)} 
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors"
-            >
-              {showPassword ? <EyeOff size={20}/> : <Eye size={20}/>}
-            </button>
-          </div>
+          <PasswordField
+            value={password}
+            setValue={setPassword}
+            show={showPassword}
+            toggle={() => setShowPassword(!showPassword)}
+            placeholder={t("reset.newPassword")}
+          />
 
-          {/* Confirm Password Input */}
-          <div className="relative group">
-            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors">
-              <Lock size={18}/>
-            </div>
-            <input 
-              className="w-full pl-11 pr-12 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50" 
-              type={showConfirmPassword ? "text" : "password"} 
-              placeholder="Confirm New Password" 
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required 
-            />
-            <button 
-              type="button" 
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)} 
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors"
-            >
-              {showConfirmPassword ? <EyeOff size={20}/> : <Eye size={20}/>}
-            </button>
-          </div>
+          <PasswordField
+            value={confirmPassword}
+            setValue={setConfirmPassword}
+            show={showConfirmPassword}
+            toggle={() => setShowConfirmPassword(!showConfirmPassword)}
+            placeholder={t("reset.confirmPassword")}
+          />
+
+          <AnimatePresence>
+            {password.length > 0 && (
+              <motion.div className="grid grid-cols-2 gap-3 bg-gray-50/50 p-4 rounded-2xl border border-gray-100">
+                <Rule ok={passwordRules.length} label={t("reset.rules.length")} />
+                <Rule ok={passwordRules.upper} label={t("reset.rules.upper")} />
+                <Rule ok={passwordRules.number} label={t("reset.rules.number")} />
+                <Rule ok={passwordRules.special} label={t("reset.rules.special")} />
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* PASSWORD RULES (Same as Signup) */}
           <AnimatePresence>
@@ -153,15 +139,15 @@ const ResetPassword = () => {
           <button 
             type="submit"
             disabled={loading}
-            className="w-full bg-green-600 text-white py-4 rounded-2xl font-bold shadow-xl shadow-green-200 hover:bg-green-700 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+            className="w-full bg-green-600 text-white py-4 rounded-2xl font-bold"
           >
-            {loading ? "Resetting..." : "Update Password"}
+            {loading ? t("reset.loading") : t("reset.submit")}
           </button>
         </form>
 
         <p className="mt-8 text-center text-sm">
           <Link to="/login" className="text-green-700 font-bold hover:underline flex items-center justify-center gap-1">
-            <ChevronLeft size={16}/> Back to Login
+            <ChevronLeft size={16} /> {t("reset.back")}
           </Link>
         </p>
       </motion.div>
@@ -169,14 +155,28 @@ const ResetPassword = () => {
   );
 };
 
-/* --- SHARED RULE COMPONENT --- */
+const PasswordField = ({ value, setValue, show, toggle, placeholder }) => (
+  <div className="relative group">
+    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+      <Lock size={18} />
+    </div>
+    <input
+      type={show ? "text" : "password"}
+      placeholder={placeholder}
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      required
+      className="w-full pl-11 pr-12 py-3 rounded-2xl border border-gray-200"
+    />
+    <button type="button" onClick={toggle} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
+      {show ? <EyeOff size={18} /> : <Eye size={18} />}
+    </button>
+  </div>
+);
+
 const Rule = ({ ok, label }) => (
-  <div className={`flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest transition-all duration-300 ${ok ? "text-green-600" : "text-gray-300"}`}>
-    {ok ? (
-      <CheckCircle2 size={14} className="text-green-600" />
-    ) : (
-      <div className="h-3 w-3 rounded-full border-2 border-gray-200" />
-    )}
+  <div className={`flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest ${ok ? "text-green-600" : "text-gray-300"}`}>
+    {ok ? <CheckCircle2 size={14} /> : <div className="h-3 w-3 rounded-full border-2" />}
     {label}
   </div>
 );

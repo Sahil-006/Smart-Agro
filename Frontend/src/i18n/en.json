@@ -1,0 +1,264 @@
+{
+  "navbar": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "login": "Login",
+    "signup": "Sign Up"
+  },
+  "about": {
+    "title": "About Smart Agro-Solar",
+    "subtitle": "Harnessing the power of AI and IoT to revolutionize farming efficiency and sustainability.",
+    "missionTitle": "Our Mission",
+    "missionDesc": "To empower farmers with intelligent crop monitoring and solar energy optimization tools for a greener future.",
+    "visionTitle": "Our Vision",
+    "visionDesc": "A future where technology and agriculture work together to solve climate and food challenges.",
+    "stats": {
+      "farmers": "Farmers Helped",
+      "crops": "Crops Monitored",
+      "energy": "Energy Saved (kWh)"
+    },
+    "journeyTitle": "Our Journey",
+    "journey": {
+      "2023": "Started the idea of Smart Agro-Solar",
+      "2024": "Built MVP and tested with local farms",
+      "2025": "Launched full platform with AI dashboard"
+    },
+    "teamTitle": "Meet the Team",
+    "roles": {
+      "frontend": "Frontend Developer",
+      "backend": "Backend Developer",
+      "iot": "IoT Specialist",
+      "mentor": "Mentor"
+    },
+    "footer": {
+      "rights": "© 2023 Smart Agro-Solar System. All rights reserved.",
+      "tagline": "Sustainable farming solutions for the modern age"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We’d love to hear from you. Reach out with questions, feedback, or collaborations!",
+    "addressTitle": "Our Address",
+    "phoneTitle": "Phone",
+    "emailTitle": "Email",
+    "follow": "Follow Us",
+    "form": {
+      "name": "Your Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "message": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "submit": "Send Message"
+    },
+    "alert": {
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Try again."
+    }
+  },
+  "home": {
+    "title": "Smart Agro-Solar System",
+    "subtitle": "IoT & AI-enabled cloud platform for crop health and energy optimization in farming.",
+    "getStarted": "Get Started",
+    "goDashboard": "Go to Dashboard",
+    "learnMore": "Learn More",
+    "featuresTitle": "Powerful Features",
+    "features": {
+      "crop": {
+        "title": "Crop Monitoring",
+        "desc": "Real-time AI crop health insights to ensure maximum yield."
+      },
+      "solar": {
+        "title": "Solar Optimization",
+        "desc": "Track solar usage and efficiency for better power savings."
+      },
+      "weather": {
+        "title": "Weather Alerts",
+        "desc": "Automated alerts for irrigation and climate responses."
+      },
+      "dashboard": {
+        "title": "Smart Dashboard",
+        "desc": "Unified control panel for all your farm insights."
+      }
+    },
+    "cta": {
+      "title": "Ready to revolutionize your farm?",
+      "subtitle": "Join us in transforming agriculture with AI and solar power.",
+      "button": "Contact Us"
+    }
+  },
+  "login": {
+    "title": "Smart Agro",
+    "subtitle": "Welcome back! Please login.",
+    "or": "Or secure login",
+    "username": "Username",
+    "password": "Password",
+    "forgot": "Forgot password?",
+    "submit": "Login",
+    "verifying": "Verifying...",
+    "noAccount": "Don't have an account?",
+    "signup": "Sign Up",
+    "errors": {
+      "invalid": "Invalid login credentials",
+      "connection": "Connection error. Please try again later."
+    }
+  },
+  "signup": {
+    "title": "Smart Agro",
+    "steps": {
+      "prefix": "Step {{step}}:",
+      "personal_details": "Personal Details",
+      "location_details": "Location Details"
+    },
+    "auth": {
+      "or_use_email": "Or use email",
+      "already_have_account": "Already have an account?",
+      "login_link": "Login"
+    },
+    "form": {
+      "placeholders": {
+        "full_name": "Full Name",
+        "username": "Username",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "password": "Password",
+        "confirm_password": "Confirm",
+        "select_state": "Select State",
+        "select_district": "Select District",
+        "select_village": "Select Village"
+      },
+      "password_rules": {
+        "min_chars": "8+ Characters",
+        "uppercase": "Uppercase",
+        "number": "Number",
+        "special_char": "Special Char"
+      },
+      "terms": {
+        "i_agree": "I agree to the",
+        "privacy_policy": "Privacy Policy",
+        "and": "and",
+        "terms_of_service": "Terms of Service"
+      }
+    },
+    "buttons": {
+      "next_step": "Next Step",
+      "back": "Back",
+      "complete": "Complete Signup",
+      "processing": "Creating Account..."
+    },
+    "validation": {
+      "name_username_required": "Name and username are required",
+      "invalid_email": "Invalid email address",
+      "phone_length": "Phone must be 10 digits",
+      "password_weak": "Password is too weak",
+      "passwords_mismatch": "Passwords do not match",
+      "location_required": "Location required",
+      "agree_terms": "Please agree to terms",
+      "google_signup_failed": "Google signup failed",
+      "signup_failed_generic": "Signup failed. Try again."
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "altText": "Profile Picture",
+    "actions": {
+      "edit": "Edit Profile",
+      "cancel": "Cancel",
+      "save": "Save",
+      "security": "Security"
+    },
+    "fields": {
+      "fullName": "Full Name",
+      "email": "Account Email",
+      "phone": "Phone Number",
+      "state": "State",
+      "district": "District",
+      "village": "Village",
+      "empty_value": "—"
+    },
+    "security": {
+      "title": "Update Password",
+      "placeholders": {
+        "current": "Current Password",
+        "new": "New Password",
+        "confirm": "Confirm New Password"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "update": "Update"
+      },
+      "rules": {
+        "length": "8+ Chars",
+        "upper": "Uppercase",
+        "number": "Number",
+        "symbol": "Symbol"
+      }
+    },
+    "validation": {
+      "phone_length": "Phone number must be exactly 10 digits.",
+      "update_success": "Profile updated successfully!",
+      "update_fail": "Profile update failed",
+      "image_success": "Profile picture updated!",
+      "image_fail": "Image upload failed",
+      "password_reqs": "Please meet all password requirements",
+      "password_mismatch": "Passwords do not match",
+      "password_success": "Password changed successfully",
+      "password_fail": "Failed to update password"
+    }
+  },
+  "forgot": {
+    "title": "Forgot Password",
+    "subtitle": "Trouble remembering your password?",
+    "note": "Enter your username or email and we’ll send you a reset link.",
+    "identifierLabel": "Username or Email",
+    "identifierPlaceholder": "Enter your username or email",
+    "submit": "Send Reset Link",
+    "sending": "Sending...",
+    "success": "Password reset link sent successfully! Check your email.",
+    "error": "Unable to send reset link. Please try again.",
+    "oauthNote": "If you signed up using Google, please login using Google.",
+    "back": "Back to Login"
+  },
+  "reset": {
+    "title": "New Password",
+    "subtitle": "Create a strong password for your account",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm New Password",
+    "submit": "Update Password",
+    "loading": "Resetting...",
+    "success": "Password reset successful! Redirecting to login...",
+    "back": "Back to Login",
+    "errors": {
+      "rules": "Please meet all password requirements.",
+      "mismatch": "Passwords do not match.",
+      "invalid": "Reset link is invalid or expired."
+    },
+    "rules": {
+      "length": "8+ Characters",
+      "upper": "Uppercase",
+      "number": "Number",
+      "special": "Symbol"
+    }
+  },
+  "form": {
+    "fullName": "Full Name",
+    "username": "Username",
+    "email": "Email",
+    "phone": "Phone",
+    "password": "Password",
+    "confirmPassword": "Confirm Password"
+  },
+  "rules": {
+    "length": "8+ Characters",
+    "upper": "Uppercase",
+    "number": "Number",
+    "special": "Special Character"
+  },
+
+  "profile_dropdown": {
+    "aria_label": "Open profile menu",
+    "view_profile": "View Profile",
+    "logout": "Logout"
+  }
+}
