@@ -148,7 +148,7 @@ const Dashboard = () => {
       const formData = new FormData();
       formData.append('image', selectedImage);
 
-      const response = await fetch('http://localhost:5000/api/analyze', {
+      const response = await fetch('http://localhost:5000/api/leaf-detect', {
         method: 'POST',
         body: formData,
       });

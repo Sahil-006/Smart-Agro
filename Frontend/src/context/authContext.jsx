@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+// import api from "../components/api";
 
 const AuthContext = createContext();
 
@@ -89,7 +90,7 @@ export const AuthProvider = ({ children }) => {
       await axios.post(
         `${import.meta.env.VITE_API_URL}/api/auth/forgot-password`,
         { identifier },
-        { withCredentials: true }
+        { withCredentials: true        }
       );
 
       // Always return success (security-safe)
@@ -144,12 +145,13 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         user,
+        setUser,
         isAuthenticated,
         loading,
         login,
         logout,
         handleOAuthLogin,
-        initializeAuth,
+        // initializeAuth,
         forgotPassword,   // ✅ added
         resetPassword,    // ✅ added
       }}

@@ -2,7 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { useState, useRef, useEffect } from "react";
 import i18n from "i18next";
-import { FaUserCircle, FaSignOutAlt } from "react-icons/fa";
+import { FaUserCircle, FaSignOutAlt, FaGlobe } from "react-icons/fa"; // Added FaGlobe for minimalism
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const { user, isAuthenticated, logout } = useAuth();
@@ -13,6 +14,7 @@ const Navbar = () => {
 
   const profileRef = useRef(null);
   const langRef = useRef(null);
+  const { t } = useTranslation();
 
   const handleLogout = async () => {
     await logout();
@@ -52,133 +54,132 @@ const Navbar = () => {
           SmartAgro
         </Link>
 
-        {/* NAV LINKS */}
+        {/* NAV LINKS & ACTIONS */}
         <nav className="flex gap-6 font-medium items-center">
-          <Link to="/">Home</Link>
+          <Link to="/">{t("navbar.home")}</Link>
 
           {isAuthenticated && (
             <Link to="/dashboard" className="hover:text-green-700">
-              Dashboard
-            </Link>
+              {t("navbar.dashboard")}
+            </Link> 
           )}
 
           <Link to="/about" className="hover:text-green-700">
-            About Us
+            {t("navbar.about")}
           </Link>
 
           <Link to="/contact" className="hover:text-green-700">
-            Contact Us
+            {t("navbar.contact")}
           </Link>
 
-          {/* AUTH SECTION */}
-          {isAuthenticated ? (
-            <div className="flex items-center gap-4 relative">
+          {/* --- 🌐 LANGUAGE SWITCHER (Always Visible) --- */}
+          <div className="relative" ref={langRef}>
+            <button
+              onClick={() => {
+                setLangOpen(!langOpen);
+                setProfileOpen(false);
+              }}
+              className="px-2 py-1 border border-gray-300 rounded-lg text-xs font-bold text-gray-600 hover:bg-white hover:text-green-700 flex items-center gap-1 transition"
+              title="Change Language"
+            >
+              <FaGlobe /> {i18n.language?.toUpperCase() || "EN"}
+            </button>
 
-              {/* 🌐 PREMIUM LANGUAGE SWITCHER */}
-              <div className="relative" ref={langRef}>
+            <div
+              className={`absolute right-0 mt-3 w-32 bg-white rounded-xl shadow-xl border overflow-hidden z-50
+                transition-all duration-200 origin-top-right
+                ${langOpen ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none"}
+              `}
+            >
+              {languages.map((lang) => (
                 <button
+                  key={lang.code}
                   onClick={() => {
-                    setLangOpen(!langOpen);
-                    setProfileOpen(false);
-                  }}
-                  className="px-3 py-1 border rounded-full text-sm hover:bg-white/60 flex items-center gap-2 transition"
-                >
-                  🌐 {i18n.language?.toUpperCase() || "EN"}
-                </button>
-
-                <div
-                  className={`absolute right-0 mt-3 w-36 bg-white rounded-xl shadow-xl border overflow-hidden z-50
-                    transition-all duration-200 origin-top-right
-                    ${langOpen ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none"}
-                  `}
-                >
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => {
-                        i18n.changeLanguage(lang.code);
-                        setLangOpen(false);
-                      }}
-                      className="block w-full px-4 py-2 text-sm text-left hover:bg-green-50 transition"
-                    >
-                      {lang.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* 👤 PREMIUM PROFILE DROPDOWN */}
-              <div className="relative" ref={profileRef}>
-                {/* Avatar Button */}
-                <button
-                  onClick={() => {
-                    setProfileOpen(!profileOpen);
+                    i18n.changeLanguage(lang.code);
+                    localStorage.setItem("lang", lang.code);
                     setLangOpen(false);
                   }}
-                  className="w-9 h-9 rounded-full bg-green-600 text-white flex items-center justify-center font-semibold 
-                             shadow-md hover:scale-105 transition-transform duration-200"
-                  aria-label="Open profile menu"
-                >
-                  {user?.username?.charAt(0).toUpperCase()}
-                </button>
-
-                {/* Dropdown */}
-                <div
-                  className={`absolute right-0 mt-3 w-64 bg-white rounded-2xl shadow-xl border overflow-hidden z-50
-                    transition-all duration-200 origin-top-right
-                    ${profileOpen ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none"}
+                  className={`block w-full px-4 py-2 text-sm text-left transition hover:bg-green-50
+                    ${i18n.language === lang.code ? "text-green-700 font-bold bg-green-50/50" : "text-gray-600"}
                   `}
                 >
-                  {/* Header */}
-                  <div className="px-4 py-4 border-b bg-gray-50">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold">
-                        {user?.username?.charAt(0).toUpperCase()}
-                      </div>
-                      <div>
-                        <p className="font-semibold text-gray-800 leading-tight">
-                          {user?.fullName || user?.username}
-                        </p>
-                        <p className="text-xs text-gray-500">@{user?.username}</p>
-                      </div>
+                  {lang.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* --- AUTH SECTION --- */}
+          {isAuthenticated ? (
+            <div className="relative" ref={profileRef}>
+              {/* Avatar Button */}
+              <button
+                onClick={() => {
+                  setProfileOpen(!profileOpen);
+                  setLangOpen(false);
+                }}
+                className="w-9 h-9 rounded-full bg-green-600 text-white flex items-center justify-center font-semibold 
+                           shadow-md hover:scale-105 transition-transform duration-200"
+                aria-label={t("profile_dropdown.aria_label")}
+              >
+                {user?.username?.charAt(0).toUpperCase()}
+              </button>
+
+              {/* Dropdown */}
+              <div
+                className={`absolute right-0 mt-3 w-64 bg-white rounded-2xl shadow-xl border overflow-hidden z-50
+                  transition-all duration-200 origin-top-right
+                  ${profileOpen ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none"}
+                `}
+              >
+                {/* Header */}
+                <div className="px-4 py-4 border-b bg-gray-50">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold">
+                      {user?.username?.charAt(0).toUpperCase()}
                     </div>
-                    <p className="text-xs text-gray-400 mt-2 truncate">{user?.email}</p>
+                    <div>
+                      <p className="font-semibold text-gray-800 leading-tight">
+                        {user?.fullName || user?.username}
+                      </p>
+                      <p className="text-xs text-gray-500">@{user?.username}</p>
+                    </div>
                   </div>
+                  <p className="text-xs text-gray-400 mt-2 truncate">{user?.email}</p>
+                </div>
 
-                  {/* Actions */}
-                  <div className="py-2">
-                    <button
-                      onClick={() => {
-                        navigate("/profile");
-                        setProfileOpen(false);
-                      }}
-                      className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm 
-                                 hover:bg-green-50 transition"
-                    >
-                      <FaUserCircle className="text-green-600" />
-                      View Profile
-                    </button>
+                {/* Actions */}
+                <div className="py-2">
+                  <button
+                    onClick={() => {
+                      navigate("/profile");
+                      setProfileOpen(false);
+                    }}
+                    className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm 
+                               hover:bg-green-50 transition"
+                  >
+                    <FaUserCircle className="text-green-600" />
+                    {t("profile_dropdown.view_profile")}
+                  </button>
 
-                    <button
-                      onClick={handleLogout}
-                      className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm 
-                                 text-red-600 hover:bg-red-50 transition"
-                    >
-                      <FaSignOutAlt />
-                      Logout
-                    </button>
-                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center gap-3 w-full text-left px-4 py-2 text-sm 
+                               text-red-600 hover:bg-red-50 transition"
+                  >
+                    <FaSignOutAlt />
+                    {t("profile_dropdown.logout")}
+                  </button>
                 </div>
               </div>
-
             </div>
           ) : (
             <>
               <Link to="/login" className="hover:text-green-700">
-                Login
+                 {t("navbar.login")}
               </Link>
               <Link to="/signup" className="hover:text-green-700">
-                Sign Up
+                 {t("navbar.signup")}
               </Link>
             </>
           )}
