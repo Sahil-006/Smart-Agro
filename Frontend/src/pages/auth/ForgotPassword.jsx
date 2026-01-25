@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
+import { useTranslation } from "react-i18next";
 
 const ForgotPassword = () => {
+  const { t } = useTranslation();
+
   const [identifier, setIdentifier] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
-  const { forgotPassword } = useAuth(); // ✅ from AuthContext
+  const { forgotPassword } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -20,17 +23,13 @@ const ForgotPassword = () => {
     try {
       await forgotPassword(identifier);
 
-      // Security-safe generic message
-      setMessage(
-        "If the account exists, reset instructions will be sent to the registered email."
-      );
+      setMessage(t("forgot.success"));
 
-      // Redirect back to login after short delay
       setTimeout(() => {
         navigate("/login");
       }, 3000);
     } catch (err) {
-      setError("Something went wrong. Please try again later.");
+      setError(t("forgot.error"));
     } finally {
       setLoading(false);
     }
@@ -40,14 +39,14 @@ const ForgotPassword = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-green-300 px-4">
       <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
         <h2 className="text-3xl font-bold text-center mb-4 text-green-700">
-          Forgot Password
+          {t("forgot.title")}
         </h2>
 
         <p className="text-sm text-gray-600 text-center mb-6">
-          Enter your username or email address.
+          {t("forgot.subtitle")}
           <br />
           <span className="text-gray-500">
-            (Only for username & password accounts)
+            {t("forgot.note")}
           </span>
         </p>
 
@@ -66,11 +65,11 @@ const ForgotPassword = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block mb-1 text-sm text-gray-600">
-              Username or Email
+              {t("forgot.identifierLabel")}
             </label>
             <input
               type="text"
-              placeholder="Enter your username or email"
+              placeholder={t("forgot.identifierPlaceholder")}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
               required
               value={identifier}
@@ -87,16 +86,12 @@ const ForgotPassword = () => {
                 : "bg-green-600 hover:bg-green-700"
             }`}
           >
-            {loading ? "Sending..." : "Send Reset Instructions"}
+            {loading ? t("forgot.sending") : t("forgot.submit")}
           </button>
         </form>
 
         <div className="mt-6 text-center text-sm text-gray-600">
-          <p>
-            Signed up using Google or GitHub?
-            <br />
-            Please use the respective sign-in option.
-          </p>
+          <p>{t("forgot.oauthNote")}</p>
         </div>
 
         <p className="mt-4 text-center text-sm">
@@ -104,7 +99,7 @@ const ForgotPassword = () => {
             to="/login"
             className="text-green-700 font-semibold hover:underline"
           >
-            Back to Login
+            {t("forgot.back")}
           </Link>
         </p>
       </div>

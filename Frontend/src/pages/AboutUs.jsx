@@ -3,9 +3,12 @@ import shabbirImg from '../assets/shabbir.jpg';
 import sahilImg from '../assets/sahil.jpg';
 import tahirImg from '../assets/tahirdon.jpg';
 import ykImg from '../assets/yk.jpg';
-import AkashDaveImg from '../assets/akashdave.jpg';
+import sunitImg from '../assets/sunit.jpg';
+import { useTranslation } from "react-i18next";
+
 
 const AboutUs = () => {
+  const { t } = useTranslation();
   const [visibleElements, setVisibleElements] = useState({});
   const elementsRef = useRef([]);
 
@@ -70,7 +73,7 @@ const AboutUs = () => {
                 : 'opacity-0 translate-y-10'
             }`}
           >
-            About Smart Agro-Solar
+            {t("about.title")}
           </h1>
           <p 
             ref={el => addToRefs(el, 'subtitle')}
@@ -80,7 +83,7 @@ const AboutUs = () => {
                 : 'opacity-0 translate-y-10'
             }`}
           >
-            Harnessing the power of AI and IoT to revolutionize farming efficiency and sustainability.
+            {t("about.subtitle")}
           </p>
         </div>
       </section>
@@ -91,13 +94,12 @@ const AboutUs = () => {
           {[
             {
               id: 'mission',
-              title: "Our Mission",
-              desc: "To empower farmers with intelligent crop monitoring and solar energy optimization tools for a greener future.",
-            },
+              title: t("about.missionTitle"),
+              desc: t("about.missionDesc"), },
             {
               id: 'vision',
-              title: "Our Vision",
-              desc: "A future where technology and agriculture work together to solve climate and food challenges.",
+              title:  t("about.visionTitle"),
+              desc:t("about.visionDesc"),
             },
           ].map((item, idx) => (
             <div
@@ -121,9 +123,9 @@ const AboutUs = () => {
       <section className="bg-white py-20">
         <div className="max-w-5xl mx-auto grid sm:grid-cols-3 gap-10 text-center">
           {[
-            { id: 'farmers', label: "Farmers Helped", value: 1200 },
-            { id: 'crops', label: "Crops Monitored", value: 4300 },
-            { id: 'energy', label: "Energy Saved (kWh)", value: 8600 },
+            { id: 'farmers', label: t("about.stats.farmers"), value: 1200 },
+            { id: 'crops', label: t("about.stats.crops"), value: 4300 },
+            { id: 'energy', label: t("about.stats.energy"), value: 8600 },
           ].map((stat, idx) => (
             <div 
               key={idx} 
@@ -156,13 +158,13 @@ const AboutUs = () => {
               : 'opacity-0 translate-y-10'
           }`}
         >
-          Our Journey
+          {t("about.journeyTitle")}
         </h2>
         <div className="relative max-w-4xl mx-auto">
           {[
-            { id: '2023', year: "2023", event: "Started the idea of Smart Agro-Solar" },
-            { id: '2024', year: "2024", event: "Built MVP and tested with local farms" },
-            { id: '2025', year: "2025", event: "Launched full platform with AI dashboard" },
+            { id: '2023', year: "2023",event: t("about.journey.2023") },
+            { id: '2024', year: "2024",event: t("about.journey.2024") },
+            { id: '2025', year: "2025",event: t("about.journey.2025") },
           ].map((item, idx) => (
             <div key={idx} className={`mb-10 flex ${idx % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
               <div
@@ -200,39 +202,39 @@ const AboutUs = () => {
               : 'opacity-0 translate-y-10'
           }`}
         >
-          Meet the Team
+         {t("about.teamTitle")}
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
           {[
             {
               id: 'shabbir',
               name: "Shabbir Shaikh",
-              role: "Frontend Developer",
+              role: t("about.roles.frontend"),
               img: shabbirImg,
             },
             {
               id: 'sahil',
               name: "Sahil Shaikh",
-              role: "Backend Developer",
+              role: t("about.roles.backend"),
               img: sahilImg,
             },
             {
               id: 'tahir',
               name: "TAHIR MIYA ",
-              role: "IoT Specialist",
+             role: t("about.roles.iot"),
               img: tahirImg,
             },
             {
               id: 'yash',
               name: "Yash Kulkarni",
-              role: "IoT Specialist",
+              role: t("about.roles.iot"),
               img: ykImg, 
             },
             {
-              id: 'aakash',
-              name: "Dr Aakash Dave",
-              role: "Mentor and Researcher",
-              img: AkashDaveImg, 
+              id: 'sunit',
+              name: "Prof. Sunit Parmar",
+              role: t("about.roles.mentor"),
+              img: sunitImg, 
             },
           ].map((person, i) => (
             <div
@@ -265,9 +267,9 @@ const AboutUs = () => {
       {/* Footer */}
       <footer className="py-10 bg-[#16a34a] text-white text-center">
         <div className="max-w-7xl mx-auto px-4">
-          <p>© 2023 Smart Agro-Solar System. All rights reserved.</p>
+          <p>{t("about.footer.rights")}</p>
           <p className="mt-2 text-white/80 text-sm">
-            Sustainable farming solutions for the modern age
+           {t("about.footer.tagline")}
           </p>
         </div>
       </footer>
