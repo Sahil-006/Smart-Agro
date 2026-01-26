@@ -26,6 +26,13 @@ const Dashboard = () => {
   const [apiData, setApiData] = useState(dashboardCache.data);
   const [isFetching, setIsFetching] = useState(false);
 
+  useEffect(() => {
+    const savedAnalysis = sessionStorage.getItem("lastLeafAnalysis");
+    if (savedAnalysis) {
+      setAnalysisResult(JSON.parse(savedAnalysis));
+    }
+  }, []);
+
   const soilData = useMemo(() => ({
     moisture: apiData?.soil || 0,
     temperature: apiData?.temperature || 0,
@@ -157,6 +164,10 @@ const Dashboard = () => {
 
       const result = await response.json();
       setAnalysisResult(result);
+      sessionStorage.setItem(
+      "lastLeafAnalysis",
+      JSON.stringify(result)
+      );
 
       const updatedData = {
         ...apiData,
@@ -189,6 +200,8 @@ const Dashboard = () => {
     setSelectedImage(null);
     setPreviewImage(null);
     setAnalysisResult(null);
+
+    sessionStorage.removeItem("lastLeafAnalysis"); // 👈 ADD THIS
     
     setApiData(prev => ({
       ...prev,
