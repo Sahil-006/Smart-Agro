@@ -50,7 +50,7 @@ const Navbar = () => {
       <div className="backdrop-blur-md bg-white/70 dark:bg-black/30 border border-gray-200 dark:border-white/10 shadow-xl rounded-full px-6 py-3 flex justify-between items-center">
 
         {/* LOGO */}
-        <Link to="/" className="text-xl font-bold text-green-700">
+        <Link to="/" className="text-xl font-black text-gray-900 tracking-tight italic">
           SmartAgro
         </Link>
 
