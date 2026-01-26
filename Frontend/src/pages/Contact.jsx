@@ -131,7 +131,7 @@ const ContactUs = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50"
-                placeholder="Your Email Address"
+                placeholder={t("contact.form.email")}
                 required
               />
             </div>
