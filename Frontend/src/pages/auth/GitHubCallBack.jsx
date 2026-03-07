@@ -25,7 +25,7 @@ const GitHubCallback = () => {
       return;
     }
 
-    axios.post("http://localhost:5000/github-login", { code }, { withCredentials: true })
+    axios.post("http://localhost:5001/github-login", { code }, { withCredentials: true })
       .then(res => {
         alert(res.data.message);
         setUser(res.data.user); // Assuming backend returns user data

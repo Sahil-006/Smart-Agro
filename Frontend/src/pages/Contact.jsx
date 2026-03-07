@@ -22,7 +22,7 @@ const ContactUs = () => {
 
     try {
       // Using the robust URL construction while keeping the endpoint from Code 1
-      const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact`, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5001'}/api/contact`, {
         name,
         email,
         message,

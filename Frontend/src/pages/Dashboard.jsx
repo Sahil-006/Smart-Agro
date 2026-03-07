@@ -5,7 +5,8 @@ import {
   FiAlertCircle, FiImage, FiBarChart2,
   FiSettings, FiCalendar, FiLoader,
   FiUpload, FiCamera, FiRefreshCw,
-  FiClipboard
+  FiClipboard, FiShield, FiActivity,
+  FiCheckCircle, FiInfo
 } from 'react-icons/fi';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -57,6 +58,16 @@ const Dashboard = () => {
     })) || []
   , [apiData]);
 
+  // --- Extract recommendation data from analysis result ---
+  const recommendation = useMemo(() => {
+    if (!analysisResult?.recommendation) return null;
+    return {
+      description: analysisResult.recommendation.description || "",
+      treatment: analysisResult.recommendation.treatment || [],
+      prevention: analysisResult.recommendation.prevention || []
+    };
+  }, [analysisResult]);
+
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
 
@@ -85,7 +96,7 @@ const Dashboard = () => {
   const fetchData = async () => {
     setIsFetching(true);
     try {
-      const response = await fetch('http://localhost:5000/api/analyze-data', {
+      const response = await fetch('http://localhost:5001/api/analyze-data', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ demo: true }),
@@ -148,7 +159,7 @@ const Dashboard = () => {
       const formData = new FormData();
       formData.append('image', selectedImage);
 
-      const response = await fetch('http://localhost:5000/api/leaf-detect', {
+      const response = await fetch('http://localhost:5001/api/leaf-detect', {
         method: 'POST',
         body: formData,
       });
@@ -164,8 +175,7 @@ const Dashboard = () => {
         growthStage: result.growthStage,
         crop_health: result.healthScore,
         predictedClass: result.prediction,
-        confidence: result.confidence,
-        recommendedAction: result.recommendedAction
+        confidence: result.confidence
       };
       
       setApiData(updatedData);
@@ -194,13 +204,20 @@ const Dashboard = () => {
       ...prev,
       diseaseRisk: 0,
       predictedClass: undefined,
-      confidence: undefined,
-      recommendedAction: undefined
+      confidence: undefined
     }));
 
     if (previewImage) {
       URL.revokeObjectURL(previewImage);
     }
+  };
+
+  // --- Helper: Get severity color based on disease risk ---
+  const getSeverityColor = (risk) => {
+    if (risk === 0) return { bg: 'bg-green-100', text: 'text-green-700', border: 'border-green-300', label: 'Healthy' };
+    if (risk < 30) return { bg: 'bg-yellow-100', text: 'text-yellow-700', border: 'border-yellow-300', label: 'Low Risk' };
+    if (risk < 60) return { bg: 'bg-orange-100', text: 'text-orange-700', border: 'border-orange-300', label: 'Moderate Risk' };
+    return { bg: 'bg-red-100', text: 'text-red-700', border: 'border-red-300', label: 'High Risk' };
   };
 
   if (isLoading) {
@@ -215,14 +232,18 @@ const Dashboard = () => {
     );
   }
 
+  const severity = getSeverityColor(cropHealth.diseaseRisk);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+        {/* Header */}
         <div className="mb-8 border-b border-green-200 pb-6" data-aos="fade-up">
           <h1 className="text-3xl font-bold text-green-800 mb-2">Smart Agro-Solar Dashboard</h1>
           <p className="text-green-600">Monitoring 3.4M data points for recyclable energy optimization</p>
         </div>
 
+        {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <Link to="/insights/soil" className="bg-white p-6 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-all hover:border-green-300" data-aos="fade-up" data-aos-delay="100">
             <div className="flex items-center">
@@ -273,7 +294,9 @@ const Dashboard = () => {
           </Link>
         </div>
 
+        {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+          {/* Monitoring Systems */}
           <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 lg:col-span-2 hover:shadow-md transition-all" data-aos="fade-up">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-semibold flex items-center text-green-700">
@@ -302,6 +325,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          {/* System Alerts */}
           <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="100">
             <h2 className="text-xl font-semibold flex items-center mb-6 text-green-700">
               <FiAlertCircle className="text-red-600 mr-2" />
@@ -325,6 +349,7 @@ const Dashboard = () => {
             </Link>
           </div>
 
+          {/* Main Optimizers */}
           <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="200">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-semibold flex items-center text-green-700">
@@ -352,6 +377,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          {/* Smart Disclosure */}
           <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="300">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-semibold flex items-center text-green-700">
@@ -390,6 +416,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          {/* Crop Image Analysis */}
           <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="400" onPaste={handlePaste}>
             <h2 className="text-xl font-semibold flex items-center text-green-700 mb-6">
               <FiCamera className="text-blue-600 mr-2" />
@@ -398,12 +425,17 @@ const Dashboard = () => {
             {previewImage ? (
               <div className="mb-4">
                 <img src={previewImage} alt="Preview" className="w-full h-48 object-cover rounded-lg mb-2" />
-                {analysisResult && (
+                {analysisResult && !analysisResult.error && (
                   <div className="bg-green-50 p-4 rounded-lg mb-3">
                     <h3 className="font-semibold text-green-700 mb-1">Analysis Results</h3>
                     <p className="text-green-600">Prediction: {analysisResult.prediction || "Unknown"}</p>
                     <p className="text-green-600">Confidence: {analysisResult.confidence ? `${Math.round(analysisResult.confidence * 100)}%` : "N/A"}</p>
-                    <p className="text-sm text-green-500 mt-1">{analysisResult.message || analysisResult.recommendedAction || "No additional information"}</p>
+                    <p className="text-sm text-green-500 mt-1">{analysisResult.message || "No additional information"}</p>
+                  </div>
+                )}
+                {analysisResult?.error && (
+                  <div className="bg-red-50 p-4 rounded-lg mb-3 border border-red-200">
+                    <p className="text-red-600">{analysisResult.message}</p>
                   </div>
                 )}
                 <div className="flex space-x-2">
@@ -441,42 +473,113 @@ const Dashboard = () => {
             <p className="text-xs text-gray-500">Tip: You can also paste (Ctrl+V) an image directly</p>
           </div>
 
-          {/* Treatment Recommendations Card */}
-          <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="500">
+          {/* ========== DISEASE RECOMMENDATION CARD (UPDATED) ========== */}
+          <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 hover:shadow-md transition-all lg:col-span-2" data-aos="fade-up" data-aos-delay="500">
             <h2 className="text-xl font-semibold flex items-center text-green-700 mb-6">
               <FiClipboard className="text-purple-600 mr-2" />
-              Treatment Recommendations
+              Disease Diagnosis & Recommendations
             </h2>
-            
-            {analysisResult?.treatment ? (
-              <div className="space-y-4">
-                <div className="bg-purple-50 p-4 rounded-lg border border-purple-100">
-                  <h3 className="font-semibold text-purple-700 mb-2">Recommended Treatment</h3>
-                  <p className="text-purple-600">{analysisResult.treatment}</p>
+
+            {recommendation ? (
+              <div className="space-y-6">
+                {/* Severity Badge & Disease Name */}
+                <div className={`flex items-center justify-between p-4 rounded-lg border ${severity.border} ${severity.bg}`}>
+                  <div className="flex items-center">
+                    <FiActivity className={`text-2xl mr-3 ${severity.text}`} />
+                    <div>
+                      <p className="text-sm text-gray-600">Detected Disease</p>
+                      <p className={`text-lg font-bold ${severity.text}`}>
+                        {analysisResult?.prediction?.replace(/___/g, ' — ').replace(/_/g, ' ') || "Unknown"}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${severity.bg} ${severity.text} border ${severity.border}`}>
+                      {severity.label}
+                    </span>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Confidence: {analysisResult?.confidence ? `${Math.round(analysisResult.confidence * 100)}%` : "N/A"}
+                    </p>
+                  </div>
                 </div>
-                
+
+                {/* Description */}
                 <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                  <h3 className="font-semibold text-blue-700 mb-2">Application Instructions</h3>
-                  <p className="text-blue-600">
-                    {analysisResult.application || "Apply treatment according to manufacturer instructions. Repeat as needed based on disease severity."}
-                  </p>
+                  <div className="flex items-start">
+                    <FiInfo className="text-blue-600 text-lg mr-3 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold text-blue-700 mb-1">Disease Description</h3>
+                      <p className="text-blue-600 text-sm leading-relaxed">{recommendation.description}</p>
+                    </div>
+                  </div>
                 </div>
-                
-                {analysisResult.prevention && (
-                  <div className="bg-teal-50 p-4 rounded-lg border border-teal-100">
-                    <h3 className="font-semibold text-teal-700 mb-2">Prevention Tips</h3>
-                    <p className="text-teal-600">{analysisResult.prevention}</p>
+
+                {/* Treatment Steps */}
+                {recommendation.treatment.length > 0 && (
+                  <div className="bg-red-50 p-4 rounded-lg border border-red-100">
+                    <div className="flex items-start">
+                      <FiAlertCircle className="text-red-600 text-lg mr-3 mt-0.5 flex-shrink-0" />
+                      <div className="w-full">
+                        <h3 className="font-semibold text-red-700 mb-3">🩺 Treatment Steps</h3>
+                        <div className="space-y-2">
+                          {recommendation.treatment.map((step, index) => (
+                            <div key={index} className="flex items-start bg-white p-3 rounded-lg border border-red-100">
+                              <span className="flex-shrink-0 w-6 h-6 bg-red-100 text-red-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">
+                                {index + 1}
+                              </span>
+                              <p className="text-red-700 text-sm leading-relaxed">{step}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Prevention Tips */}
+                {recommendation.prevention.length > 0 && (
+                  <div className="bg-green-50 p-4 rounded-lg border border-green-100">
+                    <div className="flex items-start">
+                      <FiShield className="text-green-600 text-lg mr-3 mt-0.5 flex-shrink-0" />
+                      <div className="w-full">
+                        <h3 className="font-semibold text-green-700 mb-3">🛡️ Prevention Tips</h3>
+                        <div className="space-y-2">
+                          {recommendation.prevention.map((tip, index) => (
+                            <div key={index} className="flex items-start bg-white p-3 rounded-lg border border-green-100">
+                              <FiCheckCircle className="text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                              <p className="text-green-700 text-sm leading-relaxed">{tip}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Healthy Plant Message */}
+                {recommendation.treatment.length === 0 && (
+                  <div className="bg-green-50 p-6 rounded-lg border border-green-200 text-center">
+                    <FiCheckCircle className="text-4xl text-green-500 mx-auto mb-3" />
+                    <h3 className="font-semibold text-green-700 text-lg mb-1">Plant is Healthy! 🌿</h3>
+                    <p className="text-green-600 text-sm">No treatment required. Follow the prevention tips above to maintain plant health.</p>
                   </div>
                 )}
               </div>
             ) : (
-              <div className="text-center py-8">
-                <FiClipboard className="text-4xl text-gray-300 mx-auto mb-4" />
-                <p className="text-gray-500">Upload and analyze an image to see treatment recommendations</p>
+              /* Empty State */
+              <div className="text-center py-12">
+                <div className="bg-gray-50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                  <FiClipboard className="text-4xl text-gray-300" />
+                </div>
+                <h3 className="text-lg font-medium text-gray-500 mb-2">No Diagnosis Available</h3>
+                <p className="text-gray-400 text-sm max-w-sm mx-auto">
+                  Upload a leaf image and click "Analyze Image" to get a full disease diagnosis with treatment recommendations and prevention tips.
+                </p>
               </div>
             )}
           </div>
 
+          {/* Data Management */}
           <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="600">
             <h2 className="text-xl font-semibold flex items-center text-green-700 mb-6">
               <FiBarChart2 className="text-purple-600 mr-2" />
@@ -500,6 +603,7 @@ const Dashboard = () => {
           </div>
         </div>
 
+        {/* CTA */}
         <div className="mt-12 bg-green-600 rounded-xl p-8 text-center" data-aos="fade-up">
           <h2 className="text-2xl font-bold text-white mb-4">Ready to revolutionize your farm?</h2>
           <p className="text-green-100 mb-6">Join our transformed approach with full and evergreen customers</p>
