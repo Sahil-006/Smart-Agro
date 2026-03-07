@@ -108,6 +108,10 @@ const Signup = () => {
 
   /* -------- GOOGLE SIGN UP INTEGRATION -------- */
   const handleGoogleSignup = async (credentialResponse) => {
+  setError("");
+  setLoading(true);
+
+  try {
     const success = await handleOAuthLogin(async () => {
       return axios.post(
         `${import.meta.env.VITE_API_URL}/api/auth/oauth/google`,
@@ -116,8 +120,18 @@ const Signup = () => {
       );
     });
 
-    if (!success) setError(t("signup.validation.google_signup_failed"));
-  };
+    if (success) {
+      navigate("/dashboard"); // ✅ REDIRECT HERE
+    } else {
+      setError(t("signup.validation.google_signup_failed"));
+    }
+  } catch (err) {
+    setError(t("signup.validation.google_signup_failed"));
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   /* -------- FINAL SUBMISSION -------- */
   const handleSignup = async () => {
@@ -160,7 +174,7 @@ const Signup = () => {
         </div>
 
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-black text-gray-900 tracking-tight">
+          <h2 className="text-4xl font-black text-gray-900 tracking-tight italic">
             {t("signup.title")}
           </h2>
           <p className="text-gray-500 font-medium">
