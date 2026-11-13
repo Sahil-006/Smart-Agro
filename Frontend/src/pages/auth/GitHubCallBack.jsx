@@ -25,7 +25,8 @@ const GitHubCallback = () => {
       return;
     }
 
-    axios.post("http://localhost:5001/github-login", { code }, { withCredentials: true })
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5001";
+    axios.post(`${apiUrl}/github-login`, { code }, { withCredentials: true })
       .then(res => {
         alert(res.data.message);
         setUser(res.data.user); // Assuming backend returns user data
@@ -33,6 +34,7 @@ const GitHubCallback = () => {
         navigate("/dashboard");
       })
       .catch(err => {
+        console.error("GitHub login error:", err);
         alert("GitHub login failed");
         navigate("/login");
       });
