@@ -8,3 +8,5 @@ flask-bcrypt
 Werkzeug
 Pillow
 numpy
+google-auth
+openpyxl

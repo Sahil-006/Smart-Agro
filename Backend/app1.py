@@ -13,6 +13,8 @@ import requests
 import secrets
 from datetime import datetime, timedelta
 import jwt
+from google.oauth2 import id_token as google_id_token
+from google.auth.transport import requests as google_requests
 from flask_bcrypt import Bcrypt
 from werkzeug.utils import secure_filename
 from PIL import Image
@@ -27,10 +29,12 @@ import re
 from flask import send_from_directory
 
 # --- App Initialization and Configuration ---
+load_dotenv()
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
-CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}}, supports_credentials=True)
-load_dotenv()
+
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
+CORS(app, resources={r"/*": {"origins": [FRONTEND_URL, "http://localhost:5173", "http://127.0.0.1:5173"]}}, supports_credentials=True)
 bcrypt = Bcrypt(app)
 
 # Global variable to store the latest data from Raspberry Pi
@@ -83,21 +87,34 @@ def handle_sensor_data(data):
             print("💡 FIX: Stop server and run 'pip install openpyxl'")
     print("------------------------------------------------")
 
-CSV_PATH = ""
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+CSV_PATH = os.path.join(BASE_DIR, "mock_agro_solar_data.csv")
 df_demo = pd.read_csv(CSV_PATH) if os.path.exists(CSV_PATH) else None
 
-app.secret_key = secrets.token_hex(32)
+app.secret_key = os.getenv("FLASK_SECRET_KEY", "fallback-secret-key-change-in-prod")
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
-app.config['UPLOAD_FOLDER'] = 'uploads'
+app.config['UPLOAD_FOLDER'] = os.path.join(BASE_DIR, 'uploads')
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 # --- Database Setup ---
-mongo_uri = os.getenv("MONGO_URI")
-client = MongoClient(mongo_uri)
-db = client["smart_agro"]
-users_collection = db["users"]
-messages_collection = db["messages"]
+mongo_uri = os.getenv("MONGO_URI", "mongodb://localhost:27017/smart_agro")
+client = None
+db = None
+users_collection = None
+messages_collection = None
+
+try:
+    client = MongoClient(mongo_uri, serverSelectionTimeoutMS=5000)
+    # Ping the server to test connection immediately
+    client.admin.command('ping')
+    db = client["smart_agro"]
+    users_collection = db["users"]
+    messages_collection = db["messages"]
+    print("✅ Connected to MongoDB successfully!")
+except Exception as e:
+    print(f"⚠️ Warning: MongoDB connection failed ({e}). Database features will be unavailable.")
 
 # --- Class Names ---
 CLASS_NAMES = [
@@ -943,23 +960,31 @@ def get_recommendation(predicted_class):
 
 
 # --- Model Loading ---
-MODEL_PATH = 'model_leaf_disease.h5'
-model_irr = joblib.load("models/model_irrigation.pkl")
-model_solar = joblib.load("models/model_solar_output.pkl")
-model_crop = joblib.load("models/model_crop_health.pkl")
-encoder_crop = joblib.load("models/encoder_crop_health.pkl")
+MODEL_PATH = os.path.join(BASE_DIR, 'model_leaf_disease.h5')
+models_dir = os.path.join(BASE_DIR, "models")
+try:
+    model_irr = joblib.load(os.path.join(models_dir, "model_irrigation.pkl"))
+    model_solar = joblib.load(os.path.join(models_dir, "model_solar_output.pkl"))
+    model_crop = joblib.load(os.path.join(models_dir, "model_crop_health.pkl"))
+    encoder_crop = joblib.load(os.path.join(models_dir, "encoder_crop_health.pkl"))
+    print("✅ Scikit-learn models loaded successfully!")
+except Exception as e:
+    model_irr = None
+    model_solar = None
+    model_crop = None
+    encoder_crop = None
+    print(f"⚠️ Warning: Failed to load models from '{models_dir}': {e}")
 
 model = None
 try:
     if os.path.exists(MODEL_PATH):
         model = tf.keras.models.load_model(MODEL_PATH)
-        print("✅ Model loaded successfully!")
+        print("✅ Leaf disease Keras model loaded successfully!")
 
         assert model.output_shape[-1] == len(CLASS_NAMES), \
             f"Model outputs {model.output_shape[-1]} classes, but labels = {len(CLASS_NAMES)}"
-
     else:
-        print(f"❌ CRITICAL ERROR: Model file not found at '{os.path.abspath(MODEL_PATH)}'")
+        print(f"⚠️ Warning: Model file not found at '{os.path.abspath(MODEL_PATH)}'")
 except Exception as e:
     print(f"❌ CRITICAL ERROR: Failed to load Keras model. Error: {str(e)}")
 
@@ -1009,9 +1034,12 @@ def is_strong_password(password):
 
 def get_logged_in_user():
     user_id = session.get("user_id")
-    if not user_id:
+    if not user_id or users_collection is None:
         return None
-    return users_collection.find_one({"_id": ObjectId(user_id)})
+    try:
+        return users_collection.find_one({"_id": ObjectId(user_id)})
+    except Exception:
+        return None
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -1073,19 +1101,17 @@ def detect_leaf_disease():
         rec = get_recommendation(predicted_class)
 
         return jsonify({
-            "prediction": predicted_class,
-            "confidence": confidence,
-            "diseaseRisk": disease_risk,
-            "message": "Leaf analysis successful",
-            "recommendation": {
-                "disease": rec["disease"],
-                "cause": rec["cause"],
-                "symptoms": rec["symptoms"],
-                "treatment": rec["treatment"],
-                "prevention": rec["prevention"],
-                "severity": rec["severity"]
-            }
-        }), 200
+    "prediction": predicted_class,
+    "confidence": confidence,
+    "diseaseRisk": disease_risk,
+    "message": "Leaf analysis successful",
+    "recommendation": {
+        "disease": predicted_class,
+        "description": rec["description"],
+        "treatment": rec["treatment"],
+        "prevention": rec["prevention"]
+    }
+}), 200
 
     except Exception as e:
         print("Leaf Detection Error:", str(e))
@@ -1252,6 +1278,9 @@ def forgot_password():
         if not identifier:
             return jsonify({"message": "Identifier required"}), 400
 
+        if users_collection is None:
+            return jsonify({"message": "Database service unavailable"}), 503
+
         user = users_collection.find_one({
             "$or": [{"email": identifier}, {"username": identifier}]
         })
@@ -1273,7 +1302,7 @@ def forgot_password():
             }}
         )
 
-        reset_link = f"http://localhost:5173/reset-password?token={token}"
+        reset_link = f"{FRONTEND_URL}/reset-password?token={token}"
         send_reset_email(user["email"], reset_link)
 
         return jsonify({
@@ -1293,6 +1322,9 @@ def reset_password():
 
         if not token or not new_password:
             return jsonify({"message": "Invalid request"}), 400
+
+        if users_collection is None:
+            return jsonify({"message": "Database service unavailable"}), 503
 
         user = users_collection.find_one({
             "resetPasswordToken": token,
@@ -1326,7 +1358,12 @@ def check_auth():
     user_id = session.get('user_id')
     if not user_id:
         return jsonify({"authenticated": False}), 200
-    user = users_collection.find_one({"_id": ObjectId(user_id)})
+    if users_collection is None:
+        return jsonify({"authenticated": False, "message": "Database unavailable"}), 200
+    try:
+        user = users_collection.find_one({"_id": ObjectId(user_id)})
+    except Exception:
+        user = None
     if not user:
         session.pop('user_id', None)
         return jsonify({"authenticated": False}), 200
@@ -1341,9 +1378,20 @@ def check_auth():
 def google_oauth():
     try:
         data = request.get_json()
+        if not data:
+            return jsonify({"message": "Invalid request body"}), 400
         token = data.get('credential')
+        if not token:
+            return jsonify({"message": "Missing Google credential"}), 400
 
-        decoded = jwt.decode(token, options={"verify_signature": False})
+        google_client_id = os.getenv("GOOGLE_CLIENT_ID")
+        # Verify the Google OAuth ID token using Google's public verification library
+        decoded = google_id_token.verify_oauth2_token(
+            token, google_requests.Request(), google_client_id
+        )
+
+        if users_collection is None:
+            return jsonify({"message": "Database service unavailable"}), 503
 
         user = users_collection.find_one({"email": decoded['email']})
 
@@ -1352,7 +1400,7 @@ def google_oauth():
                 "email": decoded['email'],
                 "username": decoded['email'].split('@')[0],
                 "fullName": decoded.get('name'),
-                "googleId": decoded['sub'],
+                "googleId": decoded.get('sub'),
                 "phone": "",
                 "state": "",
                 "district": "",
@@ -1378,6 +1426,9 @@ def google_oauth():
             }
         }), 200
 
+    except ValueError as ve:
+        print(f"Google token verification failed: {ve}")
+        return jsonify({"message": "Invalid or expired Google token"}), 401
     except Exception as e:
         print(f"Google OAuth error: {str(e)}")
         return jsonify({"message": "Google login failed"}), 400
@@ -1416,6 +1467,9 @@ def github_login():
 
         email = user_info.get("email") or f"{user_info['id']}@github.com"
         username = user_info["login"]
+
+        if users_collection is None:
+            return jsonify({"message": "Database service unavailable"}), 503
 
         user = users_collection.find_one({"email": email})
         if not user:
@@ -1520,7 +1574,8 @@ def upload_profile_image():
         save_path = os.path.join(app.config["UPLOAD_FOLDER"], new_filename)
         file.save(save_path)
 
-        image_url = f"http://localhost:5001/uploads/{new_filename}"
+        backend_base_url = os.getenv("BACKEND_URL", request.host_url.rstrip('/'))
+        image_url = f"{backend_base_url}/uploads/{new_filename}"
 
         users_collection.update_one(
             {"_id": user["_id"]},
@@ -1585,6 +1640,8 @@ def contact():
         data = request.get_json()
         if not all(key in data for key in ['name', 'email', 'message']):
             return jsonify({"message": "Missing required fields"}), 400
+        if messages_collection is None:
+            return jsonify({"message": "Database service unavailable"}), 503
         message_entry = {
             "name": data["name"], "email": data["email"],
             "message": data["message"], "createdAt": datetime.utcnow()
@@ -1599,4 +1656,5 @@ def contact():
 if __name__ == "__main__":
     if not os.path.exists(app.config['UPLOAD_FOLDER']):
         os.makedirs(app.config['UPLOAD_FOLDER'])
-    socketio.run(app, host='0.0.0.0', port=5001, debug=True)
+    port = int(os.getenv("PORT", 5001))
+    socketio.run(app, host='0.0.0.0', port=port, debug=True)
