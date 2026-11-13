@@ -98,12 +98,14 @@ const Dashboard = () => {
         URL.revokeObjectURL(previewImage);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchData = async () => {
     setIsFetching(true);
     try {
-      const response = await fetch('http://localhost:5001/api/analyze-data', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+      const response = await fetch(`${apiUrl}/api/analyze-data`, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ demo: true }),
@@ -166,7 +168,8 @@ const Dashboard = () => {
       const formData = new FormData();
       formData.append('image', selectedImage);
 
-      const response = await fetch('http://localhost:5001/api/leaf-detect', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+      const response = await fetch(`${apiUrl}/api/leaf-detect`, {
         method: 'POST',
         body: formData,
       });
@@ -248,59 +251,59 @@ const Dashboard = () => {
   const severity = getSeverityColor(cropHealth.diseaseRisk);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white overflow-hidden w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-12">
         {/* Header */}
-        <div className="mb-8 border-b border-green-200 pb-6" data-aos="fade-up">
-          <h1 className="text-3xl font-bold text-green-800 mb-2">Smart Agro-Solar Dashboard</h1>
-          <p className="text-green-600">Monitoring 3.4M data points for recyclable energy optimization</p>
+        <div className="mb-6 sm:mb-8 border-b border-green-200 pb-4 sm:pb-6" data-aos="fade-up">
+          <h1 className="text-2xl sm:text-3xl font-bold text-green-800 mb-2">Smart Agro-Solar Dashboard</h1>
+          <p className="text-sm sm:text-base text-green-600">Monitoring 3.4M data points for recyclable energy optimization</p>
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-          <Link to="/insights/soil" className="bg-white p-6 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-all hover:border-green-300" data-aos="fade-up" data-aos-delay="100">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10">
+          <Link to="/insights/soil" className="bg-white p-5 sm:p-6 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-all hover:border-green-300 min-h-[44px]" data-aos="fade-up" data-aos-delay="100">
             <div className="flex items-center">
-              <div className="p-3 bg-green-100 rounded-full mr-4">
+              <div className="p-3 bg-green-100 rounded-full mr-4 shrink-0">
                 <FiDroplet className="text-green-600 text-xl" />
               </div>
               <div>
-                <p className="text-green-500">Soil Moisture</p>
+                <p className="text-sm text-green-500">Soil Moisture</p>
                 <p className="text-2xl font-bold text-green-700">{soilData.moisture}%</p>
               </div>
             </div>
           </Link>
 
-          <Link to="/insights/solar" className="bg-white p-6 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-all hover:border-green-300" data-aos="fade-up" data-aos-delay="200">
+          <Link to="/insights/solar" className="bg-white p-5 sm:p-6 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-all hover:border-green-300 min-h-[44px]" data-aos="fade-up" data-aos-delay="200">
             <div className="flex items-center">
-              <div className="p-3 bg-yellow-100 rounded-full mr-4">
+              <div className="p-3 bg-yellow-100 rounded-full mr-4 shrink-0">
                 <FiSun className="text-yellow-600 text-xl" />
               </div>
               <div>
-                <p className="text-green-500">Solar Output</p>
+                <p className="text-sm text-green-500">Solar Output</p>
                 <p className="text-2xl font-bold text-green-700">{solarData.currentOutput}W</p>
               </div>
             </div>
           </Link>
 
-          <Link to="/insights/crop" className="bg-white p-6 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-all hover:border-green-300" data-aos="fade-up" data-aos-delay="300">
+          <Link to="/insights/crop" className="bg-white p-5 sm:p-6 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-all hover:border-green-300 min-h-[44px]" data-aos="fade-up" data-aos-delay="300">
             <div className="flex items-center">
-              <div className="p-3 bg-teal-100 rounded-full mr-4">
+              <div className="p-3 bg-teal-100 rounded-full mr-4 shrink-0">
                 <FiImage className="text-teal-600 text-xl" />
               </div>
               <div>
-                <p className="text-green-500">Crop Health</p>
+                <p className="text-sm text-green-500">Crop Health</p>
                 <p className="text-2xl font-bold text-green-700">{cropHealth.healthScore}/100</p>
               </div>
             </div>
           </Link>
 
-          <Link to="/insights/system" className="bg-white p-6 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-all hover:border-green-300" data-aos="fade-up" data-aos-delay="400">
+          <Link to="/insights/system" className="bg-white p-5 sm:p-6 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-all hover:border-green-300 min-h-[44px]" data-aos="fade-up" data-aos-delay="400">
             <div className="flex items-center">
-              <div className="p-3 bg-red-100 rounded-full mr-4">
+              <div className="p-3 bg-red-100 rounded-full mr-4 shrink-0">
                 <FiAlertCircle className="text-red-600 text-xl" />
               </div>
               <div>
-                <p className="text-green-500">Active Alerts</p>
+                <p className="text-sm text-green-500">Active Alerts</p>
                 <p className="text-2xl font-bold text-green-700">{alerts.length}</p>
               </div>
             </div>
@@ -308,17 +311,17 @@ const Dashboard = () => {
         </div>
 
         {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-8">
           {/* Monitoring Systems */}
-          <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 lg:col-span-2 hover:shadow-md transition-all" data-aos="fade-up">
+          <div className="bg-white rounded-xl shadow-sm border border-green-100 p-5 sm:p-6 lg:col-span-2 hover:shadow-md transition-all" data-aos="fade-up">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-semibold flex items-center text-green-700">
-                <FiBarChart2 className="text-green-600 mr-2" />
+              <h2 className="text-lg sm:text-xl font-semibold flex items-center text-green-700">
+                <FiBarChart2 className="text-green-600 mr-2 shrink-0" />
                 Our Monitoring Systems
               </h2>
-              <Link to="/insights/soil" className="text-sm text-green-600 hover:underline">View Details</Link>
+              <Link to="/insights/soil" className="text-sm text-green-600 hover:underline min-h-[44px] inline-flex items-center">View Details</Link>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div className="bg-green-50 p-4 rounded-lg border border-green-100">
                 <p className="text-green-600 mb-1">Temperature</p>
                 <p className="text-2xl font-bold text-green-700">{soilData.temperature}°C</p>
@@ -357,7 +360,7 @@ const Dashboard = () => {
                 </div>
               ))}
             </div>
-            <Link to="/insights/system" className="mt-6 w-full py-2 border border-green-200 rounded-lg text-green-600 hover:bg-green-50 transition-colors flex justify-center">
+            <Link to="/insights/system" className="mt-6 w-full py-2.5 min-h-[44px] border border-green-200 rounded-lg text-green-600 hover:bg-green-50 transition-colors flex items-center justify-center font-medium">
               View All Alerts
             </Link>
           </div>
@@ -451,27 +454,29 @@ const Dashboard = () => {
                     <p className="text-red-600">{analysisResult.message}</p>
                   </div>
                 )}
-                <div className="flex space-x-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <button 
                     onClick={resetImage} 
-                    className="text-sm text-red-600 hover:underline"
+                    className="min-h-[44px] px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors inline-flex items-center"
                   >
                     Remove
                   </button>
                   <button 
                     onClick={uploadImage} 
                     disabled={isUploading} 
-                    className={`text-sm ${isUploading ? 'text-gray-400' : 'text-green-600 hover:underline'}`}
+                    className={`min-h-[44px] px-4 py-2 rounded-lg text-sm font-medium transition-colors inline-flex items-center ${
+                      isUploading ? 'text-gray-400 bg-gray-100 cursor-not-allowed' : 'text-white bg-green-600 hover:bg-green-700'
+                    }`}
                   >
                     {isUploading ? 'Analyzing...' : 'Analyze Image'}
                   </button>
                 </div>
               </div>
             ) : (
-              <div className="border-2 border-dashed border-green-300 rounded-lg p-6 text-center mb-4">
+              <div className="border-2 border-dashed border-green-300 rounded-lg p-5 sm:p-6 text-center mb-4">
                 <FiUpload className="text-3xl text-green-500 mx-auto mb-2" />
-                <p className="text-green-600 mb-2">Upload or paste crop image</p>
-                <label className="cursor-pointer text-sm text-white bg-green-600 px-3 py-1 rounded hover:bg-green-700">
+                <p className="text-green-600 mb-2 font-medium">Upload or paste crop image</p>
+                <label className="cursor-pointer text-sm font-semibold text-white bg-green-600 px-4 py-2.5 min-h-[44px] inline-flex items-center justify-center rounded-lg hover:bg-green-700 transition-colors">
                   Browse Files
                   <input 
                     type="file" 
@@ -487,30 +492,30 @@ const Dashboard = () => {
           </div>
 
           {/* ========== DISEASE RECOMMENDATION CARD (UPDATED) ========== */}
-          <div className="bg-white rounded-xl shadow-sm border border-green-100 p-6 hover:shadow-md transition-all lg:col-span-2" data-aos="fade-up" data-aos-delay="500">
-            <h2 className="text-xl font-semibold flex items-center text-green-700 mb-6">
-              <FiClipboard className="text-purple-600 mr-2" />
+          <div className="bg-white rounded-xl shadow-sm border border-green-100 p-5 sm:p-6 hover:shadow-md transition-all lg:col-span-2" data-aos="fade-up" data-aos-delay="500">
+            <h2 className="text-lg sm:text-xl font-semibold flex items-center text-green-700 mb-6">
+              <FiClipboard className="text-purple-600 mr-2 shrink-0" />
               Disease Diagnosis & Recommendations
             </h2>
 
             {recommendation ? (
               <div className="space-y-6">
                 {/* Severity Badge & Disease Name */}
-                <div className={`flex items-center justify-between p-4 rounded-lg border ${severity.border} ${severity.bg}`}>
-                  <div className="flex items-center">
-                    <FiActivity className={`text-2xl mr-3 ${severity.text}`} />
+                <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-lg border ${severity.border} ${severity.bg}`}>
+                  <div className="flex items-start sm:items-center">
+                    <FiActivity className={`text-2xl mr-3 shrink-0 ${severity.text}`} />
                     <div>
-                      <p className="text-sm text-gray-600">Detected Disease</p>
-                      <p className={`text-lg font-bold ${severity.text}`}>
+                      <p className="text-xs sm:text-sm text-gray-600">Detected Disease</p>
+                      <p className={`text-base sm:text-lg font-bold ${severity.text}`}>
                         {analysisResult?.prediction?.replace(/___/g, ' — ').replace(/_/g, ' ') || "Unknown"}
                       </p>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${severity.bg} ${severity.text} border ${severity.border}`}>
+                  <div className="text-left sm:text-right shrink-0">
+                    <span className={`inline-block px-3 py-1 rounded-full text-xs sm:text-sm font-semibold ${severity.bg} ${severity.text} border ${severity.border}`}>
                       {severity.label}
                     </span>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-xs sm:text-sm text-gray-500 mt-1">
                       Confidence: {analysisResult?.confidence ? `${Math.round(analysisResult.confidence * 100)}%` : "N/A"}
                     </p>
                   </div>
@@ -598,18 +603,18 @@ const Dashboard = () => {
               <FiBarChart2 className="text-purple-600 mr-2" />
               Data Management
             </h2>
-            <div className="flex flex-col items-center justify-center p-4">
+            <div className="flex flex-col items-center justify-center p-2 sm:p-4">
               <button
                 onClick={fetchData}
                 disabled={isFetching}
-                className={`flex items-center justify-center w-full py-3 px-4 rounded-lg ${
+                className={`flex items-center justify-center w-full min-h-[44px] py-3.5 px-4 rounded-lg font-medium cursor-pointer ${
                   isFetching ? 'bg-gray-300' : 'bg-green-600 hover:bg-green-700'
                 } text-white transition-colors`}
               >
-                <FiRefreshCw className={`mr-2 ${isFetching ? 'animate-spin' : ''}`} />
+                <FiRefreshCw className={`mr-2 shrink-0 ${isFetching ? 'animate-spin' : ''}`} />
                 {isFetching ? 'Fetching Data...' : 'Fetch Data'}
               </button>
-              <p className="text-sm text-gray-500 mt-3 text-center">
+              <p className="text-xs sm:text-sm text-gray-500 mt-3 text-center">
                 Click to fetch and update your latest agricultural data
               </p>
             </div>
@@ -617,10 +622,10 @@ const Dashboard = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 bg-green-600 rounded-xl p-8 text-center" data-aos="fade-up">
-          <h2 className="text-2xl font-bold text-white mb-4">Ready to revolutionize your farm?</h2>
-          <p className="text-green-100 mb-6">Join our transformed approach with full and evergreen customers</p>
-          <Link to="/contact" className="inline-block bg-white text-green-600 px-6 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors">
+        <div className="mt-8 sm:mt-12 bg-green-600 rounded-2xl p-6 sm:p-8 text-center" data-aos="fade-up">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">Ready to revolutionize your farm?</h2>
+          <p className="text-green-100 text-sm sm:text-base mb-6 max-w-xl mx-auto">Join our transformed approach with full and evergreen customers</p>
+          <Link to="/contact" className="inline-flex items-center justify-center min-h-[44px] bg-white text-green-600 px-6 py-2.5 rounded-lg font-bold hover:bg-green-50 transition-colors w-full sm:w-auto">
             Contact Us Today
           </Link>
         </div>

@@ -4,7 +4,7 @@ import { useAuth } from "../../context/authContext";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { GoogleLogin } from "@react-oauth/google";
-import { useTranslation } from "react-i18next"; // Import translation hook
+import { useTranslation } from "react-i18next";
 import {
   Eye,
   EyeOff,
@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 const Signup = () => {
-  const { t } = useTranslation(); // Initialize translation hook
+  const { t } = useTranslation();
   const [step, setStep] = useState(1);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -81,7 +81,7 @@ const Signup = () => {
     special: /[^A-Za-z0-9]/.test(formData.password),
   };
 
-  /* -------- VALIDATION (Using Translations) -------- */
+  /* -------- VALIDATION -------- */
   const validateStep1 = () => {
     if (!formData.fullName || !formData.username)
       return t("signup.validation.name_username_required");
@@ -108,30 +108,29 @@ const Signup = () => {
 
   /* -------- GOOGLE SIGN UP INTEGRATION -------- */
   const handleGoogleSignup = async (credentialResponse) => {
-  setError("");
-  setLoading(true);
+    setError("");
+    setLoading(true);
 
-  try {
-    const success = await handleOAuthLogin(async () => {
-      return axios.post(
-        `${import.meta.env.VITE_API_URL}/api/auth/oauth/google`,
-        { credential: credentialResponse.credential },
-        { withCredentials: true }
-      );
-    });
+    try {
+      const success = await handleOAuthLogin(async () => {
+        return axios.post(
+          `${import.meta.env.VITE_API_URL}/api/auth/oauth/google`,
+          { credential: credentialResponse.credential },
+          { withCredentials: true }
+        );
+      });
 
-    if (success) {
-      navigate("/dashboard"); // ✅ REDIRECT HERE
-    } else {
+      if (success) {
+        navigate("/dashboard");
+      } else {
+        setError(t("signup.validation.google_signup_failed"));
+      }
+    } catch {
       setError(t("signup.validation.google_signup_failed"));
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    setError(t("signup.validation.google_signup_failed"));
-  } finally {
-    setLoading(false);
-  }
-};
-
+  };
 
   /* -------- FINAL SUBMISSION -------- */
   const handleSignup = async () => {
@@ -153,31 +152,31 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 px-4">
+    <div className="min-h-screen pt-28 sm:pt-36 pb-12 flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 px-3 sm:px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white/90 backdrop-blur-md p-8 rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white w-full max-w-lg"
+        className="bg-white/90 backdrop-blur-md p-5 sm:p-8 rounded-3xl sm:rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white w-full max-w-lg"
       >
         {/* STEP INDICATOR */}
-        <div className="flex justify-center gap-3 mb-8">
+        <div className="flex justify-center gap-3 mb-6 sm:mb-8">
           <div
             className={`h-1.5 rounded-full transition-all duration-500 ${
-              step === 1 ? "bg-green-600 w-24" : "bg-gray-200 w-12"
+              step === 1 ? "bg-green-600 w-20 sm:w-24" : "bg-gray-200 w-10 sm:w-12"
             }`}
           />
           <div
             className={`h-1.5 rounded-full transition-all duration-500 ${
-              step === 2 ? "bg-green-600 w-24" : "bg-gray-200 w-12"
+              step === 2 ? "bg-green-600 w-20 sm:w-24" : "bg-gray-200 w-10 sm:w-12"
             }`}
           />
         </div>
 
-        <div className="text-center mb-8">
-          <h2 className="text-4xl font-black text-gray-900 tracking-tight italic">
+        <div className="text-center mb-6 sm:mb-8">
+          <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight italic">
             {t("signup.title")}
           </h2>
-          <p className="text-gray-500 font-medium">
+          <p className="text-gray-500 font-medium text-xs sm:text-sm mt-1">
             {t("signup.steps.prefix", { step })}{" "}
             {step === 1
               ? t("signup.steps.personal_details")
@@ -201,24 +200,26 @@ const Signup = () => {
               className="space-y-4"
             >
               <div className="flex flex-col items-center">
-                <GoogleLogin
-                  text="signup_with"
-                  shape="pill"
-                  onSuccess={handleGoogleSignup}
-                  onError={() =>
-                    setError(t("signup.validation.google_signup_failed"))
-                  }
-                />
-                <div className="flex items-center w-full my-6">
+                <div className="flex justify-center w-full max-w-full overflow-hidden">
+                  <GoogleLogin
+                    text="signup_with"
+                    shape="pill"
+                    onSuccess={handleGoogleSignup}
+                    onError={() =>
+                      setError(t("signup.validation.google_signup_failed"))
+                    }
+                  />
+                </div>
+                <div className="flex items-center w-full my-5 sm:my-6">
                   <div className="flex-grow border-t border-gray-100"></div>
-                  <span className="mx-4 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
+                  <span className="mx-4 text-gray-400 text-[10px] font-bold uppercase tracking-widest shrink-0">
                     {t("signup.auth.or_use_email")}
                   </span>
                   <div className="flex-grow border-t border-gray-100"></div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <InputWithIcon
                   icon={<User size={18} />}
                   name="fullName"
@@ -235,7 +236,7 @@ const Signup = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <InputWithIcon
                   icon={<Mail size={18} />}
                   name="email"
@@ -253,14 +254,14 @@ const Signup = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {/* Main Password */}
                 <div className="relative group">
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors pointer-events-none">
                     <Lock size={18} />
                   </div>
                   <input
-                    className="w-full pl-11 pr-12 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50"
+                    className="w-full pl-11 pr-12 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50 text-base"
                     type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder={t("signup.form.placeholders.password")}
@@ -270,19 +271,20 @@ const Signup = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors w-10 h-10 flex items-center justify-center cursor-pointer"
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                   >
-                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
                 </div>
 
                 {/* Confirm Password */}
                 <div className="relative group">
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors pointer-events-none">
                     <Lock size={18} />
                   </div>
                   <input
-                    className="w-full pl-11 pr-12 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50"
+                    className="w-full pl-11 pr-12 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50 text-base"
                     type={showConfirmPassword ? "text" : "password"}
                     name="confirmPassword"
                     placeholder={t("signup.form.placeholders.confirm_password")}
@@ -294,19 +296,20 @@ const Signup = () => {
                     onClick={() =>
                       setShowConfirmPassword(!showConfirmPassword)
                     }
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors w-10 h-10 flex items-center justify-center cursor-pointer"
+                    aria-label={showConfirmPassword ? "Hide password" : "Show password"}
                   >
                     {showConfirmPassword ? (
-                      <EyeOff size={20} />
+                      <EyeOff size={18} />
                     ) : (
-                      <Eye size={20} />
+                      <Eye size={18} />
                     )}
                   </button>
                 </div>
               </div>
 
               {formData.password && (
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2 bg-green-50/50 p-4 rounded-2xl border border-green-100">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-green-50/50 p-3 sm:p-4 rounded-2xl border border-green-100">
                   <Rule
                     ok={passwordRules.length}
                     label={t("signup.form.password_rules.min_chars")}
@@ -328,16 +331,16 @@ const Signup = () => {
 
               <button
                 onClick={handleNext}
-                className="w-full bg-green-600 text-white py-4 rounded-2xl font-bold shadow-xl shadow-green-200 hover:bg-green-700 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+                className="w-full min-h-[48px] bg-green-600 text-white py-3.5 sm:py-4 rounded-2xl font-bold shadow-xl shadow-green-200 hover:bg-green-700 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                {t("signup.buttons.next_step")} <ChevronRight size={20} />
+                <span>{t("signup.buttons.next_step")}</span> <ChevronRight size={20} />
               </button>
 
               <p className="text-center text-sm text-gray-500 font-medium pt-2">
                 {t("signup.auth.already_have_account")}{" "}
                 <Link
                   to="/login"
-                  className="text-green-600 font-bold hover:underline"
+                  className="text-green-600 font-bold hover:underline py-1 inline-block"
                 >
                   {t("signup.auth.login_link")}
                 </Link>
@@ -350,9 +353,9 @@ const Signup = () => {
               key="step2"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6"
             >
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <SelectWithIcon
                   icon={<MapPin size={18} />}
                   name="state"
@@ -402,14 +405,14 @@ const Signup = () => {
                 </SelectWithIcon>
               </div>
 
-              <label className="flex items-start text-sm text-gray-600 cursor-pointer group p-2">
+              <label className="flex items-start text-xs sm:text-sm text-gray-600 cursor-pointer group p-2 min-h-[44px]">
                 <input
                   type="checkbox"
-                  className="mt-1 w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500 mr-3"
+                  className="mt-0.5 w-5 h-5 rounded border-gray-300 text-green-600 focus:ring-green-500 mr-3 shrink-0 cursor-pointer"
                   checked={agreeTerms}
                   onChange={() => setAgreeTerms(!agreeTerms)}
                 />
-                <span>
+                <span className="leading-snug">
                   {t("signup.form.terms.i_agree")}{" "}
                   <span className="text-green-600 font-bold">
                     {t("signup.form.terms.privacy_policy")}
@@ -422,17 +425,17 @@ const Signup = () => {
                 </span>
               </label>
 
-              <div className="flex gap-4">
+              <div className="flex gap-3 sm:gap-4">
                 <button
                   onClick={() => setStep(1)}
-                  className="flex-1 px-4 py-4 border-2 border-gray-100 rounded-2xl font-bold text-gray-500 hover:bg-gray-50 transition-all flex items-center justify-center gap-1"
+                  className="flex-1 px-4 py-3.5 min-h-[48px] border-2 border-gray-200 rounded-2xl font-bold text-gray-500 hover:bg-gray-50 transition-all flex items-center justify-center gap-1 cursor-pointer"
                 >
-                  <ChevronLeft size={20} /> {t("signup.buttons.back")}
+                  <ChevronLeft size={20} /> <span>{t("signup.buttons.back")}</span>
                 </button>
                 <button
                   onClick={handleSignup}
                   disabled={loading}
-                  className="flex-[2] bg-green-600 text-white py-4 rounded-2xl font-bold shadow-xl shadow-green-100 hover:bg-green-700 transition-all"
+                  className="flex-[2] bg-green-600 text-white py-3.5 min-h-[48px] rounded-2xl font-bold shadow-xl shadow-green-100 hover:bg-green-700 transition-all cursor-pointer"
                 >
                   {loading
                     ? t("signup.buttons.processing")
@@ -451,12 +454,12 @@ const Signup = () => {
 
 const InputWithIcon = ({ icon, ...props }) => (
   <div className="relative group">
-    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors">
+    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors pointer-events-none">
       {icon}
     </div>
     <input
       {...props}
-      className="w-full pl-11 pr-4 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50 placeholder:text-gray-400"
+      className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50 placeholder:text-gray-400 text-base"
     />
   </div>
 );
@@ -468,7 +471,7 @@ const SelectWithIcon = ({ icon, children, ...props }) => (
     </div>
     <select
       {...props}
-      className="w-full pl-11 pr-4 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50 appearance-none"
+      className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50 appearance-none text-base cursor-pointer"
     >
       {children}
     </select>
@@ -477,18 +480,18 @@ const SelectWithIcon = ({ icon, children, ...props }) => (
 
 const Rule = ({ ok, label }) => (
   <div
-    className={`flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest transition-colors ${
-      ok ? "text-green-600" : "text-gray-300"
+    className={`flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-colors ${
+      ok ? "text-green-600" : "text-gray-400"
     }`}
   >
     <div
-      className={`h-1.5 w-1.5 rounded-full ${
+      className={`h-1.5 w-1.5 rounded-full shrink-0 ${
         ok
           ? "bg-green-600 shadow-[0_0_8px_rgba(22,163,74,0.5)]"
           : "bg-gray-300"
       }`}
     />
-    {label}
+    <span className="truncate">{label}</span>
   </div>
 );
 

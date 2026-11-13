@@ -35,7 +35,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="min-h-[calc(100vh-64px)]">
+      <main className="min-h-[calc(100dvh-64px)]">
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<Landing />} />

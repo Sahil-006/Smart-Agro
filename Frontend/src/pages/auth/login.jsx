@@ -36,7 +36,7 @@ const Login = () => {
       if (!result.success) {
         setError(result.error || t("login.errors.invalid"));
       }
-    } catch (err) {
+    } catch {
       setError(t("login.errors.connection"));
     } finally {
       setLoading(false);
@@ -74,19 +74,18 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 px-4">
+    <div className="min-h-screen pt-28 sm:pt-36 pb-12 flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 px-3 sm:px-4">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="bg-white/90 backdrop-blur-md p-8 rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white w-full max-w-md"
+        className="bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl sm:rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white w-full max-w-md"
       >
-        <motion.div variants={itemVariants} className="text-center mb-8">
-          <h2 className="text-4xl font-black text-gray-900 tracking-tight italic">
-            {/* Use the existing translation key for the brand name */}
+        <motion.div variants={itemVariants} className="text-center mb-6 sm:mb-8">
+          <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight italic">
             {t("signup.title")}
           </h2>
-          <p className="text-gray-500 font-medium mt-2">
+          <p className="text-gray-500 font-medium mt-1 sm:mt-2 text-sm sm:text-base">
             {t("login.subtitle")}
           </p>
         </motion.div>
@@ -102,8 +101,8 @@ const Login = () => {
         )}
 
         {/* Google OAuth */}
-        <motion.div variants={itemVariants} className="flex flex-col gap-6 mb-8">
-          <div className="flex justify-center">
+        <motion.div variants={itemVariants} className="flex flex-col gap-6 mb-6 sm:mb-8">
+          <div className="flex justify-center w-full max-w-full overflow-hidden">
             <GoogleLogin
               onSuccess={handleGoogleLogin}
               onError={() => setError(t("login.errors.google"))}
@@ -116,7 +115,7 @@ const Login = () => {
 
           <div className="flex items-center">
             <div className="flex-grow border-t border-gray-100"></div>
-            <span className="mx-4 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
+            <span className="mx-4 text-gray-400 text-[10px] font-bold uppercase tracking-widest shrink-0">
               {t("login.or")}
             </span>
             <div className="flex-grow border-t border-gray-100"></div>
@@ -124,15 +123,15 @@ const Login = () => {
         </motion.div>
 
         {/* Local Login */}
-        <form className="space-y-5" onSubmit={handleLogin}>
+        <form className="space-y-4 sm:space-y-5" onSubmit={handleLogin}>
           <motion.div variants={itemVariants} className="relative group">
-            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors pointer-events-none">
               <User size={18} />
             </div>
             <input
               type="text"
               placeholder={t("login.username")}
-              className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50"
+              className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50 text-base"
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -140,13 +139,13 @@ const Login = () => {
           </motion.div>
 
           <motion.div variants={itemVariants} className="relative group">
-            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors pointer-events-none">
               <Lock size={18} />
             </div>
             <input
               type={showPassword ? 'text' : 'password'}
               placeholder={t("login.password")}
-              className="w-full pl-11 pr-12 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50"
+              className="w-full pl-11 pr-12 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50 text-base"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -154,16 +153,17 @@ const Login = () => {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors"
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors w-10 h-10 flex items-center justify-center cursor-pointer"
+              aria-label={showPassword ? "Hide password" : "Show password"}
             >
-              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
             </button>
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex justify-end">
             <Link
               to="/forgot-password"
-              className="text-xs text-green-700 font-bold hover:underline"
+              className="text-xs text-green-700 font-bold hover:underline py-1"
             >
               {t("login.forgot")}
             </Link>
@@ -175,18 +175,18 @@ const Login = () => {
             whileTap={{ scale: 0.98 }}
             type="submit"
             disabled={loading}
-            className="w-full bg-green-600 text-white py-4 rounded-2xl font-bold shadow-xl shadow-green-200 hover:bg-green-700 transition-all flex items-center justify-center gap-2 mt-2"
+            className="w-full min-h-[48px] bg-green-600 text-white py-3.5 sm:py-4 rounded-2xl font-bold shadow-xl shadow-green-200 hover:bg-green-700 transition-all flex items-center justify-center gap-2 mt-2 cursor-pointer"
           >
-            {loading ? t("login.verifying") : (<><LogIn size={20} /> {t("login.submit")}</>)}
+            {loading ? t("login.verifying") : (<><LogIn size={18} /> <span>{t("login.submit")}</span></>)}
           </motion.button>
         </form>
 
         <motion.p
           variants={itemVariants}
-          className="mt-8 text-center text-sm text-gray-500 font-medium"
+          className="mt-6 sm:mt-8 text-center text-sm text-gray-500 font-medium"
         >
           {t("login.noAccount")}{" "}
-          <Link to="/signup" className="text-green-600 font-black hover:underline">
+          <Link to="/signup" className="text-green-600 font-black hover:underline py-1 inline-block">
             {t("login.signup")}
           </Link>
         </motion.p>

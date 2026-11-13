@@ -61,20 +61,20 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 px-4">
+    <div className="min-h-screen pt-28 sm:pt-36 pb-12 flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 px-3 sm:px-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-white/90 backdrop-blur-md p-8 rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white w-full max-w-md"
+        className="bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl sm:rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white w-full max-w-md"
       >
-        <div className="text-center mb-8">
-          <div className="inline-flex p-3 bg-green-100 text-green-600 rounded-full mb-4">
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="inline-flex p-3 bg-green-100 text-green-600 rounded-full mb-3">
             <ShieldCheck size={32} />
           </div>
-          <h2 className="text-3xl font-black text-gray-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
             {t("reset.title")}
           </h2>
-          <p className="text-gray-500 font-medium">
+          <p className="text-gray-500 font-medium text-xs sm:text-sm mt-1">
             {t("reset.subtitle")}
           </p>
         </div>
@@ -91,7 +91,7 @@ const ResetPassword = () => {
           </motion.div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
           <PasswordField
             value={password}
             setValue={setPassword}
@@ -110,7 +110,12 @@ const ResetPassword = () => {
 
           <AnimatePresence>
             {password.length > 0 && (
-              <motion.div className="grid grid-cols-2 gap-3 bg-gray-50/50 p-4 rounded-2xl border border-gray-100">
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }} 
+                animate={{ height: "auto", opacity: 1 }} 
+                exit={{ height: 0, opacity: 0 }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-gray-50/70 p-3 sm:p-4 rounded-2xl border border-gray-100"
+              >
                 <Rule ok={passwordRules.length} label={t("reset.rules.length")} />
                 <Rule ok={passwordRules.upper} label={t("reset.rules.upper")} />
                 <Rule ok={passwordRules.number} label={t("reset.rules.number")} />
@@ -119,35 +124,18 @@ const ResetPassword = () => {
             )}
           </AnimatePresence>
 
-          {/* PASSWORD RULES (Same as Signup) */}
-          <AnimatePresence>
-            {password.length > 0 && (
-              <motion.div 
-                initial={{ height: 0, opacity: 0 }} 
-                animate={{ height: "auto", opacity: 1 }} 
-                exit={{ height: 0, opacity: 0 }}
-                className="grid grid-cols-2 gap-3 bg-gray-50/50 p-4 rounded-2xl border border-gray-100"
-              >
-                <Rule ok={passwordRules.length} label="8+ Chars" />
-                <Rule ok={passwordRules.upper} label="Uppercase" />
-                <Rule ok={passwordRules.number} label="Number" />
-                <Rule ok={passwordRules.special} label="Symbol" />
-              </motion.div>
-            )}
-          </AnimatePresence>
-
           <button 
             type="submit"
             disabled={loading}
-            className="w-full bg-green-600 text-white py-4 rounded-2xl font-bold"
+            className="w-full min-h-[48px] bg-green-600 text-white py-3.5 sm:py-4 rounded-2xl font-bold shadow-xl shadow-green-200 hover:bg-green-700 transition-all cursor-pointer"
           >
             {loading ? t("reset.loading") : t("reset.submit")}
           </button>
         </form>
 
-        <p className="mt-8 text-center text-sm">
-          <Link to="/login" className="text-green-700 font-bold hover:underline flex items-center justify-center gap-1">
-            <ChevronLeft size={16} /> {t("reset.back")}
+        <p className="mt-6 text-center">
+          <Link to="/login" className="text-green-700 font-bold hover:underline inline-flex items-center justify-center min-h-[44px] text-sm">
+            <ChevronLeft size={16} className="mr-1" /> {t("reset.back")}
           </Link>
         </p>
       </motion.div>
@@ -157,7 +145,7 @@ const ResetPassword = () => {
 
 const PasswordField = ({ value, setValue, show, toggle, placeholder }) => (
   <div className="relative group">
-    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors pointer-events-none">
       <Lock size={18} />
     </div>
     <input
@@ -166,18 +154,23 @@ const PasswordField = ({ value, setValue, show, toggle, placeholder }) => (
       value={value}
       onChange={(e) => setValue(e.target.value)}
       required
-      className="w-full pl-11 pr-12 py-3 rounded-2xl border border-gray-200"
+      className="w-full pl-11 pr-12 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50 text-base"
     />
-    <button type="button" onClick={toggle} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
+    <button 
+      type="button" 
+      onClick={toggle} 
+      className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors w-10 h-10 flex items-center justify-center cursor-pointer"
+      aria-label={show ? "Hide password" : "Show password"}
+    >
       {show ? <EyeOff size={18} /> : <Eye size={18} />}
     </button>
   </div>
 );
 
 const Rule = ({ ok, label }) => (
-  <div className={`flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest ${ok ? "text-green-600" : "text-gray-300"}`}>
-    {ok ? <CheckCircle2 size={14} /> : <div className="h-3 w-3 rounded-full border-2" />}
-    {label}
+  <div className={`flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider ${ok ? "text-green-600" : "text-gray-400"}`}>
+    {ok ? <CheckCircle2 size={14} className="shrink-0" /> : <div className="h-3 w-3 rounded-full border-2 border-current shrink-0" />}
+    <span className="truncate">{label}</span>
   </div>
 );
 
