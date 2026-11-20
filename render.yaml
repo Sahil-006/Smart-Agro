@@ -8,9 +8,7 @@ services:
     startCommand: gunicorn --worker-class gevent --workers 1 --bind 0.0.0.0:$PORT app1:app
     envVars:
       - key: PYTHON_VERSION
-        value: 3.10.13
-      - key: PORT
-        value: 10000
+        value: 3.10.14
       - key: FRONTEND_URL
         sync: false
       - key: MONGO_URI

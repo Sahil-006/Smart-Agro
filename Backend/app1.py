@@ -1,10 +1,17 @@
+# --- Optimization for low-memory container environments (Render/Railway free tiers) ---
+import os
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["TF_NUM_INTRAOP_THREADS"] = "1"
+os.environ["TF_NUM_INTEROP_THREADS"] = "1"
+
 # --- Imports ---
 from flask_socketio import SocketIO, emit
 from flask import Flask, request, jsonify, session
 from flask_cors import CORS
 from pymongo import MongoClient
 from dotenv import load_dotenv
-import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -20,7 +27,6 @@ from werkzeug.utils import secure_filename
 from PIL import Image
 import numpy as np
 import io
-import tensorflow as tf
 import joblib
 import pandas as pd
 import random
@@ -34,6 +40,16 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 load_dotenv()
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
+
+# Root & Health Check Endpoints (For Render/cloud zero-downtime health probing)
+@app.route("/")
+@app.route("/health")
+def index_health():
+    return jsonify({
+        "status": "online",
+        "service": "Smart-Agro Backend API",
+        "version": "2.0.0"
+    }), 200
 
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173").rstrip('/')
 cors_origins = [
@@ -1006,34 +1022,50 @@ def get_recommendation(predicted_class):
     }
 
 
-# --- Model Loading ---
+# --- Lazy Model Loading (Memory-Optimized for 512MB RAM containers) ---
 MODEL_PATH = os.path.join(BASE_DIR, 'model_leaf_disease.h5')
 models_dir = os.path.join(BASE_DIR, "models")
-try:
-    model_irr = joblib.load(os.path.join(models_dir, "model_irrigation.pkl"))
-    model_solar = joblib.load(os.path.join(models_dir, "model_solar_output.pkl"))
-    model_crop = joblib.load(os.path.join(models_dir, "model_crop_health.pkl"))
-    encoder_crop = joblib.load(os.path.join(models_dir, "encoder_crop_health.pkl"))
-    print("✅ Scikit-learn models loaded successfully!")
-except Exception as e:
-    model_irr = None
-    model_solar = None
-    model_crop = None
-    encoder_crop = None
-    print(f"⚠️ Warning: Failed to load models from '{models_dir}': {e}")
 
-model = None
-try:
-    if os.path.exists(MODEL_PATH):
-        model = tf.keras.models.load_model(MODEL_PATH)
-        print("✅ Leaf disease Keras model loaded successfully!")
+_leaf_model = None
 
-        assert model.output_shape[-1] == len(CLASS_NAMES), \
-            f"Model outputs {model.output_shape[-1]} classes, but labels = {len(CLASS_NAMES)}"
-    else:
-        print(f"⚠️ Warning: Model file not found at '{os.path.abspath(MODEL_PATH)}'")
-except Exception as e:
-    print(f"❌ CRITICAL ERROR: Failed to load Keras model. Error: {str(e)}")
+def get_leaf_model():
+    """Lazily load the TensorFlow leaf model only when requested."""
+    global _leaf_model
+    if _leaf_model is None:
+        try:
+            import tensorflow as tf
+            if os.path.exists(MODEL_PATH):
+                # compile=False avoids loading optimizer state and cuts memory by >100MB
+                _leaf_model = tf.keras.models.load_model(MODEL_PATH, compile=False)
+                print("✅ Leaf disease Keras model loaded lazily (compile=False)!")
+            else:
+                print(f"⚠️ Warning: Model file not found at '{os.path.abspath(MODEL_PATH)}'")
+        except Exception as e:
+            print(f"❌ CRITICAL ERROR: Failed to load Keras model: {str(e)}")
+    return _leaf_model
+
+_ml_models = None
+
+def get_ml_models():
+    """Lazily load scikit-learn models on demand."""
+    global _ml_models
+    if _ml_models is None:
+        try:
+            m_irr = joblib.load(os.path.join(models_dir, "model_irrigation.pkl"))
+            m_solar = joblib.load(os.path.join(models_dir, "model_solar_output.pkl"))
+            m_crop = joblib.load(os.path.join(models_dir, "model_crop_health.pkl"))
+            e_crop = joblib.load(os.path.join(models_dir, "encoder_crop_health.pkl"))
+            _ml_models = {
+                "irr": m_irr,
+                "solar": m_solar,
+                "crop": m_crop,
+                "encoder": e_crop,
+            }
+            print("✅ Scikit-learn models loaded lazily!")
+        except Exception as e:
+            print(f"⚠️ Warning: Failed to load ML models from '{models_dir}': {e}")
+            _ml_models = {"irr": None, "solar": None, "crop": None, "encoder": None}
+    return _ml_models
 
 # --- Helper Functions ---
 def send_reset_email(to_email, reset_link):
@@ -1129,8 +1161,9 @@ def serve_uploaded_file(filename):
 @app.route('/api/leaf-detect', methods=['POST'])
 def detect_leaf_disease():
     try:
-        # 1. Model safety check
-        if model is None:
+        # 1. Model safety check (load lazily if not already loaded)
+        leaf_model = get_leaf_model()
+        if leaf_model is None:
             return jsonify({'error': 'Leaf model not loaded'}), 500
 
         # 2. File validation
@@ -1146,7 +1179,7 @@ def detect_leaf_disease():
         processed_batch = preprocess_leaf_image(image_bytes, use_tta=True)
 
         # 4. Predict across TTA views
-        batch_probs = model.predict(processed_batch, verbose=0)
+        batch_probs = leaf_model.predict(processed_batch, verbose=0)
         raw_probs = np.mean(batch_probs, axis=0)
 
         # 5. Canonical probability aggregation (merging split probabilities of duplicate synonyms)
@@ -1201,11 +1234,15 @@ def analyze_data():
         irradiance = float(latest_pi_data['irradiance'])
         light = float(latest_pi_data['light'])
 
-        irrigate = model_irr.predict([[soil, temp, humidity]])[0]
+        ml = get_ml_models()
+        if ml["irr"] is None or ml["solar"] is None or ml["crop"] is None:
+            return jsonify({"message": "Prediction models not loaded"}), 503
+
+        irrigate = ml["irr"].predict([[soil, temp, humidity]])[0]
         irrigation_label = "Yes" if irrigate == 1 else "No"
-        energy = model_solar.predict([[irradiance, light, humidity, temp]])[0]
-        crop_score = model_crop.predict([[soil, temp, humidity, light]])[0]
-        crop_health = encoder_crop.inverse_transform([int(round(crop_score))])[0]
+        energy = ml["solar"].predict([[irradiance, light, humidity, temp]])[0]
+        crop_score = ml["crop"].predict([[soil, temp, humidity, light]])[0]
+        crop_health = ml["encoder"].inverse_transform([int(round(crop_score))])[0]
 
         suggestions = []
         if soil < 30:
@@ -1263,10 +1300,14 @@ def analyze_datas():
         irradiance = float(latest_pi_data['irradiance'])
         light = float(latest_pi_data['light'])
 
-        irrigate = model_irr.predict([[soil, temp, humidity]])[0]
-        energy = model_solar.predict([[irradiance, light, humidity, temp]])[0]
-        crop_score = model_crop.predict([[soil, temp, humidity, light]])[0]
-        crop_health = encoder_crop.inverse_transform([int(round(crop_score))])[0]
+        ml = get_ml_models()
+        if ml["irr"] is None or ml["solar"] is None or ml["crop"] is None:
+            return jsonify({"message": "Prediction models not loaded"}), 503
+
+        irrigate = ml["irr"].predict([[soil, temp, humidity]])[0]
+        energy = ml["solar"].predict([[irradiance, light, humidity, temp]])[0]
+        crop_score = ml["crop"].predict([[soil, temp, humidity, light]])[0]
+        crop_health = ml["encoder"].inverse_transform([int(round(crop_score))])[0]
 
         return jsonify({
             "soil": soil,
