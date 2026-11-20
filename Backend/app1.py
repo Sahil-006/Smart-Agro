@@ -59,6 +59,9 @@ cors_origins = [
     "http://localhost:5174",
     "http://127.0.0.1:5174",
     "http://localhost:3000",
+    r"https://.*\.vercel\.app",
+    r"http://localhost:\d+",
+    r"http://127\.0\.0\.1:\d+",
 ]
 extra_origins = os.getenv("ALLOWED_ORIGINS", "")
 if extra_origins:
