@@ -136,7 +136,12 @@ CSV_PATH = os.path.join(BASE_DIR, "mock_agro_solar_data.csv")
 df_demo = pd.read_csv(CSV_PATH) if os.path.exists(CSV_PATH) else None
 
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "fallback-secret-key-change-in-prod")
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
+app.config.update(
+    PERMANENT_SESSION_LIFETIME=timedelta(days=7),
+    SESSION_COOKIE_SAMESITE="None",
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_HTTPONLY=True,
+)
 app.config['UPLOAD_FOLDER'] = os.path.join(BASE_DIR, 'uploads')
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024

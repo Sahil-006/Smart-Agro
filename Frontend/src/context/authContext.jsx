@@ -71,10 +71,16 @@ export const AuthProvider = ({ children }) => {
   // =========================
   const handleOAuthLogin = async (authRequest) => {
     try {
-      await authRequest();
+      const res = await authRequest();
+      if (res?.data?.user) {
+        setUser(res.data.user);
+        setIsAuthenticated(true);
+      }
 
       const isAuth = await initializeAuth();
-      if (!isAuth) throw new Error('OAuth session not created');
+      if (!isAuth && !res?.data?.user) {
+        throw new Error('OAuth session not created');
+      }
 
       return true;
     } catch (err) {
