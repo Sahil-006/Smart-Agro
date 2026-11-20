@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
-import { motion, AnimatePresence } from "framer-motion";
-import { Eye, EyeOff, Lock, CheckCircle2, ShieldCheck, ChevronLeft } from "lucide-react";
+import { motion } from "framer-motion";
+import { Lock, ChevronLeft, Check, ShieldCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import GlassButton from "../../components/ui/GlassButton";
+import GlassInput from "../../components/ui/GlassInput";
+import { springSmooth } from "../../constants/motion";
 
-const ResetPassword = () => {
+export function ResetPassword() {
   const { t } = useTranslation();
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -37,12 +38,12 @@ const ResetPassword = () => {
 
     const isStrong = Object.values(passwordRules).every(Boolean);
     if (!isStrong) {
-      setError(t("reset.errors.rules"));
+      setError(t("reset.errors.rules") || "Password does not satisfy complexity criteria.");
       return;
     }
 
     if (password !== confirmPassword) {
-      setError(t("reset.errors.mismatch"));
+      setError(t("reset.errors.mismatch") || "Passwords do not match.");
       return;
     }
 
@@ -51,7 +52,7 @@ const ResetPassword = () => {
       const res = await resetPassword({ token, password });
       if (!res.success) throw new Error(res.error);
 
-      setSuccess(t("reset.success"));
+      setSuccess(t("reset.success") || "Password successfully updated! Redirecting to login...");
       setTimeout(() => navigate("/login"), 2500);
     } catch (err) {
       setError(err.message || t("reset.errors.invalid"));
@@ -61,117 +62,103 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="min-h-screen pt-28 sm:pt-36 pb-12 flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 px-3 sm:px-4">
+    <div className="w-full min-h-[calc(100dvh-7rem)] flex flex-col justify-start md:justify-center items-center px-4 pt-4 pb-24 md:py-8 my-auto">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl sm:rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white w-full max-w-md"
+        initial={{ opacity: 0, scale: 0.96, y: 16 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={springSmooth}
+        className="glass-strong border border-slate-900/10 dark:border-white/10 rounded-[32px] p-6 sm:p-9 shadow-2xl w-full max-w-md relative overflow-hidden"
       >
-        <div className="text-center mb-6 sm:mb-8">
-          <div className="inline-flex p-3 bg-green-100 text-green-600 rounded-full mb-3">
-            <ShieldCheck size={32} />
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
-            {t("reset.title")}
+        <div className="text-center mb-6">
+          <span className="glass-pill px-3 py-1 text-xs font-bold text-emerald-900 dark:text-emerald-300 uppercase tracking-wider inline-block mb-3">
+            Security Shield
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-slate-50 tracking-tight">
+            {t("reset.title") || "Reset Password"}
           </h2>
-          <p className="text-gray-500 font-medium text-xs sm:text-sm mt-1">
-            {t("reset.subtitle")}
+          <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium mt-1">
+            {t("reset.subtitle") || "Enter your new credentials below."}
           </p>
         </div>
 
         {success && (
-          <motion.div className="mb-6 p-3 bg-green-50 border border-green-100 text-green-700 rounded-xl text-center text-sm font-semibold">
+          <div className="mb-5 p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-800 dark:text-emerald-300 text-xs sm:text-sm font-semibold text-center">
             {success}
-          </motion.div>
+          </div>
         )}
 
         {error && (
-          <motion.div className="mb-6 p-3 bg-red-50 border border-red-100 text-red-600 rounded-xl text-center text-sm font-semibold">
+          <div className="mb-5 p-3 rounded-2xl bg-red-500/10 border border-red-500/25 text-red-700 dark:text-red-400 text-xs sm:text-sm font-semibold text-center">
             {error}
-          </motion.div>
+          </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-          <PasswordField
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <GlassInput
+            icon={Lock}
+            type="password"
+            label="New Password"
+            name="password"
+            placeholder="••••••••"
             value={password}
-            setValue={setPassword}
-            show={showPassword}
-            toggle={() => setShowPassword(!showPassword)}
-            placeholder={t("reset.newPassword")}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            autoComplete="new-password"
           />
 
-          <PasswordField
+          <GlassInput
+            icon={Lock}
+            type="password"
+            label="Confirm New Password"
+            name="confirmPassword"
+            placeholder="••••••••"
             value={confirmPassword}
-            setValue={setConfirmPassword}
-            show={showConfirmPassword}
-            toggle={() => setShowConfirmPassword(!showConfirmPassword)}
-            placeholder={t("reset.confirmPassword")}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            autoComplete="new-password"
           />
 
-          <AnimatePresence>
-            {password.length > 0 && (
-              <motion.div 
-                initial={{ height: 0, opacity: 0 }} 
-                animate={{ height: "auto", opacity: 1 }} 
-                exit={{ height: 0, opacity: 0 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-gray-50/70 p-3 sm:p-4 rounded-2xl border border-gray-100"
-              >
-                <Rule ok={passwordRules.length} label={t("reset.rules.length")} />
-                <Rule ok={passwordRules.upper} label={t("reset.rules.upper")} />
-                <Rule ok={passwordRules.number} label={t("reset.rules.number")} />
-                <Rule ok={passwordRules.special} label={t("reset.rules.special")} />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {password && (
+            <div className="grid grid-cols-2 gap-2 glass-subtle p-3 rounded-2xl border border-slate-900/10 dark:border-white/10 text-[11px]">
+              <div className={`flex items-center gap-1.5 ${passwordRules.length ? "text-emerald-700 dark:text-emerald-400 font-bold" : "text-slate-600 dark:text-slate-400 font-medium"}`}>
+                <Check size={12} /> <span>Min 8 chars</span>
+              </div>
+              <div className={`flex items-center gap-1.5 ${passwordRules.upper ? "text-emerald-700 dark:text-emerald-400 font-bold" : "text-slate-600 dark:text-slate-400 font-medium"}`}>
+                <Check size={12} /> <span>Uppercase</span>
+              </div>
+              <div className={`flex items-center gap-1.5 ${passwordRules.number ? "text-emerald-700 dark:text-emerald-400 font-bold" : "text-slate-600 dark:text-slate-400 font-medium"}`}>
+                <Check size={12} /> <span>Number</span>
+              </div>
+              <div className={`flex items-center gap-1.5 ${passwordRules.special ? "text-emerald-700 dark:text-emerald-400 font-bold" : "text-slate-600 dark:text-slate-400 font-medium"}`}>
+                <Check size={12} /> <span>Special char</span>
+              </div>
+            </div>
+          )}
 
-          <button 
+          <GlassButton
+            variant="primary"
+            size="lg"
             type="submit"
-            disabled={loading}
-            className="w-full min-h-[48px] bg-green-600 text-white py-3.5 sm:py-4 rounded-2xl font-bold shadow-xl shadow-green-200 hover:bg-green-700 transition-all cursor-pointer"
+            isLoading={loading}
+            icon={ShieldCheck}
+            className="w-full mt-2"
           >
-            {loading ? t("reset.loading") : t("reset.submit")}
-          </button>
+            {loading ? "Updating..." : "Update Password"}
+          </GlassButton>
         </form>
 
-        <p className="mt-6 text-center">
-          <Link to="/login" className="text-green-700 font-bold hover:underline inline-flex items-center justify-center min-h-[44px] text-sm">
-            <ChevronLeft size={16} className="mr-1" /> {t("reset.back")}
+        <div className="mt-6 text-center">
+          <Link
+            to="/login"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors"
+          >
+            <ChevronLeft size={14} />
+            <span>Return to Login</span>
           </Link>
-        </p>
+        </div>
       </motion.div>
     </div>
   );
-};
-
-const PasswordField = ({ value, setValue, show, toggle, placeholder }) => (
-  <div className="relative group">
-    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-green-600 transition-colors pointer-events-none">
-      <Lock size={18} />
-    </div>
-    <input
-      type={show ? "text" : "password"}
-      placeholder={placeholder}
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-      required
-      className="w-full pl-11 pr-12 py-3.5 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-green-500 outline-none transition-all bg-gray-50/50 text-base"
-    />
-    <button 
-      type="button" 
-      onClick={toggle} 
-      className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-green-600 transition-colors w-10 h-10 flex items-center justify-center cursor-pointer"
-      aria-label={show ? "Hide password" : "Show password"}
-    >
-      {show ? <EyeOff size={18} /> : <Eye size={18} />}
-    </button>
-  </div>
-);
-
-const Rule = ({ ok, label }) => (
-  <div className={`flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider ${ok ? "text-green-600" : "text-gray-400"}`}>
-    {ok ? <CheckCircle2 size={14} className="shrink-0" /> : <div className="h-3 w-3 rounded-full border-2 border-current shrink-0" />}
-    <span className="truncate">{label}</span>
-  </div>
-);
+}
 
 export default ResetPassword;

@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AuroraBackground from "./components/AuroraBackground";
 
 import Landing from "./pages/landing";
 import Login from "./pages/auth/login";
@@ -23,6 +24,7 @@ import SoilInsights from "./pages/insights/SoilInsights";
 import SolarInsights from "./pages/insights/SolarInsights";
 import CropInsights from "./pages/insights/CropInsights";
 import SystemInsights from "./pages/insights/SystemInsights";
+import NotFound from "./pages/NotFound";
 
 function App() {
   useEffect(() => {
@@ -34,8 +36,9 @@ function App() {
 
   return (
     <>
+      <AuroraBackground />
       <Navbar />
-      <main className="min-h-[calc(100dvh-64px)]">
+      <main className="min-h-[100dvh] pt-20 md:pt-24 pb-safe-nav md:pb-8 relative">
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<Landing />} />
@@ -100,6 +103,9 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          {/* Catch-all 404 Route */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 

@@ -35,8 +35,30 @@ load_dotenv()
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
-CORS(app, resources={r"/*": {"origins": [FRONTEND_URL, "http://localhost:5173", "http://127.0.0.1:5173"]}}, supports_credentials=True)
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173").rstrip('/')
+cors_origins = [
+    FRONTEND_URL,
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
+    "http://localhost:3000",
+]
+extra_origins = os.getenv("ALLOWED_ORIGINS", "")
+if extra_origins:
+    cors_origins.extend([o.strip().rstrip('/') for o in extra_origins.split(",") if o.strip()])
+
+CORS(
+    app,
+    resources={
+        r"/*": {
+            "origins": cors_origins,
+        }
+    },
+    supports_credentials=True,
+    allow_headers=["Content-Type", "Authorization", "X-Requested-With"],
+    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+)
 bcrypt = Bcrypt(app)
 
 # Global variable to store the latest data from Raspberry Pi
@@ -97,6 +119,7 @@ df_demo = pd.read_csv(CSV_PATH) if os.path.exists(CSV_PATH) else None
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "fallback-secret-key-change-in-prod")
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
 app.config['UPLOAD_FOLDER'] = os.path.join(BASE_DIR, 'uploads')
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
@@ -136,6 +159,28 @@ CLASS_NAMES = [
     'Tomato___Septoria_leaf_spot', 'Tomato___Spider_mites Two-spotted_spider_mite', 'Tomato___Target_Spot',
     'Tomato___Tomato_Yellow_Leaf_Curl_Virus', 'Tomato___Tomato_mosaic_virus', 'Tomato___healthy', 'Tomato_healthy'
 ]
+
+# --- Canonical Class Mapping & Synonym Grouping ---
+# Resolves duplicate class naming conventions (e.g., Tomato_Early_blight vs Tomato___Early_blight)
+# and aggregates split probability mass during inference.
+def _normalize_class_key(name):
+    return re.sub(r'[^a-z0-9]', '', name.lower())
+
+CANONICAL_CLASS_MAP = {}
+CANONICAL_DISPLAY_NAMES = {}
+
+for idx, name in enumerate(CLASS_NAMES):
+    key = _normalize_class_key(name)
+    CANONICAL_CLASS_MAP.setdefault(key, []).append(idx)
+
+for key, indices in CANONICAL_CLASS_MAP.items():
+    # Prefer standard canonical PlantVillage format with '___'
+    sorted_names = sorted(
+        [CLASS_NAMES[i] for i in indices],
+        key=lambda x: (x.count('___'), len(x)),
+        reverse=True
+    )
+    CANONICAL_DISPLAY_NAMES[key] = sorted_names[0]
 
 # --- Disease Recommendations Dictionary ---
 DISEASE_RECOMMENDATIONS = {
@@ -1047,17 +1092,33 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # --- Image Preprocessing ---
-def preprocess_leaf_image(image_bytes):
+def preprocess_leaf_image(image_bytes, use_tta=True):
     MODEL_INPUT_SIZE = (128, 128)
 
     img = Image.open(io.BytesIO(image_bytes))
     if img.mode != "RGB":
         img = img.convert("RGB")
 
-    img = img.resize(MODEL_INPUT_SIZE)
-    img_array = np.array(img) / 255.0
-    img_array = np.expand_dims(img_array, axis=0)
-    return img_array
+    if not use_tta:
+        resized = img.resize(MODEL_INPUT_SIZE, Image.Resampling.LANCZOS)
+        arr = np.array(resized, dtype=np.float32) / 255.0
+        return np.expand_dims(arr, axis=0)
+
+    # Multi-view Test-Time Augmentation (TTA) with high-fidelity Lanczos filtering:
+    # 1. Standard original view
+    # 2. Horizontal mirror (preserves botanical leaf structure while invariant to orientation)
+    # 3. 5% center-crop zoom (focuses on lesion spot details without border artifacts)
+    w, h = img.size
+    v1 = img
+    v2 = img.transpose(Image.FLIP_LEFT_RIGHT)
+    v3 = img.crop((int(w * 0.05), int(h * 0.05), int(w * 0.95), int(h * 0.95)))
+
+    views = [v1, v2, v3]
+    batch = np.stack([
+        np.array(v.resize(MODEL_INPUT_SIZE, Image.Resampling.LANCZOS), dtype=np.float32) / 255.0
+        for v in views
+    ], axis=0)
+    return batch
 
 # --- API ROUTES ---
 
@@ -1080,20 +1141,30 @@ def detect_leaf_disease():
         if file.filename == '':
             return jsonify({'error': 'No file selected'}), 400
 
-        # 3. Read image in memory
+        # 3. Read image in memory & preprocess with multi-view TTA
         image_bytes = file.read()
-        processed_image = preprocess_leaf_image(image_bytes)
+        processed_batch = preprocess_leaf_image(image_bytes, use_tta=True)
 
-        # 4. Predict
-        probabilities = model.predict(processed_image)[0]
-        class_index = int(np.argmax(probabilities))
-        confidence = float(probabilities[class_index])
+        # 4. Predict across TTA views
+        batch_probs = model.predict(processed_batch, verbose=0)
+        raw_probs = np.mean(batch_probs, axis=0)
 
-        # 5. Class safety
-        if class_index >= len(CLASS_NAMES):
-            predicted_class = "Unknown"
-        else:
-            predicted_class = CLASS_NAMES[class_index]
+        # 5. Canonical probability aggregation (merging split probabilities of duplicate synonyms)
+        aggregated_probs = {}
+        for key, indices in CANONICAL_CLASS_MAP.items():
+            total_prob = sum(float(raw_probs[i]) for i in indices)
+            canonical_name = CANONICAL_DISPLAY_NAMES[key]
+            aggregated_probs[canonical_name] = total_prob
+
+        # Rank predictions
+        sorted_predictions = sorted(aggregated_probs.items(), key=lambda x: x[1], reverse=True)
+        predicted_class, confidence = sorted_predictions[0]
+
+        # Top 3 candidates for transparency and client inspection
+        top_predictions = [
+            {"class": cls_name, "confidence": round(float(p), 4)}
+            for cls_name, p in sorted_predictions[:3]
+        ]
 
         # 6. Disease risk
         is_healthy = "healthy" in predicted_class.lower()
@@ -1103,17 +1174,18 @@ def detect_leaf_disease():
         rec = get_recommendation(predicted_class)
 
         return jsonify({
-    "prediction": predicted_class,
-    "confidence": confidence,
-    "diseaseRisk": disease_risk,
-    "message": "Leaf analysis successful",
-    "recommendation": {
-        "disease": predicted_class,
-        "description": rec["description"],
-        "treatment": rec["treatment"],
-        "prevention": rec["prevention"]
-    }
-}), 200
+            "prediction": predicted_class,
+            "confidence": confidence,
+            "diseaseRisk": disease_risk,
+            "topPredictions": top_predictions,
+            "message": "Leaf analysis successful",
+            "recommendation": {
+                "disease": predicted_class,
+                "description": rec["description"],
+                "treatment": rec["treatment"],
+                "prevention": rec["prevention"]
+            }
+        }), 200
 
     except Exception as e:
         print("Leaf Detection Error:", str(e))
@@ -1659,4 +1731,4 @@ if __name__ == "__main__":
     if not os.path.exists(app.config['UPLOAD_FOLDER']):
         os.makedirs(app.config['UPLOAD_FOLDER'])
     port = int(os.getenv("PORT", 5001))
-    socketio.run(app, host='0.0.0.0', port=port, debug=True)
+    socketio.run(app, host='0.0.0.0', port=port, debug=True, use_reloader=False)

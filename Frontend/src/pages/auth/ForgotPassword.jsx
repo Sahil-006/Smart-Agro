@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { useTranslation } from "react-i18next";
-import { ChevronLeft } from "lucide-react";
+import { motion } from "framer-motion";
+import { Mail, ChevronLeft, Send } from "lucide-react";
+import GlassButton from "../../components/ui/GlassButton";
+import GlassInput from "../../components/ui/GlassInput";
+import { springSmooth } from "../../constants/motion";
 
-const ForgotPassword = () => {
+export function ForgotPassword() {
   const { t } = useTranslation();
 
   const [identifier, setIdentifier] = useState("");
@@ -23,88 +27,86 @@ const ForgotPassword = () => {
 
     try {
       await forgotPassword(identifier);
-      setMessage(t("forgot.success"));
+      setMessage(t("forgot.success") || "Password reset instructions dispatched to your email.");
       setTimeout(() => {
         navigate("/login");
       }, 3000);
     } catch {
-      setError(t("forgot.error"));
+      setError(t("forgot.error") || "Failed to deliver reset email. Verify your identifier.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen pt-28 sm:pt-36 pb-12 flex items-center justify-center bg-gradient-to-br from-green-100 to-green-300 px-3 sm:px-4">
-      <div className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-md">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4 text-green-700">
-          {t("forgot.title")}
-        </h2>
-
-        <p className="text-xs sm:text-sm text-gray-600 text-center mb-6">
-          {t("forgot.subtitle")}
-          <br />
-          <span className="text-gray-500">
-            {t("forgot.note")}
+    <div className="w-full min-h-[calc(100dvh-7rem)] flex flex-col justify-start md:justify-center items-center px-4 pt-4 pb-24 md:py-8 my-auto">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 16 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={springSmooth}
+        className="glass-strong border border-slate-900/10 dark:border-white/10 rounded-[32px] p-6 sm:p-9 shadow-2xl w-full max-w-md relative overflow-hidden"
+      >
+        <div className="text-center mb-6">
+          <span className="glass-pill px-3 py-1 text-xs font-bold text-emerald-900 dark:text-emerald-300 uppercase tracking-wider inline-block mb-3">
+            Account Recovery
           </span>
-        </p>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-slate-50 tracking-tight">
+            {t("forgot.title")}
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium mt-1">
+            {t("forgot.subtitle")}
+          </p>
+        </div>
 
         {message && (
-          <div className="mb-4 p-3 bg-green-100 text-green-700 rounded-xl text-sm font-medium text-center">
+          <div className="mb-5 p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-800 dark:text-emerald-300 text-xs sm:text-sm font-semibold text-center">
             {message}
           </div>
         )}
 
         {error && (
-          <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-xl text-sm font-medium text-center">
+          <div className="mb-5 p-3 rounded-2xl bg-red-500/10 border border-red-500/25 text-red-700 dark:text-red-400 text-xs sm:text-sm font-semibold text-center">
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block mb-1.5 text-xs sm:text-sm font-medium text-gray-700">
-              {t("forgot.identifierLabel")}
-            </label>
-            <input
-              type="text"
-              placeholder={t("forgot.identifierPlaceholder")}
-              className="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 text-base"
-              required
-              value={identifier}
-              onChange={(e) => setIdentifier(e.target.value)}
-            />
-          </div>
+          <GlassInput
+            icon={Mail}
+            name="identifier"
+            type="text"
+            label="Email or Username"
+            placeholder="farmer@smartagro.org"
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
+            required
+            autoComplete="email"
+          />
 
-          <button
+          <GlassButton
+            variant="primary"
+            size="lg"
             type="submit"
-            disabled={loading}
-            className={`w-full min-h-[48px] py-3.5 rounded-xl text-white font-bold transition flex items-center justify-center cursor-pointer ${
-              loading
-                ? "bg-green-400 cursor-not-allowed"
-                : "bg-green-600 hover:bg-green-700 shadow-lg shadow-green-200"
-            }`}
+            isLoading={loading}
+            icon={Send}
+            className="w-full mt-2"
           >
-            {loading ? t("forgot.sending") : t("forgot.submit")}
-          </button>
+            {loading ? "Transmitting..." : "Send Reset Link"}
+          </GlassButton>
         </form>
 
-        <div className="mt-6 text-center text-xs sm:text-sm text-gray-500">
-          <p>{t("forgot.oauthNote")}</p>
-        </div>
-
-        <p className="mt-4 text-center">
+        <div className="mt-6 text-center">
           <Link
             to="/login"
-            className="text-green-700 font-bold hover:underline inline-flex items-center justify-center min-h-[44px] text-sm"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors"
           >
-            <ChevronLeft size={16} className="mr-1" />
-            {t("forgot.back")}
+            <ChevronLeft size={14} />
+            <span>Return to Login</span>
           </Link>
-        </p>
-      </div>
+        </div>
+      </motion.div>
     </div>
   );
-};
+}
 
 export default ForgotPassword;

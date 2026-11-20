@@ -24,6 +24,7 @@ Backend/__pycache__/
 .env.*
 *.env
 !.env.example
+!*.example
 
 # User uploads & generated files
 uploads/
