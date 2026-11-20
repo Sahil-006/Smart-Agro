@@ -1,11 +1,12 @@
 {
   "navbar": {
-    "home": "ઘર",
+    "home": "હોમ",
     "dashboard": "ડેશબોર્ડ",
     "about": "અમારા વિશે",
     "contact": "અમારો સંપર્ક કરો",
     "login": "લૉગિન કરો",
-    "signup": "સાઇન અપ કરો"
+    "signup": "સાઇન અપ કરો",
+    "insights": "ઇનસાઇટ્સ"
   },
   "about": {
     "title": "સ્માર્ટ એગ્રો-સોલર વિશે",
@@ -259,5 +260,86 @@
     "aria_label": "પ્રોફાઇલ મેનૂ ખોલો",
     "view_profile": "પ્રોફાઇલ જુઓ",
     "logout": "લૉગ આઉટ"
+  },
+  "dashboard": {
+    "telemetryNode": "ટેલિમેટ્રી નોડ",
+    "liveAtlasSync": "લાઇવ એટલાસ સિંક",
+    "title": "કૃષિ બુદ્ધિમત્તા ડેશબોર્ડ",
+    "subtitle": "જમીન રસાયણશાસ્ત્ર, સ્વચ્છ સૌર ઊર્જા અને AI પર્ણ સ્કેનિંગમાં વાસ્તવિક સમય સેન્સરી ટેલિમેટ્રી.",
+    "syncing": "સિંક થઈ રહ્યું છે...",
+    "syncSensors": "સેન્સર સિંક કરો",
+    "insights": "ઇનસાઇટ્સ",
+    "system": "સિસ્ટમ",
+    "connectingTelemetry": "ટેલિમેટ્રી કનેક્ટ થઈ રહ્યું છે",
+    "streamingIot": "IoT જમીન નોડ્સ અને સૌર ઉત્પાદન ટેલિમેટ્રી સ્ટ્રીમ થઈ રહી છે...",
+    "soilMoisture": "જમીનની ભેજ",
+    "idealRange": "આદર્શ રેન્જ",
+    "solarGeneration": "સૌર ઉત્પાદન",
+    "kwhPerDay": "કિલોવોટ કલાક/દિવસ",
+    "cropHealthIndex": "પાક આરોગ્ય સૂચકાંક",
+    "activeAlerts": "સક્રિય ચેતવણીઓ",
+    "priorityItems": "પ્રાથમિકતા વસ્તુઓ",
+    "aiFoliageDiagnosis": "AI પર્ણ રોગ નિદાન",
+    "visionEngine": "વિઝન એન્જિન",
+    "dropLeaf": "પાંદડાની છબી અહીં મૂકો",
+    "orPaste": "અથવા ક્લિપબોર્ડમાંથી પેસ્ટ કરો (Ctrl+V)",
+    "browseSpecimen": "નમૂનો પસંદ કરો",
+    "clear": "સાફ કરો",
+    "scanningLeaf": "પાંદડું સ્કેન થઈ રહ્યું છે...",
+    "runDiagnosis": "AI નિદાન શરૂ કરો",
+    "soilMicroclimate": "જમીન અને સૂક્ષ્મ આબોહવા ટેલિમેટ્રી",
+    "viewGraphs": "ગ્રાફ જુઓ",
+    "temperature": "તાપમાન",
+    "ambientSensor": "એમ્બિયન્ટ સેન્સર",
+    "relativeHumidity": "સાપેક્ષ ભેજ",
+    "vaporBalance": "બાષ્પ સંતુલન",
+    "soilPh": "જમીનનું pH સ્તર",
+    "neutralAlkalinity": "તટસ્થ ક્ષારતા",
+    "moistureReserve": "ભેજ અનામત",
+    "volumetricWater": "વોલ્યુમેટ્રિક પાણી",
+    "solarArrayHealth": "સોલર એરે સ્થિતિ",
+    "efficiency": "કાર્યક્ષમતા",
+    "batteryStorage": "બેટરી સંગ્રહ",
+    "charged": "ચાર્જ",
+    "diagnosisPrescriptions": "રોગ નિદાન અને પ્રિસ્ક્રિપ્શન",
+    "treatmentStepsDesc": "સંપૂર્ણ ઉપચાર પગલાં, જૈવિક ઉપાયો અને નિવારણ ટિપ્સ.",
+    "tabs": {
+      "overview": "overview",
+      "treatment": "treatment",
+      "prevention": "prevention"
+    },
+    "tabsLabel": {
+      "overview": "વિહંગાવલોકન",
+      "treatment": "ઉપચાર",
+      "prevention": "નિવારણ"
+    },
+    "detectedPathogen": "શોધાયેલ રોગકારક",
+    "specimenAnalyzed": "નમૂનાનું વિશ્લેષણ કરવામાં આવ્યું",
+    "confidence": "વિશ્વાસ દર",
+    "diseaseSummary": "રોગ સારાંશ",
+    "defaultSummary": "કોઈ રોગ વિસંગતતા જણાઈ નથી. પાકના પાંદડા તંદુરસ્ત પ્રકાશસંશ્લેષણ પિગમેન્ટેશન દર્શાવે છે.",
+    "growthStage": "વિકાસ તબક્કો",
+    "growthStageValue": "વાનસ્પતિક તબક્કો (દિવસ 42)",
+    "inspectionTimestamp": "નિરીક્ષણ સમય",
+    "noTreatmentRequired": "કોઈ રાસાયણિક અથવા જૈવિક ઉપચારની જરૂર નથી. છોડ તંદુરસ્ત છે!",
+    "maintainIrrigation": "પ્રમાણભૂત ટપક સિંચાઈ અને નિયમિત જમીન ભેજ તપાસ જાળવો.",
+    "noDiagnosis": "કોઈ રોગ નિદાન ઉપલબ્ધ નથી",
+    "uploadPrompt": "ઉપર પાંદડાનો નમૂનો અપલોડ કરો અને જૈવિક ઉપચાર અને નિવારક ટિપ્સ મેળવવા માટે \"AI નિદાન શરૂ કરો\" પર ક્લિક કરો.",
+    "telemetryNotifications": "ટેલિમેટ્રી સિસ્ટમ સૂચનાઓ",
+    "inspectSensors": "બધા સેન્સર તપાસો",
+    "severity": {
+      "optimalHealth": "શ્રેષ્ઠ આરોગ્ય",
+      "lowRisk": "ઓછું જોખમ",
+      "moderateRisk": "મધ્યમ જોખમ",
+      "highRisk": "ઉચ્ચ જોખમ"
+    },
+    "alerts": {
+      "soilDepleted": "સેક્ટર B માં જમીનની ભેજ 45% થી નીચે આવી ગઈ છે",
+      "rainForecast": "6 કલાકમાં વરસાદની સંભાવના (8.4 મીમી અપેક્ષિત)",
+      "batteryReplenished": "સોલર બેટરી સંગ્રહ 84% સુધી રિચાર્જ થયો",
+      "timeMinsAgo": "24 મિનિટ પહેલાં",
+      "timeHoursAgo": "2 કલાક પહેલાં",
+      "timeToday": "આજે, સવારે 08:30 વાગ્યે"
+    }
   }
 }

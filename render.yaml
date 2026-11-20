@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: smart-agro-backend
+    env: python
+    rootDir: Backend
+    plan: free
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: gunicorn --worker-class gevent --workers 1 --bind 0.0.0.0:$PORT app1:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+      - key: PORT
+        value: 10000
+      - key: FRONTEND_URL
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GITHUB_CLIENT_ID
+        sync: false
+      - key: GITHUB_CLIENT_SECRET
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false

@@ -1,7 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-// import api from "../components/api";
+
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const AuthContext = createContext();
 
@@ -17,7 +18,7 @@ export const AuthProvider = ({ children }) => {
   const initializeAuth = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/auth/check`,
+        `${API_BASE}/api/auth/check`,
         { withCredentials: true }
       );
 
@@ -48,7 +49,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (credentials) => {
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/auth/login`,
+        `${API_BASE}/api/auth/login`,
         credentials,
         { withCredentials: true }
       );
@@ -88,14 +89,14 @@ export const AuthProvider = ({ children }) => {
   const forgotPassword = async (identifier) => {
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/auth/forgot-password`,
+        `${API_BASE}/api/auth/forgot-password`,
         { identifier },
-        { withCredentials: true        }
+        { withCredentials: true }
       );
 
       // Always return success (security-safe)
       return { success: true };
-    } catch (err) {
+    } catch {
       // Do NOT expose backend errors
       return { success: true };
     }
@@ -107,7 +108,7 @@ export const AuthProvider = ({ children }) => {
   const resetPassword = async ({ token, password }) => {
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/auth/reset-password`,
+        `${API_BASE}/api/auth/reset-password`,
         { token, password },
         { withCredentials: true }
       );
@@ -129,7 +130,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/auth/logout`,
+        `${API_BASE}/api/auth/logout`,
         {},
         { withCredentials: true }
       );
@@ -147,6 +148,7 @@ export const AuthProvider = ({ children }) => {
         user,
         setUser,
         isAuthenticated,
+        setIsAuthenticated,
         loading,
         login,
         logout,
@@ -161,4 +163,5 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => useContext(AuthContext);

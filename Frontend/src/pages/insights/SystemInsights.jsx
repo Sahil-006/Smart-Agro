@@ -1,77 +1,212 @@
-import React from 'react';
-import { FiAlertCircle, FiActivity, FiSettings } from 'react-icons/fi';
-import InsightCard from '@components/InsightCard';
+import { useState } from "react";
+import { FiAlertCircle, FiCpu, FiWifi, FiCheckCircle } from "react-icons/fi";
+import StatusBadge from "../../components/ui/StatusBadge";
+import GlassButton from "../../components/ui/GlassButton";
 
+export function SystemInsights() {
+  const [filter, setFilter] = useState("all"); // "all" | "critical" | "resolved"
 
-
-const SystemInsights = () => {
-  // Sample system alerts
   const systemAlerts = [
-    { id: 1, message: 'Low soil moisture detected in field A', time: '2 hours ago', critical: true },
-    { id: 2, message: 'Rain expected in 6 hours', time: '4 hours ago', critical: false },
-    { id: 3, message: 'Solar panel efficiency dropped 5%', time: '1 day ago', critical: false }
+    {
+      id: 1,
+      message: "Volumetric soil moisture depleted below 45% threshold in Sector B",
+      time: "24 mins ago",
+      critical: true,
+      node: "Node-B12",
+    },
+    {
+      id: 2,
+      message: "Forecast radar detects precipitation (8.4mm) anticipated in 6 hours",
+      time: "2 hours ago",
+      critical: false,
+      node: "Weather-Station",
+    },
+    {
+      id: 3,
+      message: "Solar inverter MPPT calibration routine completed successfully",
+      time: "5 hours ago",
+      critical: false,
+      node: "Inverter-Primary",
+    },
+    {
+      id: 4,
+      message: "Firmware over-the-air update dispatched to 4 ESP32 telemetry nodes",
+      time: "1 day ago",
+      critical: false,
+      node: "Gateway-01",
+    },
+  ];
+
+  const filteredAlerts =
+    filter === "critical"
+      ? systemAlerts.filter((a) => a.critical)
+      : systemAlerts;
+
+  const iotNodes = [
+    { name: "Rhizosphere Probe Alpha", zone: "Field A", ping: "28ms", battery: "92%", status: "online" },
+    { name: "Solar MPPT Inverter", zone: "Array Array-01", ping: "14ms", battery: "100%", status: "online" },
+    { name: "Canopy Humidity Sensor", zone: "Greenhouse #1", ping: "42ms", battery: "84%", status: "online" },
+    { name: "Precipitation Gauge", zone: "Tower South", ping: "35ms", battery: "76%", status: "online" },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white pt-24 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 border-b border-green-200 pb-6">
-          <h1 className="text-3xl font-bold text-green-800 mb-2">System Insights</h1>
-          <p className="text-green-600">Monitoring and alerts for your agro-solar system</p>
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      {/* Header */}
+      <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="glass-pill px-3 py-0.5 text-xs font-bold text-sky-900 dark:text-sky-300 uppercase tracking-wider">
+              Network Telemetry
+            </span>
+            <StatusBadge status="online" size="sm" label="Mesh Gateway Operational" />
+          </div>
+          <h1 className="text-2xl sm:text-4xl font-black text-slate-950 dark:text-slate-50 tracking-tight">
+            System Diagnostics & IoT Node Health
+          </h1>
+          <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 mt-1 font-medium">
+            Edge gateway latency, sensory node battery status, and automated anomaly notifications.
+          </p>
+        </div>
+      </div>
+
+      {/* Metrics Row */}
+      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-8">
+        <div className="glass-card p-5 rounded-3xl border border-slate-900/10 dark:border-white/10">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400">
+              Mesh Latency
+            </span>
+            <FiWifi className="text-sky-600 text-base" />
+          </div>
+          <p className="text-3xl font-black text-slate-950 dark:text-slate-50">32 ms</p>
+          <p className="text-xs text-emerald-700 dark:text-emerald-400 font-bold mt-1">Sub-second telemetry</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Alerts Card */}
-          <InsightCard 
-            title="System Alerts" 
-            icon={<FiAlertCircle className="text-red-600" />}
-            className="lg:col-span-2"
-          >
-            <div className="space-y-4">
-              {systemAlerts.map(alert => (
-                <div 
-                  key={alert.id}
-                  className={`p-4 rounded-lg border-l-4 ${alert.critical ? 'border-red-500 bg-red-50' : 'border-green-500 bg-green-50'}`}
+        <div className="glass-card p-5 rounded-3xl border border-slate-900/10 dark:border-white/10">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400">
+              Nodes Online
+            </span>
+            <FiCpu className="text-emerald-600 text-base" />
+          </div>
+          <p className="text-3xl font-black text-slate-950 dark:text-slate-50">4 / 4</p>
+          <p className="text-xs text-emerald-700 dark:text-emerald-400 font-bold mt-1">100% Mesh Coverage</p>
+        </div>
+
+        <div className="glass-card p-5 rounded-3xl border border-slate-900/10 dark:border-white/10">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400">
+              Packet Success
+            </span>
+            <FiCheckCircle className="text-emerald-600 text-base" />
+          </div>
+          <p className="text-3xl font-black text-slate-950 dark:text-slate-50">99.98%</p>
+          <p className="text-xs text-emerald-700 dark:text-emerald-400 font-bold mt-1">Zero dropouts</p>
+        </div>
+
+        <div className="glass-card p-5 rounded-3xl border border-slate-900/10 dark:border-white/10">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400">
+              Active Alerts
+            </span>
+            <FiAlertCircle className="text-amber-600 text-base" />
+          </div>
+          <p className="text-3xl font-black text-slate-950 dark:text-slate-50">{systemAlerts.length}</p>
+          <p className="text-xs text-amber-700 dark:text-amber-400 font-bold mt-1">1 Requires Attention</p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        {/* Alerts Column */}
+        <div className="glass-card p-6 rounded-3xl lg:col-span-2 border border-slate-900/10 dark:border-white/10">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-lg font-bold text-slate-950 dark:text-slate-50 flex items-center gap-2">
+              <FiAlertCircle className="text-amber-600" />
+              Incident & Anomaly Feed
+            </h2>
+
+            <div className="glass-pill p-1 flex items-center gap-1 select-none">
+              {["all", "critical"].map((f) => (
+                <button
+                  key={f}
+                  type="button"
+                  onClick={() => setFilter(f)}
+                  className={`px-3 py-0.5 text-xs font-bold uppercase rounded-full transition-all cursor-pointer ${
+                    filter === f
+                      ? "bg-white dark:bg-slate-700 text-slate-950 dark:text-slate-100 shadow-sm"
+                      : "text-slate-700 dark:text-slate-400 hover:text-slate-950"
+                  }`}
                 >
-                  <p className="font-medium text-green-800">{alert.message}</p>
-                  <p className="text-sm text-green-600 mt-1">{alert.time}</p>
-                  {alert.critical && (
-                    <span className="inline-block mt-2 px-2 py-1 text-xs font-semibold bg-red-100 text-red-800 rounded">
-                      Critical
-                    </span>
-                  )}
-                </div>
+                  {f}
+                </button>
               ))}
             </div>
-            <button className="mt-6 w-full py-2 border border-green-200 rounded-lg text-green-600 hover:bg-green-50 transition-colors">
-              View All Alerts
-            </button>
-          </InsightCard>
+          </div>
 
-          {/* System Status */}
-          <InsightCard 
-            title="System Status" 
-            icon={<FiSettings className="text-blue-600" />}
-          >
-            <div className="space-y-4">
-              <div className="bg-green-50 p-4 rounded-lg border border-green-100">
-                <p className="text-green-600 mb-1">Overall Health</p>
-                <p className="text-2xl font-bold text-green-700">Good</p>
+          <div className="space-y-3">
+            {filteredAlerts.map((alert) => (
+              <div
+                key={alert.id}
+                className={`p-4 rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
+                  alert.critical
+                    ? "bg-red-500/10 border-red-500/30 text-red-950 dark:text-red-200"
+                    : "glass-subtle border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-slate-100"
+                }`}
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span
+                      className={`w-2 h-2 rounded-full ${
+                        alert.critical ? "bg-red-500 animate-ping" : "bg-emerald-500"
+                      }`}
+                    />
+                    <span className="text-[11px] font-bold text-slate-700 dark:text-slate-400 uppercase tracking-wider">
+                      {alert.node}
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm font-semibold">{alert.message}</p>
+                </div>
+                <span className="text-xs text-slate-700 dark:text-slate-400 font-medium shrink-0 self-end sm:self-auto">
+                  {alert.time}
+                </span>
               </div>
-              <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                <p className="text-blue-600 mb-1">Connected Devices</p>
-                <p className="text-2xl font-bold text-blue-700">8/8</p>
+            ))}
+          </div>
+        </div>
+
+        {/* Node Hardware Fleet */}
+        <div className="glass-card p-6 rounded-3xl border border-slate-900/10 dark:border-white/10">
+          <h2 className="text-lg font-bold text-slate-950 dark:text-slate-50 mb-5 flex items-center gap-2">
+            <FiCpu className="text-emerald-700 dark:text-emerald-400" />
+            Hardware Fleet Status
+          </h2>
+
+          <div className="space-y-3">
+            {iotNodes.map((node, i) => (
+              <div
+                key={i}
+                className="glass-subtle p-3.5 rounded-2xl border border-slate-900/10 dark:border-white/10 flex items-center justify-between"
+              >
+                <div>
+                  <p className="text-xs font-bold text-slate-950 dark:text-slate-50">{node.name}</p>
+                  <p className="text-[11px] text-slate-700 dark:text-slate-400 font-medium">{node.zone} • {node.ping}</p>
+                </div>
+                <div className="text-right">
+                  <StatusBadge status="online" size="sm" label={node.battery} />
+                </div>
               </div>
-              <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-100">
-                <p className="text-yellow-600 mb-1">Maintenance Required</p>
-                <p className="text-2xl font-bold text-yellow-700">1</p>
-              </div>
-            </div>
-          </InsightCard>
+            ))}
+          </div>
+
+          <div className="mt-6 pt-4 border-t border-slate-200/80 dark:border-white/10">
+            <GlassButton variant="secondary" size="sm" className="w-full">
+              Run Complete Diagnostic Scan
+            </GlassButton>
+          </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default SystemInsights;

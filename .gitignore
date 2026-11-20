@@ -1,7 +1,44 @@
-# Ignore Python venv
+# Dependencies & Virtual Environments
+node_modules/
+Frontend/node_modules/
+Backend/node_modules/
+venv/
 Frontend/venv/
 Backend/venv/
 
-# Ignore Node modules
-Frontend/node_modules/
-Backend/node_modules/
+# Build outputs
+dist/
+Frontend/dist/
+build/
+.vite/
+
+# Python cache & artifacts
+__pycache__/
+Backend/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+.env.*
+*.env
+!.env.example
+!*.example
+
+# User uploads & generated files
+uploads/
+Backend/uploads/
+qa-screenshots/
+sensor_readings.xlsx
+
+# Logs and temp files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tmp
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

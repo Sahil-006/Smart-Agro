@@ -1,11 +1,12 @@
 {
   "navbar": {
-    "home": "घर",
+    "home": "होम",
     "dashboard": "डैशबोर्ड",
     "about": "हमारे बारे में",
     "contact": "हमसे संपर्क करें",
     "login": "लॉग इन करें",
-    "signup": "साइन अप करें"
+    "signup": "साइन अप करें",
+    "insights": "इनसाइट्स"
   },
   "about": {
     "title": "स्मार्ट एग्रो-सोलर के बारे में",
@@ -259,5 +260,86 @@
     "aria_label": "प्रोफ़ाइल मेनू खोलें",
     "view_profile": "प्रोफ़ाइल देखें",
     "logout": "लॉग आउट"
+  },
+  "dashboard": {
+    "telemetryNode": "टेलीमेट्री नोड",
+    "liveAtlasSync": "लाइव एटलस सिंक",
+    "title": "कृषि बुद्धिमत्ता डैशबोर्ड",
+    "subtitle": "मृदा रसायन, स्वच्छ सौर ऊर्जा और एआई पत्ती स्कैनिंग में वास्तविक समय संवेदी टेलीमेट्री।",
+    "syncing": "सिंक हो रहा है...",
+    "syncSensors": "सेंसर सिंक करें",
+    "insights": "इनसाइट्स",
+    "system": "सिस्टम",
+    "connectingTelemetry": "टेलीमेट्री कनेक्ट हो रही है",
+    "streamingIot": "आईओटी मिट्टी नोड्स और सौर उत्पादन टेलीमेट्री स्ट्रीम हो रही है...",
+    "soilMoisture": "मिट्टी की नमी",
+    "idealRange": "आदर्श सीमा",
+    "solarGeneration": "सौर ऊर्जा उत्पादन",
+    "kwhPerDay": "किलोवाट घंटा/दिन",
+    "cropHealthIndex": "फसल स्वास्थ्य सूचकांक",
+    "activeAlerts": "सक्रिय अलर्ट",
+    "priorityItems": "प्राथमिकता वाले आइटम",
+    "aiFoliageDiagnosis": "एआई पत्ती रोग निदान",
+    "visionEngine": "विज़न इंजन",
+    "dropLeaf": "पत्ती की छवि यहाँ छोड़ें",
+    "orPaste": "या क्लिपबोर्ड से पेस्ट करें (Ctrl+V)",
+    "browseSpecimen": "नमूना चुनें",
+    "clear": "हटाएं",
+    "scanningLeaf": "पत्ती स्कैन हो रही है...",
+    "runDiagnosis": "एआई निदान शुरू करें",
+    "soilMicroclimate": "मिट्टी एवं सूक्ष्म जलवायु टेलीमेट्री",
+    "viewGraphs": "ग्राफ़ देखें",
+    "temperature": "तापमान",
+    "ambientSensor": "परिवेश सेंसर",
+    "relativeHumidity": "सापेक्ष आर्द्रता",
+    "vaporBalance": "वाष्प संतुलन",
+    "soilPh": "मिट्टी का पीएच स्तर",
+    "neutralAlkalinity": "तटस्थ क्षारीयता",
+    "moistureReserve": "नमी रिज़र्व",
+    "volumetricWater": "मात्रात्मक जल",
+    "solarArrayHealth": "सोलर ऐरे स्थिति",
+    "efficiency": "दक्षता",
+    "batteryStorage": "बैटरी स्टोरेज",
+    "charged": "चार्ज",
+    "diagnosisPrescriptions": "रोग निदान एवं उपचार सलाह",
+    "treatmentStepsDesc": "व्यापक उपचार चरण, जैविक उपचार और रोकथाम युक्तियाँ।",
+    "tabs": {
+      "overview": "overview",
+      "treatment": "treatment",
+      "prevention": "prevention"
+    },
+    "tabsLabel": {
+      "overview": "अवलोकन",
+      "treatment": "उपचार",
+      "prevention": "रोकथाम"
+    },
+    "detectedPathogen": "पहचाना गया रोगजनक",
+    "specimenAnalyzed": "नमूने का विश्लेषण किया गया",
+    "confidence": "सटीकता",
+    "diseaseSummary": "रोग सारांश",
+    "defaultSummary": "कोई रोग विसंगति नहीं पाई गई। फसल की पत्तियां स्वस्थ प्रकाश संश्लेषण रंजकता प्रदर्शित करती हैं।",
+    "growthStage": "वृद्धि चरण",
+    "growthStageValue": "वानस्पतिक अवस्था (दिन 42)",
+    "inspectionTimestamp": "निरीक्षण समय",
+    "noTreatmentRequired": "किसी रासायनिक या जैविक उपचार की आवश्यकता नहीं है। पौधा स्वस्थ है!",
+    "maintainIrrigation": "मानक ड्रिप सिंचाई और निर्धारित मिट्टी की नमी की जांच बनाए रखें।",
+    "noDiagnosis": "कोई रोग निदान उपलब्ध नहीं है",
+    "uploadPrompt": "पत्ती का नमूना ऊपर अपलोड करें और जैविक उपचार और निवारक युक्तियाँ प्राप्त करने के लिए \"एआई निदान शुरू करें\" पर क्लिक करें।",
+    "telemetryNotifications": "टेलीमेट्री सिस्टम सूचनाएं",
+    "inspectSensors": "सभी सेंसर देखें",
+    "severity": {
+      "optimalHealth": "उत्तम स्वास्थ्य",
+      "lowRisk": "कम जोखिम",
+      "moderateRisk": "मध्यम जोखिम",
+      "highRisk": "उच्च जोखिम"
+    },
+    "alerts": {
+      "soilDepleted": "सेक्टर बी में मिट्टी की नमी 45% से नीचे गिर गई है",
+      "rainForecast": "6 घंटे में वर्षा की संभावना (8.4 मिमी अपेक्षित)",
+      "batteryReplenished": "सौर बैटरी भंडारण 84% तक रिचार्ज हो गया",
+      "timeMinsAgo": "24 मिनट पहले",
+      "timeHoursAgo": "2 घंटे पहले",
+      "timeToday": "आज, सुबह 08:30 बजे"
+    }
   }
 }
