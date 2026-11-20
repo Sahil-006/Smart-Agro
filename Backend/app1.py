@@ -29,6 +29,8 @@ import re
 from flask import send_from_directory
 
 # --- App Initialization and Configuration ---
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 load_dotenv()
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
