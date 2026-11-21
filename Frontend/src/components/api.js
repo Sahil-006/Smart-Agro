@@ -5,4 +5,16 @@ const api = axios.create({
   withCredentials: true,
 });
 
+api.interceptors.request.use((config) => {
+  try {
+    const token = localStorage.getItem("smart_agro_token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  } catch {
+    // Ignore localStorage access errors
+  }
+  return config;
+});
+
 export default api;

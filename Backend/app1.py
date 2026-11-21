@@ -1119,8 +1119,31 @@ def is_strong_password(password):
         return False
     return True
 
+def generate_token(user_id):
+    secret = app.secret_key or os.getenv("FLASK_SECRET_KEY", "fallback-secret-key-change-in-prod")
+    payload = {
+        "user_id": str(user_id),
+        "exp": datetime.utcnow() + timedelta(days=7),
+        "iat": datetime.utcnow()
+    }
+    token = jwt.encode(payload, secret, algorithm="HS256")
+    return token if isinstance(token, str) else token.decode("utf-8")
+
+def decode_token(token):
+    secret = app.secret_key or os.getenv("FLASK_SECRET_KEY", "fallback-secret-key-change-in-prod")
+    try:
+        payload = jwt.decode(token, secret, algorithms=["HS256"])
+        return payload.get("user_id")
+    except Exception:
+        return None
+
 def get_logged_in_user():
     user_id = session.get("user_id")
+    if not user_id:
+        auth_header = request.headers.get("Authorization", "")
+        if auth_header.startswith("Bearer "):
+            token = auth_header.split(" ", 1)[1].strip()
+            user_id = decode_token(token)
     if not user_id or users_collection is None:
         return None
     try:
@@ -1362,9 +1385,11 @@ def signup():
 
         session['user_id'] = str(result.inserted_id)
         session.permanent = True
-        user.pop('password')
+        user.pop('password', None)
         user['_id'] = str(result.inserted_id)
-        return jsonify({"message": "Signup successful", "user": user}), 201
+        user['id'] = str(result.inserted_id)
+        token = generate_token(str(result.inserted_id))
+        return jsonify({"message": "Signup successful", "user": user, "token": token}), 201
     except Exception as e:
         print(f"Signup error: {str(e)}")
         return jsonify({"message": "Server error during signup"}), 500
@@ -1385,9 +1410,11 @@ def login():
         user_data = {
             "id": str(user['_id']), "username": user['username'], "email": user['email'],
             "fullName": user['fullName'], "phone": user.get("phone", ""), "state": user.get('state'),
-            "district": user.get('district'), "village": user.get('village')
+            "district": user.get('district'), "village": user.get('village'),
+            "profileImage": user.get("profileImage", "")
         }
-        return jsonify({"message": "Login successful", "user": user_data}), 200
+        token = generate_token(str(user['_id']))
+        return jsonify({"message": "Login successful", "user": user_data, "token": token}), 200
     except Exception as e:
         print(f"Login error: {str(e)}")
         return jsonify({"message": "Server error during login"}), 500
@@ -1478,22 +1505,15 @@ def logout():
 
 @app.route("/api/auth/check", methods=["GET"])
 def check_auth():
-    user_id = session.get('user_id')
-    if not user_id:
-        return jsonify({"authenticated": False}), 200
-    if users_collection is None:
-        return jsonify({"authenticated": False, "message": "Database unavailable"}), 200
-    try:
-        user = users_collection.find_one({"_id": ObjectId(user_id)})
-    except Exception:
-        user = None
+    user = get_logged_in_user()
     if not user:
         session.pop('user_id', None)
         return jsonify({"authenticated": False}), 200
     user_data = {
-        "id": str(user['_id']), "username": user['username'], "email": user['email'],
-        "fullName": user['fullName'], "phone": user.get("phone", ""), "state": user.get('state'),
-        "district": user.get('district'), "village": user.get('village')
+        "id": str(user['_id']), "username": user.get('username'), "email": user.get('email'),
+        "fullName": user.get('fullName'), "phone": user.get("phone", ""), "state": user.get('state'),
+        "district": user.get('district'), "village": user.get('village'),
+        "profileImage": user.get("profileImage", "")
     }
     return jsonify({"authenticated": True, "user": user_data}), 200
 
@@ -1538,6 +1558,7 @@ def google_oauth():
 
         session['user_id'] = user_id
         session.permanent = True
+        auth_token = generate_token(user_id)
 
         return jsonify({
             "message": "Google login successful",
@@ -1545,8 +1566,10 @@ def google_oauth():
                 "id": user_id,
                 "username": user.get('username'),
                 "email": user.get('email'),
-                "fullName": user.get('fullName')
-            }
+                "fullName": user.get('fullName'),
+                "profileImage": user.get("profileImage", "")
+            },
+            "token": auth_token
         }), 200
 
     except ValueError as ve:
@@ -1612,6 +1635,7 @@ def github_login():
 
         session["user_id"] = str(user["_id"])
         session.permanent = True
+        auth_token = generate_token(str(user["_id"]))
 
         return jsonify({
             "message": "GitHub login successful",
@@ -1620,7 +1644,8 @@ def github_login():
                 "username": user["username"],
                 "email": user["email"],
                 "fullName": user.get("fullName")
-            }
+            },
+            "token": auth_token
         }), 200
 
     except Exception as e:
