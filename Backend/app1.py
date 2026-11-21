@@ -41,9 +41,10 @@ load_dotenv()
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
 
-# Root & Health Check Endpoints (For Render/cloud zero-downtime health probing)
+# Root & Health Check Endpoints (For Vercel/Render health probing)
 @app.route("/")
 @app.route("/health")
+@app.route("/api/health")
 def index_health():
     return jsonify({
         "status": "online",
@@ -1186,6 +1187,7 @@ def preprocess_leaf_image(image_bytes, use_tta=True):
 # --- API ROUTES ---
 
 @app.route("/uploads/<filename>")
+@app.route("/api/uploads/<filename>")
 def serve_uploaded_file(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
 
@@ -1580,6 +1582,7 @@ def google_oauth():
         return jsonify({"message": "Google login failed"}), 400
 
 @app.route("/github-login", methods=["POST"])
+@app.route("/api/github-login", methods=["POST"])
 def github_login():
     try:
         code = request.json.get("code")

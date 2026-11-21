@@ -25,6 +25,7 @@ import "aos/dist/aos.css";
 import GlassButton from "../components/ui/GlassButton";
 import StatusBadge from "../components/ui/StatusBadge";
 import GlassSkeleton from "../components/ui/GlassSkeleton";
+import { API_BASE_URL as apiUrl } from "../components/api";
 import { springSmooth } from "../constants/motion";
 
 let dashboardCache = {
@@ -155,7 +156,6 @@ export function Dashboard() {
   const fetchData = async () => {
     setIsFetching(true);
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const response = await fetch(`${apiUrl}/api/analyze-data`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -219,7 +219,6 @@ export function Dashboard() {
       const formData = new FormData();
       formData.append("image", selectedImage);
 
-      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const response = await fetch(`${apiUrl}/api/leaf-detect`, {
         method: "POST",
         body: formData,

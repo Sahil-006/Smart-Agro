@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { API_BASE_URL as apiUrl } from "../components/api";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Mail, User, MessageSquare, MapPin, Phone, Send } from "lucide-react";
@@ -24,7 +25,6 @@ export function ContactUs() {
     setStatus({ type: "", msg: "" });
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const res = await axios.post(`${apiUrl}/api/contact`, {
         name,
         email,

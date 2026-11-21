@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
+import { API_BASE_URL as apiUrl } from "../../components/api";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { GoogleLogin } from "@react-oauth/google";
@@ -97,7 +98,6 @@ export function Signup() {
 
     try {
       const success = await handleOAuthLogin(async () => {
-        const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
         return axios.post(
           `${apiUrl}/api/auth/oauth/google`,
           { credential: credentialResponse.credential },
@@ -124,7 +124,6 @@ export function Signup() {
 
     setLoading(true);
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const res = await axios.post(`${apiUrl}/api/auth/signup`, formData, { withCredentials: true });
       if (res.data?.token) {
         localStorage.setItem("smart_agro_token", res.data.token);

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../../context/authContext";
+import { API_BASE_URL as apiUrl } from "../../components/api";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { User, Lock, LogIn } from "lucide-react";
@@ -46,7 +47,6 @@ export function Login() {
 
   const handleGoogleLogin = async (credentialResponse) => {
     const success = await handleOAuthLogin(async () => {
-      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       return axios.post(
         `${apiUrl}/api/auth/oauth/google`,
         { credential: credentialResponse.credential },

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "smart-agro-backend": {
+      "root": "Backend",
+      "framework": "flask",
+      "entrypoint": "app1.py",
+      "buildCommand": "pip install --upgrade pip && pip install -r requirements.txt",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "frontend",
+          "format": "url",
+          "env": "FRONTEND_URL"
+        }
+      ]
+    },
+    "frontend": {
+      "root": "Frontend",
+      "framework": "vite",
+      "installCommand": "npm install --legacy-peer-deps",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "smart-agro-backend",
+          "format": "url",
+          "env": "BACKEND_URL"
+        }
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": {
+        "service": "smart-agro-backend"
+      }
+    },
+    {
+      "source": "/health",
+      "destination": {
+        "service": "smart-agro-backend"
+      }
+    },
+    {
+      "source": "/uploads/(.*)",
+      "destination": {
+        "service": "smart-agro-backend"
+      }
+    },
+    {
+      "source": "/github-login",
+      "destination": {
+        "service": "smart-agro-backend"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "frontend"
+      }
+    }
+  ]
+}
