@@ -34,3 +34,5 @@ sensor_readings.xlsx
 *.tmp
 __pycache__/
 *.pyc
+
+start.py

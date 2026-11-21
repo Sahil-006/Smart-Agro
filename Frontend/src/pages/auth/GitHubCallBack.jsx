@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL as apiUrl } from "../../components/api";
 import { useAuth } from "../../context/authContext"; // update path if needed
 
 const GitHubCallback = () => {
@@ -25,7 +26,6 @@ const GitHubCallback = () => {
       return;
     }
 
-    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5001";
     axios.post(`${apiUrl}/github-login`, { code }, { withCredentials: true })
       .then(res => {
         alert(res.data.message);

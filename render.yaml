@@ -5,7 +5,7 @@ services:
     rootDir: Backend
     plan: free
     buildCommand: pip install --upgrade pip && pip install -r requirements.txt
-    startCommand: gunicorn --worker-class gevent --workers 1 --bind 0.0.0.0:$PORT app1:app
+    startCommand: gunicorn --worker-class gthread --workers 1 --threads 4 --bind 0.0.0.0:$PORT app1:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.14

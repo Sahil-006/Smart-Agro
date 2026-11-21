@@ -1,39 +1,89 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL as API_BASE } from '../components/api';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+// Attach JWT token automatically to all axios requests if available
+axios.interceptors.request.use((config) => {
+  try {
+    const token = localStorage.getItem('smart_agro_token');
+    if (token && !config.headers.Authorization) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  } catch {
+    // Ignore localStorage access errors
+  }
+  return config;
+});
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(() => {
+    try {
+      const savedUser = localStorage.getItem('smart_agro_user');
+      return savedUser ? JSON.parse(savedUser) : null;
+    } catch {
+      return null;
+    }
+  });
+
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    try {
+      return Boolean(localStorage.getItem('smart_agro_token'));
+    } catch {
+      return false;
+    }
+  });
+
+  const [loading, setLoading] = useState(() => {
+    try {
+      // If we already have a cached token, don't show blank loading screen
+      return !Boolean(localStorage.getItem('smart_agro_token'));
+    } catch {
+      return true;
+    }
+  });
+
   const navigate = useNavigate();
 
   // =========================
   // Initialize auth state
   // =========================
   const initializeAuth = async () => {
+    const token = localStorage.getItem('smart_agro_token');
     try {
+      const headers = {};
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
       const res = await axios.get(
         `${API_BASE}/api/auth/check`,
-        { withCredentials: true }
+        { withCredentials: true, headers }
       );
 
-      if (res.data.authenticated) {
+      if (res.data?.authenticated) {
         setUser(res.data.user);
         setIsAuthenticated(true);
+        localStorage.setItem('smart_agro_user', JSON.stringify(res.data.user));
         return true;
       }
 
+      // Backend confirmed session/token is invalid
       setUser(null);
       setIsAuthenticated(false);
+      localStorage.removeItem('smart_agro_token');
+      localStorage.removeItem('smart_agro_user');
       return false;
     } catch (err) {
       console.error('Auth check failed:', err);
-      return false;
+      // In case of transient network error or sleeping Render instance,
+      // retain user state if token was already present in storage
+      if (!token) {
+        setUser(null);
+        setIsAuthenticated(false);
+      }
+      return Boolean(token);
     } finally {
       setLoading(false);
     }
@@ -48,14 +98,20 @@ export const AuthProvider = ({ children }) => {
   // =========================
   const login = async (credentials) => {
     try {
-      await axios.post(
+      const res = await axios.post(
         `${API_BASE}/api/auth/login`,
         credentials,
         { withCredentials: true }
       );
 
-      const isAuth = await initializeAuth();
-      if (!isAuth) throw new Error('Session not created');
+      if (res.data?.token) {
+        localStorage.setItem('smart_agro_token', res.data.token);
+      }
+      if (res.data?.user) {
+        localStorage.setItem('smart_agro_user', JSON.stringify(res.data.user));
+        setUser(res.data.user);
+        setIsAuthenticated(true);
+      }
 
       return { success: true };
     } catch (err) {
@@ -71,12 +127,17 @@ export const AuthProvider = ({ children }) => {
   // =========================
   const handleOAuthLogin = async (authRequest) => {
     try {
-      await authRequest();
-
-      const isAuth = await initializeAuth();
-      if (!isAuth) throw new Error('OAuth session not created');
-
-      return true;
+      const res = await authRequest();
+      if (res?.data?.token) {
+        localStorage.setItem('smart_agro_token', res.data.token);
+      }
+      if (res?.data?.user) {
+        localStorage.setItem('smart_agro_user', JSON.stringify(res.data.user));
+        setUser(res.data.user);
+        setIsAuthenticated(true);
+        return true;
+      }
+      return false;
     } catch (err) {
       console.error('OAuth login failed:', err);
       return false;
@@ -84,7 +145,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   // =========================
-  // Forgot Password (NEW)
+  // Forgot Password
   // =========================
   const forgotPassword = async (identifier) => {
     try {
@@ -93,17 +154,14 @@ export const AuthProvider = ({ children }) => {
         { identifier },
         { withCredentials: true }
       );
-
-      // Always return success (security-safe)
       return { success: true };
     } catch {
-      // Do NOT expose backend errors
       return { success: true };
     }
   };
 
   // =========================
-  // Reset Password (NEW)
+  // Reset Password
   // =========================
   const resetPassword = async ({ token, password }) => {
     try {
@@ -129,16 +187,23 @@ export const AuthProvider = ({ children }) => {
   // =========================
   const logout = async () => {
     try {
+      const token = localStorage.getItem('smart_agro_token');
       await axios.post(
         `${API_BASE}/api/auth/logout`,
         {},
-        { withCredentials: true }
+        {
+          withCredentials: true,
+          headers: token ? { Authorization: `Bearer ${token}` } : {}
+        }
       );
+    } catch (err) {
+      console.error('Logout failed:', err);
+    } finally {
+      localStorage.removeItem('smart_agro_token');
+      localStorage.removeItem('smart_agro_user');
       setUser(null);
       setIsAuthenticated(false);
       navigate('/login');
-    } catch (err) {
-      console.error('Logout failed:', err);
     }
   };
 
@@ -153,9 +218,9 @@ export const AuthProvider = ({ children }) => {
         login,
         logout,
         handleOAuthLogin,
-        // initializeAuth,
-        forgotPassword,   // ✅ added
-        resetPassword,    // ✅ added
+        initializeAuth,
+        forgotPassword,
+        resetPassword,
       }}
     >
       {children}

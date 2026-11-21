@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
+import { API_BASE_URL as apiUrl } from "../../components/api";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { GoogleLogin } from "@react-oauth/google";
@@ -37,7 +38,7 @@ export function Signup() {
     village: "",
   });
 
-  const { login, handleOAuthLogin } = useAuth();
+  const { setUser, setIsAuthenticated, login, handleOAuthLogin } = useAuth();
   const navigate = useNavigate();
 
   const locationData = {
@@ -97,7 +98,6 @@ export function Signup() {
 
     try {
       const success = await handleOAuthLogin(async () => {
-        const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
         return axios.post(
           `${apiUrl}/api/auth/oauth/google`,
           { credential: credentialResponse.credential },
@@ -124,13 +124,22 @@ export function Signup() {
 
     setLoading(true);
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
-      await axios.post(`${apiUrl}/api/auth/signup`, formData, { withCredentials: true });
+      const res = await axios.post(`${apiUrl}/api/auth/signup`, formData, { withCredentials: true });
+      if (res.data?.token) {
+        localStorage.setItem("smart_agro_token", res.data.token);
+      }
+      if (res.data?.user) {
+        localStorage.setItem("smart_agro_user", JSON.stringify(res.data.user));
+        setUser(res.data.user);
+        setIsAuthenticated(true);
+        navigate("/dashboard");
+        return;
+      }
       const loginRes = await login({ username: formData.username, password: formData.password });
       if (loginRes.success) navigate("/dashboard");
       else navigate("/login");
-    } catch {
-      setError(t("signup.validation.signup_failed_generic"));
+    } catch (err) {
+      setError(err.response?.data?.message || t("signup.validation.signup_failed_generic"));
     } finally {
       setLoading(false);
     }
